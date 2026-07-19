@@ -1,0 +1,15 @@
+using System.ComponentModel.DataAnnotations;
+
+namespace PharMarket.Models.Entities;
+
+public abstract class BaseEntity
+{
+    public int Id { get; set; }
+
+    [Required]
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+    public DateTime? UpdatedAt { get; set; }
+
+    public bool IsDeleted { get; set; } = false;
+}

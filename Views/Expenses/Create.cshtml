@@ -1,0 +1,80 @@
+@model ExpenseViewModel
+
+@{
+    ViewData["Title"] = "Add Expense";
+    var categories = ViewBag.Categories as string[];
+}
+
+<div class="page-header">
+    <div>
+        <h1>Add Expense</h1>
+        <p>Record a new business expense</p>
+    </div>
+    <a asp-action="Index" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back</a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="Amount"></label>
+                    <input asp-for="Amount" class="form-control" type="number" step="0.01" min="0.01" />
+                    <span asp-validation-for="Amount" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Category"></label>
+                    <select asp-for="Category" class="form-control">
+                        <option value="">-- Select Category --</option>
+                        @if (categories != null)
+                        {
+                            foreach (var cat in categories)
+                            {
+                                <option value="@cat">@cat</option>
+                            }
+                        }
+                    </select>
+                    <span asp-validation-for="Category" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="ExpenseDate"></label>
+                    <input asp-for="ExpenseDate" class="form-control" type="date" />
+                    <span asp-validation-for="ExpenseDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PaymentMethod"></label>
+                    <select asp-for="PaymentMethod" class="form-control" asp-items="Html.GetEnumSelectList<PaymentMethod>()">
+                        <option value="">-- Select Payment Method --</option>
+                    </select>
+                    <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Receipt"></label>
+                <input asp-for="Receipt" class="form-control" />
+                <span asp-validation-for="Receipt" class="text-danger"></span>
+            </div>
+
+            <div class="btn-group" style="margin-top:24px">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save Expense</button>
+                <a asp-action="Index" class="btn btn-outline">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

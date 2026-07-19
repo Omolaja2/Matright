@@ -1,0 +1,150 @@
+@model Product
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<div class="page-header">
+    <div>
+        <h1>@Model.Name</h1>
+        <p>Product details and stock information.</p>
+    </div>
+    <div class="btn-group">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
+            <i class="fas fa-pen"></i> Edit
+        </a>
+        <a asp-action="Index" class="btn btn-outline">
+            <i class="fas fa-arrow-left"></i> Back to List
+        </a>
+    </div>
+</div>
+
+<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px;">
+    <div class="card">
+        <div class="card-header">
+            <h3>Product Information</h3>
+            @if (Model.IsActive)
+            {
+                <span class="badge badge-success">Active</span>
+            }
+            else
+            {
+                <span class="badge badge-neutral">Inactive</span>
+            }
+        </div>
+        <div class="card-body">
+            <table class="data-table">
+                <tbody>
+                    <tr>
+                        <td style="font-weight: 600; width: 180px;">Product Name</td>
+                        <td>@Model.Name</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">Barcode</td>
+                        <td>@(Model.Barcode ?? "—")</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">Description</td>
+                        <td>@(Model.Description ?? "—")</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">Category</td>
+                        <td>@Model.Category?.Name</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">Supplier</td>
+                        <td>@(Model.Supplier?.Name ?? "—")</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">Cost Price</td>
+                        <td>@CurrencyHelper.FormatCurrency(Model.CostPrice)</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">Sales Price</td>
+                        <td>@CurrencyHelper.FormatCurrency(Model.SalesPrice)</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">Profit Margin</td>
+                        <td>@CurrencyHelper.FormatPercentage(Model.ProfitMargin)</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">Tax Rate</td>
+                        <td>@CurrencyHelper.FormatPercentage(Model.TaxRate)</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">Minimum Stock</td>
+                        <td>@Model.MinimumStock</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">Created</td>
+                        <td>@CurrencyHelper.FormatDateTime(Model.CreatedAt)</td>
+                    </tr>
+                    @if (Model.UpdatedAt.HasValue)
+                    {
+                        <tr>
+                            <td style="font-weight: 600;">Last Updated</td>
+                            <td>@CurrencyHelper.FormatDateTime(Model.UpdatedAt.Value)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3>Stock Information</h3>
+        </div>
+        <div class="card-body">
+            @if (Model.Stock != null)
+            {
+                <table class="data-table">
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: 600;">Store Quantity</td>
+                            <td>@Model.Stock.StoreQuantity</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 600;">Shelf Quantity</td>
+                            <td>@Model.Stock.ShelfQuantity</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 600;">Total Stock</td>
+                            <td>
+                                <strong>@Model.Stock.TotalQuantity</strong>
+                                @if (Model.Stock.IsLowStock)
+                                {
+                                    <span class="badge badge-warning" style="margin-left: 6px;">Low Stock</span>
+                                }
+                            </td>
+                        </tr>
+                        @if (Model.Stock.ExpirationDate.HasValue)
+                        {
+                            <tr>
+                                <td style="font-weight: 600;">Expiration Date</td>
+                                <td>
+                                    @CurrencyHelper.FormatDate(Model.Stock.ExpirationDate.Value)
+                                    @if (Model.Stock.IsExpired)
+                                    {
+                                        <span class="badge badge-danger" style="margin-left: 6px;">Expired</span>
+                                    }
+                                    else if (Model.Stock.IsExpiringSoon)
+                                    {
+                                        <span class="badge badge-warning" style="margin-left: 6px;">Expiring Soon</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div class="empty-state">
+                    <i class="fas fa-warehouse"></i>
+                    <h3>No stock record</h3>
+                    <p>Stock information is not yet available for this product.</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>

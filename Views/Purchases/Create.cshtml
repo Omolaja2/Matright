@@ -1,0 +1,141 @@
+@model PurchaseViewModel
+
+@{
+    ViewData["Title"] = "Create Purchase Order";
+    var productsSelectList = ViewBag.Products as SelectList;
+}
+
+<div class="page-header">
+    <div>
+        <h1>Create Purchase Order</h1>
+        <p>Record a new purchase from a supplier</p>
+    </div>
+    <a asp-action="Index" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back</a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Create" method="post" id="purchaseForm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="SupplierId"></label>
+                    <select asp-for="SupplierId" asp-items="Model.Suppliers" class="form-control">
+                        <option value="">-- Select Supplier --</option>
+                    </select>
+                    <span asp-validation-for="SupplierId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PurchaseDate"></label>
+                    <input asp-for="PurchaseDate" class="form-control" type="date" />
+                    <span asp-validation-for="PurchaseDate" class="text-danger"></span>
+                </div>
+            </div>
+
+            <hr style="margin:20px 0;border-color:var(--border)" />
+
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+                <h3 style="font-size:15px;font-weight:700">Items</h3>
+                <button type="button" class="btn btn-sm btn-outline" onclick="addItem()"><i class="fas fa-plus"></i> Add Item</button>
+            </div>
+
+            <div class="table-wrap">
+                <table class="data-table" id="itemsTable">
+                    <thead>
+                        <tr>
+                            <th style="width:35%">Product</th>
+                            <th style="width:15%">Quantity</th>
+                            <th style="width:20%">Unit Cost</th>
+                            <th style="width:20%">Expiry Date</th>
+                            <th style="width:10%"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="itemsBody">
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3" style="text-align:right;font-weight:700;padding:12px 16px">Total:</td>
+                            <td colspan="2" style="font-weight:700;padding:12px 16px" id="totalAmount">₦0.00</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div class="btn-group" style="margin-top:24px">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Create Purchase Order</button>
+                <a asp-action="Index" class="btn btn-outline">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        let itemIndex = 0;
+        const products = [
+            @if (productsSelectList != null)
+            {
+                foreach (var item in productsSelectList)
+                {
+                    <text>{ value: "@item.Value", text: "@item.Text" },</text>
+                }
+            }
+        ];
+
+        function addItem() {
+            const tbody = document.getElementById('itemsBody');
+            const row = document.createElement('tr');
+            row.id = `item_${itemIndex}`;
+
+            let productOptions = '<option value="">-- Select --</option>';
+            products.forEach(p => {
+                productOptions += `<option value="${p.value}">${p.text}</option>`;
+            });
+
+            row.innerHTML = `
+                <td>
+                    <select name="Items[${itemIndex}].ProductId" class="form-control" required>
+                        ${productOptions}
+                    </select>
+                </td>
+                <td>
+                    <input type="number" name="Items[${itemIndex}].Quantity" class="form-control" min="1" value="1" required onchange="calculateTotal()" />
+                </td>
+                <td>
+                    <input type="number" name="Items[${itemIndex}].UnitCost" class="form-control" min="0.01" step="0.01" value="0.00" required onchange="calculateTotal()" />
+                </td>
+                <td>
+                    <input type="date" name="Items[${itemIndex}].ExpirationDate" class="form-control" />
+                </td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-danger" onclick="removeItem(${itemIndex})"><i class="fas fa-times"></i></button>
+                </td>
+            `;
+            tbody.appendChild(row);
+            itemIndex++;
+        }
+
+        function removeItem(index) {
+            const row = document.getElementById(`item_${index}`);
+            if (row) {
+                row.remove();
+                calculateTotal();
+            }
+        }
+
+        function calculateTotal() {
+            let total = 0;
+            const rows = document.querySelectorAll('#itemsBody tr');
+            rows.forEach(row => {
+                const qty = parseFloat(row.querySelector('input[name$=".Quantity"]')?.value) || 0;
+                const cost = parseFloat(row.querySelector('input[name$=".UnitCost"]')?.value) || 0;
+                total += qty * cost;
+            });
+            document.getElementById('totalAmount').textContent = '₦' + total.toLocaleString('en-NG', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        addItem();
+    </script>
+}

@@ -1,0 +1,88 @@
+﻿@model DashboardViewModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="page-header">
+    <div>
+        <h1>Dashboard</h1>
+        <p>Welcome back. Here's your business overview.</p>
+    </div>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-icon blue"><i class="fas fa-cash-register"></i></div>
+        <span class="stat-label">Today's Sales</span>
+        <span class="stat-value">@CurrencyHelper.FormatCurrency(Model.TodaySales)</span>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon green"><i class="fas fa-chart-line"></i></div>
+        <span class="stat-label">Monthly Sales</span>
+        <span class="stat-value">@CurrencyHelper.FormatCurrency(Model.MonthlySales)</span>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon purple"><i class="fas fa-boxes-stacked"></i></div>
+        <span class="stat-label">Total Products</span>
+        <span class="stat-value">@Model.TotalProducts</span>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon yellow"><i class="fas fa-exclamation-triangle"></i></div>
+        <span class="stat-label">Low Stock Alerts</span>
+        <span class="stat-value">@Model.LowStockCount</span>
+        @if (Model.LowStockCount > 0)
+        {
+            <span class="stat-change down">Needs attention</span>
+        }
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon red"><i class="fas fa-clock"></i></div>
+        <span class="stat-label">Expiring Soon</span>
+        <span class="stat-value">@Model.ExpiringCount</span>
+        @if (Model.ExpiringCount > 0)
+        {
+            <span class="stat-change down">Within 30 days</span>
+        }
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3>Top Selling Products</h3>
+        <a asp-controller="Sales" asp-action="Index" class="btn btn-outline btn-sm">
+            <i class="fas fa-receipt"></i> View All Sales
+        </a>
+    </div>
+    <div class="table-wrap">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Qty Sold</th>
+                    <th>Revenue</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.TopSellingProducts.Any())
+                {
+                    @foreach (var product in Model.TopSellingProducts)
+                    {
+                        <tr>
+                            <td><strong>@product.ProductName</strong></td>
+                            <td>@product.QuantitySold</td>
+                            <td>@CurrencyHelper.FormatCurrency(product.Revenue)</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3" class="empty-state">
+                            <p>No sales data available yet.</p>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

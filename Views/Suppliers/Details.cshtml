@@ -1,0 +1,76 @@
+@model Supplier
+@using PharMarket.Helpers
+@{
+    ViewData["Title"] = @Model.Name;
+}
+<div class="page-header">
+    <div>
+        <h1>@Model.Name</h1>
+        <p>Supplier details and purchase history</p>
+    </div>
+    <div class="btn-group">
+        <a asp-action="Edit" asp-controller="Suppliers" asp-route-id="@Model.Id" class="btn btn-outline">
+            <i class="fas fa-pen"></i> Edit
+        </a>
+        <a asp-action="Index" asp-controller="Suppliers" class="btn btn-outline">
+            <i class="fas fa-arrow-left"></i> Back
+        </a>
+    </div>
+</div>
+<div class="card" style="margin-bottom:20px;">
+    <div class="card-header"><h3>Contact Information</h3></div>
+    <div class="card-body">
+        <div class="stats-grid" style="grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));">
+            <div>
+                <div style="font-size:12px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em;">Contact Person</div>
+                <div style="font-size:16px;font-weight:600;">@(Model.ContactPerson ?? "—")</div>
+            </div>
+            <div>
+                <div style="font-size:12px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em;">Phone</div>
+                <div style="font-size:16px;font-weight:600;">@(Model.Phone ?? "—")</div>
+            </div>
+            <div>
+                <div style="font-size:12px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em;">Email</div>
+                <div style="font-size:16px;font-weight:600;">@(Model.Email ?? "—")</div>
+            </div>
+            <div>
+                <div style="font-size:12px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em;">Address</div>
+                <div style="font-size:16px;font-weight:600;">@(Model.Address ?? "—")</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <h3>Purchase History</h3>
+    </div>
+    <div class="table-wrap">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Order #</th>
+                    <th>Date</th>
+                    <th>Total Amount</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Purchases.Count == 0)
+                {
+                    <tr><td colspan="4" class="empty-state" style="padding:32px;">No purchases from this supplier.</td></tr>
+                }
+                @foreach (var purchase in Model.Purchases)
+                {
+                    <tr>
+                        <td>@purchase.OrderNumber</td>
+                        <td>@CurrencyHelper.FormatDate(purchase.PurchaseDate)</td>
+                        <td>@CurrencyHelper.FormatCurrency(purchase.TotalAmount)</td>
+                        <td>
+                            <a asp-action="Details" asp-controller="Purchases" asp-route-id="@purchase.Id" class="btn btn-sm btn-outline">View</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

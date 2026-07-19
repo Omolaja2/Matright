@@ -1,0 +1,98 @@
+@model PharMarket.Models.Entities.Purchase
+
+@{
+    ViewData["Title"] = "Purchase Details";
+}
+
+<div class="page-header">
+    <div>
+        <h1>Purchase Order</h1>
+        <p>@Model.OrderNumber</p>
+    </div>
+    <a asp-action="Index" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back</a>
+</div>
+
+<div class="card" style="margin-bottom:20px">
+    <div class="card-header">
+        <h3>Order Information</h3>
+        @switch (Model.Status)
+        {
+            case PharMarket.Models.Enums.PurchaseStatus.Pending:
+                <span class="badge badge-warning">Pending</span>
+                break;
+            case PharMarket.Models.Enums.PurchaseStatus.Received:
+                <span class="badge badge-success">Received</span>
+                break;
+            case PharMarket.Models.Enums.PurchaseStatus.Cancelled:
+                <span class="badge badge-danger">Cancelled</span>
+                break;
+        }
+    </div>
+    <div class="card-body">
+        <div class="form-row" style="margin-bottom:0">
+            <div class="form-group">
+                <label style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em">Order Number</label>
+                <p style="font-weight:600">@Model.OrderNumber</p>
+            </div>
+            <div class="form-group">
+                <label style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em">Supplier</label>
+                <p style="font-weight:600">@Model.Supplier?.Name</p>
+            </div>
+            <div class="form-group">
+                <label style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em">Purchase Date</label>
+                <p style="font-weight:600">@CurrencyHelper.FormatDate(Model.PurchaseDate)</p>
+            </div>
+            <div class="form-group">
+                <label style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em">Total Amount</label>
+                <p style="font-weight:700;font-size:18px">@CurrencyHelper.FormatCurrency(Model.TotalAmount)</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3>Items</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-wrap">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Unit Cost</th>
+                        <th>Expiry Date</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.PurchaseItems)
+                    {
+                        <tr>
+                            <td>@item.Product?.Name</td>
+                            <td>@item.Quantity</td>
+                            <td>@CurrencyHelper.FormatCurrency(item.UnitCost)</td>
+                            <td>@(item.ExpirationDate.HasValue ? CurrencyHelper.FormatDate(item.ExpirationDate.Value) : "N/A")</td>
+                            <td>@CurrencyHelper.FormatCurrency(item.Total)</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" style="text-align:right;font-weight:700;padding:12px 16px">Total:</td>
+                        <td style="font-weight:700;padding:12px 16px">@CurrencyHelper.FormatCurrency(Model.TotalAmount)</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    @if (Model.Status == PharMarket.Models.Enums.PurchaseStatus.Pending)
+    {
+        <div class="card-footer" style="display:flex;justify-content:flex-end">
+            <form asp-action="Receive" asp-route-id="@Model.Id" method="post">
+                <button type="submit" class="btn btn-success"><i class="fas fa-check"></i> Mark as Received</button>
+            </form>
+        </div>
+    }
+</div>

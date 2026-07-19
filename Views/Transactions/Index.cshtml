@@ -1,0 +1,91 @@
+@model TransactionViewModel
+@using PharMarket.Helpers
+@{
+    ViewData["Title"] = "Transactions";
+}
+<div class="page-header">
+    <div>
+        <h1>Transactions</h1>
+        <p>View all financial transactions</p>
+    </div>
+</div>
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-icon green"><i class="fas fa-circle-up"></i></div>
+        <span class="stat-label">Total Credit</span>
+        <span class="stat-value">@CurrencyHelper.FormatCurrency(Model.TotalCredit)</span>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon red"><i class="fas fa-circle-down"></i></div>
+        <span class="stat-label">Total Debit</span>
+        <span class="stat-value">@CurrencyHelper.FormatCurrency(Model.TotalDebit)</span>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon @(Model.CurrentBalance >= 0 ? "blue" : "red")"><i class="fas fa-scale-balanced"></i></div>
+        <span class="stat-label">Current Balance</span>
+        <span class="stat-value">@CurrencyHelper.FormatCurrency(Model.CurrentBalance)</span>
+    </div>
+</div>
+<div class="filters-bar">
+    <input type="date" name="startDate" class="form-control" placeholder="Start Date" value="@Context.Request.Query["startDate"]" onchange="applyFilters()" />
+    <input type="date" name="endDate" class="form-control" placeholder="End Date" value="@Context.Request.Query["endDate"]" onchange="applyFilters()" />
+    <button type="button" class="btn btn-primary" onclick="applyFilters()">Filter</button>
+    <a asp-action="Index" asp-controller="Transactions" class="btn btn-outline">Clear</a>
+</div>
+<div class="card">
+    <div class="table-wrap">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Direction</th>
+                    <th>Amount</th>
+                    <th>Payment Method</th>
+                    <th>Description</th>
+                    <th>Running Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Transactions.Count == 0)
+                {
+                    <tr><td colspan="7" class="empty-state" style="padding:32px;">No transactions found.</td></tr>
+                }
+                @foreach (var t in Model.Transactions)
+                {
+                    <tr>
+                        <td>@CurrencyHelper.FormatDate(t.TransactionDate)</td>
+                        <td>
+                            <span class="badge @(t.Type == TransactionType.Sale ? "badge-success" : t.Type == TransactionType.Expense ? "badge-danger" : t.Type == TransactionType.Capital ? "badge-info" : "badge-neutral")">
+                                @t.Type
+                            </span>
+                        </td>
+                        <td>
+                            <span class="badge @(t.Direction == TransactionDirection.Credit ? "badge-success" : "badge-danger")">
+                                @t.Direction
+                            </span>
+                        </td>
+                        <td>@CurrencyHelper.FormatCurrency(t.Amount)</td>
+                        <td>@t.PaymentMethod</td>
+                        <td>@t.Description</td>
+                        <td><strong>@CurrencyHelper.FormatCurrency(t.RunningBalance)</strong></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        function applyFilters() {
+            var start = document.querySelector('input[name="startDate"]').value;
+            var end = document.querySelector('input[name="endDate"]').value;
+            var url = '@Url.Action("Index", "Transactions")';
+            var params = [];
+            if (start) params.push('startDate=' + encodeURIComponent(start));
+            if (end) params.push('endDate=' + encodeURIComponent(end));
+            if (params.length) url += '?' + params.join('&');
+            window.location.href = url;
+        }
+    </script>
+}

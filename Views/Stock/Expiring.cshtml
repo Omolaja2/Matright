@@ -1,0 +1,67 @@
+@model List<StockViewModel>
+
+@{
+    ViewData["Title"] = "Expiring Products";
+}
+
+<div class="page-header">
+    <div>
+        <h1><i class="fas fa-clock" style="color:var(--danger)"></i> Expiring Products</h1>
+        <p>Products expiring within the next 30 days</p>
+    </div>
+    <div class="btn-group">
+        <a asp-action="Index" class="btn btn-outline"><i class="fas fa-warehouse"></i> All Stock</a>
+    </div>
+</div>
+
+<div class="card" style="border-color:var(--danger)">
+    <div class="card-body">
+        <div class="table-wrap">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Category</th>
+                        <th>Qty</th>
+                        <th>Expiry Date</th>
+                        <th>Days Left</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.Any())
+                    {
+                        <tr>
+                            <td colspan="5" class="empty-state">
+                                <i class="fas fa-check-circle" style="color:var(--success);font-size:24px;opacity:1"></i>
+                                <h3>No expiring products</h3>
+                                <p>No products are expiring within the next 30 days.</p>
+                            </td>
+                        </tr>
+                    }
+                    @foreach (var item in Model)
+                    {
+                        var daysLeft = item.ExpirationDate.HasValue
+                            ? (item.ExpirationDate.Value.Date - DateTime.Today).Days
+                            : 0;
+                        <tr>
+                            <td><strong>@item.ProductName</strong></td>
+                            <td>@item.CategoryName</td>
+                            <td>@item.TotalQuantity</td>
+                            <td>@(item.ExpirationDate.HasValue ? CurrencyHelper.FormatDate(item.ExpirationDate.Value) : "N/A")</td>
+                            <td>
+                                @if (daysLeft <= 7)
+                                {
+                                    <span class="badge badge-danger">@daysLeft days</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-warning">@daysLeft days</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+@model List<StockViewModel>
+
+@{
+    ViewData["Title"] = "Low Stock Alerts";
+}
+
+<div class="page-header">
+    <div>
+        <h1><i class="fas fa-exclamation-triangle" style="color:var(--warning)"></i> Low Stock Alerts</h1>
+        <p>Products at or below minimum stock level</p>
+    </div>
+    <div class="btn-group">
+        <a asp-action="Index" class="btn btn-outline"><i class="fas fa-warehouse"></i> All Stock</a>
+        <a asp-action="Transfer" class="btn btn-accent"><i class="fas fa-arrows-rotate"></i> Transfer</a>
+    </div>
+</div>
+
+<div class="card" style="border-color:var(--warning)">
+    <div class="card-body">
+        <div class="table-wrap">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Category</th>
+                        <th>Total Qty</th>
+                        <th>Store Qty</th>
+                        <th>Shelf Qty</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.Any())
+                    {
+                        <tr>
+                            <td colspan="6" class="empty-state">
+                                <i class="fas fa-check-circle" style="color:var(--success);font-size:24px;opacity:1"></i>
+                                <h3>All stocked up!</h3>
+                                <p>No products with low stock.</p>
+                            </td>
+                        </tr>
+                    }
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td><strong>@item.ProductName</strong></td>
+                            <td>@item.CategoryName</td>
+                            <td><strong>@item.TotalQuantity</strong></td>
+                            <td>@item.StoreQuantity</td>
+                            <td>@item.ShelfQuantity</td>
+                            <td><span class="badge badge-warning">Low Stock</span></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

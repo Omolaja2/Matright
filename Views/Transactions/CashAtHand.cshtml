@@ -1,0 +1,37 @@
+@{
+    var balance = ViewBag.Balance as decimal? ?? 0;
+    ViewData["Title"] = "Cash at Hand";
+}
+<div class="page-header">
+    <div>
+        <h1>Cash at Hand</h1>
+        <p>Current physical cash balance</p>
+    </div>
+</div>
+<div class="stats-grid" style="grid-template-columns:1fr;">
+    <div class="stat-card" style="padding:32px; text-align:center;">
+        <div class="stat-icon green" style="width:48px; height:48px; font-size:20px; margin:0 auto 12px;">
+            <i class="fas fa-money-bill-wave"></i>
+        </div>
+        <span class="stat-label" style="font-size:14px;">Cash Balance</span>
+        <span class="stat-value" style="font-size:42px; line-height:1.2; @(balance < 0 ? "color:var(--danger);" : "")">
+            @using PharMarket.Helpers
+            @CurrencyHelper.FormatCurrency(balance)
+        </span>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <p style="color:var(--text-muted); font-size:14px; line-height:1.6;">
+            This represents the total physical cash available at hand. This balance is calculated from
+            all cash-based transactions including sales, expenses, and other cash movements recorded
+            in the system. Regular reconciliation with actual physical cash is recommended to ensure
+            accuracy.
+        </p>
+        <div class="btn-group" style="margin-top:16px;">
+            <a asp-action="Index" asp-controller="Transactions" class="btn btn-outline">
+                <i class="fas fa-exchange-alt"></i> View All Transactions
+            </a>
+        </div>
+    </div>
+</div>

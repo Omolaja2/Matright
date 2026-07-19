@@ -1,0 +1,91 @@
+@model ProfitLossViewModel
+@using PharMarket.Helpers
+@{
+    ViewData["Title"] = "Profit & Loss";
+}
+<div class="page-header">
+    <div>
+        <h1>Profit &amp; Loss</h1>
+        <p>Revenue, costs, and profitability summary</p>
+    </div>
+    <div class="btn-group">
+        <a asp-action="Sales" asp-controller="Reports" class="btn btn-outline">
+            <i class="fas fa-chart-line"></i> Sales Report
+        </a>
+    </div>
+</div>
+<form method="get" class="filters-bar">
+    <input type="date" name="startDate" value="@Model.StartDate?.ToString("yyyy-MM-dd")" class="form-control" placeholder="Start Date" />
+    <input type="date" name="endDate" value="@Model.EndDate?.ToString("yyyy-MM-dd")" class="form-control" placeholder="End Date" />
+    <button type="submit" class="btn btn-primary">Filter</button>
+    <a asp-action="ProfitLoss" asp-controller="Reports" class="btn btn-outline">Clear</a>
+</form>
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-icon green"><i class="fas fa-arrow-up"></i></div>
+        <span class="stat-label">Total Revenue</span>
+        <span class="stat-value">@CurrencyHelper.FormatCurrency(Model.TotalRevenue)</span>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon red"><i class="fas fa-arrow-down"></i></div>
+        <span class="stat-label">Cost of Goods</span>
+        <span class="stat-value">@CurrencyHelper.FormatCurrency(Model.CostOfGoods)</span>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon blue"><i class="fas fa-divide"></i></div>
+        <span class="stat-label">Gross Profit</span>
+        <span class="stat-value">@CurrencyHelper.FormatCurrency(Model.GrossProfit)</span>
+        <span class="stat-change @(Model.GrossMargin >= 0 ? "up" : "down")">@CurrencyHelper.FormatPercentage(Model.GrossMargin) margin</span>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon red"><i class="fas fa-money-bill-wave"></i></div>
+        <span class="stat-label">Total Expenses</span>
+        <span class="stat-value">@CurrencyHelper.FormatCurrency(Model.TotalExpenses)</span>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon @(Model.NetProfit >= 0 ? "green" : "red")"><i class="fas fa-sack-dollar"></i></div>
+        <span class="stat-label">Net Profit</span>
+        <span class="stat-value @(Model.NetProfit < 0 ? "stat-change down" : "")">@CurrencyHelper.FormatCurrency(Model.NetProfit)</span>
+        <span class="stat-change @(Model.NetMargin >= 0 ? "up" : "down")">@CurrencyHelper.FormatPercentage(Model.NetMargin) margin</span>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <h3>Expense Breakdown</h3>
+    </div>
+    <div class="table-wrap">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Percentage</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.ExpenseBreakdown.Count == 0)
+                {
+                    <tr><td colspan="3" class="empty-state" style="padding:32px;">No expenses recorded.</td></tr>
+                }
+                @foreach (var expense in Model.ExpenseBreakdown)
+                {
+                    <tr>
+                        <td>@expense.Category</td>
+                        <td>@CurrencyHelper.FormatCurrency(expense.Amount)</td>
+                        <td>@CurrencyHelper.FormatPercentage(expense.Percentage)</td>
+                    </tr>
+                }
+            </tbody>
+            @if (Model.ExpenseBreakdown.Count > 0)
+            {
+                <tfoot>
+                    <tr style="font-weight:700; background:#fafafa;">
+                        <td>Total</td>
+                        <td>@CurrencyHelper.FormatCurrency(Model.TotalExpenses)</td>
+                        <td>100%</td>
+                    </tr>
+                </tfoot>
+            }
+        </table>
+    </div>
+</div>

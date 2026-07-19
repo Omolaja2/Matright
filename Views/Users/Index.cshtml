@@ -1,0 +1,85 @@
+@model List<PharMarket.ViewModels.Users.UserListItem>
+@{
+    ViewData["Title"] = "User Management";
+}
+
+<div class="page-header">
+    <div>
+        <h1>User Management</h1>
+        <p>Manage system users and their roles</p>
+    </div>
+    <a href="/Users/Create" class="btn btn-accent">
+        <i class="fas fa-plus"></i> Add User
+    </a>
+</div>
+
+<div class="card">
+    <div class="table-wrap">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Created</th>
+                    <th>Last Login</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Any())
+                {
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td><strong>@user.FullName</strong></td>
+                            <td>@user.Email</td>
+                            <td>
+                                <span class="badge @(user.Role == "Admin" ? "badge-info" : "badge-neutral")">
+                                    @user.Role
+                                </span>
+                            </td>
+                            <td>
+                                <span class="badge @(user.IsActive ? "badge-success" : "badge-danger")">
+                                    @(user.IsActive ? "Active" : "Inactive")
+                                </span>
+                            </td>
+                            <td>@user.CreatedAt.ToString("MMM dd, yyyy")</td>
+                            <td>@(user.LastLoginAt?.ToString("MMM dd, yyyy HH:mm") ?? "Never")</td>
+                            <td>
+                                <div class="btn-group">
+                                    <form asp-action="ToggleActive" asp-route-id="@user.Id" method="post">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="btn btn-sm @(user.IsActive ? "btn-outline" : "btn-success")" title="@(user.IsActive ? "Deactivate" : "Activate")">
+                                            <i class="fas @(user.IsActive ? "fa-ban" : "fa-check")"></i>
+                                            @(user.IsActive ? "Deactivate" : "Activate")
+                                        </button>
+                                    </form>
+                                    <form asp-action="ResetPassword" asp-route-id="@user.Id" method="post">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="btn btn-sm btn-outline" title="Reset Password" onclick="return confirm('Reset password for @user.FullName?')">
+                                            <i class="fas fa-key"></i> Reset Password
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="7">
+                            <div class="empty-state">
+                                <i class="fas fa-users-cog"></i>
+                                <h3>No users found</h3>
+                                <p>Create a new user to get started.</p>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

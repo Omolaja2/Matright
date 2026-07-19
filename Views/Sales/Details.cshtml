@@ -1,0 +1,100 @@
+@model SaleDetailsViewModel
+@{
+    ViewData["Title"] = "Sale Details";
+}
+
+<div class="page-header">
+    <div>
+        <h1><i class="fas fa-file-invoice"></i> Sale Details</h1>
+        <p>Invoice #@Model.InvoiceNumber</p>
+    </div>
+    <div class="btn-group">
+        <a asp-action="Index" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back to Sales</a>
+        <button onclick="window.print()" class="btn btn-primary"><i class="fas fa-print"></i> Print Receipt</button>
+    </div>
+</div>
+
+<div class="card" style="max-width:700px;">
+    <div class="card-header">
+        <h3><i class="fas fa-receipt"></i> Invoice #@Model.InvoiceNumber</h3>
+        <span class="badge badge-success">Completed</span>
+    </div>
+    <div class="card-body">
+        <div style="display:flex;gap:32px;margin-bottom:24px;font-size:13.5px;">
+            <div>
+                <div style="color:var(--text-muted);font-size:12px;font-weight:500;">Date</div>
+                <div style="font-weight:600;">@CurrencyHelper.FormatDateTime(Model.SaleDate)</div>
+            </div>
+            <div>
+                <div style="color:var(--text-muted);font-size:12px;font-weight:500;">Cashier</div>
+                <div style="font-weight:600;">@(Model.CashierName ?? "N/A")</div>
+            </div>
+            <div>
+                <div style="color:var(--text-muted);font-size:12px;font-weight:500;">Payment Method</div>
+                <div style="font-weight:600;">@Model.PaymentMethod</div>
+            </div>
+        </div>
+
+        <div class="table-wrap">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Qty</th>
+                        <th>Unit Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Items)
+                    {
+                        <tr>
+                            <td><strong>@item.ProductName</strong></td>
+                            <td>@item.Quantity</td>
+                            <td>@CurrencyHelper.FormatCurrency(item.UnitPrice)</td>
+                            <td>@CurrencyHelper.FormatCurrency(item.Total)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div style="max-width:300px;margin-left:auto;margin-top:20px;">
+            <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:13.5px;">
+                <span style="color:var(--text-muted);">Sub Total</span>
+                <span>@CurrencyHelper.FormatCurrency(Model.SubTotal)</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:13.5px;">
+                <span style="color:var(--text-muted);">Tax</span>
+                <span>@CurrencyHelper.FormatCurrency(Model.TaxAmount)</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:10px 0;font-size:18px;font-weight:800;border-top:2px solid var(--border);margin-top:4px;">
+                <span>Total</span>
+                <span>@CurrencyHelper.FormatCurrency(Model.TotalAmount)</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:13.5px;border-top:1px solid var(--border);margin-top:4px;">
+                <span style="color:var(--text-muted);">Amount Paid</span>
+                <span>@CurrencyHelper.FormatCurrency(Model.AmountPaid)</span>
+            </div>
+            @if (Model.ChangeGiven > 0)
+            {
+                <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:13.5px;">
+                    <span style="color:var(--text-muted);">Change</span>
+                    <span style="color:var(--success);font-weight:600;">@CurrencyHelper.FormatCurrency(Model.ChangeGiven)</span>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Styles {
+<style>
+    @@media print {
+        .sidebar, .topbar, .page-header .btn-group, .alert { display: none !important; }
+        .main-area { margin-left: 0 !important; }
+        .content { padding: 0 !important; }
+        .card { border: none !important; box-shadow: none !important; max-width: 100% !important; }
+        body { background: #fff; }
+    }
+</style>
+}

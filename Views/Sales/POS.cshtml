@@ -1,0 +1,296 @@
+@model POSViewModel
+@{
+    ViewData["Title"] = "Point of Sale";
+}
+
+@section Styles {
+<style>
+    .pos-layout { display: grid; grid-template-columns: 1fr 400px; gap: 20px; height: calc(100vh - var(--topbar-h) - 48px); }
+    .pos-search { position: relative; }
+    .pos-search input { width: 100%; padding: 12px 16px 12px 40px; font-size: 15px; border: 2px solid var(--border); border-radius: var(--radius); }
+    .pos-search input:focus { border-color: var(--primary); }
+    .pos-search i { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+    .product-results { max-height: 200px; overflow-y: auto; border: 1px solid var(--border); border-radius: var(--radius); margin-top: 6px; display: none; background: var(--surface); position: absolute; width: 100%; z-index: 10; }
+    .product-results.show { display: block; }
+    .product-result-item { padding: 10px 14px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); font-size: 13.5px; }
+    .product-result-item:hover { background: var(--bg); }
+    .product-result-item:last-child { border-bottom: none; }
+    .product-result-item .prod-name { font-weight: 600; }
+    .product-result-item .prod-price { color: var(--text-muted); font-size: 12px; }
+    .cart-panel { display: flex; flex-direction: column; }
+    .cart-items-wrap { flex: 1; overflow-y: auto; max-height: 340px; }
+    .cart-empty { text-align: center; padding: 40px 16px; color: var(--text-muted); font-size: 13px; }
+    .cart-empty i { font-size: 32px; margin-bottom: 8px; opacity: 0.3; }
+    .cart-item-row td { padding: 8px 10px; font-size: 13px; }
+    .cart-item-row .item-qty { display: flex; align-items: center; gap: 4px; }
+    .cart-item-row .item-qty button { width: 24px; height: 24px; border: 1px solid var(--border); background: var(--surface); border-radius: 4px; cursor: pointer; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+    .cart-item-row .item-qty button:hover { background: var(--bg); }
+    .cart-item-row .item-remove { color: var(--danger); cursor: pointer; font-size: 13px; background: none; border: none; padding: 2px 6px; }
+    .cart-item-row .item-remove:hover { opacity: 0.7; }
+    .cart-totals { border-top: 2px solid var(--border); padding-top: 12px; margin-top: 12px; }
+    .cart-totals .total-row { display: flex; justify-content: space-between; padding: 4px 0; font-size: 13.5px; }
+    .cart-totals .total-row.grand { font-size: 18px; font-weight: 800; border-top: 2px solid var(--border); padding-top: 8px; margin-top: 4px; }
+    .payment-section { border-top: 1px solid var(--border); padding-top: 16px; margin-top: 16px; }
+    .change-display { background: #dcfce7; padding: 8px 12px; border-radius: var(--radius-sm); text-align: center; font-weight: 700; font-size: 16px; color: #166534; margin-top: 8px; display: none; }
+    .change-display.show { display: block; }
+    .change-display.negative { background: #fee2e2; color: #991b1b; }
+
+    @@media (max-width: 900px) {
+        .pos-layout { grid-template-columns: 1fr; height: auto; }
+    }
+</style>
+}
+
+<div class="page-header">
+    <div>
+        <h1><i class="fas fa-cash-register"></i> Point of Sale</h1>
+        <p>Search products and process sales</p>
+    </div>
+</div>
+
+<form id="posForm" asp-action="Create" asp-controller="Sales" method="post">
+    @Html.AntiForgeryToken()
+    <div class="pos-layout">
+        <div class="card">
+            <div class="card-body">
+                <div class="pos-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="productSearch" placeholder="Search product by name or barcode..." autocomplete="off" />
+                    <div class="product-results" id="productResults"></div>
+                </div>
+                <div id="cartArea" style="margin-top:16px;">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th style="width:120px">Qty</th>
+                                <th>Price</th>
+                                <th>Total</th>
+                                <th style="width:40px"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="cartBody">
+                            <tr id="cartEmptyRow">
+                                <td colspan="5">
+                                    <div class="cart-empty">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <div>No items in cart</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card cart-panel">
+            <div class="card-header">
+                <h3><i class="fas fa-receipt"></i> Cart Summary</h3>
+            </div>
+            <div class="card-body">
+                <div class="cart-totals">
+                    <div class="total-row">
+                        <span>Sub Total</span>
+                        <span id="subTotalDisplay">@CurrencyHelper.FormatCurrency(0)</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Tax</span>
+                        <span id="taxDisplay">@CurrencyHelper.FormatCurrency(0)</span>
+                    </div>
+                    <div class="total-row grand">
+                        <span>Grand Total</span>
+                        <span id="grandTotalDisplay">@CurrencyHelper.FormatCurrency(0)</span>
+                    </div>
+                </div>
+
+                <div class="payment-section">
+                    <div class="form-group">
+                        <label>Payment Method <span class="required">*</span></label>
+                        <select id="paymentMethod" name="PaymentMethod" class="form-control" asp-items="Html.GetEnumSelectList<PaymentMethod>()"></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Amount Paid <span class="required">*</span></label>
+                        <input type="number" id="amountPaid" name="AmountPaid" class="form-control" step="0.01" min="0" placeholder="0.00" />
+                    </div>
+                    <div class="change-display" id="changeDisplay">
+                        Change: <span id="changeValue">@CurrencyHelper.FormatCurrency(0)</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Cashier Name</label>
+                        <input type="text" id="cashierName" name="CashierName" class="form-control" placeholder="Optional" />
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer" style="display:flex;gap:8px;">
+                <button type="submit" id="submitSale" class="btn btn-accent btn-lg" style="flex:1;" disabled>
+                    <i class="fas fa-check"></i> Process Sale
+                </button>
+                <button type="button" class="btn btn-outline" onclick="clearCart()">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+<script>
+    let cart = [];
+    const formatCurrency = (amount) => {
+        return new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(amount);
+    };
+
+    const searchInput = document.getElementById('productSearch');
+    const resultsDiv = document.getElementById('productResults');
+    let searchTimeout;
+
+    searchInput.addEventListener('input', function () {
+        clearTimeout(searchTimeout);
+        const q = this.value.trim();
+        if (q.length < 2) { resultsDiv.classList.remove('show'); return; }
+        searchTimeout = setTimeout(() => fetchProducts(q), 300);
+    });
+
+    searchInput.addEventListener('focus', function () {
+        if (this.value.trim().length >= 2) resultsDiv.classList.add('show');
+    });
+
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.pos-search')) resultsDiv.classList.remove('show');
+    });
+
+    async function fetchProducts(query) {
+        try {
+            const res = await fetch('/Products/Search?q=' + encodeURIComponent(query));
+            const products = await res.json();
+            resultsDiv.innerHTML = '';
+            if (products.length === 0) {
+                resultsDiv.innerHTML = '<div class="product-result-item"><span>No products found</span></div>';
+                resultsDiv.classList.add('show');
+                return;
+            }
+            products.forEach(p => {
+                const div = document.createElement('div');
+                div.className = 'product-result-item';
+                var imgHtml = p.imageUrl ? '<img src="' + p.imageUrl + '" style="width:28px;height:28px;border-radius:6px;object-fit:cover;margin-right:10px;">' : '<span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:6px;background:#f3f4f6;font-size:10px;font-weight:700;color:#999;margin-right:10px;">' + p.name.substring(0,2) + '</span>';
+                div.innerHTML = '<div style="display:flex;align-items:center;">' + imgHtml + '<div><div class="prod-name">' + p.name + '</div><div class="prod-price">' + (p.barcode || '') + '</div></div></div><div>' + formatCurrency(p.salesPrice) + '</div>';
+                div.addEventListener('click', () => addToCart(p));
+                resultsDiv.appendChild(div);
+            });
+            resultsDiv.classList.add('show');
+        } catch (e) {
+            console.error('Search failed', e);
+        }
+    }
+
+    function addToCart(product) {
+        const existing = cart.find(i => i.productId === product.id);
+        if (existing) {
+            existing.quantity++;
+        } else {
+            cart.push({
+                productId: product.id,
+                productName: product.name,
+                barcode: product.barcode || '',
+                unitPrice: product.salesPrice,
+                costPrice: product.costPrice || 0,
+                taxRate: product.taxRate || 0,
+                quantity: 1
+            });
+        }
+        renderCart();
+        searchInput.value = '';
+        resultsDiv.classList.remove('show');
+        searchInput.focus();
+    }
+
+    function removeFromCart(index) {
+        cart.splice(index, 1);
+        renderCart();
+    }
+
+    function updateQty(index, delta) {
+        cart[index].quantity += delta;
+        if (cart[index].quantity < 1) cart.splice(index, 1);
+        renderCart();
+    }
+
+    function renderCart() {
+        const tbody = document.getElementById('cartBody');
+        const emptyRow = document.getElementById('cartEmptyRow');
+        tbody.innerHTML = '';
+        if (cart.length === 0) {
+            tbody.innerHTML = '<tr id="cartEmptyRow"><td colspan="5"><div class="cart-empty"><i class="fas fa-shopping-cart"></i><div>No items in cart</div></div></td></tr>';
+            document.getElementById('submitSale').disabled = true;
+            updateTotals(0, 0, 0);
+            return;
+        }
+        document.getElementById('submitSale').disabled = false;
+        let subTotal = 0, tax = 0;
+        cart.forEach((item, i) => {
+            const total = item.unitPrice * item.quantity;
+            const itemTax = total * item.taxRate / 100;
+            subTotal += total;
+            tax += itemTax;
+            const tr = document.createElement('tr');
+            tr.className = 'cart-item-row';
+            tr.innerHTML = '<td>' + item.productName + '</td><td><div class="item-qty"><button type="button" onclick="updateQty(' + i + ',-1)">-</button><span>' + item.quantity + '</span><button type="button" onclick="updateQty(' + i + ',1)">+</button></div></td><td>' + formatCurrency(item.unitPrice) + '</td><td>' + formatCurrency(total) + '</td><td><button type="button" class="item-remove" onclick="removeFromCart(' + i + ')"><i class="fas fa-times"></i></button></td>';
+            tbody.appendChild(tr);
+        });
+        updateTotals(subTotal, tax, subTotal + tax);
+    }
+
+    function updateTotals(sub, tax, grand) {
+        document.getElementById('subTotalDisplay').textContent = formatCurrency(sub);
+        document.getElementById('taxDisplay').textContent = formatCurrency(tax);
+        document.getElementById('grandTotalDisplay').textContent = formatCurrency(grand);
+        calculateChange();
+    }
+
+    function calculateChange() {
+        const grand = cart.reduce((sum, i) => sum + i.unitPrice * i.quantity * (1 + i.taxRate / 100), 0);
+        const paid = parseFloat(document.getElementById('amountPaid').value) || 0;
+        const change = paid - grand;
+        const changeDiv = document.getElementById('changeDisplay');
+        const changeVal = document.getElementById('changeValue');
+        if (paid > 0) {
+            changeDiv.classList.add('show');
+            changeDiv.classList.toggle('negative', change < 0);
+            changeVal.textContent = formatCurrency(Math.abs(change));
+            if (change < 0) changeVal.textContent = '-' + formatCurrency(Math.abs(change));
+        } else {
+            changeDiv.classList.remove('show');
+        }
+    }
+
+    document.getElementById('amountPaid').addEventListener('input', calculateChange);
+
+    function clearCart() {
+        if (cart.length === 0) return;
+        if (!confirm('Clear all items from cart?')) return;
+        cart = [];
+        renderCart();
+    }
+
+    document.getElementById('posForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (cart.length === 0) return;
+        const form = this;
+        const existing = form.querySelectorAll('.dynamic-input');
+        existing.forEach(el => el.remove());
+        cart.forEach((item, i) => {
+            const fields = { 'ProductId': item.productId, 'Quantity': item.quantity, 'UnitPrice': item.unitPrice, 'CostPrice': item.costPrice, 'TaxRate': item.taxRate, 'ProductName': item.productName, 'Barcode': item.barcode };
+            for (const [key, val] of Object.entries(fields)) {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'Items[' + i + '].' + key;
+                input.value = val;
+                input.className = 'dynamic-input';
+                form.appendChild(input);
+            }
+        });
+        form.submit();
+    });
+</script>
+}

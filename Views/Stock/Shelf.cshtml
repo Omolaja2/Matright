@@ -1,0 +1,71 @@
+@model List<StockViewModel>
+
+@{
+    ViewData["Title"] = "Shelf Stock";
+}
+
+<div class="page-header">
+    <div>
+        <h1>Shelf Stock</h1>
+        <p>Products currently on the shelf</p>
+    </div>
+    <div class="btn-group">
+        <a asp-action="Index" class="btn btn-outline"><i class="fas fa-arrow-left"></i> All Stock</a>
+        <a asp-action="Transfer" class="btn btn-accent"><i class="fas fa-arrows-rotate"></i> Transfer</a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="table-wrap">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Barcode</th>
+                        <th>Category</th>
+                        <th>Store Qty</th>
+                        <th>Shelf Qty</th>
+                        <th>Total</th>
+                        <th>Expiry</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.Any())
+                    {
+                        <tr>
+                            <td colspan="8" class="empty-state">No shelf stock records found.</td>
+                        </tr>
+                    }
+                    @foreach (var item in Model.Where(s => s.ShelfQuantity > 0))
+                    {
+                        <tr>
+                            <td><strong>@item.ProductName</strong></td>
+                            <td>@item.Barcode</td>
+                            <td>@item.CategoryName</td>
+                            <td>@item.StoreQuantity</td>
+                            <td>@item.ShelfQuantity</td>
+                            <td><strong>@item.TotalQuantity</strong></td>
+                            <td>@(item.ExpirationDate.HasValue ? CurrencyHelper.FormatDate(item.ExpirationDate.Value) : "N/A")</td>
+                            <td>
+                                @if (item.IsLowStock)
+                                {
+                                    <span class="badge badge-warning">Low Stock</span>
+                                }
+                                else if (item.IsExpiringSoon)
+                                {
+                                    <span class="badge badge-danger">Expiring Soon</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-success">OK</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

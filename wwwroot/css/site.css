@@ -1,0 +1,40 @@
+/* PharMarket - Site Overrides */
+/* Extends templatemo-catalyst-style.css */
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+}
+
+/* Landing page overrides */
+.hero-dashboard {
+    max-width: 1060px;
+    margin: 0 auto;
+}
+
+/* Smooth scroll for anchor links */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+/* Active nav link highlight */
+.nav-links a.active {
+    color: var(--text);
+    font-weight: 600;
+}
+
+/* Focus states for accessibility */
+.btn-acid:focus-visible,
+.btn-ghost:focus-visible,
+.btn-dark-ghost:focus-visible,
+.faq-question:focus-visible,
+.nav-links a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Selection color */
+::selection {
+    background: var(--accent);
+    color: var(--text);
+}

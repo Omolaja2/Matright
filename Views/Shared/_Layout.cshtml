@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>@ViewData["Title"] - PharMarket</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/app.css" asp-append-version="true" />
+    <style>
+        .user-menu { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+        .user-name { font-weight: 600; }
+        .user-role { background: #f3f4f6; padding: 2px 8px; border-radius: 12px; font-size: 11px; color: #666; }
+        .notification-dropdown { position: relative; }
+        .notification-bell { position: relative; cursor: pointer; }
+        .notification-badge { position: absolute; top: -2px; right: -2px; background: var(--danger); color: #fff; font-size: 9px; font-weight: 700; min-width: 16px; height: 16px; border-radius: 8px; display: flex; align-items: center; justify-content: center; line-height: 1; }
+        .notification-badge:empty { display: none; }
+        .notification-panel { display: none; position: absolute; top: 100%; right: 0; width: 320px; max-height: 400px; overflow-y: auto; background: #fff; border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,.12); z-index: 200; margin-top: 8px; }
+        .notification-panel.open { display: block; }
+        .notification-panel-header { padding: 14px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+        .notification-panel-header h4 { font-size: 14px; font-weight: 700; }
+        .notification-panel-header button { font-size: 12px; color: var(--info); background: none; border: none; cursor: pointer; font-weight: 600; }
+        .notification-item { padding: 12px 16px; border-bottom: 1px solid #f3f4f6; cursor: pointer; transition: background 0.15s; }
+        .notification-item:hover { background: #f9f9fb; }
+        .notification-item:last-child { border-bottom: none; }
+        .notification-item .title { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+        .notification-item .message { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+        .notification-item .time { font-size: 11px; color: var(--text-dim); margin-top: 4px; }
+        .notification-item.warning .title { color: var(--warning); }
+        .notification-item.danger .title { color: var(--danger); }
+        .notification-empty { padding: 32px 16px; text-align: center; color: var(--text-dim); font-size: 13px; }
+        @@media (max-width: 768px) {
+            .notification-panel { width: calc(100vw - 32px); right: -16px; }
+        }
+    </style>
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="/" class="sidebar-logo">
+                <span class="logo-icon"><i class="fas fa-store"></i></span>
+                <span class="logo-text">PharMarket</span>
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="/" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")">
+                <i class="fas fa-th-large"></i><span>Dashboard</span>
+            </a>
+            <div class="nav-section">SALES</div>
+            <a href="/Sales/POS" class="nav-item @(ViewContext.RouteData.Values["action"]?.ToString() == "POS" ? "active" : "")">
+                <i class="fas fa-cash-register"></i><span>POS</span>
+            </a>
+            <a href="/Sales" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Sales" && ViewContext.RouteData.Values["action"]?.ToString() != "POS" ? "active" : "")">
+                <i class="fas fa-receipt"></i><span>Sales History</span>
+            </a>
+            <div class="nav-section">INVENTORY</div>
+            <a href="/Products" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Products" ? "active" : "")">
+                <i class="fas fa-boxes-stacked"></i><span>Products</span>
+            </a>
+            <a href="/Stock" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Stock" ? "active" : "")">
+                <i class="fas fa-warehouse"></i><span>Stock</span>
+            </a>
+            <a href="/Purchases" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Purchases" ? "active" : "")">
+                <i class="fas fa-truck-loading"></i><span>Purchases</span>
+            </a>
+            <a href="/Suppliers" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Suppliers" ? "active" : "")">
+                <i class="fas fa-handshake"></i><span>Suppliers</span>
+            </a>
+            <div class="nav-section">FINANCE</div>
+            <a href="/Expenses" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Expenses" ? "active" : "")">
+                <i class="fas fa-money-bill-wave"></i><span>Expenses</span>
+            </a>
+            <a href="/Transactions" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Transactions" ? "active" : "")">
+                <i class="fas fa-exchange-alt"></i><span>Transactions</span>
+            </a>
+            <div class="nav-section">REPORTS</div>
+            <a href="/Reports/Sales" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Reports" ? "active" : "")">
+                <i class="fas fa-chart-line"></i><span>Reports</span>
+            </a>
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="nav-section">MANAGE</div>
+                <a href="/Users" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Users" ? "active" : "")">
+                    <i class="fas fa-users-cog"></i><span>Users</span>
+                </a>
+                <a href="/Store/Settings" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Store" ? "active" : "")">
+                    <i class="fas fa-cog"></i><span>Store Settings</span>
+                </a>
+            }
+        </nav>
+    </aside>
+
+    <div class="main-area">
+        <header class="topbar">
+            <button class="sidebar-toggle" id="sidebarToggle" onclick="document.getElementById('sidebar').classList.toggle('open')">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="topbar-right">
+                <div class="alert-badges">
+                    <a href="/Stock/LowStock" class="alert-badge warning" title="Low Stock Alerts">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </a>
+                    <div class="notification-dropdown">
+                        <div class="alert-badge notification-bell" id="notifBell" onclick="toggleNotifications()">
+                            <i class="fas fa-bell"></i>
+                            @if (ViewBag.UnreadNotificationCount != null && (int)ViewBag.UnreadNotificationCount > 0)
+                            {
+                                <span class="notification-badge">@ViewBag.UnreadNotificationCount</span>
+                            }
+                        </div>
+                        <div class="notification-panel" id="notifPanel">
+                            <div class="notification-panel-header">
+                                <h4>Notifications</h4>
+                                <button onclick="markAllRead()">Mark all read</button>
+                            </div>
+                            <div id="notifList">
+                                <div class="notification-empty">Loading...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-menu">
+                    <span class="user-name">@User.Identity?.Name</span>
+                    <span class="user-role">@(User.IsInRole("Admin") ? "Admin" : "Staff")</span>
+                    <form asp-action="Logout" asp-controller="Account" method="post" style="margin-left:8px">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-sm btn-outline" title="Logout"><i class="fas fa-sign-out-alt"></i></button>
+                    </form>
+                </div>
+            </div>
+        </header>
+
+        <main class="content">
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success" onclick="this.remove()">
+                    <i class="fas fa-check-circle"></i> @TempData["SuccessMessage"]
+                </div>
+            }
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-error" onclick="this.remove()">
+                    <i class="fas fa-times-circle"></i> @TempData["ErrorMessage"]
+                </div>
+            }
+            @if (TempData["WarningMessage"] != null)
+            {
+                <div class="alert alert-warning" onclick="this.remove()">
+                    <i class="fas fa-exclamation-circle"></i> @TempData["WarningMessage"]
+                </div>
+            }
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/js/app.js" asp-append-version="true"></script>
+    <script>
+        function toggleNotifications() {
+            var panel = document.getElementById('notifPanel');
+            panel.classList.toggle('open');
+            if (panel.classList.contains('open') && document.getElementById('notifList').children.length === 0) {
+                loadNotifications();
+            }
+        }
+
+        async function loadNotifications() {
+            try {
+                var res = await fetch('/Notifications/GetUnread');
+                var data = await res.json();
+                var list = document.getElementById('notifList');
+                if (data.length === 0) {
+                    list.innerHTML = '<div class="notification-empty"><i class="fas fa-bell-slash" style="font-size:24px;opacity:.3;margin-bottom:8px;display:block;"></i>No new notifications</div>';
+                    return;
+                }
+                list.innerHTML = data.map(n =>
+                    '<div class="notification-item ' + n.type + '" onclick="markRead(' + n.id + ')">' +
+                    '<div class="title">' + n.title + '</div>' +
+                    '<div class="message">' + n.message + '</div>' +
+                    '<div class="time">' + new Date(n.createdAt).toLocaleString() + '</div>' +
+                    '</div>'
+                ).join('');
+            } catch(e) {
+                document.getElementById('notifList').innerHTML = '<div class="notification-empty">Failed to load</div>';
+            }
+        }
+
+        async function markRead(id) {
+            await fetch('/Notifications/MarkRead/' + id, { method: 'POST', headers: { 'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value || '' } });
+            loadNotifications();
+        }
+
+        async function markAllRead() {
+            await fetch('/Notifications/MarkAllRead', { method: 'POST', headers: { 'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value || '' } });
+            var badge = document.querySelector('.notification-badge');
+            if (badge) badge.remove();
+            loadNotifications();
+        }
+
+        document.addEventListener('click', function(e) {
+            var dropdown = document.querySelector('.notification-dropdown');
+            if (dropdown && !dropdown.contains(e.target)) {
+                document.getElementById('notifPanel').classList.remove('open');
+            }
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

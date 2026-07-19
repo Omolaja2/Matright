@@ -1,0 +1,52 @@
+@model TransferViewModel
+
+@{
+    ViewData["Title"] = "Transfer Stock";
+}
+
+<div class="page-header">
+    <div>
+        <h1>Transfer Stock</h1>
+        <p>Move stock between store and shelf</p>
+    </div>
+    <a asp-action="Index" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back to Stock</a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Transfer" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="ProductId"></label>
+                <select asp-for="ProductId" asp-items="Model.Products" class="form-control">
+                    <option value="">-- Select Product --</option>
+                </select>
+                <span asp-validation-for="ProductId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Quantity"></label>
+                <input asp-for="Quantity" class="form-control" type="number" min="1" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Direction"></label>
+                <select asp-for="Direction" class="form-control" asp-items="Html.GetEnumSelectList<TransferDirection>()">
+                    <option value="">-- Select Direction --</option>
+                </select>
+                <span asp-validation-for="Direction" class="text-danger"></span>
+            </div>
+
+            <div class="btn-group" style="margin-top:24px">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i> Transfer</button>
+                <a asp-action="Index" class="btn btn-outline">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

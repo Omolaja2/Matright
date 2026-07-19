@@ -1,0 +1,74 @@
+﻿@model PharMarket.Models.ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error - PharMarket ERP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/templatemo-catalyst-style.css" />
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 24px;
+        }
+        .error-code {
+            font-size: clamp(80px, 15vw, 160px);
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+        .error-code .accent-digit {
+            background: var(--accent);
+            padding: 0 10px;
+            border-radius: 12px;
+        }
+        .error-title {
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+        }
+        .error-message {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 420px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-page">
+        <div>
+            <div class="error-code">
+                <span class="accent-digit">@(Model?.StatusCode ?? 500)</span>
+            </div>
+            <h1 class="error-title">@(Model?.Message ?? "Something went wrong")</h1>
+            <p class="error-message">
+                An unexpected error occurred. Please try again later or return to the homepage.
+            </p>
+            @if (Model?.ShowRequestId ?? false)
+            {
+                <p style="font-size:12px;color:var(--text-dim);margin-bottom:32px;">Request ID: <code>@Model.RequestId</code></p>
+            }
+            <a href="/" class="btn-acid">
+                Back to Home
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+@model PharMarket.ViewModels.Users.CreateUserViewModel
+@{
+    ViewData["Title"] = "Create User";
+}
+
+<div class="page-header">
+    <div>
+        <h1>Create User</h1>
+        <p>Add a new user account to the system</p>
+    </div>
+    <a href="/Users" class="btn btn-outline">
+        <i class="fas fa-arrow-left"></i> Back to Users
+    </a>
+</div>
+
+<div class="card" style="max-width:560px">
+    <div class="card-body">
+        <form asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <label asp-for="FullName">Full Name <span class="required">*</span></label>
+                <input asp-for="FullName" class="form-control" placeholder="e.g. John Doe" autofocus />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email">Email <span class="required">*</span></label>
+                <input asp-for="Email" class="form-control" type="email" placeholder="user@example.com" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Role">Role <span class="required">*</span></label>
+                <select asp-for="Role" class="form-control">
+                    <option value="Admin">Admin</option>
+                    <option value="Apprentice">Apprentice</option>
+                </select>
+                <span asp-validation-for="Role" class="text-danger"></span>
+            </div>
+
+            <div class="form-text" style="margin-bottom:20px;">
+                <i class="fas fa-info-circle"></i>
+                A random password will be generated and sent to the user's email.
+            </div>
+
+            <button type="submit" class="btn btn-accent btn-lg">
+                <i class="fas fa-user-plus"></i> Create Account
+            </button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,374 @@
+@{
+    Layout = null;
+    ViewData["Title"] = "Pharmacy ERP";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PharMarket - Pharmacy ERP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/templatemo-catalyst-style.css" asp-append-version="true" />
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo" aria-label="PharMarket Home">
+                <span class="nav-logo-mark">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 8L7 4L13 8L7 12L3 8Z" fill="#111"/>
+                    </svg>
+                </span>
+                PharMarket
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#metrics">Why Us</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="/Account/Login" class="btn-ghost">Log In</a>
+                <a href="/Account/Register" class="btn-acid">Get Started</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge reveal">
+                <span class="hero-badge-dot"></span>
+                Trusted by businesses across Nigeria
+            </div>
+            <h1 class="reveal">The business management system built for <span class="accent-word">confidence</span></h1>
+            <p class="hero-sub reveal">Stop juggling spreadsheets and paper trails. PharMarket handles inventory, sales, purchases, and finances so you can focus on what matters - your customers.</p>
+            <div class="hero-actions reveal">
+                <a href="/Account/Register" class="btn-acid">
+                    Get Started Free
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="/Account/Login" class="btn-ghost">Log In</a>
+            </div>
+
+            <!-- Dashboard Mockup -->
+            <div class="hero-dashboard reveal">
+                <div class="dashboard-frame">
+                    <div class="dashboard-toolbar">
+                        <div class="dashboard-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="dashboard-toolbar-tabs">
+                            <span class="active">Dashboard</span>
+                            <span>Sales</span>
+                            <span>Inventory</span>
+                            <span>Reports</span>
+                        </div>
+                        <div style="width: 50px;"></div>
+                    </div>
+                    <div class="dashboard-body">
+                        <div class="dash-stat-card">
+                            <div class="dash-stat-label">Today's Sales</div>
+                            <div class="dash-stat-value">₦148K</div>
+                            <div class="dash-stat-change">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 9V3M6 3L3 6M6 3L9 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                +12.5%
+                            </div>
+                        </div>
+                        <div class="dash-stat-card">
+                            <div class="dash-stat-label">Total Products</div>
+                            <div class="dash-stat-value">1,247</div>
+                            <div class="dash-stat-change">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 9V3M6 3L3 6M6 3L9 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                +8.3%
+                            </div>
+                        </div>
+                        <div class="dash-stat-card">
+                            <div class="dash-stat-label">Low Stock Alerts</div>
+                            <div class="dash-stat-value">5</div>
+                            <div class="dash-stat-change" style="color: #EF4444;">
+                                Needs attention
+                            </div>
+                        </div>
+                        <div class="dashboard-table-area">
+                            <div class="dash-table-header">
+                                <span>Recent Sales</span>
+                                <span class="dash-filter">This week ▾</span>
+                            </div>
+                            <div class="dash-table">
+                                <div class="dash-table-row head">
+                                    <div class="dash-cell">Product</div>
+                                    <div class="dash-cell">Qty</div>
+                                    <div class="dash-cell">Amount</div>
+                                    <div class="dash-cell">Cashier</div>
+                                    <div class="dash-cell">Status</div>
+                                </div>
+                                <div class="dash-table-row">
+                                    <div class="dash-cell dash-cell-name">
+                                        <span class="dash-cell-icon" style="background: #DCFCE7; color: #166534;">RX</span>
+                                        Amoxicillin 500mg
+                                    </div>
+                                    <div class="dash-cell">3</div>
+                                    <div class="dash-cell">₦4,500</div>
+                                    <div class="dash-cell">Amina</div>
+                                    <div class="dash-cell"><span class="dash-status active">Paid</span></div>
+                                </div>
+                                <div class="dash-table-row">
+                                    <div class="dash-cell dash-cell-name">
+                                        <span class="dash-cell-icon" style="background: #FEF3C7; color: #92400E;">OT</span>
+                                        Paracetamol Tabs
+                                    </div>
+                                    <div class="dash-cell">2</div>
+                                    <div class="dash-cell">₦1,200</div>
+                                    <div class="dash-cell">Chidi</div>
+                                    <div class="dash-cell"><span class="dash-status active">Paid</span></div>
+                                </div>
+                                <div class="dash-table-row">
+                                    <div class="dash-cell dash-cell-name">
+                                        <span class="dash-cell-icon" style="background: #E0E7FF; color: #3730A3;">GN</span>
+                                        Augmentin Syrup
+                                    </div>
+                                    <div class="dash-cell">1</div>
+                                    <div class="dash-cell">₦3,800</div>
+                                    <div class="dash-cell">Amina</div>
+                                    <div class="dash-cell"><span class="dash-status pending">Credit</span></div>
+                                </div>
+                                <div class="dash-table-row">
+                                    <div class="dash-cell dash-cell-name">
+                                        <span class="dash-cell-icon" style="background: var(--surface); color: var(--text-muted);">PH</span>
+                                        Vitamin C Tabs
+                                    </div>
+                                    <div class="dash-cell">5</div>
+                                    <div class="dash-cell">₦2,500</div>
+                                    <div class="dash-cell">Bola</div>
+                                    <div class="dash-cell"><span class="dash-status active">Paid</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPEED METRICS -->
+    <section class="metrics" id="metrics">
+        <div class="container">
+            <p class="metrics-label reveal">Why businesses choose PharMarket</p>
+            <div class="metrics-grid">
+                <div class="metric-item reveal">
+                    <div class="metric-number"><span class="metric-highlight">7.5</span><span class="metric-unit">%</span></div>
+                    <p class="metric-desc">Automatic VAT calculation on every sale</p>
+                </div>
+                <div class="metric-item reveal">
+                    <div class="metric-number">99.9<span class="metric-unit">%</span></div>
+                    <p class="metric-desc">Uptime guarantee so you never miss a sale</p>
+                </div>
+                <div class="metric-item reveal">
+                    <div class="metric-number">24<span class="metric-unit">/7</span></div>
+                    <p class="metric-desc">Access your pharmacy data anytime, anywhere</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="engine" id="features">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-tag">Features</p>
+                <h2 class="section-title">Everything your business actually needs</h2>
+            </div>
+            <div class="bento-grid">
+                <div class="card bento-card reveal">
+                    <div class="bento-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    </div>
+                    <h3>Point of Sale</h3>
+                    <p>Fast, barcode-driven checkout with automatic tax calculation and receipt generation. Handle cash, card, and credit sales effortlessly.</p>
+                    <div class="bento-card-visual">
+                        <div class="mini-pipeline">
+                            <div class="mini-pipeline-node">Scan</div>
+                            <span class="mini-pipeline-arrow">→</span>
+                            <div class="mini-pipeline-node">Calculate</div>
+                            <span class="mini-pipeline-arrow">→</span>
+                            <div class="mini-pipeline-node">Print</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card bento-card reveal">
+                    <div class="bento-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16l4-8 4 4 4-6"/></svg>
+                    </div>
+                    <h3>Inventory Control</h3>
+                    <p>Track stock levels in real time. Monitor expiry dates, get low-stock alerts, and never run out of essential products.</p>
+                    <div class="bento-card-visual">
+                        <div class="mini-bars">
+                            <div class="mini-bar" style="height: 35%;"></div>
+                            <div class="mini-bar" style="height: 55%;"></div>
+                            <div class="mini-bar" style="height: 40%;"></div>
+                            <div class="mini-bar highlight" style="height: 80%;"></div>
+                            <div class="mini-bar" style="height: 60%;"></div>
+                            <div class="mini-bar" style="height: 45%;"></div>
+                            <div class="mini-bar highlight" style="height: 95%;"></div>
+                            <div class="mini-bar" style="height: 70%;"></div>
+                            <div class="mini-bar" style="height: 50%;"></div>
+                            <div class="mini-bar" style="height: 65%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card bento-card reveal">
+                    <div class="bento-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
+                    </div>
+                    <h3>Purchase Orders</h3>
+                    <p>Create and receive purchase orders from suppliers with full audit trail. Track order status from placement to delivery.</p>
+                    <div class="bento-card-visual">
+                        <div class="mini-code">
+                            <span class="keyword">ORDER</span> #PO-2026-0042<br>
+                            <span class="keyword">FROM</span> Emzor Pharma<br>
+                            <span class="keyword">STATUS</span> <span class="string">Delivered</span><br>
+                            <span class="comment">-- 3 days ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-tag">FAQ</p>
+                <h2 class="section-title">Common questions, straight answers</h2>
+            </div>
+            <div class="faq-controls reveal">
+                <button class="faq-ctrl-btn" id="faqExpandAll">Expand All</button>
+                <button class="faq-ctrl-btn" id="faqCollapseAll">Collapse All</button>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        Is PharMarket free to try?
+                        <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="#111" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Yes! You can sign up and start using PharMarket right away. Register as an Apprentice to explore the system, or get Admin access for full control.</div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        Can I manage multiple users?
+                        <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="#111" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Absolutely. Admins can create accounts for cashiers and staff, assign roles, reset passwords, and activate or deactivate accounts anytime.</div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        Does it work for Nigerian businesses?
+                        <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="#111" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Yes! PharMarket is built specifically for the Nigerian market. It uses Naira, handles VAT automatically, and supports local business workflows.</div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        Is my data secure?
+                        <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="#111" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Absolutely. All data is encrypted and access is controlled via secure JWT authentication. Role-based permissions ensure users only see what they need to.</div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        What reports are available?
+                        <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="#111" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Sales reports, profit & loss statements, expense breakdowns, tax summaries, stock levels, expiry alerts, and supplier purchase history - all in one place.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-banner-inner reveal">
+                <p class="cta-banner-tag">Get started today</p>
+                <h2>Ready to streamline your business?</h2>
+                <p>Join businesses across Nigeria managing their operations smarter with PharMarket.</p>
+                <div class="cta-banner-actions">
+                    <a href="/Account/Register" class="btn-acid">
+                        Get Started Free
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="/Account/Login" class="btn-dark-ghost">Log In</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="/" class="nav-logo" aria-label="PharMarket Home">
+                        <span class="nav-logo-mark">
+                            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 8L7 4L13 8L7 12L3 8Z" fill="#111"/>
+                            </svg>
+                        </span>
+                        PharMarket
+                    </a>
+                    <p class="footer-brand-desc">A complete business management solution. Track inventory, manage sales, handle purchases, and monitor finances for any type of business.</p>
+                </div>
+                <div>
+                    <h4 class="footer-col-title">Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#metrics">Why Us</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-col-title">Account</h4>
+                    <ul class="footer-links">
+                        <li><a href="/Account/Login">Log In</a></li>
+                        <li><a href="/Account/Register">Register</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-col-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">&copy; @DateTime.Now.Year PharMarket. All rights reserved.</p>
+                <ul class="footer-bottom-links">
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="~/js/templatemo-catalyst-script.js" asp-append-version="true"></script>
+</body>
+</html>

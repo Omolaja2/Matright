@@ -1,0 +1,90 @@
+@model SalesReportViewModel
+@using PharMarket.Helpers
+@{
+    ViewData["Title"] = "Sales Report";
+}
+<div class="page-header">
+    <div>
+        <h1>Sales Report</h1>
+        <p>View and analyze your sales performance</p>
+    </div>
+    <div class="btn-group">
+        <a asp-action="ProfitLoss" asp-controller="Reports" class="btn btn-outline">
+            <i class="fas fa-chart-pie"></i> Profit &amp; Loss
+        </a>
+    </div>
+</div>
+<form method="get" class="filters-bar">
+    <input type="date" name="startDate" value="@Model.StartDate?.ToString("yyyy-MM-dd")" class="form-control" placeholder="Start Date" />
+    <input type="date" name="endDate" value="@Model.EndDate?.ToString("yyyy-MM-dd")" class="form-control" placeholder="End Date" />
+    <select name="paymentMethod" class="form-control">
+        <option value="">All Payment Methods</option>
+        <option value="Cash" selected="@(Model.PaymentMethodFilter == PaymentMethod.Cash)">Cash</option>
+        <option value="POS" selected="@(Model.PaymentMethodFilter == PaymentMethod.POS)">POS</option>
+        <option value="Transfer" selected="@(Model.PaymentMethodFilter == PaymentMethod.Transfer)">Transfer</option>
+    </select>
+    <button type="submit" class="btn btn-primary">Filter</button>
+    <a asp-action="Sales" asp-controller="Reports" class="btn btn-outline">Clear</a>
+</form>
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-icon green"><i class="fas fa-coins"></i></div>
+        <span class="stat-label">Total Revenue</span>
+        <span class="stat-value">@CurrencyHelper.FormatCurrency(Model.TotalSales)</span>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon blue"><i class="fas fa-receipt"></i></div>
+        <span class="stat-label">Total Tax</span>
+        <span class="stat-value">@CurrencyHelper.FormatCurrency(Model.TotalTax)</span>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon yellow"><i class="fas fa-calculator"></i></div>
+        <span class="stat-label">Transactions</span>
+        <span class="stat-value">@Model.TotalTransactions</span>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon purple"><i class="fas fa-chart-bar"></i></div>
+        <span class="stat-label">Average Value</span>
+        <span class="stat-value">@CurrencyHelper.FormatCurrency(Model.AverageTransactionValue)</span>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <h3>Sales Data</h3>
+    </div>
+    <div class="table-wrap">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Invoice</th>
+                    <th>Date</th>
+                    <th>Cashier</th>
+                    <th>Items</th>
+                    <th>Subtotal</th>
+                    <th>Tax</th>
+                    <th>Total</th>
+                    <th>Payment</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Sales.Count == 0)
+                {
+                    <tr><td colspan="8" class="empty-state" style="padding:32px;">No sales found.</td></tr>
+                }
+                @foreach (var sale in Model.Sales)
+                {
+                    <tr>
+                        <td>@sale.InvoiceNumber</td>
+                        <td>@CurrencyHelper.FormatDate(sale.SaleDate)</td>
+                        <td>@sale.CashierName</td>
+                        <td>@sale.ItemCount</td>
+                        <td>@CurrencyHelper.FormatCurrency(sale.SubTotal)</td>
+                        <td>@CurrencyHelper.FormatCurrency(sale.TaxAmount)</td>
+                        <td><strong>@CurrencyHelper.FormatCurrency(sale.TotalAmount)</strong></td>
+                        <td>@sale.PaymentMethod</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
