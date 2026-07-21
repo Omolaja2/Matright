@@ -50,6 +50,20 @@ public class ProductViewModel
     [Display(Name = "Product Image URL")]
     public string? ImageUrl { get; set; }
 
+    [Display(Name = "Product Image")]
+    public IFormFile? ImageFile { get; set; }
+
+    [Display(Name = "Expiring Date")]
+    public DateTime? ExpirationDate { get; set; }
+
+    [Required(ErrorMessage = "Amount/quantity is required")]
+    [Range(0, int.MaxValue, ErrorMessage = "Amount must be 0 or more")]
+    [Display(Name = "Amount / Quantity")]
+    public int Amount { get; set; }
+
     public SelectList? Categories { get; set; }
     public SelectList? Suppliers { get; set; }
+
+    [Display(Name = "QR Code")]
+    public string? QrCodeUrl { get; set; }
 }

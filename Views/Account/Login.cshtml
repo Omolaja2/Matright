@@ -37,6 +37,14 @@
         .text-center { text-align: center; margin-top: 24px; font-size: 14px; color: var(--text-muted); }
         .text-center a { color: var(--text); font-weight: 700; text-decoration: none; }
         .text-center a:hover { text-decoration: underline; }
+
+        /* Loading Modal */
+        .loading-modal { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.45); z-index:9999; align-items:center; justify-content:center; backdrop-filter:blur(2px); }
+        .loading-modal.show { display:flex; }
+        .loading-content { background:#fff; padding:36px 40px; border-radius:16px; text-align:center; box-shadow:0 20px 60px rgba(0,0,0,0.2); min-width:180px; }
+        .spinner { width:40px; height:40px; border:3px solid #e5e5e5; border-top-color:var(--text); border-radius:50%; animation:spin 0.7s linear infinite; margin:0 auto 14px; }
+        @@keyframes spin { to { transform:rotate(360deg); } }
+        .loading-content p { font-size:14px; font-weight:600; color:var(--text); }
     </style>
 </head>
 <body>
@@ -88,5 +96,17 @@
             Don't have an account? <a asp-action="Register" asp-controller="Account">Get Started</a>
         </div>
     </div>
+
+    <div id="loadingModal" class="loading-modal">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p id="loadingText">Loading...</p>
+        </div>
+    </div>
+    <script>
+        function showLoading(t){document.getElementById('loadingText').textContent=t||'Loading...';document.getElementById('loadingModal').classList.add('show')}
+        function hideLoading(){document.getElementById('loadingModal').classList.remove('show')}
+        document.querySelectorAll('form').forEach(function(f){f.addEventListener('submit',function(){var b=f.querySelector('button[type=submit]');if(b)b.disabled=true;showLoading('Logging in...')})});
+    </script>
 </body>
 </html>

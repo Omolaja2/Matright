@@ -49,7 +49,8 @@ public class ProductService : IProductService
                 CostPrice = p.CostPrice,
                 SalesPrice = p.SalesPrice,
                 TotalStock = p.Stock != null ? p.Stock.StoreQuantity + p.Stock.ShelfQuantity : 0,
-                IsActive = p.IsActive
+                IsActive = p.IsActive,
+                ExpirationDate = p.ExpirationDate
             })
             .ToListAsync();
 
@@ -97,13 +98,19 @@ public class ProductService : IProductService
             MinimumStock = model.MinimumStock,
             ImageUrl = model.ImageUrl,
             StoreId = storeId,
-            IsActive = model.IsActive
+            IsActive = model.IsActive,
+            ExpirationDate = model.ExpirationDate
         };
 
         _context.Products.Add(product);
         await _context.SaveChangesAsync();
 
-        _context.Stocks.Add(new Stock { ProductId = product.Id });
+        _context.Stocks.Add(new Stock
+        {
+            ProductId = product.Id,
+            StoreQuantity = model.Amount,
+            ExpirationDate = model.ExpirationDate
+        });
         await _context.SaveChangesAsync();
 
         return product;
@@ -128,6 +135,7 @@ public class ProductService : IProductService
         product.MinimumStock = model.MinimumStock;
         product.ImageUrl = model.ImageUrl;
         product.IsActive = model.IsActive;
+        product.ExpirationDate = model.ExpirationDate;
 
         await _context.SaveChangesAsync();
     }

@@ -1,0 +1,62 @@
+@model List<PharMarket.ViewModels.Apprentice.ApprenticeSaleViewModel>
+@using PharMarket.Helpers
+@{
+    ViewData["Title"] = "My Sales Today";
+    var todayTotal = Model.Sum(s => s.Total);
+    var todayItems = Model.Sum(s => s.Quantity);
+}
+
+<div class="page-header">
+    <div>
+        <h1>My Sales Today</h1>
+        <p>Your sales record for today.</p>
+    </div>
+    <div style="display:flex;gap:12px;align-items:center;">
+        <div class="stat-card" style="min-width:140px;">
+            <div style="font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.5px;">Total Sales</div>
+            <div style="font-size:20px;font-weight:800;color:var(--primary);">@CurrencyHelper.FormatCurrency(todayTotal)</div>
+        </div>
+        <div class="stat-card" style="min-width:110px;">
+            <div style="font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.5px;">Items Sold</div>
+            <div style="font-size:20px;font-weight:800;">@todayItems</div>
+        </div>
+    </div>
+</div>
+
+@if (Model.Any())
+{
+    <div class="table-container">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Product</th>
+                    <th>Qty</th>
+                    <th>Unit Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var sale in Model)
+                {
+                    <tr>
+                        <td>@sale.SoldAt.ToString("hh:mm tt")</td>
+                        <td><strong>@sale.ProductName</strong></td>
+                        <td>@sale.Quantity</td>
+                        <td>@CurrencyHelper.FormatCurrency(sale.UnitPrice)</td>
+                        <td><strong>@CurrencyHelper.FormatCurrency(sale.Total)</strong></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="empty-state">
+        <i class="fas fa-receipt"></i>
+        <h3>No sales yet today</h3>
+        <p>Your sales for today will appear here.</p>
+        <a href="/Apprentice" class="btn btn-primary" style="margin-top:12px;"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+    </div>
+}

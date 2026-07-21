@@ -42,6 +42,9 @@ public class Product : BaseEntity
 
     public bool IsActive { get; set; } = true;
 
+    [Column(TypeName = "datetime(6)")]
+    public DateTime? ExpirationDate { get; set; }
+
     [ForeignKey("StoreId")]
     public Store Store { get; set; } = null!;
 

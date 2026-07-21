@@ -12,22 +12,16 @@
 
 <div class="card">
     <div class="card-body">
-        <form asp-action="Edit" method="post">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
             <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="ImageUrl" />
             <div asp-validation-summary="ModelOnly" class="alert alert-error" style="display: @(ViewData.ModelState.IsValid ? "none" : "flex");">
             </div>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label asp-for="Name">Product Name <span class="required">*</span></label>
-                    <input asp-for="Name" class="form-control" placeholder="e.g. Paracetamol 500mg" />
-                    <span asp-validation-for="Name" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Barcode">Barcode</label>
-                    <input asp-for="Barcode" class="form-control" placeholder="e.g. 8901234567890" />
-                    <span asp-validation-for="Barcode" class="text-danger"></span>
-                </div>
+            <div class="form-group">
+                <label asp-for="Name">Product Name <span class="required">*</span></label>
+                <input asp-for="Name" class="form-control" placeholder="e.g. Paracetamol 500mg" />
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
 
             <div class="form-group">
@@ -36,20 +30,25 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
 
+            <div class="form-group">
+                <label asp-for="CategoryId">Category <span class="required">*</span></label>
+                <select asp-for="CategoryId" asp-items="Model.Categories" class="form-control" required>
+                    <option value="">Select Category</option>
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+
             <div class="form-row">
                 <div class="form-group">
-                    <label asp-for="CategoryId">Category <span class="required">*</span></label>
-                    <select asp-for="CategoryId" asp-items="Model.Categories" class="form-control" required>
-                        <option value="">Select Category</option>
-                    </select>
-                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                    <label asp-for="ExpirationDate">Expiring Date</label>
+                    <input asp-for="ExpirationDate" class="form-control" type="date" />
+                    <span asp-validation-for="ExpirationDate" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="SupplierId">Supplier</label>
-                    <select asp-for="SupplierId" asp-items="Model.Suppliers" class="form-control">
-                        <option value="">Select Supplier</option>
-                    </select>
-                    <span asp-validation-for="SupplierId" class="text-danger"></span>
+                    <label class="form-check" style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input asp-for="IsActive" type="checkbox" style="width: 16px; height: 16px;" />
+                        <span>Active (available for sale)</span>
+                    </label>
                 </div>
             </div>
 
@@ -66,31 +65,27 @@
                 </div>
             </div>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label asp-for="TaxRate">Tax Rate (%)</label>
-                    <input asp-for="TaxRate" class="form-control" type="number" step="0.1" min="0" max="100" />
-                    <span asp-validation-for="TaxRate" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="MinimumStock">Minimum Stock</label>
-                    <input asp-for="MinimumStock" class="form-control" type="number" min="0" />
-                    <span asp-validation-for="MinimumStock" class="text-danger"></span>
-                </div>
-            </div>
-
             <div class="form-group">
-                <label class="form-check" style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
-                    <input asp-for="IsActive" type="checkbox" style="width: 16px; height: 16px;" />
-                    <span>Active (available for sale)</span>
-                </label>
+                <label asp-for="ImageFile">Update Product Image</label>
+                <div class="image-upload-area" id="imageUploadArea" onclick="document.getElementById('imageFileInput').click()">
+                    <input type="file" asp-for="ImageFile" id="imageFileInput" accept="image/*" style="display:none;" onchange="previewImage(this)" />
+                    <div id="imagePreview" style="@(string.IsNullOrEmpty(Model.ImageUrl) ? "display:none;" : "")">
+                        <img id="previewImg" src="@(Model.ImageUrl ?? "")" alt="Preview" style="max-width:160px;max-height:120px;border-radius:8px;" />
+                        <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">Click to change</p>
+                    </div>
+                    <div id="imagePlaceholder" style="@(string.IsNullOrEmpty(Model.ImageUrl) ? "" : "display:none;")">
+                        <i class="fas fa-cloud-upload-alt" style="font-size:28px;color:var(--text-dim);margin-bottom:8px;"></i>
+                        <p style="font-size:13px;color:var(--text-muted);">Click to upload image</p>
+                        <p style="font-size:11px;color:var(--text-dim);">JPG, PNG, WEBP (max 5MB)</p>
+                    </div>
+                </div>
             </div>
 
             <div class="btn-group" style="margin-top: 24px;">
-                <button type="submit" class="btn btn-accent">
+                <button type="submit" class="btn btn-accent" data-loading="Updating product...">
                     <i class="fas fa-save"></i> Update Product
                 </button>
-                <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-outline">
+                <a asp-action="Index" class="btn btn-outline">
                     <i class="fas fa-times"></i> Cancel
                 </a>
             </div>
@@ -100,4 +95,17 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        function previewImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('previewImg').src = e.target.result;
+                    document.getElementById('imagePreview').style.display = 'block';
+                    document.getElementById('imagePlaceholder').style.display = 'none';
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 }

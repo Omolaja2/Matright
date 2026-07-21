@@ -1,0 +1,165 @@
+2026-07-20 12:48:35.249 +01:00 [INF] Starting PharMarket application
+2026-07-20 12:48:42.602 +01:00 [FTL] PharMarket terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\USER\Desktop\PharMarket\Program.cs:line 50
+[2026-07-20 12:51:19.110] [INF] Starting PharMarket application
+[2026-07-20 12:51:45.402] [WRN] Entity 'Supplier' has a global query filter defined and is the required end of a relationship with the entity 'Purchase'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-20 12:51:45.406] [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'PurchaseItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-20 12:51:45.407] [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'SaleItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-20 12:51:45.408] [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-20 12:51:53.049] [INF] PharMarket is ready on 
+[2026-07-20 12:52:00.960] [INF] HTTP GET / started. RequestId: 40618ed7-7a79-45d8-8755-8ce521e35ba6
+[2026-07-20 12:52:00.965] [WRN] Failed to determine the https port for redirect.
+[2026-07-20 12:52:04.681] [INF] HTTP GET / completed 302 in 3724ms. RequestId: 40618ed7-7a79-45d8-8755-8ce521e35ba6
+[2026-07-20 12:52:05.116] [INF] HTTP GET /Home started. RequestId: 42f89b1b-9d59-4bd4-b08c-ec69af550c3f
+[2026-07-20 12:52:12.367] [INF] HTTP GET /Home completed 200 in 7251ms. RequestId: 42f89b1b-9d59-4bd4-b08c-ec69af550c3f
+[2026-07-20 12:52:12.624] [INF] HTTP GET /js/app.js started. RequestId: 64b45ba5-2d96-4f58-a441-977b26106dbd
+[2026-07-20 12:52:12.649] [INF] HTTP GET /css/app.css started. RequestId: d95cab23-9483-4ba3-9356-c2a2393adc36
+[2026-07-20 12:52:12.768] [INF] HTTP GET /js/app.js completed 200 in 143ms. RequestId: 64b45ba5-2d96-4f58-a441-977b26106dbd
+[2026-07-20 12:52:12.768] [INF] HTTP GET /css/app.css completed 200 in 118ms. RequestId: d95cab23-9483-4ba3-9356-c2a2393adc36
+[2026-07-20 12:52:23.450] [INF] HTTP GET /favicon.ico started. RequestId: 5944d5c4-cef7-44ef-b950-9cdbade83285
+[2026-07-20 12:52:23.501] [INF] HTTP GET /favicon.ico completed 200 in 51ms. RequestId: 5944d5c4-cef7-44ef-b950-9cdbade83285
+[2026-07-20 12:52:25.380] [INF] HTTP POST /Account/Logout started. RequestId: 38a79097-7bc3-4428-b82e-cf276583a916
+[2026-07-20 12:52:25.528] [INF] HTTP POST /Account/Logout completed 302 in 147ms. RequestId: 38a79097-7bc3-4428-b82e-cf276583a916
+[2026-07-20 12:52:25.559] [INF] HTTP GET /Account/Login started. RequestId: f61bb5c9-4700-4482-bbfb-e310ad7c721a
+[2026-07-20 12:52:25.853] [INF] HTTP GET /Account/Login completed 200 in 294ms. RequestId: f61bb5c9-4700-4482-bbfb-e310ad7c721a
+[2026-07-20 12:52:34.088] [INF] HTTP GET / started. RequestId: 73484b49-bd1e-42a6-a266-b6c0b0b5988f
+[2026-07-20 12:52:36.384] [INF] HTTP GET / completed 200 in 2295ms. RequestId: 73484b49-bd1e-42a6-a266-b6c0b0b5988f
+[2026-07-20 12:52:36.401] [INF] HTTP GET /css/templatemo-catalyst-style.css started. RequestId: 80bdc204-0719-4006-ae6f-5db1d0fe72be
+[2026-07-20 12:52:36.402] [INF] HTTP GET /js/templatemo-catalyst-script.js started. RequestId: 80a12fb1-aa76-44c2-8c48-412f0336ce38
+[2026-07-20 12:52:36.492] [INF] HTTP GET /js/templatemo-catalyst-script.js completed 200 in 89ms. RequestId: 80a12fb1-aa76-44c2-8c48-412f0336ce38
+[2026-07-20 12:52:36.492] [INF] HTTP GET /css/templatemo-catalyst-style.css completed 200 in 90ms. RequestId: 80bdc204-0719-4006-ae6f-5db1d0fe72be
+[2026-07-20 12:52:41.603] [INF] HTTP GET /Account/Login started. RequestId: da5aeac8-4679-4047-abcd-abee68921998
+[2026-07-20 12:52:41.608] [INF] HTTP GET /Account/Login completed 200 in 5ms. RequestId: da5aeac8-4679-4047-abcd-abee68921998
+[2026-07-20 12:52:43.359] [INF] HTTP POST /Account/Login started. RequestId: be44e862-aaee-4c7f-8c5d-c51dc1bc194e
+[2026-07-20 12:52:45.405] [INF] HTTP POST /Account/Login completed 302 in 2045ms. RequestId: be44e862-aaee-4c7f-8c5d-c51dc1bc194e
+[2026-07-20 12:52:45.410] [INF] HTTP GET /Home started. RequestId: aa368058-efef-4b47-ae94-57513de9f65f
+[2026-07-20 12:52:45.438] [INF] HTTP GET /Home completed 200 in 27ms. RequestId: aa368058-efef-4b47-ae94-57513de9f65f
+[2026-07-20 12:52:52.080] [INF] HTTP GET /Products started. RequestId: 4cac546e-c2cf-41c4-8e5f-39ade99c040c
+[2026-07-20 12:52:52.886] [INF] HTTP GET /Products completed 200 in 805ms. RequestId: 4cac546e-c2cf-41c4-8e5f-39ade99c040c
+[2026-07-20 12:52:57.267] [INF] HTTP GET /Products/Details/1 started. RequestId: 5966da95-02e9-41ec-90ab-7327779bd882
+[2026-07-20 12:52:57.553] [INF] HTTP GET /Products/Details/1 completed 200 in 285ms. RequestId: 5966da95-02e9-41ec-90ab-7327779bd882
+[2026-07-20 12:53:01.958] [INF] HTTP GET /Products started. RequestId: 5f96d697-8048-41ef-be00-0d080af30e39
+[2026-07-20 12:53:01.981] [INF] HTTP GET /Products completed 200 in 23ms. RequestId: 5f96d697-8048-41ef-be00-0d080af30e39
+[2026-07-20 12:53:04.302] [INF] HTTP GET /Products/Create started. RequestId: 7632ed19-6f97-4a24-a585-79c1cff4761a
+[2026-07-20 12:53:04.543] [INF] HTTP GET /Products/Create completed 200 in 241ms. RequestId: 7632ed19-6f97-4a24-a585-79c1cff4761a
+[2026-07-20 12:53:04.567] [INF] HTTP GET /lib/jquery-validation/dist/jquery.validate.min.js started. RequestId: f2850f1b-95ab-4b4a-9d23-6d432cf775a5
+[2026-07-20 12:53:04.572] [INF] HTTP GET /lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js started. RequestId: 47ef6071-1a1d-4bce-947e-8ae494e96f43
+[2026-07-20 12:53:06.074] [INF] HTTP GET /lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js completed 200 in 1502ms. RequestId: 47ef6071-1a1d-4bce-947e-8ae494e96f43
+[2026-07-20 12:53:06.475] [INF] HTTP GET /lib/jquery-validation/dist/jquery.validate.min.js completed 200 in 1908ms. RequestId: f2850f1b-95ab-4b4a-9d23-6d432cf775a5
+[2026-07-20 12:54:12.850] [INF] HTTP POST /Products/Create started. RequestId: f77323aa-f811-4146-85c1-f3089484bd5a
+[2026-07-20 12:54:14.579] [ERR] Failed executing DbCommand (645ms) [Parameters=[@p0='?' (Size = 100), @p1='?' (DbType = Int32), @p2='?' (DbType = Decimal), @p3='?' (DbType = DateTime), @p4='?' (Size = 1000), @p5='?' (DbType = DateTime), @p6='?' (Size = 500), @p7='?' (DbType = Boolean), @p8='?' (DbType = Boolean), @p9='?' (DbType = Int32), @p10='?' (Size = 200), @p11='?' (DbType = Decimal), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32), @p14='?' (DbType = Decimal), @p15='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Products` (`Barcode`, `CategoryId`, `CostPrice`, `CreatedAt`, `Description`, `ExpirationDate`, `ImageUrl`, `IsActive`, `IsDeleted`, `MinimumStock`, `Name`, `SalesPrice`, `StoreId`, `SupplierId`, `TaxRate`, `UpdatedAt`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+SELECT `Id`
+FROM `Products`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+[2026-07-20 12:54:19.220] [ERR] An exception occurred in the database while saving changes for context type 'PharMarket.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Duplicate entry '394068439093' for key 'products.IX_Products_Barcode'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 1081
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 131
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 487
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Duplicate entry '394068439093' for key 'products.IX_Products_Barcode'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 1081
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 131
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 487
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[2026-07-20 12:54:19.713] [INF] HTTP POST /Products/Create completed 200 in 6862ms. RequestId: f77323aa-f811-4146-85c1-f3089484bd5a
+[2026-07-20 12:54:19.714] [ERR] An unhandled exception occurred. Request: POST /Products/Create
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Duplicate entry '394068439093' for key 'products.IX_Products_Barcode'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 1081
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 131
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 487
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at PharMarket.Services.ProductService.CreateProductAsync(ProductViewModel model, Int32 storeId) in C:\Users\USER\Desktop\PharMarket\Services\ProductService.cs:line 106
+   at PharMarket.Controllers.ProductsController.Create(ProductViewModel model) in C:\Users\USER\Desktop\PharMarket\Controllers\ProductsController.cs:line 88
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at PharMarket.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\USER\Desktop\PharMarket\Middleware\RequestLoggingMiddleware.cs:line 28
+   at PharMarket.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\USER\Desktop\PharMarket\Middleware\GlobalExceptionMiddleware.cs:line 22
+[2026-07-20 12:55:32.625] [INF] HTTP GET /Products/Create started. RequestId: c31a04ea-5438-4053-8426-1b046c16f25c
+[2026-07-20 12:55:32.677] [INF] HTTP GET /Products/Create completed 200 in 51ms. RequestId: c31a04ea-5438-4053-8426-1b046c16f25c
+[2026-07-20 12:57:56.810] [INF] HTTP GET /Products/Create started. RequestId: fc092eca-0d54-41c1-8bc6-a1e27bff2a8c
+[2026-07-20 12:57:56.902] [INF] HTTP GET /Products/Create completed 200 in 91ms. RequestId: fc092eca-0d54-41c1-8bc6-a1e27bff2a8c
+[2026-07-20 12:58:15.010] [INF] HTTP GET /Products/Create started. RequestId: b5b79959-8f55-4483-9055-010439d60d7a
+[2026-07-20 12:58:15.340] [INF] HTTP GET /Products/Create completed 200 in 329ms. RequestId: b5b79959-8f55-4483-9055-010439d60d7a
+[2026-07-20 12:58:42.360] [INF] HTTP GET /Products/Create started. RequestId: 8b37b52e-28bf-4c9c-9664-522ce96cd618
+[2026-07-20 12:58:42.429] [INF] HTTP GET /Products/Create completed 200 in 69ms. RequestId: 8b37b52e-28bf-4c9c-9664-522ce96cd618
+[2026-07-20 13:00:05.492] [INF] HTTP GET /Products/Create started. RequestId: 6080e9fd-ace0-409a-9fa5-ea8769aec6cd
+[2026-07-20 13:00:05.654] [INF] HTTP GET /Products/Create completed 200 in 161ms. RequestId: 6080e9fd-ace0-409a-9fa5-ea8769aec6cd
+[2026-07-20 13:01:28.832] [INF] HTTP GET /css/app.css started. RequestId: ab28a6ec-c923-4de4-a5f9-20434b27f487
+[2026-07-20 13:01:30.003] [INF] HTTP GET /css/app.css completed 200 in 1170ms. RequestId: ab28a6ec-c923-4de4-a5f9-20434b27f487
+[2026-07-20 13:04:19.824] [INF] HTTP GET /css/app.css started. RequestId: ee833200-ead6-475d-9129-dd45fb82052a
+[2026-07-20 13:04:19.825] [INF] HTTP GET /css/app.css completed 200 in 1ms. RequestId: ee833200-ead6-475d-9129-dd45fb82052a

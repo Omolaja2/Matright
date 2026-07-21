@@ -101,7 +101,7 @@ namespace PharMarket.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 7, 17, 0, 50, 14, 437, DateTimeKind.Utc).AddTicks(7651),
+                            CreatedAt = new DateTime(2026, 7, 20, 10, 51, 45, 502, DateTimeKind.Utc).AddTicks(1007),
                             Description = "General products",
                             IsDeleted = false,
                             Name = "General",
@@ -110,7 +110,7 @@ namespace PharMarket.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 7, 17, 0, 50, 14, 437, DateTimeKind.Utc).AddTicks(7656),
+                            CreatedAt = new DateTime(2026, 7, 20, 10, 51, 45, 502, DateTimeKind.Utc).AddTicks(1013),
                             Description = "Electronic devices and accessories",
                             IsDeleted = false,
                             Name = "Electronics",
@@ -119,7 +119,7 @@ namespace PharMarket.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 7, 17, 0, 50, 14, 437, DateTimeKind.Utc).AddTicks(7659),
+                            CreatedAt = new DateTime(2026, 7, 20, 10, 51, 45, 502, DateTimeKind.Utc).AddTicks(1016),
                             Description = "Food and grocery items",
                             IsDeleted = false,
                             Name = "Groceries",
@@ -128,7 +128,7 @@ namespace PharMarket.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 7, 17, 0, 50, 14, 437, DateTimeKind.Utc).AddTicks(7660),
+                            CreatedAt = new DateTime(2026, 7, 20, 10, 51, 45, 502, DateTimeKind.Utc).AddTicks(1018),
                             Description = "Household essentials",
                             IsDeleted = false,
                             Name = "Household",
@@ -137,7 +137,7 @@ namespace PharMarket.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2026, 7, 17, 0, 50, 14, 437, DateTimeKind.Utc).AddTicks(7662),
+                            CreatedAt = new DateTime(2026, 7, 20, 10, 51, 45, 502, DateTimeKind.Utc).AddTicks(1019),
                             Description = "Personal hygiene products",
                             IsDeleted = false,
                             Name = "Personal Care",
@@ -269,6 +269,9 @@ namespace PharMarket.Migrations
                     b.Property<string>("Description")
                         .HasMaxLength(1000)
                         .HasColumnType("varchar(1000)");
+
+                    b.Property<DateTime?>("ExpirationDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("ImageUrl")
                         .HasMaxLength(500)
@@ -620,7 +623,7 @@ namespace PharMarket.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 7, 17, 0, 50, 14, 436, DateTimeKind.Utc).AddTicks(6623),
+                            CreatedAt = new DateTime(2026, 7, 20, 10, 51, 45, 501, DateTimeKind.Utc).AddTicks(610),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Default Store"
@@ -716,7 +719,7 @@ namespace PharMarket.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 7, 17, 0, 50, 14, 438, DateTimeKind.Utc).AddTicks(504),
+                            CreatedAt = new DateTime(2026, 7, 20, 10, 51, 45, 502, DateTimeKind.Utc).AddTicks(3882),
                             IsDeleted = false,
                             IsEnabled = true,
                             StoreId = 1,

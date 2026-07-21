@@ -1,5 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-using PharMarket.Data;
 using PharMarket.Services;
 
 namespace PharMarket.Extensions;
@@ -14,6 +12,8 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IFinanceService, FinanceService>();
         services.AddScoped<IReportsService, ReportsService>();
         services.AddScoped<IEmailService, EmailService>();
+        services.AddScoped<IImageService, ImageService>();
+        services.AddScoped<IQrCodeService, QrCodeService>();
 
         return services;
     }

@@ -80,6 +80,9 @@ public class AccountController : BaseController
         if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
             return Redirect(returnUrl);
 
+        if (user.Role == "Apprentice")
+            return RedirectToAction("Index", "Apprentice");
+
         return RedirectToAction("Index", "Home");
     }
 

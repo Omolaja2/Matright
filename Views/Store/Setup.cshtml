@@ -225,5 +225,15 @@
             </form>
         </div>
     </div>
+
+    <div id="loadingModal" class="loading-modal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.45);z-index:9999;align-items:center;justify-content:center;backdrop-filter:blur(2px);">
+        <div style="background:#fff;padding:36px 40px;border-radius:16px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.2);min-width:180px;">
+            <div style="width:40px;height:40px;border:3px solid #e5e5e5;border-top-color:var(--primary);border-radius:50%;animation:spin 0.7s linear infinite;margin:0 auto 14px;"></div>
+            <p id="loadingText" style="font-size:14px;font-weight:600;color:var(--text);">Setting up...</p>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('form').forEach(function(f){f.addEventListener('submit',function(){var b=f.querySelector('button[type=submit]');if(b)b.disabled=true;var m=document.getElementById('loadingModal');m.style.display='flex';document.getElementById('loadingText').textContent='Setting up...'})});
+    </script>
 </body>
 </html>

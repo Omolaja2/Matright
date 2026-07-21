@@ -1,0 +1,309 @@
+2026-07-20 13:17:27.167 +01:00 [INF] Starting PharMarket application
+2026-07-20 13:17:50.113 +01:00 [WRN] Entity 'Supplier' has a global query filter defined and is the required end of a relationship with the entity 'Purchase'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-20 13:17:50.219 +01:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'PurchaseItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-20 13:17:50.220 +01:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'SaleItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-20 13:17:50.220 +01:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-20 13:18:23.251 +01:00 [INF] PharMarket is ready on 
+2026-07-20 13:18:40.120 +01:00 [INF] HTTP GET / started. RequestId: 20bab945-37dc-4ffa-a2bd-b53eb8c4c53c
+2026-07-20 13:18:40.138 +01:00 [WRN] Failed to determine the https port for redirect.
+2026-07-20 13:18:40.740 +01:00 [INF] HTTP GET / completed 302 in 622ms. RequestId: 20bab945-37dc-4ffa-a2bd-b53eb8c4c53c
+2026-07-20 13:18:40.815 +01:00 [INF] HTTP GET /Home started. RequestId: 53e5235b-122c-4193-8ef2-af85d43d8879
+2026-07-20 13:18:42.900 +01:00 [INF] HTTP GET /Home completed 200 in 2085ms. RequestId: 53e5235b-122c-4193-8ef2-af85d43d8879
+2026-07-20 13:18:42.938 +01:00 [INF] HTTP GET /js/app.js started. RequestId: 0859fc4e-5db0-4f00-a4ad-b15ed1314d61
+2026-07-20 13:18:42.974 +01:00 [INF] HTTP GET /css/app.css started. RequestId: 368bbb91-6a24-48c8-a829-38689659769b
+2026-07-20 13:18:42.984 +01:00 [INF] HTTP GET /css/app.css completed 200 in 9ms. RequestId: 368bbb91-6a24-48c8-a829-38689659769b
+2026-07-20 13:18:42.984 +01:00 [INF] HTTP GET /js/app.js completed 200 in 45ms. RequestId: 0859fc4e-5db0-4f00-a4ad-b15ed1314d61
+2026-07-20 13:18:43.301 +01:00 [INF] HTTP GET /favicon.ico started. RequestId: b7f5fc2b-bb2a-4677-89ff-1d4d8c70d978
+2026-07-20 13:18:43.325 +01:00 [INF] HTTP GET /favicon.ico completed 200 in 23ms. RequestId: b7f5fc2b-bb2a-4677-89ff-1d4d8c70d978
+2026-07-20 13:18:53.268 +01:00 [INF] HTTP GET /Products started. RequestId: f1d75ea7-4111-428d-bded-39704470931b
+2026-07-20 13:18:54.629 +01:00 [INF] HTTP GET /Products completed 200 in 1361ms. RequestId: f1d75ea7-4111-428d-bded-39704470931b
+2026-07-20 13:19:01.768 +01:00 [INF] HTTP GET /Products/Create started. RequestId: 8091037c-31d1-4a51-b62d-95d17e471b2e
+2026-07-20 13:19:01.921 +01:00 [INF] HTTP GET /Products/Create completed 200 in 152ms. RequestId: 8091037c-31d1-4a51-b62d-95d17e471b2e
+2026-07-20 13:19:01.944 +01:00 [INF] HTTP GET /lib/jquery-validation/dist/jquery.validate.min.js started. RequestId: 49e74541-4ccc-42aa-9f4e-8c9ebd4b1512
+2026-07-20 13:19:01.946 +01:00 [INF] HTTP GET /lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js started. RequestId: 43a2eb2c-2fa8-4fc6-9656-bc830a2d72be
+2026-07-20 13:19:01.965 +01:00 [INF] HTTP GET /lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js completed 200 in 19ms. RequestId: 43a2eb2c-2fa8-4fc6-9656-bc830a2d72be
+2026-07-20 13:19:02.000 +01:00 [INF] HTTP GET /lib/jquery-validation/dist/jquery.validate.min.js completed 200 in 56ms. RequestId: 49e74541-4ccc-42aa-9f4e-8c9ebd4b1512
+2026-07-20 13:19:37.204 +01:00 [INF] HTTP POST /Products/Create started. RequestId: f1455092-cb8e-4bb7-8b54-0a1f86090d0c
+2026-07-20 13:19:40.609 +01:00 [INF] HTTP POST /Products/Create completed 302 in 3404ms. RequestId: f1455092-cb8e-4bb7-8b54-0a1f86090d0c
+2026-07-20 13:19:40.618 +01:00 [INF] HTTP GET /Products/QrCode/4 started. RequestId: 65714fbf-fef3-4183-a566-5a0d2bcde4bc
+2026-07-20 13:19:40.741 +01:00 [INF] HTTP GET /Products/QrCode/4 completed 200 in 122ms. RequestId: 65714fbf-fef3-4183-a566-5a0d2bcde4bc
+2026-07-20 13:19:40.863 +01:00 [INF] HTTP GET /uploads/qrcodes/2/product_4.png started. RequestId: c9395454-4889-4e28-b973-1403bdac6497
+2026-07-20 13:19:40.878 +01:00 [INF] HTTP GET /uploads/qrcodes/2/product_4.png completed 200 in 14ms. RequestId: c9395454-4889-4e28-b973-1403bdac6497
+2026-07-20 13:19:51.349 +01:00 [INF] HTTP GET /Products/QrCode/4 started. RequestId: cf950de8-f95e-4d61-b01c-89a31f3a5d78
+2026-07-20 13:19:51.359 +01:00 [INF] HTTP GET /Products/QrCode/4 completed 200 in 9ms. RequestId: cf950de8-f95e-4d61-b01c-89a31f3a5d78
+2026-07-20 13:19:51.391 +01:00 [INF] HTTP GET /uploads/qrcodes/2/product_4.png started. RequestId: 69cb39f4-740a-4d4b-8ebb-ea907cd91b79
+2026-07-20 13:19:51.396 +01:00 [INF] HTTP GET /uploads/qrcodes/2/product_4.png completed 304 in 4ms. RequestId: 69cb39f4-740a-4d4b-8ebb-ea907cd91b79
+2026-07-20 13:20:33.918 +01:00 [INF] HTTP GET /Products started. RequestId: d43c42c3-1bb6-4541-9b77-ae9c3a9688aa
+2026-07-20 13:20:33.983 +01:00 [INF] HTTP GET /Products completed 200 in 65ms. RequestId: d43c42c3-1bb6-4541-9b77-ae9c3a9688aa
+2026-07-20 13:20:34.003 +01:00 [INF] HTTP GET /css/app.css started. RequestId: 9dc13430-06a9-4a22-b7b9-c3a3d2028c4f
+2026-07-20 13:20:34.005 +01:00 [INF] HTTP GET /css/app.css completed 304 in 2ms. RequestId: 9dc13430-06a9-4a22-b7b9-c3a3d2028c4f
+2026-07-20 13:20:37.126 +01:00 [INF] HTTP GET /Products/Edit/4 started. RequestId: 04f7bfd6-66d8-40a0-84c9-d5f7b7810bf6
+2026-07-20 13:20:37.208 +01:00 [INF] HTTP GET /Products/Edit/4 completed 200 in 82ms. RequestId: 04f7bfd6-66d8-40a0-84c9-d5f7b7810bf6
+2026-07-20 13:20:41.171 +01:00 [INF] HTTP GET /Products started. RequestId: ce921fdd-4ade-497b-84ba-a4e7030e25c4
+2026-07-20 13:20:41.190 +01:00 [INF] HTTP GET /Products completed 200 in 18ms. RequestId: ce921fdd-4ade-497b-84ba-a4e7030e25c4
+2026-07-20 13:20:46.258 +01:00 [INF] HTTP GET /Products/Search started. RequestId: b0926e8a-dcf2-4af3-9dda-aed192a9816f
+2026-07-20 13:20:46.478 +01:00 [INF] HTTP GET /Products/Search completed 200 in 220ms. RequestId: b0926e8a-dcf2-4af3-9dda-aed192a9816f
+2026-07-20 13:20:47.141 +01:00 [INF] HTTP GET /Products/Search started. RequestId: 22613835-fd8a-4707-a099-2c1125f5ddf1
+2026-07-20 13:20:47.148 +01:00 [INF] HTTP GET /Products/Search completed 200 in 6ms. RequestId: 22613835-fd8a-4707-a099-2c1125f5ddf1
+2026-07-20 13:20:47.428 +01:00 [INF] HTTP GET /Products/Search started. RequestId: 76918cae-419e-4b34-be64-cc7fe4f296d2
+2026-07-20 13:20:47.434 +01:00 [INF] HTTP GET /Products/Search completed 200 in 6ms. RequestId: 76918cae-419e-4b34-be64-cc7fe4f296d2
+2026-07-20 13:20:48.838 +01:00 [INF] HTTP GET /Products started. RequestId: ca6c6f91-153d-4ed6-a2c5-5075c153d349
+2026-07-20 13:20:48.868 +01:00 [INF] HTTP GET /Products completed 200 in 29ms. RequestId: ca6c6f91-153d-4ed6-a2c5-5075c153d349
+2026-07-20 13:20:53.122 +01:00 [INF] HTTP GET /Products/Create started. RequestId: a6558830-1e4d-43c0-b5df-3eb15a3af4ca
+2026-07-20 13:20:53.136 +01:00 [INF] HTTP GET /Products/Create completed 200 in 13ms. RequestId: a6558830-1e4d-43c0-b5df-3eb15a3af4ca
+2026-07-20 13:21:26.441 +01:00 [INF] HTTP POST /Products/Create started. RequestId: e4f87ece-76d9-453a-8777-9dca124d94b4
+2026-07-20 13:21:27.325 +01:00 [INF] HTTP POST /Products/Create completed 302 in 884ms. RequestId: e4f87ece-76d9-453a-8777-9dca124d94b4
+2026-07-20 13:21:27.342 +01:00 [INF] HTTP GET /Products/QrCode/5 started. RequestId: c1c7be08-6918-4e38-863d-512c455ae296
+2026-07-20 13:21:27.348 +01:00 [INF] HTTP GET /Products/QrCode/5 completed 200 in 6ms. RequestId: c1c7be08-6918-4e38-863d-512c455ae296
+2026-07-20 13:21:27.460 +01:00 [INF] HTTP GET /uploads/qrcodes/2/product_5.png started. RequestId: 7b0e6bbc-7999-44f0-84bc-8202d8288830
+2026-07-20 13:21:27.461 +01:00 [INF] HTTP GET /uploads/qrcodes/2/product_5.png completed 200 in 1ms. RequestId: 7b0e6bbc-7999-44f0-84bc-8202d8288830
+2026-07-20 13:21:29.321 +01:00 [INF] HTTP GET /Products started. RequestId: f203c119-047a-483d-9265-3efd7763a531
+2026-07-20 13:21:29.346 +01:00 [INF] HTTP GET /Products completed 200 in 25ms. RequestId: f203c119-047a-483d-9265-3efd7763a531
+2026-07-20 13:21:32.002 +01:00 [INF] HTTP GET /Users started. RequestId: 8274311f-e59e-456a-bc95-59aa76b5a705
+2026-07-20 13:21:32.313 +01:00 [INF] HTTP GET /Users completed 200 in 310ms. RequestId: 8274311f-e59e-456a-bc95-59aa76b5a705
+2026-07-20 13:21:34.197 +01:00 [INF] HTTP POST /Account/Logout started. RequestId: 73a5212c-54af-4d80-aa40-a66f646c6f88
+2026-07-20 13:21:34.237 +01:00 [INF] HTTP POST /Account/Logout completed 302 in 39ms. RequestId: 73a5212c-54af-4d80-aa40-a66f646c6f88
+2026-07-20 13:21:34.256 +01:00 [INF] HTTP GET /Account/Login started. RequestId: 3fcadf44-6981-44ed-bfd4-ad89c5c36023
+2026-07-20 13:21:34.355 +01:00 [INF] HTTP GET /Account/Login completed 200 in 99ms. RequestId: 3fcadf44-6981-44ed-bfd4-ad89c5c36023
+2026-07-20 13:21:37.751 +01:00 [INF] HTTP POST /Account/Login started. RequestId: 23ad081a-d519-4e24-8f2e-dfe16142e6cd
+2026-07-20 13:21:38.069 +01:00 [INF] HTTP POST /Account/Login completed 302 in 318ms. RequestId: 23ad081a-d519-4e24-8f2e-dfe16142e6cd
+2026-07-20 13:21:38.074 +01:00 [INF] HTTP GET /Home started. RequestId: 4dc98840-aef2-4827-9a1b-352bad416592
+2026-07-20 13:21:38.116 +01:00 [INF] HTTP GET /Home completed 200 in 42ms. RequestId: 4dc98840-aef2-4827-9a1b-352bad416592
+2026-07-20 13:21:42.260 +01:00 [INF] HTTP GET /Apprentice started. RequestId: df7d4f24-93a4-48b9-b94f-077f9a4fca9c
+2026-07-20 13:21:42.307 +01:00 [INF] HTTP GET /Apprentice completed 200 in 46ms. RequestId: df7d4f24-93a4-48b9-b94f-077f9a4fca9c
+2026-07-20 13:21:43.906 +01:00 [INF] HTTP GET /Apprentice started. RequestId: 9b4afdb5-666f-4ddf-ac88-97eb096440a0
+2026-07-20 13:21:43.916 +01:00 [INF] HTTP GET /Apprentice completed 200 in 9ms. RequestId: 9b4afdb5-666f-4ddf-ac88-97eb096440a0
+2026-07-20 13:21:46.415 +01:00 [INF] HTTP GET /Home started. RequestId: 701d4d8d-319c-495b-86bd-93630e219941
+2026-07-20 13:21:46.441 +01:00 [INF] HTTP GET /Home completed 200 in 25ms. RequestId: 701d4d8d-319c-495b-86bd-93630e219941
+2026-07-20 13:21:50.562 +01:00 [INF] HTTP GET /Apprentice started. RequestId: d0f7a9f8-a837-422f-84c5-1b41b325c91c
+2026-07-20 13:21:50.572 +01:00 [INF] HTTP GET /Apprentice completed 200 in 9ms. RequestId: d0f7a9f8-a837-422f-84c5-1b41b325c91c
+2026-07-20 13:21:53.028 +01:00 [INF] HTTP GET /Home started. RequestId: 8950ed13-5b7a-4e7e-a087-f13ee7f65212
+2026-07-20 13:21:53.056 +01:00 [INF] HTTP GET /Home completed 200 in 28ms. RequestId: 8950ed13-5b7a-4e7e-a087-f13ee7f65212
+2026-07-20 13:21:59.088 +01:00 [INF] HTTP GET /Sales started. RequestId: cfc95ed5-0aa6-4b46-ab6c-8366ffee1a9d
+2026-07-20 13:21:59.257 +01:00 [INF] HTTP GET /Sales completed 200 in 169ms. RequestId: cfc95ed5-0aa6-4b46-ab6c-8366ffee1a9d
+2026-07-20 13:22:10.545 +01:00 [INF] HTTP GET /Sales/DailySummary started. RequestId: cb17222c-98b1-4520-bc8c-bb30281346b8
+2026-07-20 13:22:10.605 +01:00 [INF] HTTP GET /Sales/DailySummary completed 200 in 59ms. RequestId: cb17222c-98b1-4520-bc8c-bb30281346b8
+2026-07-20 13:22:10.620 +01:00 [INF] HTTP GET /css/app.css started. RequestId: e4871422-3e74-41d4-ba58-3bd5a7f7effe
+2026-07-20 13:22:10.626 +01:00 [INF] HTTP GET /css/app.css completed 304 in 5ms. RequestId: e4871422-3e74-41d4-ba58-3bd5a7f7effe
+2026-07-20 13:22:12.409 +01:00 [INF] HTTP GET /Sales started. RequestId: 89f8c6d7-d97e-4a72-98e1-d0bfa903e2c8
+2026-07-20 13:22:12.419 +01:00 [INF] HTTP GET /Sales completed 200 in 10ms. RequestId: 89f8c6d7-d97e-4a72-98e1-d0bfa903e2c8
+2026-07-20 13:22:15.268 +01:00 [INF] HTTP GET /Apprentice started. RequestId: eac4139d-f710-433a-909d-21ce6cde6d42
+2026-07-20 13:22:15.276 +01:00 [INF] HTTP GET /Apprentice completed 200 in 7ms. RequestId: eac4139d-f710-433a-909d-21ce6cde6d42
+2026-07-20 13:22:18.334 +01:00 [INF] HTTP POST /Apprentice/ReduceStock started. RequestId: 38846d43-9f99-43e9-b893-f348c6cbf110
+2026-07-20 13:22:18.652 +01:00 [INF] HTTP POST /Apprentice/ReduceStock completed 200 in 318ms. RequestId: 38846d43-9f99-43e9-b893-f348c6cbf110
+2026-07-20 13:22:22.990 +01:00 [INF] HTTP POST /Apprentice/ReduceStock started. RequestId: aa040ac5-ccb2-4f78-b49b-bf17f3ad360c
+2026-07-20 13:22:23.133 +01:00 [INF] HTTP POST /Apprentice/ReduceStock completed 200 in 143ms. RequestId: aa040ac5-ccb2-4f78-b49b-bf17f3ad360c
+2026-07-20 13:22:24.918 +01:00 [INF] HTTP GET /Apprentice started. RequestId: ff1a04d5-80ba-4f5d-ae13-bb81453e1aa8
+2026-07-20 13:22:24.924 +01:00 [INF] HTTP GET /Apprentice completed 200 in 6ms. RequestId: ff1a04d5-80ba-4f5d-ae13-bb81453e1aa8
+2026-07-20 13:22:28.160 +01:00 [INF] HTTP GET /Sales started. RequestId: e670d559-f58d-4216-9457-e5f4e3a6ca9e
+2026-07-20 13:22:28.168 +01:00 [INF] HTTP GET /Sales completed 200 in 7ms. RequestId: e670d559-f58d-4216-9457-e5f4e3a6ca9e
+2026-07-20 13:22:30.596 +01:00 [INF] HTTP GET /Sales started. RequestId: 867fb533-8304-4db6-a316-2542ffc60e92
+2026-07-20 13:22:30.605 +01:00 [INF] HTTP GET /Sales completed 200 in 9ms. RequestId: 867fb533-8304-4db6-a316-2542ffc60e92
+2026-07-20 13:22:32.509 +01:00 [INF] HTTP GET /Sales started. RequestId: e27d3af4-14bc-472f-b806-f6bab3b41a49
+2026-07-20 13:22:32.515 +01:00 [INF] HTTP GET /Sales completed 200 in 6ms. RequestId: e27d3af4-14bc-472f-b806-f6bab3b41a49
+2026-07-20 13:22:34.481 +01:00 [INF] HTTP GET /Sales/POS started. RequestId: b68ef47b-d3c5-4753-a983-4c129fd7e725
+2026-07-20 13:22:34.600 +01:00 [INF] HTTP GET /Sales/POS completed 200 in 118ms. RequestId: b68ef47b-d3c5-4753-a983-4c129fd7e725
+2026-07-20 13:22:39.090 +01:00 [INF] HTTP GET /Products/Search started. RequestId: e7162700-1d94-4c51-9c71-5bf9f4698ae6
+2026-07-20 13:22:39.105 +01:00 [INF] HTTP GET /Products/Search completed 200 in 14ms. RequestId: e7162700-1d94-4c51-9c71-5bf9f4698ae6
+2026-07-20 13:23:13.835 +01:00 [INF] HTTP POST /Sales/Create started. RequestId: 4df57520-aec1-4aaf-929e-4d31684cad49
+2026-07-20 13:23:14.954 +01:00 [INF] HTTP POST /Sales/Create completed 302 in 1119ms. RequestId: 4df57520-aec1-4aaf-929e-4d31684cad49
+2026-07-20 13:23:14.960 +01:00 [INF] HTTP GET /Sales/Details/1 started. RequestId: 6e6b1100-6f66-4b4f-b22a-529740eba80e
+2026-07-20 13:23:15.272 +01:00 [INF] HTTP GET /Sales/Details/1 completed 200 in 311ms. RequestId: 6e6b1100-6f66-4b4f-b22a-529740eba80e
+2026-07-20 13:23:23.187 +01:00 [INF] HTTP GET /Apprentice started. RequestId: c30a7cde-5027-47f6-96ef-b40d099c2b86
+2026-07-20 13:23:23.193 +01:00 [INF] HTTP GET /Apprentice completed 200 in 6ms. RequestId: c30a7cde-5027-47f6-96ef-b40d099c2b86
+2026-07-20 13:23:24.377 +01:00 [INF] HTTP GET /Apprentice started. RequestId: eb6a49a4-6f5e-4c23-afa3-3a6b2462faa3
+2026-07-20 13:23:24.386 +01:00 [INF] HTTP GET /Apprentice completed 200 in 9ms. RequestId: eb6a49a4-6f5e-4c23-afa3-3a6b2462faa3
+2026-07-20 13:23:31.337 +01:00 [INF] HTTP GET /Sales/Details/1 started. RequestId: b7243890-000d-4326-b7e9-e3b2b56e490a
+2026-07-20 13:23:31.345 +01:00 [INF] HTTP GET /Sales/Details/1 completed 200 in 8ms. RequestId: b7243890-000d-4326-b7e9-e3b2b56e490a
+2026-07-20 13:23:32.638 +01:00 [INF] HTTP GET /Sales/POS started. RequestId: 41268fda-e3f9-4821-9377-02b774ea7d3c
+2026-07-20 13:23:32.641 +01:00 [INF] HTTP GET /Sales/POS completed 200 in 3ms. RequestId: 41268fda-e3f9-4821-9377-02b774ea7d3c
+2026-07-20 13:23:33.683 +01:00 [INF] HTTP GET /Sales started. RequestId: 20a9a7ef-6e10-4acf-926b-0396de220084
+2026-07-20 13:23:33.705 +01:00 [INF] HTTP GET /Sales completed 200 in 21ms. RequestId: 20a9a7ef-6e10-4acf-926b-0396de220084
+2026-07-20 13:23:41.108 +01:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json started. RequestId: af102260-4540-4902-986e-cf2ccda2d57a
+2026-07-20 13:23:41.113 +01:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json completed 404 in 4ms. RequestId: af102260-4540-4902-986e-cf2ccda2d57a
+2026-07-20 13:24:30.820 +01:00 [INF] HTTP GET /Sales started. RequestId: 9a3bf28e-0b71-4a26-a01c-18ecc3dd80ee
+2026-07-20 13:24:30.829 +01:00 [INF] HTTP GET /Sales completed 200 in 8ms. RequestId: 9a3bf28e-0b71-4a26-a01c-18ecc3dd80ee
+2026-07-20 13:24:33.925 +01:00 [INF] HTTP POST /Account/Logout started. RequestId: 2e84c784-6915-4d38-961a-6b582bb9f9b4
+2026-07-20 13:24:33.928 +01:00 [INF] HTTP POST /Account/Logout completed 302 in 2ms. RequestId: 2e84c784-6915-4d38-961a-6b582bb9f9b4
+2026-07-20 13:24:33.933 +01:00 [INF] HTTP GET /Account/Login started. RequestId: 0409400f-9447-4c91-ac86-e81d425c48f1
+2026-07-20 13:24:33.936 +01:00 [INF] HTTP GET /Account/Login completed 200 in 2ms. RequestId: 0409400f-9447-4c91-ac86-e81d425c48f1
+2026-07-20 13:24:36.930 +01:00 [INF] HTTP POST /Account/Login started. RequestId: 71389567-46c9-4969-8fe5-c476f5ba5fdb
+2026-07-20 13:24:36.939 +01:00 [INF] HTTP POST /Account/Login completed 302 in 9ms. RequestId: 71389567-46c9-4969-8fe5-c476f5ba5fdb
+2026-07-20 13:24:36.948 +01:00 [INF] HTTP GET /Home started. RequestId: 22f3110f-9dc9-4c7c-8d29-a857329ca04c
+2026-07-20 13:24:37.009 +01:00 [INF] HTTP GET /Home completed 200 in 61ms. RequestId: 22f3110f-9dc9-4c7c-8d29-a857329ca04c
+2026-07-20 13:24:37.025 +01:00 [INF] HTTP GET /css/app.css started. RequestId: 9f7ae948-fe1e-40aa-ba53-2847f567ee2c
+2026-07-20 13:24:37.030 +01:00 [INF] HTTP GET /css/app.css completed 304 in 4ms. RequestId: 9f7ae948-fe1e-40aa-ba53-2847f567ee2c
+2026-07-20 13:24:42.466 +01:00 [INF] HTTP GET /Sales started. RequestId: 5d6f1747-7250-4d6a-8c05-7f71ee6ca5f1
+2026-07-20 13:24:42.473 +01:00 [INF] HTTP GET /Sales completed 200 in 6ms. RequestId: 5d6f1747-7250-4d6a-8c05-7f71ee6ca5f1
+2026-07-20 13:24:48.449 +01:00 [INF] HTTP GET /Sales/Details/INV-20260720-3574338D started. RequestId: e3a1d321-a707-4e25-a376-b9c60ff8bad8
+2026-07-20 13:24:48.610 +01:00 [INF] HTTP GET /Sales/Details/INV-20260720-3574338D completed 200 in 161ms. RequestId: e3a1d321-a707-4e25-a376-b9c60ff8bad8
+2026-07-20 13:24:48.611 +01:00 [ERR] An unhandled exception occurred. Request: GET /Sales/Details/INV-20260720-3574338D
+PharMarket.Exceptions.NotFoundException: Entity "Sale" (0) was not found.
+   at PharMarket.Controllers.SalesController.Details(Int32 id) in C:\Users\USER\Desktop\PharMarket\Controllers\SalesController.cs:line 63
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at PharMarket.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\USER\Desktop\PharMarket\Middleware\RequestLoggingMiddleware.cs:line 28
+   at PharMarket.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\USER\Desktop\PharMarket\Middleware\GlobalExceptionMiddleware.cs:line 22
+2026-07-20 13:24:51.856 +01:00 [INF] HTTP GET /Sales started. RequestId: 4a2fe3a6-ea1a-49ab-b93c-d8a2fc4f3729
+2026-07-20 13:24:51.863 +01:00 [INF] HTTP GET /Sales completed 200 in 6ms. RequestId: 4a2fe3a6-ea1a-49ab-b93c-d8a2fc4f3729
+2026-07-20 13:24:58.569 +01:00 [INF] HTTP GET /Sales/DailySummary started. RequestId: 4da9ddf0-8fbc-4afc-9ec3-34aa97f1f552
+2026-07-20 13:24:58.581 +01:00 [INF] HTTP GET /Sales/DailySummary completed 200 in 11ms. RequestId: 4da9ddf0-8fbc-4afc-9ec3-34aa97f1f552
+2026-07-20 13:25:12.413 +01:00 [INF] HTTP GET / started. RequestId: 8eec5ceb-b6b9-4ac2-ae51-0eb3ae93945e
+2026-07-20 13:25:12.415 +01:00 [INF] HTTP GET / completed 302 in 2ms. RequestId: 8eec5ceb-b6b9-4ac2-ae51-0eb3ae93945e
+2026-07-20 13:25:12.424 +01:00 [INF] HTTP GET /Home started. RequestId: 66410d0e-42c9-4662-96bd-138c8404a223
+2026-07-20 13:25:12.448 +01:00 [INF] HTTP GET /Home completed 200 in 25ms. RequestId: 66410d0e-42c9-4662-96bd-138c8404a223
+2026-07-20 13:25:21.250 +01:00 [INF] HTTP GET /Products started. RequestId: 7a947b69-f71f-484e-a9b3-cdd2196262dc
+2026-07-20 13:25:21.266 +01:00 [INF] HTTP GET /Products completed 200 in 16ms. RequestId: 7a947b69-f71f-484e-a9b3-cdd2196262dc
+2026-07-20 13:25:49.027 +01:00 [INF] HTTP GET /Apprentice started. RequestId: 14642ebc-a9c4-4822-bb65-6358aab824b1
+2026-07-20 13:25:49.035 +01:00 [INF] HTTP GET /Apprentice completed 200 in 8ms. RequestId: 14642ebc-a9c4-4822-bb65-6358aab824b1
+2026-07-20 13:25:52.213 +01:00 [INF] HTTP GET / started. RequestId: 20491a4d-856a-4cae-ae5b-3be1a7e55630
+2026-07-20 13:25:52.215 +01:00 [INF] HTTP GET / completed 302 in 2ms. RequestId: 20491a4d-856a-4cae-ae5b-3be1a7e55630
+2026-07-20 13:25:52.220 +01:00 [INF] HTTP GET /Home started. RequestId: e1823cb0-1ef9-4f3a-b174-9607be9abb53
+2026-07-20 13:25:52.242 +01:00 [INF] HTTP GET /Home completed 200 in 22ms. RequestId: e1823cb0-1ef9-4f3a-b174-9607be9abb53
+2026-07-20 13:25:58.603 +01:00 [INF] HTTP POST /Account/Logout started. RequestId: 192d5045-022e-4ef8-a54f-b1f7acbd7973
+2026-07-20 13:25:58.605 +01:00 [INF] HTTP POST /Account/Logout completed 302 in 1ms. RequestId: 192d5045-022e-4ef8-a54f-b1f7acbd7973
+2026-07-20 13:25:58.612 +01:00 [INF] HTTP GET /Account/Login started. RequestId: a63e1603-6484-43a8-aa17-4023b74528af
+2026-07-20 13:25:58.614 +01:00 [INF] HTTP GET /Account/Login completed 200 in 1ms. RequestId: a63e1603-6484-43a8-aa17-4023b74528af
+2026-07-20 13:26:02.375 +01:00 [INF] HTTP POST /Account/Login started. RequestId: cc00c642-7e16-4055-ac83-a1b871adb0f9
+2026-07-20 13:26:02.382 +01:00 [INF] HTTP POST /Account/Login completed 302 in 7ms. RequestId: cc00c642-7e16-4055-ac83-a1b871adb0f9
+2026-07-20 13:26:02.387 +01:00 [INF] HTTP GET /Home started. RequestId: e2d8df39-df54-40b0-bec6-034b7f409f21
+2026-07-20 13:26:02.410 +01:00 [INF] HTTP GET /Home completed 200 in 22ms. RequestId: e2d8df39-df54-40b0-bec6-034b7f409f21
+2026-07-20 13:26:07.940 +01:00 [INF] HTTP GET /Sales started. RequestId: 9f53bb5c-0387-4c21-b10a-77b9f294a15d
+2026-07-20 13:26:07.947 +01:00 [INF] HTTP GET /Sales completed 200 in 7ms. RequestId: 9f53bb5c-0387-4c21-b10a-77b9f294a15d
+2026-07-20 13:26:14.058 +01:00 [INF] HTTP GET /Apprentice started. RequestId: 4a52e6af-fd92-44d9-8e4a-64b03dff5c08
+2026-07-20 13:26:14.063 +01:00 [INF] HTTP GET /Apprentice completed 200 in 5ms. RequestId: 4a52e6af-fd92-44d9-8e4a-64b03dff5c08
+2026-07-20 13:26:15.148 +01:00 [INF] HTTP GET /Apprentice started. RequestId: 0a03c751-43f2-4b19-ad10-1f77552ee81a
+2026-07-20 13:26:15.158 +01:00 [INF] HTTP GET /Apprentice completed 200 in 9ms. RequestId: 0a03c751-43f2-4b19-ad10-1f77552ee81a
+2026-07-20 13:26:16.941 +01:00 [INF] HTTP GET /Sales started. RequestId: 50297815-ecfb-4951-b7b1-964a415df30b
+2026-07-20 13:26:16.947 +01:00 [INF] HTTP GET /Sales completed 200 in 6ms. RequestId: 50297815-ecfb-4951-b7b1-964a415df30b
+2026-07-20 13:30:02.818 +01:00 [INF] HTTP GET /Products started. RequestId: 749f52d6-22ec-46a2-8525-f8b07123ad4a
+2026-07-20 13:30:02.873 +01:00 [INF] HTTP GET /Sales started. RequestId: 93cebd07-d5f6-44f1-a067-26d99152873e
+2026-07-20 13:30:03.376 +01:00 [INF] HTTP GET /Sales completed 200 in 502ms. RequestId: 93cebd07-d5f6-44f1-a067-26d99152873e
+2026-07-20 13:30:03.376 +01:00 [INF] HTTP GET /Products completed 200 in 557ms. RequestId: 749f52d6-22ec-46a2-8525-f8b07123ad4a
+2026-07-20 13:30:03.508 +01:00 [INF] HTTP GET /css/app.css started. RequestId: 1467136a-b02e-49aa-9522-abf70c6a0f01
+2026-07-20 13:30:03.509 +01:00 [INF] HTTP GET /css/app.css completed 304 in 0ms. RequestId: 1467136a-b02e-49aa-9522-abf70c6a0f01
+2026-07-20 13:30:03.511 +01:00 [INF] HTTP GET /js/app.js started. RequestId: ad99eb34-91e1-4576-be94-496f226ed0bd
+2026-07-20 13:30:03.511 +01:00 [INF] HTTP GET /js/app.js completed 304 in 0ms. RequestId: ad99eb34-91e1-4576-be94-496f226ed0bd
+2026-07-20 13:30:41.960 +01:00 [INF] HTTP GET /Reports/Sales started. RequestId: 2d2e70d0-a97a-47fe-8446-4384d9e78b54
+2026-07-20 13:30:42.211 +01:00 [INF] HTTP GET /Reports/Sales completed 200 in 251ms. RequestId: 2d2e70d0-a97a-47fe-8446-4384d9e78b54
+2026-07-20 13:30:48.334 +01:00 [INF] HTTP GET /Reports/Sales started. RequestId: 1785aee0-e16c-40d0-913f-1cf0ee1f6031
+2026-07-20 13:30:48.343 +01:00 [INF] HTTP GET /Reports/Sales completed 200 in 8ms. RequestId: 1785aee0-e16c-40d0-913f-1cf0ee1f6031
+2026-07-20 13:31:00.843 +01:00 [INF] HTTP GET /Reports/Sales started. RequestId: 44e24607-4e10-49cd-b10f-d17a0310e6d1
+2026-07-20 13:31:00.892 +01:00 [INF] HTTP GET /Reports/Sales completed 200 in 48ms. RequestId: 44e24607-4e10-49cd-b10f-d17a0310e6d1
+2026-07-20 13:31:11.066 +01:00 [INF] HTTP GET /Reports/Sales started. RequestId: 09dea02c-5820-4c26-9068-63f3ef1585cb
+2026-07-20 13:31:11.077 +01:00 [INF] HTTP GET /Reports/Sales completed 200 in 10ms. RequestId: 09dea02c-5820-4c26-9068-63f3ef1585cb
+2026-07-20 13:31:12.329 +01:00 [INF] HTTP GET /Reports/Sales started. RequestId: d02f843c-f90b-4c4c-83aa-85afaaf576a3
+2026-07-20 13:31:12.341 +01:00 [INF] HTTP GET /Reports/Sales completed 200 in 11ms. RequestId: d02f843c-f90b-4c4c-83aa-85afaaf576a3
+2026-07-20 13:31:14.469 +01:00 [INF] HTTP GET /Reports/ProfitLoss started. RequestId: b5cb023b-3297-4c5c-a46b-638f1ecbfd92
+2026-07-20 13:31:14.878 +01:00 [INF] HTTP GET /Reports/ProfitLoss completed 200 in 408ms. RequestId: b5cb023b-3297-4c5c-a46b-638f1ecbfd92
+[2026-07-20 13:47:56.530] [INF] Starting PharMarket application
+[2026-07-20 13:49:02.043] [WRN] Entity 'Supplier' has a global query filter defined and is the required end of a relationship with the entity 'Purchase'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-20 13:49:02.524] [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'PurchaseItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-20 13:49:02.525] [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'SaleItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-20 13:49:02.525] [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-20 13:49:35.405] [ERR] An error occurred using the connection to database 'PharMarketDevDb' on server 'localhost'.
+[2026-07-20 13:49:45.514] [ERR] An exception occurred while iterating over the results of a query for context type 'PharMarket.Data.AppDbContext'.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySqlConnector.MySqlException (0x80004005): Connect Timeout expired.
+ ---> MySqlConnector.MySqlException (0x80004005): The Command Timeout expired before the operation completed.
+ ---> System.Net.Sockets.SocketException (995): The I/O operation has been aborted because of either a thread exit or an application request.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+   at MySqlConnector.Protocol.Serialization.SocketByteHandler.DoReadBytesAsync(Memory`1 buffer) in /_/src/MySqlConnector/Protocol/Serialization/SocketByteHandler.cs:line 89
+   at MySqlConnector.Protocol.Serialization.SocketByteHandler.DoReadBytesAsync(Memory`1 buffer) in /_/src/MySqlConnector/Protocol/Serialization/SocketByteHandler.cs:line 98
+   at MySqlConnector.Protocol.Serialization.BufferedByteReader.ReadBytesAsync(IByteHandler byteHandler, ArraySegment`1 buffer, Int32 totalBytesToRead, IOBehavior ioBehavior) in /_/src/MySqlConnector/Protocol/Serialization/BufferedByteReader.cs:line 34
+   at MySqlConnector.Protocol.Serialization.ProtocolUtility.ReadPayloadAsync(BufferedByteReader bufferedByteReader, IByteHandler byteHandler, Func`1 getNextSequenceNumber, ArraySegmentHolder`1 previousPayloads, ProtocolErrorBehavior protocolErrorBehavior, IOBehavior ioBehavior) in /_/src/MySqlConnector/Protocol/Serialization/ProtocolUtility.cs:line 420
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 1070
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, MySqlConnection connection, Int64 startingTimestamp, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 447
+   at MySqlConnector.Core.ServerSession.ConnectAndRedirectAsync(ILogger connectionLogger, ILogger poolLogger, IConnectionPoolMetadata pool, ConnectionSettings cs, ILoadBalancer loadBalancer, MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 697
+   at MySqlConnector.Core.ServerSession.ConnectAndRedirectAsync(ILogger connectionLogger, ILogger poolLogger, IConnectionPoolMetadata pool, ConnectionSettings cs, ILoadBalancer loadBalancer, MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 702
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 116
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 150
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int64 startingTimestamp, Activity activity, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 1092
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int64 startingTimestamp, Activity activity, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 1114
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 567
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySqlConnector.MySqlException (0x80004005): Connect Timeout expired.
+ ---> MySqlConnector.MySqlException (0x80004005): The Command Timeout expired before the operation completed.
+ ---> System.Net.Sockets.SocketException (995): The I/O operation has been aborted because of either a thread exit or an application request.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+   at MySqlConnector.Protocol.Serialization.SocketByteHandler.DoReadBytesAsync(Memory`1 buffer) in /_/src/MySqlConnector/Protocol/Serialization/SocketByteHandler.cs:line 89
+   at MySqlConnector.Protocol.Serialization.SocketByteHandler.DoReadBytesAsync(Memory`1 buffer) in /_/src/MySqlConnector/Protocol/Serialization/SocketByteHandler.cs:line 98
+   at MySqlConnector.Protocol.Serialization.BufferedByteReader.ReadBytesAsync(IByteHandler byteHandler, ArraySegment`1 buffer, Int32 totalBytesToRead, IOBehavior ioBehavior) in /_/src/MySqlConnector/Protocol/Serialization/BufferedByteReader.cs:line 34
+   at MySqlConnector.Protocol.Serialization.ProtocolUtility.ReadPayloadAsync(BufferedByteReader bufferedByteReader, IByteHandler byteHandler, Func`1 getNextSequenceNumber, ArraySegmentHolder`1 previousPayloads, ProtocolErrorBehavior protocolErrorBehavior, IOBehavior ioBehavior) in /_/src/MySqlConnector/Protocol/Serialization/ProtocolUtility.cs:line 420
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 1070
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, MySqlConnection connection, Int64 startingTimestamp, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 447
+   at MySqlConnector.Core.ServerSession.ConnectAndRedirectAsync(ILogger connectionLogger, ILogger poolLogger, IConnectionPoolMetadata pool, ConnectionSettings cs, ILoadBalancer loadBalancer, MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 697
+   at MySqlConnector.Core.ServerSession.ConnectAndRedirectAsync(ILogger connectionLogger, ILogger poolLogger, IConnectionPoolMetadata pool, ConnectionSettings cs, ILoadBalancer loadBalancer, MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 702
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 116
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 150
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int64 startingTimestamp, Activity activity, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 1092
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int64 startingTimestamp, Activity activity, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 1114
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 567
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+[2026-07-20 13:49:45.888] [FTL] PharMarket terminated unexpectedly
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySqlConnector.MySqlException (0x80004005): Connect Timeout expired.
+ ---> MySqlConnector.MySqlException (0x80004005): The Command Timeout expired before the operation completed.
+ ---> System.Net.Sockets.SocketException (995): The I/O operation has been aborted because of either a thread exit or an application request.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+   at MySqlConnector.Protocol.Serialization.SocketByteHandler.DoReadBytesAsync(Memory`1 buffer) in /_/src/MySqlConnector/Protocol/Serialization/SocketByteHandler.cs:line 89
+   at MySqlConnector.Protocol.Serialization.SocketByteHandler.DoReadBytesAsync(Memory`1 buffer) in /_/src/MySqlConnector/Protocol/Serialization/SocketByteHandler.cs:line 98
+   at MySqlConnector.Protocol.Serialization.BufferedByteReader.ReadBytesAsync(IByteHandler byteHandler, ArraySegment`1 buffer, Int32 totalBytesToRead, IOBehavior ioBehavior) in /_/src/MySqlConnector/Protocol/Serialization/BufferedByteReader.cs:line 34
+   at MySqlConnector.Protocol.Serialization.ProtocolUtility.ReadPayloadAsync(BufferedByteReader bufferedByteReader, IByteHandler byteHandler, Func`1 getNextSequenceNumber, ArraySegmentHolder`1 previousPayloads, ProtocolErrorBehavior protocolErrorBehavior, IOBehavior ioBehavior) in /_/src/MySqlConnector/Protocol/Serialization/ProtocolUtility.cs:line 420
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 1070
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, MySqlConnection connection, Int64 startingTimestamp, ILoadBalancer loadBalancer, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 447
+   at MySqlConnector.Core.ServerSession.ConnectAndRedirectAsync(ILogger connectionLogger, ILogger poolLogger, IConnectionPoolMetadata pool, ConnectionSettings cs, ILoadBalancer loadBalancer, MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 697
+   at MySqlConnector.Core.ServerSession.ConnectAndRedirectAsync(ILogger connectionLogger, ILogger poolLogger, IConnectionPoolMetadata pool, ConnectionSettings cs, ILoadBalancer loadBalancer, MySqlConnection connection, Action`4 logMessage, Int64 startingTimestamp, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 702
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 116
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, Int64 startingTimestamp, Int32 timeoutMilliseconds, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 150
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int64 startingTimestamp, Activity activity, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 1092
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int64 startingTimestamp, Activity activity, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 1114
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 567
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at PharMarket.Services.AuthService.SeedAdminAsync() in C:\Users\USER\Desktop\PharMarket\Services\AuthService.cs:line 93
+   at Program.<Main>$(String[] args) in C:\Users\USER\Desktop\PharMarket\Program.cs:line 55

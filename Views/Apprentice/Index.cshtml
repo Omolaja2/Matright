@@ -1,0 +1,346 @@
+@model PharMarket.ViewModels.Apprentice.ApprenticeDashboardViewModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="page-header">
+    <div>
+        <h1>Dashboard</h1>
+        <p>Tap a product to see details and sell.</p>
+    </div>
+    <div style="display:flex;gap:12px;align-items:center;">
+        <div class="stat-card" style="min-width:140px;">
+            <div style="font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.5px;">Today's Sales</div>
+            <div style="font-size:20px;font-weight:800;color:var(--primary);">@CurrencyHelper.FormatCurrency(Model.TodayTotalSales)</div>
+        </div>
+        <div class="stat-card" style="min-width:110px;">
+            <div style="font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.5px;">Items Sold</div>
+            <div style="font-size:20px;font-weight:800;">@Model.TodayTotalItems</div>
+        </div>
+    </div>
+</div>
+
+<div class="filters-bar">
+    <div style="position:relative;flex:1;max-width:400px;">
+        <i class="fas fa-search" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-dim);font-size:13px;"></i>
+        <input type="text" id="apprenticeSearch" class="form-control" style="padding-left:36px;"
+               placeholder="Search products..." value="@Model.SearchQuery" autocomplete="off" />
+        <div id="searchDropdown" class="search-dropdown" style="display:none;"></div>
+    </div>
+</div>
+
+<div id="productsGrid" class="products-grid">
+    @foreach (var product in Model.Products)
+    {
+        <div class="product-card" data-product-id="@product.Id" onclick="openProductDetail(@product.Id)" style="cursor:pointer;">
+            <div class="product-img">
+                @if (!string.IsNullOrEmpty(product.ImageUrl))
+                {
+                    <img src="@product.ImageUrl" alt="@product.Name" />
+                }
+                else
+                {
+                    <div class="product-img-placeholder"><i class="fas fa-box"></i></div>
+                }
+            </div>
+            <div class="product-info">
+                <h4 class="product-name">@product.Name</h4>
+                <div class="product-price">@CurrencyHelper.FormatCurrency(product.SalesPrice)</div>
+                <div class="product-stock">
+                    <span class="stock-badge @product.StockStatus.ToLower()">@product.StockLeft left</span>
+                    @if (product.StockStatus == "OutOfStock")
+                    {
+                        <span class="badge badge-danger" style="margin-left:6px;">Out of Stock</span>
+                    }
+                    @if (product.ExpirationDate.HasValue)
+                    {
+                        <span class="expiring-label @(product.ExpirationDate.Value < DateTime.UtcNow ? "expired" : product.ExpirationDate.Value <= DateTime.UtcNow.AddDays(30) ? "expiring-soon" : "")">
+                            Exp: @product.ExpirationDate.Value.ToString("dd MMM yyyy")
+                        </span>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@if (!Model.Products.Any())
+{
+    <div class="empty-state">
+        <i class="fas fa-box-open"></i>
+        <h3>No products found</h3>
+        <p>No products available@(string.IsNullOrEmpty(Model.SearchQuery) ? "" : " matching your search")</p>
+    </div>
+}
+
+@if (Model.TodaySales.Any())
+{
+    <div style="margin-top:32px;">
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:12px;"><i class="fas fa-receipt" style="color:var(--primary);margin-right:6px;"></i> Today's Sales</h3>
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Product</th>
+                        <th>Qty</th>
+                        <th>Unit Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var sale in Model.TodaySales)
+                    {
+                        <tr>
+                            <td>@sale.SoldAt.ToString("hh:mm tt")</td>
+                            <td><strong>@sale.ProductName</strong></td>
+                            <td>@sale.Quantity</td>
+                            <td>@CurrencyHelper.FormatCurrency(sale.UnitPrice)</td>
+                            <td><strong>@CurrencyHelper.FormatCurrency(sale.Total)</strong></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+
+<div id="productDetailModal" class="modal-overlay" style="display:none;">
+    <div class="modal-content" style="max-width:480px;border-radius:16px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:20px 24px 0;">
+            <h2 id="modalProductName" style="font-size:18px;font-weight:800;margin:0;"></h2>
+            <button onclick="closeProductDetail()" style="background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-dim);"><i class="fas fa-times"></i></button>
+        </div>
+        <div style="padding:16px 24px;">
+            <div id="modalProductImage" style="width:100%;height:200px;border-radius:12px;overflow:hidden;background:#f9f9fb;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"></div>
+            <div id="modalProductInfo"></div>
+            <div style="display:flex;gap:8px;margin-top:16px;">
+                <div style="flex:1;">
+                    <label style="font-size:12px;font-weight:600;color:var(--text-dim);display:block;margin-bottom:4px;">Quantity</label>
+                    <div style="display:flex;align-items:center;gap:8px;">
+                        <button onclick="changeModalQty(-1)" style="width:36px;height:36px;border-radius:8px;border:1px solid var(--border);background:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;">-</button>
+                        <input type="number" id="modalQty" value="1" min="1" style="width:60px;text-align:center;border:1px solid var(--border);border-radius:8px;padding:8px;font-size:16px;font-weight:700;" />
+                        <button onclick="changeModalQty(1)" style="width:36px;height:36px;border-radius:8px;border:1px solid var(--border);background:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
+                    </div>
+                </div>
+                <div style="flex:1;">
+                    <label style="font-size:12px;font-weight:600;color:var(--text-dim);display:block;margin-bottom:4px;">Total</label>
+                    <div id="modalTotal" style="font-size:20px;font-weight:800;color:var(--primary);padding:8px 0;"></div>
+                </div>
+            </div>
+            <button id="modalSellBtn" onclick="sellFromModal()" class="btn btn-primary" style="width:100%;margin-top:16px;padding:14px;font-size:15px;font-weight:700;border-radius:12px;">
+                <i class="fas fa-shopping-cart"></i> Sell
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="receiptModal" class="modal-overlay" style="display:none;">
+    <div class="modal-content" style="max-width:380px;border-radius:16px;">
+        <div id="receiptContent" style="padding:24px;text-align:center;">
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+var modalProduct = null;
+
+async function openProductDetail(productId) {
+    try {
+        var res = await fetch('/Apprentice/GetProductDetails?id=' + productId);
+        var p = await res.json();
+        if (!p.id) return;
+        modalProduct = p;
+        document.getElementById('modalProductName').textContent = p.name;
+        document.getElementById('modalQty').value = 1;
+        document.getElementById('modalQty').max = p.stockLeft > 0 ? p.stockLeft : 0;
+
+        var imgHtml = p.imageUrl
+            ? '<img src="' + p.imageUrl + '" style="width:100%;height:100%;object-fit:cover;" />'
+            : '<i class="fas fa-box" style="font-size:48px;color:var(--text-dim);opacity:0.3;"></i>';
+        document.getElementById('modalProductImage').innerHTML = imgHtml;
+
+        var statusClass = p.stockStatus === 'OutOfStock' ? 'badge-danger' : p.stockStatus === 'LowStock' ? 'badge-warning' : 'badge-success';
+        var statusText = p.stockStatus === 'OutOfStock' ? 'Out of Stock' : p.stockStatus === 'LowStock' ? 'Low Stock' : 'In Stock';
+
+        var infoHtml = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">';
+        infoHtml += '<div><span style="font-size:11px;color:var(--text-dim);display:block;">Price</span><span style="font-size:16px;font-weight:800;color:var(--primary);">' + formatNaira(p.salesPrice) + '</span></div>';
+        infoHtml += '<div><span style="font-size:11px;color:var(--text-dim);display:block;">Stock</span><span class="' + statusClass + '" style="font-size:13px;font-weight:600;">' + p.stockLeft + ' left</span></div>';
+        if (p.categoryName) infoHtml += '<div><span style="font-size:11px;color:var(--text-dim);display:block;">Category</span><span style="font-size:13px;font-weight:600;">' + p.categoryName + '</span></div>';
+        if (p.barcode) infoHtml += '<div><span style="font-size:11px;color:var(--text-dim);display:block;">Barcode</span><span style="font-size:13px;font-weight:600;">' + p.barcode + '</span></div>';
+        if (p.expirationDate) {
+            var expDate = new Date(p.expirationDate);
+            var isExpired = expDate < new Date();
+            var isExpiringSoon = expDate <= new Date(Date.now() + 30*24*60*60*1000);
+            infoHtml += '<div><span style="font-size:11px;color:var(--text-dim);display:block;">Expires</span><span style="font-size:13px;font-weight:600;color:' + (isExpired ? 'var(--danger)' : isExpiringSoon ? 'var(--warning)' : 'inherit') + ';">' + expDate.toLocaleDateString('en-GB', {day:'2-digit',month:'short',year:'numeric'}) + '</span></div>';
+        }
+        if (p.description) infoHtml += '<div style="grid-column:span 2;"><span style="font-size:11px;color:var(--text-dim);display:block;">Description</span><span style="font-size:13px;">' + p.description + '</span></div>';
+        infoHtml += '</div>';
+        document.getElementById('modalProductInfo').innerHTML = infoHtml;
+
+        updateModalTotal();
+        var sellBtn = document.getElementById('modalSellBtn');
+        if (p.stockLeft <= 0) {
+            sellBtn.disabled = true;
+            sellBtn.innerHTML = '<i class="fas fa-times"></i> Out of Stock';
+            sellBtn.style.opacity = '0.5';
+        } else {
+            sellBtn.disabled = false;
+            sellBtn.innerHTML = '<i class="fas fa-shopping-cart"></i> Sell';
+            sellBtn.style.opacity = '1';
+        }
+        document.getElementById('productDetailModal').style.display = 'flex';
+    } catch(e) {}
+}
+
+function closeProductDetail() {
+    document.getElementById('productDetailModal').style.display = 'none';
+    modalProduct = null;
+}
+
+function changeModalQty(delta) {
+    var input = document.getElementById('modalQty');
+    var val = parseInt(input.value) + delta;
+    if (val < 1) val = 1;
+    if (modalProduct && val > modalProduct.stockLeft) val = modalProduct.stockLeft;
+    input.value = val;
+    updateModalTotal();
+}
+
+function updateModalTotal() {
+    if (!modalProduct) return;
+    var qty = parseInt(document.getElementById('modalQty').value) || 1;
+    var total = qty * modalProduct.salesPrice;
+    document.getElementById('modalTotal').textContent = formatNaira(total);
+}
+
+document.getElementById('modalQty').addEventListener('input', updateModalTotal);
+
+async function sellFromModal() {
+    if (!modalProduct) return;
+    var qty = parseInt(document.getElementById('modalQty').value) || 1;
+    var btn = document.getElementById('modalSellBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+
+    try {
+        var res = await fetch('/Apprentice/ReduceStock', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value || ''
+            },
+            body: 'productId=' + modalProduct.id + '&quantity=' + qty
+        });
+        var data = await res.json();
+        if (data.success) {
+            closeProductDetail();
+            showReceipt(data);
+        } else {
+            alert(data.message);
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-shopping-cart"></i> Sell';
+        }
+    } catch(e) {
+        alert('Error processing sale. Please try again.');
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-shopping-cart"></i> Sell';
+    }
+}
+
+function showReceipt(data) {
+    var receiptHtml = '';
+    receiptHtml += '<div style="border:2px dashed var(--border);border-radius:12px;padding:20px;margin-bottom:16px;">';
+    receiptHtml += '<i class="fas fa-store" style="font-size:24px;color:var(--primary);margin-bottom:8px;display:block;"></i>';
+    receiptHtml += '<h3 style="font-size:16px;font-weight:800;margin:0;">' + data.storeName + '</h3>';
+    receiptHtml += '<div style="font-size:11px;color:var(--text-dim);margin-top:4px;">SALES RECEIPT</div>';
+    receiptHtml += '</div>';
+    receiptHtml += '<div style="text-align:left;background:#f9f9fb;border-radius:10px;padding:16px;margin-bottom:16px;">';
+    receiptHtml += '<div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-dim);margin-bottom:8px;"><span>Invoice</span><span style="font-weight:600;color:var(--text);">' + data.invoiceNumber + '</span></div>';
+    receiptHtml += '<div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-dim);margin-bottom:12px;"><span>Date</span><span style="font-weight:600;color:var(--text);">' + data.soldAt + '</span></div>';
+    receiptHtml += '<div style="border-top:1px dashed var(--border);padding-top:12px;margin-bottom:12px;">';
+    receiptHtml += '<div style="font-size:14px;font-weight:700;margin-bottom:4px;">' + data.productName + '</div>';
+    receiptHtml += '<div style="display:flex;justify-content:space-between;font-size:13px;color:var(--text-muted);">';
+    receiptHtml += '<span>' + data.quantity + ' x ' + formatNaira(data.unitPrice) + '</span>';
+    receiptHtml += '<span style="font-weight:700;color:var(--text);">' + formatNaira(data.total) + '</span>';
+    receiptHtml += '</div></div>';
+    receiptHtml += '<div style="border-top:2px solid var(--border);padding-top:12px;display:flex;justify-content:space-between;">';
+    receiptHtml += '<span style="font-size:16px;font-weight:800;">TOTAL</span>';
+    receiptHtml += '<span style="font-size:18px;font-weight:800;color:var(--primary);">' + formatNaira(data.total) + '</span>';
+    receiptHtml += '</div>';
+    receiptHtml += '<div style="font-size:11px;color:var(--text-dim);margin-top:12px;text-align:center;">Cashier: ' + data.cashierName + '</div>';
+    receiptHtml += '</div>';
+    receiptHtml += '<div style="display:flex;gap:8px;">';
+    receiptHtml += '<button onclick="closeReceipt()" class="btn btn-primary" style="flex:1;padding:12px;font-weight:700;border-radius:10px;"><i class="fas fa-check"></i> Done</button>';
+    receiptHtml += '<button onclick="window.print()" class="btn btn-outline" style="flex:1;padding:12px;font-weight:700;border-radius:10px;"><i class="fas fa-print"></i> Print</button>';
+    receiptHtml += '</div>';
+
+    document.getElementById('receiptContent').innerHTML = receiptHtml;
+    document.getElementById('receiptModal').style.display = 'flex';
+}
+
+function closeReceipt() {
+    document.getElementById('receiptModal').style.display = 'none';
+    location.reload();
+}
+
+document.getElementById('receiptModal').addEventListener('click', function(e) {
+    if (e.target === this) closeReceipt();
+});
+
+function formatNaira(val) {
+    return '₦' + parseFloat(val).toLocaleString('en-NG', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+}
+
+document.getElementById('productDetailModal').addEventListener('click', function(e) {
+    if (e.target === this) closeProductDetail();
+});
+
+var searchTimeout;
+document.getElementById('apprenticeSearch').addEventListener('input', function() {
+    var val = this.value.trim();
+    clearTimeout(searchTimeout);
+    if (val.length < 1) {
+        document.getElementById('searchDropdown').style.display = 'none';
+        return;
+    }
+    searchTimeout = setTimeout(async function() {
+        try {
+            var res = await fetch('/Apprentice/Search?q=' + encodeURIComponent(val));
+            var data = await res.json();
+            var dd = document.getElementById('searchDropdown');
+            if (data.length === 0) {
+                dd.innerHTML = '<div class="search-empty">No results</div>';
+            } else {
+                dd.innerHTML = data.map(function(p) {
+                    var statusClass = p.stockLeft <= 0 ? 'badge-danger' : p.stockLeft <= 10 ? 'badge-warning' : 'badge-success';
+                    return '<a href="#" class="search-item" onclick="openProductDetail(' + p.id + ');document.getElementById(\'searchDropdown\').style.display=\'none\';return false;">' +
+                        '<strong>' + p.name + '</strong> ' +
+                        '<span class="' + statusClass + '" style="font-size:11px;">' + p.stockLeft + ' left</span>' +
+                    '</a>';
+                }).join('');
+            }
+            dd.style.display = 'block';
+        } catch(e) {}
+    }, 200);
+});
+
+document.getElementById('apprenticeSearch').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        window.location.href = '/Apprentice?search=' + encodeURIComponent(this.value.trim());
+    }
+});
+
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('#apprenticeSearch') && !e.target.closest('#searchDropdown'))
+        document.getElementById('searchDropdown').style.display = 'none';
+});
+</script>
+}
+
+<style>
+.modal-overlay { position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.5); z-index:999; display:flex; align-items:center; justify-content:center; padding:16px; backdrop-filter:blur(2px); }
+.modal-content { background:#fff; border-radius:16px; width:100%; max-height:90vh; overflow-y:auto; box-shadow:0 20px 60px rgba(0,0,0,0.3); }
+</style>

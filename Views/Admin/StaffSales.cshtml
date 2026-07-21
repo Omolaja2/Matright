@@ -1,0 +1,105 @@
+@model PharMarket.ViewModels.Admin.StaffSalesPageViewModel
+@using PharMarket.Helpers
+@{
+    ViewData["Title"] = "Staff Sales";
+    var dateStr = Model.SelectedDate.ToString("yyyy-MM-dd");
+}
+
+<div class="page-header">
+    <div>
+        <h1>Staff Sales</h1>
+        <p>View what each staff member sold daily.</p>
+    </div>
+</div>
+
+<div class="filters-bar">
+    <form method="get" style="display:flex;align-items:center;gap:10px;">
+        <label style="font-size:13px;font-weight:600;">Date:</label>
+        <input type="date" name="date" value="@dateStr" class="form-control" style="max-width:200px;" />
+        <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-filter"></i> Filter</button>
+    </form>
+    <div style="display:flex;gap:12px;align-items:center;">
+        <div class="stat-card" style="min-width:140px;">
+            <div style="font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.5px;">Grand Total</div>
+            <div style="font-size:20px;font-weight:800;color:var(--primary);">@CurrencyHelper.FormatCurrency(Model.GrandTotal)</div>
+        </div>
+        <div class="stat-card" style="min-width:110px;">
+            <div style="font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.5px;">Total Items</div>
+            <div style="font-size:20px;font-weight:800;">@Model.GrandTotalItems</div>
+        </div>
+    </div>
+</div>
+
+@if (Model.StaffSales.Any())
+{
+    foreach (var staff in Model.StaffSales)
+    {
+        <div class="card" style="margin-bottom:20px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--border);">
+                <div>
+                    <h3 style="font-size:15px;font-weight:700;margin:0;">@staff.StaffName</h3>
+                    @if (!string.IsNullOrEmpty(staff.Position))
+                    {
+                        <span style="font-size:12px;color:var(--text-dim);">@staff.Position</span>
+                    }
+                </div>
+                <div style="display:flex;gap:16px;align-items:center;">
+                    <div style="text-align:right;">
+                        <div style="font-size:11px;color:var(--text-dim);">Transactions</div>
+                        <div style="font-size:16px;font-weight:700;">@staff.SalesCount</div>
+                    </div>
+                    <div style="text-align:right;">
+                        <div style="font-size:11px;color:var(--text-dim);">Items Sold</div>
+                        <div style="font-size:16px;font-weight:700;">@staff.TotalItemsSold</div>
+                    </div>
+                    <div style="text-align:right;">
+                        <div style="font-size:11px;color:var(--text-dim);">Total Sales</div>
+                        <div style="font-size:18px;font-weight:800;color:var(--primary);">@CurrencyHelper.FormatCurrency(staff.TotalSalesAmount)</div>
+                    </div>
+                </div>
+            </div>
+            @if (staff.Sales.Any())
+            {
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Product</th>
+                                <th>Qty</th>
+                                <th>Unit Price</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var sale in staff.Sales)
+                            {
+                                <tr style="cursor:pointer;" onclick="window.location='/Sales/Details/@sale.SaleId'">
+                                    <td>@sale.SoldAt.ToString("hh:mm tt")</td>
+                                    <td><strong>@sale.ProductName</strong></td>
+                                    <td>@sale.Quantity</td>
+                                    <td>@CurrencyHelper.FormatCurrency(sale.UnitPrice)</td>
+                                    <td><strong>@CurrencyHelper.FormatCurrency(sale.Total)</strong></td>
+                                    <td><i class="fas fa-chevron-right" style="font-size:11px;color:var(--text-dim);"></i></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div style="padding:24px;text-align:center;color:var(--text-dim);font-size:13px;">No sales recorded for this date.</div>
+            }
+        </div>
+    }
+}
+else
+{
+    <div class="empty-state">
+        <i class="fas fa-users"></i>
+        <h3>No staff members found</h3>
+        <p>No staff members are assigned to this store.</p>
+    </div>
+}

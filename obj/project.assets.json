@@ -862,6 +862,15 @@
           }
         }
       },
+      "QRCoder/1.4.3": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/QRCoder.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/QRCoder.dll": {}
+        }
+      },
       "Serilog/4.3.0": {
         "type": "package",
         "compile": {
@@ -3078,6 +3087,27 @@
         "pomelo.entityframeworkcore.mysql.nuspec"
       ]
     },
+    "QRCoder/1.4.3": {
+      "sha512": "fWuFqjm8GTlEb2GqBl3Hi8HZZeZQwBSHxvRPtPjyNbT82H0ff0JwavKRBmMaXCno1Av6McPC8aJzri0Mj2w9Jw==",
+      "type": "package",
+      "path": "qrcoder/1.4.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/QRCoder.dll",
+        "lib/net40/QRCoder.dll",
+        "lib/net5.0-windows7.0/QRCoder.dll",
+        "lib/net5.0/QRCoder.dll",
+        "lib/net6.0-windows7.0/QRCoder.dll",
+        "lib/net6.0/QRCoder.dll",
+        "lib/netstandard1.3/QRCoder.dll",
+        "lib/netstandard2.0/QRCoder.dll",
+        "nuget-icon.png",
+        "nuget-readme.md",
+        "qrcoder.1.4.3.nupkg.sha512",
+        "qrcoder.nuspec"
+      ]
+    },
     "Serilog/4.3.0": {
       "sha512": "+cDryFR0GRhsGOnZSKwaDzRRl4MupvJ42FhCE4zhQRVanX0Jpg6WuCBk59OVhVDPmab1bB+nRykAnykYELA9qQ==",
       "type": "package",
@@ -3782,6 +3812,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.0",
       "Microsoft.IdentityModel.Tokens >= 8.0.1",
       "Pomelo.EntityFrameworkCore.MySql >= 9.0.0",
+      "QRCoder >= 1.4.3",
       "Serilog.AspNetCore >= 10.0.0",
       "Serilog.Sinks.Console >= 6.1.1",
       "System.IdentityModel.Tokens.Jwt >= 8.0.1"
@@ -3848,6 +3879,10 @@
             "target": "Package",
             "version": "[9.0.0, )"
           },
+          "QRCoder": {
+            "target": "Package",
+            "version": "[1.4.3, )"
+          },
           "Serilog.AspNetCore": {
             "target": "Package",
             "version": "[10.0.0, )"
@@ -3880,7 +3915,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.109/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.110/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

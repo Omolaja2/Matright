@@ -23,4 +23,13 @@ public class ProductListItem
     public decimal SalesPrice { get; set; }
     public int TotalStock { get; set; }
     public bool IsActive { get; set; }
+    public DateTime? ExpirationDate { get; set; }
+    public string StockStatus => TotalStock <= 0 ? "OutOfStock" : TotalStock <= 10 ? "LowStock" : "InStock";
+}
+
+public enum StockStatusLevel
+{
+    InStock,
+    LowStock,
+    OutOfStock
 }

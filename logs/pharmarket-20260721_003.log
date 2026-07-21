@@ -1,0 +1,50 @@
+2026-07-21 14:21:34.691 +01:00 [INF] Starting PharMarket application
+2026-07-21 14:21:46.090 +01:00 [WRN] Entity 'Supplier' has a global query filter defined and is the required end of a relationship with the entity 'Purchase'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-21 14:21:46.106 +01:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'PurchaseItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-21 14:21:46.107 +01:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'SaleItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-21 14:21:46.107 +01:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-21 14:21:54.621 +01:00 [INF] PharMarket is ready on 
+2026-07-21 14:22:43.464 +01:00 [WRN] As of ""2026-07-21T13:22:43.3996382+00:00"", the heartbeat has been running for ""00:00:03.1244968"" which is longer than ""00:00:01"". This could be caused by thread pool starvation.
+2026-07-21 14:22:44.489 +01:00 [INF] HTTP GET / started. RequestId: 48c8a397-ea12-489b-8d4c-fecadb323418
+2026-07-21 14:22:44.496 +01:00 [WRN] Failed to determine the https port for redirect.
+2026-07-21 14:22:50.695 +01:00 [INF] HTTP GET / completed 200 in 6213ms. RequestId: 48c8a397-ea12-489b-8d4c-fecadb323418
+2026-07-21 14:22:51.151 +01:00 [INF] HTTP GET /js/templatemo-catalyst-script.js started. RequestId: aad77600-55f2-4d0b-9789-6b59cdf9ebb7
+2026-07-21 14:22:51.202 +01:00 [INF] HTTP GET /css/templatemo-catalyst-style.css started. RequestId: 497bf4c7-7f53-4161-b814-acdd20d5b8b5
+2026-07-21 14:22:51.269 +01:00 [INF] HTTP GET /js/templatemo-catalyst-script.js completed 200 in 118ms. RequestId: aad77600-55f2-4d0b-9789-6b59cdf9ebb7
+2026-07-21 14:22:51.275 +01:00 [INF] HTTP GET /css/templatemo-catalyst-style.css completed 200 in 73ms. RequestId: 497bf4c7-7f53-4161-b814-acdd20d5b8b5
+2026-07-21 14:22:52.726 +01:00 [INF] HTTP GET /favicon.ico started. RequestId: d6969a26-2a88-44b9-b7d5-590056b07db2
+2026-07-21 14:22:52.826 +01:00 [INF] HTTP GET /favicon.ico completed 200 in 99ms. RequestId: d6969a26-2a88-44b9-b7d5-590056b07db2
+2026-07-21 14:23:10.921 +01:00 [INF] HTTP GET /Account/Login started. RequestId: f952713b-1877-48ef-808a-fcc23e688c12
+2026-07-21 14:23:11.513 +01:00 [INF] HTTP GET /Account/Login completed 200 in 591ms. RequestId: f952713b-1877-48ef-808a-fcc23e688c12
+2026-07-21 14:23:15.202 +01:00 [INF] HTTP POST /Account/Login started. RequestId: 80ed8f0d-6a31-4de5-8709-8fc0763c90ff
+2026-07-21 14:23:17.086 +01:00 [INF] HTTP POST /Account/Login completed 302 in 1883ms. RequestId: 80ed8f0d-6a31-4de5-8709-8fc0763c90ff
+2026-07-21 14:23:17.092 +01:00 [INF] HTTP GET /Home started. RequestId: 1a5610dd-c9b6-4b7a-a3d0-ebdadd56c569
+2026-07-21 14:23:21.864 +01:00 [INF] HTTP GET /Home completed 200 in 4772ms. RequestId: 1a5610dd-c9b6-4b7a-a3d0-ebdadd56c569
+2026-07-21 14:23:21.952 +01:00 [INF] HTTP GET /css/app.css started. RequestId: eef73dcb-d1c4-4835-8646-30b4e0738cc2
+2026-07-21 14:23:21.953 +01:00 [INF] HTTP GET /css/app.css completed 200 in 1ms. RequestId: eef73dcb-d1c4-4835-8646-30b4e0738cc2
+2026-07-21 14:23:21.954 +01:00 [INF] HTTP GET /js/app.js started. RequestId: 4151d881-2918-434d-93a7-044c91c5f3df
+2026-07-21 14:23:21.955 +01:00 [INF] HTTP GET /js/app.js completed 200 in 1ms. RequestId: 4151d881-2918-434d-93a7-044c91c5f3df
+2026-07-21 14:23:36.120 +01:00 [INF] HTTP POST /Account/Logout started. RequestId: 0d0eec02-10d6-48c0-8000-dd8a75a95925
+2026-07-21 14:23:36.133 +01:00 [INF] HTTP POST /Account/Logout completed 302 in 12ms. RequestId: 0d0eec02-10d6-48c0-8000-dd8a75a95925
+2026-07-21 14:23:36.138 +01:00 [INF] HTTP GET /Account/Login started. RequestId: 810363c9-79d4-4bc1-9a8a-a0b1a6dbebb9
+2026-07-21 14:23:36.142 +01:00 [INF] HTTP GET /Account/Login completed 200 in 4ms. RequestId: 810363c9-79d4-4bc1-9a8a-a0b1a6dbebb9
+2026-07-21 14:23:40.275 +01:00 [INF] HTTP POST /Account/Login started. RequestId: cf7ec37e-2e09-4102-8c2b-9543b249aa8c
+2026-07-21 14:23:40.284 +01:00 [INF] HTTP POST /Account/Login completed 302 in 9ms. RequestId: cf7ec37e-2e09-4102-8c2b-9543b249aa8c
+2026-07-21 14:23:40.291 +01:00 [INF] HTTP GET /Apprentice started. RequestId: 3d8eb090-e69b-48cb-a577-f541479c257b
+2026-07-21 14:23:41.349 +01:00 [INF] HTTP GET /Apprentice completed 200 in 1058ms. RequestId: 3d8eb090-e69b-48cb-a577-f541479c257b
+2026-07-21 14:24:01.958 +01:00 [INF] HTTP GET /Apprentice/MySales started. RequestId: 217809de-6414-4aec-bb21-0d486754a016
+2026-07-21 14:24:02.050 +01:00 [INF] HTTP GET /Apprentice/MySales completed 200 in 91ms. RequestId: 217809de-6414-4aec-bb21-0d486754a016
+2026-07-21 14:24:06.753 +01:00 [INF] HTTP GET /Apprentice started. RequestId: d11fe301-faab-46f3-a367-6256947f1480
+2026-07-21 14:24:06.765 +01:00 [INF] HTTP GET /Apprentice completed 200 in 11ms. RequestId: d11fe301-faab-46f3-a367-6256947f1480
+2026-07-21 14:24:10.419 +01:00 [INF] HTTP GET /Apprentice/GetProductDetails started. RequestId: 3cf61385-bf2c-453d-93e7-15a712710428
+2026-07-21 14:24:10.963 +01:00 [INF] HTTP GET /Apprentice/GetProductDetails completed 200 in 543ms. RequestId: 3cf61385-bf2c-453d-93e7-15a712710428
+2026-07-21 14:24:15.938 +01:00 [INF] HTTP GET /Apprentice started. RequestId: 902defd8-914c-4dcc-83bf-311ba27dac31
+2026-07-21 14:24:15.950 +01:00 [INF] HTTP GET /Apprentice completed 200 in 12ms. RequestId: 902defd8-914c-4dcc-83bf-311ba27dac31
+2026-07-21 14:24:18.258 +01:00 [INF] HTTP POST /Account/Logout started. RequestId: 51c3699b-2341-4a1c-a9d9-27a7d4e1664b
+2026-07-21 14:24:18.261 +01:00 [INF] HTTP POST /Account/Logout completed 302 in 2ms. RequestId: 51c3699b-2341-4a1c-a9d9-27a7d4e1664b
+2026-07-21 14:24:18.267 +01:00 [INF] HTTP GET /Account/Login started. RequestId: 8b9fb343-fd08-40cd-ad11-b975423c274f
+2026-07-21 14:24:18.268 +01:00 [INF] HTTP GET /Account/Login completed 200 in 1ms. RequestId: 8b9fb343-fd08-40cd-ad11-b975423c274f
+2026-07-21 14:25:04.521 +01:00 [INF] HTTP POST /Account/Login started. RequestId: e4af5af4-de5a-4cde-a914-ec6bff784dda
+2026-07-21 14:25:04.701 +01:00 [INF] HTTP POST /Account/Login completed 302 in 179ms. RequestId: e4af5af4-de5a-4cde-a914-ec6bff784dda
+2026-07-21 14:25:04.714 +01:00 [INF] HTTP GET /Apprentice started. RequestId: 2b653a5d-b738-4ed1-b867-537373b7674c
+2026-07-21 14:25:04.727 +01:00 [INF] HTTP GET /Apprentice completed 200 in 13ms. RequestId: 2b653a5d-b738-4ed1-b867-537373b7674c

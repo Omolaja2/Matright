@@ -1,0 +1,45 @@
+@{
+    var qrUrl = ViewBag.QrCodeUrl as string;
+    var productName = ViewBag.ProductName as string;
+    var productId = (int)ViewBag.ProductId;
+}
+@{
+    ViewData["Title"] = "Product QR Code";
+}
+
+<div class="page-header">
+    <div>
+        <h1>QR Code Generated</h1>
+        <p>QR Code for <strong>@productName</strong></p>
+    </div>
+</div>
+
+<div class="card" style="max-width:420px;margin:0 auto;">
+    <div class="card-body" style="text-align:center;padding:32px;">
+        @if (qrUrl != null)
+        {
+            <img src="@qrUrl" alt="QR Code for @productName" style="width:220px;height:220px;border:2px solid var(--border);border-radius:12px;margin-bottom:16px;" />
+            <h3 style="margin-bottom:4px;">@productName</h3>
+            <p style="color:var(--text-muted);font-size:13px;margin-bottom:20px;">Scan this code to view product details</p>
+            <div class="btn-group" style="justify-content:center;">
+                <a href="@qrUrl" download="qr-@productName?.Replace(" ", "_").ToLower().Trim()-.png" class="btn btn-accent">
+                    <i class="fas fa-download"></i> Download QR
+                </a>
+                <a asp-action="Index" asp-controller="Products" class="btn btn-outline">
+                    <i class="fas fa-arrow-left"></i> Back to Products
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="empty-state">
+                <i class="fas fa-qrcode"></i>
+                <h3>QR Code not available</h3>
+                <p>The QR code could not be generated.</p>
+                <a asp-action="Index" asp-controller="Products" class="btn btn-outline">
+                    <i class="fas fa-arrow-left"></i> Back to Products
+                </a>
+            </div>
+        }
+    </div>
+</div>

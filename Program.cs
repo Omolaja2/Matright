@@ -68,8 +68,8 @@ try
     app.UseStaticFiles();
     app.UseRouting();
     app.UseAuthentication();
-    app.UseAuthorization();
-
+    app.UseAuthorization(); 
+    
     app.MapControllerRoute(
         name: "default",
         pattern: "{controller=Landing}/{action=Index}/{id?}");

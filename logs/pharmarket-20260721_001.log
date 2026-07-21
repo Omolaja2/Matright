@@ -1,0 +1,453 @@
+2026-07-21 05:01:45.786 +01:00 [INF] Starting PharMarket application
+2026-07-21 05:01:53.365 +01:00 [WRN] Entity 'Supplier' has a global query filter defined and is the required end of a relationship with the entity 'Purchase'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-21 05:01:53.402 +01:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'PurchaseItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-21 05:01:53.404 +01:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'SaleItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-21 05:01:53.404 +01:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-21 05:02:19.676 +01:00 [INF] PharMarket is ready on 
+2026-07-21 05:06:17.006 +01:00 [INF] HTTP GET /Products started. RequestId: dbd88f02-d85a-4d6c-ae35-131c730ca470
+2026-07-21 05:06:17.054 +01:00 [WRN] Failed to determine the https port for redirect.
+2026-07-21 05:06:18.208 +01:00 [INF] HTTP GET /Products completed 302 in 1206ms. RequestId: dbd88f02-d85a-4d6c-ae35-131c730ca470
+2026-07-21 05:06:18.348 +01:00 [INF] HTTP GET /Account/Login started. RequestId: 386eb178-b718-4b56-8434-d91e36682537
+2026-07-21 05:06:18.785 +01:00 [INF] HTTP GET / started. RequestId: d3a290ed-8c10-4b83-a4d1-f9d97779277b
+2026-07-21 05:06:22.888 +01:00 [INF] HTTP GET /Account/Login completed 200 in 4539ms. RequestId: 386eb178-b718-4b56-8434-d91e36682537
+2026-07-21 05:06:28.219 +01:00 [INF] HTTP GET / started. RequestId: 3c7270ba-e36c-415e-8979-d1a487090439
+2026-07-21 05:06:30.760 +01:00 [INF] HTTP GET /Products started. RequestId: 5c5b359e-e620-4780-93d0-d7010e4a6d0a
+2026-07-21 05:06:30.763 +01:00 [INF] HTTP GET /Products completed 302 in 2ms. RequestId: 5c5b359e-e620-4780-93d0-d7010e4a6d0a
+2026-07-21 05:06:30.768 +01:00 [INF] HTTP GET /Account/Login started. RequestId: 1a8fa117-0e88-4374-b2e3-c1955efb2abd
+2026-07-21 05:06:30.786 +01:00 [INF] HTTP GET /Account/Login completed 200 in 17ms. RequestId: 1a8fa117-0e88-4374-b2e3-c1955efb2abd
+2026-07-21 05:06:35.453 +01:00 [INF] HTTP GET /favicon.ico started. RequestId: ca25f357-988e-458c-ba4b-2c8fd45abad0
+2026-07-21 05:06:35.619 +01:00 [INF] HTTP GET /favicon.ico completed 304 in 166ms. RequestId: ca25f357-988e-458c-ba4b-2c8fd45abad0
+2026-07-21 05:06:36.725 +01:00 [INF] HTTP GET / completed 200 in 17940ms. RequestId: d3a290ed-8c10-4b83-a4d1-f9d97779277b
+2026-07-21 05:06:36.725 +01:00 [INF] HTTP GET / completed 200 in 8505ms. RequestId: 3c7270ba-e36c-415e-8979-d1a487090439
+2026-07-21 05:06:38.371 +01:00 [INF] HTTP GET / started. RequestId: 3f53ed52-35bf-4598-8604-90ec20cc307a
+2026-07-21 05:06:38.436 +01:00 [INF] HTTP GET / completed 200 in 64ms. RequestId: 3f53ed52-35bf-4598-8604-90ec20cc307a
+2026-07-21 05:06:38.695 +01:00 [INF] HTTP GET /css/templatemo-catalyst-style.css started. RequestId: 5be87b43-6d9c-4f5c-bc56-57ef38f7cb64
+2026-07-21 05:06:38.695 +01:00 [INF] HTTP GET /js/templatemo-catalyst-script.js started. RequestId: 4f3ac4c9-7341-428d-a66c-f2c4335b11e4
+2026-07-21 05:06:39.432 +01:00 [INF] HTTP GET /js/templatemo-catalyst-script.js completed 200 in 736ms. RequestId: 4f3ac4c9-7341-428d-a66c-f2c4335b11e4
+2026-07-21 05:06:39.442 +01:00 [INF] HTTP GET /css/templatemo-catalyst-style.css completed 200 in 746ms. RequestId: 5be87b43-6d9c-4f5c-bc56-57ef38f7cb64
+2026-07-21 05:07:14.185 +01:00 [INF] HTTP GET /Account/Login started. RequestId: 1c3561c6-d842-46c1-8294-2bac3fd5f879
+2026-07-21 05:07:14.192 +01:00 [INF] HTTP GET /Account/Login completed 200 in 6ms. RequestId: 1c3561c6-d842-46c1-8294-2bac3fd5f879
+2026-07-21 05:07:31.655 +01:00 [INF] HTTP POST /Account/Login started. RequestId: 8a824906-d2f2-4682-bb8b-9e54f541e610
+2026-07-21 05:07:35.921 +01:00 [INF] HTTP POST /Account/Login completed 302 in 4266ms. RequestId: 8a824906-d2f2-4682-bb8b-9e54f541e610
+2026-07-21 05:07:35.926 +01:00 [INF] HTTP GET /Home started. RequestId: c3b59653-7ef1-412b-9609-77595badf2f3
+2026-07-21 05:07:43.707 +01:00 [INF] HTTP GET /Home completed 200 in 7780ms. RequestId: c3b59653-7ef1-412b-9609-77595badf2f3
+2026-07-21 05:07:43.770 +01:00 [INF] HTTP GET /js/app.js started. RequestId: 785b4a73-b694-494b-aa82-6c8dff7fe839
+2026-07-21 05:07:43.820 +01:00 [INF] HTTP GET /css/app.css started. RequestId: 52b47da5-a3d2-439f-ad42-aed2ad8626f8
+2026-07-21 05:07:43.820 +01:00 [INF] HTTP GET /css/app.css completed 304 in 0ms. RequestId: 52b47da5-a3d2-439f-ad42-aed2ad8626f8
+2026-07-21 05:07:43.826 +01:00 [INF] HTTP GET /js/app.js completed 200 in 55ms. RequestId: 785b4a73-b694-494b-aa82-6c8dff7fe839
+2026-07-21 05:08:03.213 +01:00 [INF] HTTP GET /Products started. RequestId: 1d4f0ec9-186d-470b-a241-5c12f5765e48
+2026-07-21 05:08:05.485 +01:00 [INF] HTTP GET /Products completed 200 in 2272ms. RequestId: 1d4f0ec9-186d-470b-a241-5c12f5765e48
+2026-07-21 05:08:09.985 +01:00 [INF] HTTP GET /Products/Create started. RequestId: f4932083-ae4d-456a-bfcd-8d5b6458fbc6
+2026-07-21 05:08:10.722 +01:00 [INF] HTTP GET /Products/Create completed 200 in 737ms. RequestId: f4932083-ae4d-456a-bfcd-8d5b6458fbc6
+2026-07-21 05:08:10.744 +01:00 [INF] HTTP GET /lib/jquery-validation/dist/jquery.validate.min.js started. RequestId: ec5c04b0-c3dc-4ada-b8e6-34a9806fc689
+2026-07-21 05:08:10.744 +01:00 [INF] HTTP GET /lib/jquery-validation/dist/jquery.validate.min.js completed 304 in 0ms. RequestId: ec5c04b0-c3dc-4ada-b8e6-34a9806fc689
+2026-07-21 05:08:10.745 +01:00 [INF] HTTP GET /lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js started. RequestId: 1fa8c6c8-89b5-4b87-b39c-057fc0d201d2
+2026-07-21 05:08:10.751 +01:00 [INF] HTTP GET /lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js completed 304 in 5ms. RequestId: 1fa8c6c8-89b5-4b87-b39c-057fc0d201d2
+2026-07-21 05:08:59.890 +01:00 [INF] HTTP POST /Products/Create started. RequestId: e88f02b4-914e-4110-a701-0b7dc292a55e
+2026-07-21 05:09:06.838 +01:00 [INF] HTTP POST /Products/Create completed 302 in 6948ms. RequestId: e88f02b4-914e-4110-a701-0b7dc292a55e
+2026-07-21 05:09:06.842 +01:00 [INF] HTTP GET /Products/QrCode/6 started. RequestId: 4434d35b-b12f-4579-bc31-5d8f337b7232
+2026-07-21 05:09:07.201 +01:00 [INF] HTTP GET /Products/QrCode/6 completed 200 in 359ms. RequestId: 4434d35b-b12f-4579-bc31-5d8f337b7232
+2026-07-21 05:09:07.219 +01:00 [INF] HTTP GET /uploads/qrcodes/2/product_6.png started. RequestId: 4b1553b1-7c80-4b05-83d6-97f8cdac72e5
+2026-07-21 05:09:07.274 +01:00 [INF] HTTP GET /uploads/qrcodes/2/product_6.png completed 200 in 55ms. RequestId: 4b1553b1-7c80-4b05-83d6-97f8cdac72e5
+2026-07-21 05:09:11.148 +01:00 [INF] HTTP GET /Products started. RequestId: 11783e61-a526-4fd7-8cee-71f92d1e1d03
+2026-07-21 05:09:11.178 +01:00 [INF] HTTP GET /Products completed 200 in 29ms. RequestId: 11783e61-a526-4fd7-8cee-71f92d1e1d03
+2026-07-21 05:09:20.002 +01:00 [INF] HTTP POST /Account/Logout started. RequestId: b1bbee3a-43d6-4d97-a4ea-a823919840ce
+2026-07-21 05:09:20.016 +01:00 [INF] HTTP POST /Account/Logout completed 302 in 13ms. RequestId: b1bbee3a-43d6-4d97-a4ea-a823919840ce
+2026-07-21 05:09:20.021 +01:00 [INF] HTTP GET /Account/Login started. RequestId: e9bddfea-56b7-4af5-b398-c952ef221e24
+2026-07-21 05:09:20.024 +01:00 [INF] HTTP GET /Account/Login completed 200 in 3ms. RequestId: e9bddfea-56b7-4af5-b398-c952ef221e24
+2026-07-21 05:09:23.621 +01:00 [INF] HTTP POST /Account/Login started. RequestId: 6d47aa32-0939-4d24-b9c5-5dc4e889fdb7
+2026-07-21 05:09:23.629 +01:00 [INF] HTTP POST /Account/Login completed 302 in 8ms. RequestId: 6d47aa32-0939-4d24-b9c5-5dc4e889fdb7
+2026-07-21 05:09:23.638 +01:00 [INF] HTTP GET /Home started. RequestId: 3854f150-9dce-4dcc-91a0-87bb50257bf4
+2026-07-21 05:09:23.686 +01:00 [INF] HTTP GET /Home completed 200 in 48ms. RequestId: 3854f150-9dce-4dcc-91a0-87bb50257bf4
+2026-07-21 05:09:30.057 +01:00 [INF] HTTP GET /Sales/POS started. RequestId: fd0ba380-cf58-4257-b1b3-ecf2af9a84d9
+2026-07-21 05:09:30.754 +01:00 [INF] HTTP GET /Sales/POS completed 200 in 697ms. RequestId: fd0ba380-cf58-4257-b1b3-ecf2af9a84d9
+2026-07-21 05:09:32.767 +01:00 [INF] HTTP GET /Sales started. RequestId: 5dcc2ec1-5e87-44c9-ac22-84fa5b6b2713
+2026-07-21 05:09:33.667 +01:00 [INF] HTTP GET /Sales completed 200 in 899ms. RequestId: 5dcc2ec1-5e87-44c9-ac22-84fa5b6b2713
+2026-07-21 05:09:36.075 +01:00 [INF] HTTP GET /Products started. RequestId: 6b85944b-0a3a-435d-b434-c2a10873d0cf
+2026-07-21 05:09:36.093 +01:00 [INF] HTTP GET /Products completed 200 in 18ms. RequestId: 6b85944b-0a3a-435d-b434-c2a10873d0cf
+2026-07-21 05:09:40.292 +01:00 [INF] HTTP GET /Apprentice started. RequestId: ae002cf8-c392-4a84-a63f-0f26ca788b98
+2026-07-21 05:09:40.425 +01:00 [INF] HTTP GET /Apprentice completed 200 in 132ms. RequestId: ae002cf8-c392-4a84-a63f-0f26ca788b98
+2026-07-21 05:09:42.868 +01:00 [INF] HTTP GET /Apprentice started. RequestId: d5234689-7ad5-4b2c-b7a9-c6d9928817f0
+2026-07-21 05:09:42.879 +01:00 [INF] HTTP GET /Apprentice completed 200 in 10ms. RequestId: d5234689-7ad5-4b2c-b7a9-c6d9928817f0
+2026-07-21 05:09:45.061 +01:00 [INF] HTTP POST /Account/Logout started. RequestId: a480f7cc-3811-483f-8385-313769fa4aef
+2026-07-21 05:09:45.062 +01:00 [INF] HTTP POST /Account/Logout completed 302 in 1ms. RequestId: a480f7cc-3811-483f-8385-313769fa4aef
+2026-07-21 05:09:45.068 +01:00 [INF] HTTP GET /Account/Login started. RequestId: 99dba720-5791-4b41-91ee-53a041008948
+2026-07-21 05:09:45.071 +01:00 [INF] HTTP GET /Account/Login completed 200 in 2ms. RequestId: 99dba720-5791-4b41-91ee-53a041008948
+2026-07-21 05:09:46.830 +01:00 [INF] HTTP POST /Account/Login started. RequestId: 52fa82ea-6c3d-406c-bb77-0450ca023cfb
+2026-07-21 05:09:46.835 +01:00 [INF] HTTP POST /Account/Login completed 302 in 5ms. RequestId: 52fa82ea-6c3d-406c-bb77-0450ca023cfb
+2026-07-21 05:09:46.839 +01:00 [INF] HTTP GET /Home started. RequestId: 580491e2-53fd-4805-9732-972aeb52e2b4
+2026-07-21 05:09:46.980 +01:00 [INF] HTTP GET /Home completed 200 in 140ms. RequestId: 580491e2-53fd-4805-9732-972aeb52e2b4
+2026-07-21 05:09:53.619 +01:00 [INF] HTTP GET /Apprentice started. RequestId: 4f109788-d66c-4374-a0c4-3be0b0642d1f
+2026-07-21 05:09:53.629 +01:00 [INF] HTTP GET /Apprentice completed 200 in 9ms. RequestId: 4f109788-d66c-4374-a0c4-3be0b0642d1f
+2026-07-21 05:09:54.737 +01:00 [INF] HTTP GET /Apprentice started. RequestId: 11783ffd-62ca-4f3d-b798-4930d3432f10
+2026-07-21 05:09:54.743 +01:00 [INF] HTTP GET /Apprentice completed 200 in 5ms. RequestId: 11783ffd-62ca-4f3d-b798-4930d3432f10
+2026-07-21 05:09:55.887 +01:00 [INF] HTTP GET /Apprentice started. RequestId: aa572ce4-c16d-4623-9f46-7473b6f5aef1
+2026-07-21 05:09:55.896 +01:00 [INF] HTTP GET /Apprentice completed 200 in 8ms. RequestId: aa572ce4-c16d-4623-9f46-7473b6f5aef1
+2026-07-21 05:09:58.545 +01:00 [INF] HTTP GET /Home started. RequestId: 5db1538a-9411-485b-998e-e9ceb7a0708e
+2026-07-21 05:09:58.596 +01:00 [INF] HTTP GET /Home completed 200 in 51ms. RequestId: 5db1538a-9411-485b-998e-e9ceb7a0708e
+2026-07-21 05:10:07.285 +01:00 [INF] HTTP GET /Apprentice started. RequestId: cd20e3da-69bb-4abc-b345-711525c1bb8b
+2026-07-21 05:10:07.292 +01:00 [INF] HTTP GET /Apprentice completed 200 in 6ms. RequestId: cd20e3da-69bb-4abc-b345-711525c1bb8b
+2026-07-21 05:10:13.789 +01:00 [INF] HTTP GET /Apprentice/Search started. RequestId: 1ead9664-9ccd-41ad-a0a0-74d3c7ba6cbf
+2026-07-21 05:10:14.039 +01:00 [INF] HTTP GET /Apprentice/Search started. RequestId: 93e11958-a3fa-44b8-b7e7-0766b672d25e
+2026-07-21 05:10:14.668 +01:00 [INF] HTTP GET /Apprentice/Search started. RequestId: 1730a60a-8146-43f9-9ea9-6bd39cb81df6
+2026-07-21 05:10:14.876 +01:00 [INF] HTTP GET /Apprentice/Search started. RequestId: 1105916e-a7fb-4c5b-9ed8-ac3cc7cafefb
+2026-07-21 05:10:15.272 +01:00 [INF] HTTP GET /Apprentice/Search started. RequestId: 7543d42f-a8a1-4123-b55f-d9e3454c4696
+2026-07-21 05:10:15.485 +01:00 [INF] HTTP GET /Apprentice/Search completed 200 in 212ms. RequestId: 7543d42f-a8a1-4123-b55f-d9e3454c4696
+2026-07-21 05:10:15.556 +01:00 [INF] HTTP GET /Apprentice/Search completed 200 in 679ms. RequestId: 1105916e-a7fb-4c5b-9ed8-ac3cc7cafefb
+2026-07-21 05:10:15.556 +01:00 [INF] HTTP GET /Apprentice/Search completed 200 in 1516ms. RequestId: 93e11958-a3fa-44b8-b7e7-0766b672d25e
+2026-07-21 05:10:15.556 +01:00 [INF] HTTP GET /Apprentice/Search completed 200 in 887ms. RequestId: 1730a60a-8146-43f9-9ea9-6bd39cb81df6
+2026-07-21 05:10:15.714 +01:00 [INF] HTTP GET /Apprentice/Search completed 200 in 1924ms. RequestId: 1ead9664-9ccd-41ad-a0a0-74d3c7ba6cbf
+2026-07-21 05:10:16.306 +01:00 [INF] HTTP GET /Apprentice/Search started. RequestId: bbf13b4c-31b9-4004-9363-92fbc159490f
+2026-07-21 05:10:16.311 +01:00 [INF] HTTP GET /Apprentice/Search completed 200 in 4ms. RequestId: bbf13b4c-31b9-4004-9363-92fbc159490f
+2026-07-21 05:10:18.677 +01:00 [INF] HTTP GET /Apprentice started. RequestId: 8bbe574e-e83f-4ec5-8833-6394155bf58d
+2026-07-21 05:10:18.692 +01:00 [INF] HTTP GET /Apprentice completed 200 in 14ms. RequestId: 8bbe574e-e83f-4ec5-8833-6394155bf58d
+2026-07-21 05:10:24.057 +01:00 [INF] HTTP POST /Apprentice/ReduceStock started. RequestId: 1f32b567-334d-44d8-b022-0e5a54110fd2
+2026-07-21 05:10:25.530 +01:00 [INF] HTTP POST /Apprentice/ReduceStock completed 200 in 1472ms. RequestId: 1f32b567-334d-44d8-b022-0e5a54110fd2
+2026-07-21 05:10:30.704 +01:00 [INF] HTTP GET /Sales started. RequestId: 53fec8d2-78d2-4d51-9078-484aa90bdc65
+2026-07-21 05:10:30.715 +01:00 [INF] HTTP GET /Sales completed 200 in 11ms. RequestId: 53fec8d2-78d2-4d51-9078-484aa90bdc65
+2026-07-21 05:10:33.269 +01:00 [INF] HTTP GET /Apprentice started. RequestId: c4812e44-befa-49c1-b79c-2b8bb73baa43
+2026-07-21 05:10:33.277 +01:00 [INF] HTTP GET /Apprentice completed 200 in 7ms. RequestId: c4812e44-befa-49c1-b79c-2b8bb73baa43
+2026-07-21 05:11:14.384 +01:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json started. RequestId: e43af945-9b4c-4260-a077-f05a837fbcec
+2026-07-21 05:11:14.387 +01:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json completed 404 in 2ms. RequestId: e43af945-9b4c-4260-a077-f05a837fbcec
+2026-07-21 05:12:10.443 +01:00 [INF] HTTP GET /Sales/POS started. RequestId: 45219888-2d03-49e7-b4be-175d192cffe5
+2026-07-21 05:12:10.448 +01:00 [INF] HTTP GET /Sales/POS completed 200 in 5ms. RequestId: 45219888-2d03-49e7-b4be-175d192cffe5
+2026-07-21 05:12:21.871 +01:00 [INF] HTTP GET /Products started. RequestId: 4bd7d60d-6af7-49c0-9ee3-73fe53c92bb9
+2026-07-21 05:12:21.890 +01:00 [INF] HTTP GET /Products completed 200 in 18ms. RequestId: 4bd7d60d-6af7-49c0-9ee3-73fe53c92bb9
+2026-07-21 05:12:28.042 +01:00 [INF] HTTP GET /Stock started. RequestId: 741e2889-3c63-4abb-85e9-39d7808899e0
+2026-07-21 05:12:28.702 +01:00 [INF] HTTP GET /Stock completed 200 in 659ms. RequestId: 741e2889-3c63-4abb-85e9-39d7808899e0
+2026-07-21 05:12:38.606 +01:00 [INF] HTTP GET /Purchases started. RequestId: 175fe76c-9429-4130-8cf5-c627f56312ac
+2026-07-21 05:12:40.560 +01:00 [INF] HTTP GET /Purchases completed 200 in 1953ms. RequestId: 175fe76c-9429-4130-8cf5-c627f56312ac
+2026-07-21 05:13:13.352 +01:00 [INF] HTTP GET /Suppliers started. RequestId: 26653491-925a-4dff-adab-2f7df440709f
+2026-07-21 05:13:15.000 +01:00 [INF] HTTP GET /Suppliers completed 200 in 1647ms. RequestId: 26653491-925a-4dff-adab-2f7df440709f
+2026-07-21 05:13:16.795 +01:00 [INF] HTTP GET /Transactions started. RequestId: 69000a08-d918-4288-9671-17c158c66342
+2026-07-21 05:13:21.789 +01:00 [INF] HTTP GET /Transactions completed 200 in 4994ms. RequestId: 69000a08-d918-4288-9671-17c158c66342
+2026-07-21 05:13:22.898 +01:00 [INF] HTTP GET /Apprentice started. RequestId: ecfda06d-52ab-4082-aadc-ed94d168e8a0
+2026-07-21 05:13:22.925 +01:00 [INF] HTTP GET /Apprentice completed 200 in 27ms. RequestId: ecfda06d-52ab-4082-aadc-ed94d168e8a0
+2026-07-21 05:16:11.072 +01:00 [INF] HTTP GET /Apprentice started. RequestId: 828dd978-7c3b-4181-8451-5cb128867735
+2026-07-21 05:16:11.108 +01:00 [INF] HTTP GET /Apprentice completed 200 in 36ms. RequestId: 828dd978-7c3b-4181-8451-5cb128867735
+2026-07-21 05:19:57.815 +01:00 [INF] HTTP POST /Account/Logout started. RequestId: cafb38cf-b55d-4fb9-a1d1-df52bc8a8427
+2026-07-21 05:19:57.817 +01:00 [INF] HTTP POST /Account/Logout completed 302 in 1ms. RequestId: cafb38cf-b55d-4fb9-a1d1-df52bc8a8427
+2026-07-21 05:19:57.823 +01:00 [INF] HTTP GET /Account/Login started. RequestId: bb0fe0e6-17cf-40c4-b3d6-2283518e9deb
+2026-07-21 05:19:57.828 +01:00 [INF] HTTP GET /Account/Login completed 200 in 4ms. RequestId: bb0fe0e6-17cf-40c4-b3d6-2283518e9deb
+2026-07-21 05:20:02.603 +01:00 [INF] HTTP POST /Account/Login started. RequestId: 92b653b2-0a7e-4e6d-b309-d0f59a10e71d
+2026-07-21 05:20:03.482 +01:00 [INF] HTTP POST /Account/Login completed 302 in 879ms. RequestId: 92b653b2-0a7e-4e6d-b309-d0f59a10e71d
+2026-07-21 05:20:03.537 +01:00 [INF] HTTP GET /Home started. RequestId: 9453e2ec-5b84-4538-83c2-c47db3df300f
+2026-07-21 05:20:03.695 +01:00 [INF] HTTP GET /Home completed 200 in 157ms. RequestId: 9453e2ec-5b84-4538-83c2-c47db3df300f
+2026-07-21 05:20:08.381 +01:00 [INF] HTTP GET /Sales/POS started. RequestId: 2b69cc3a-f76e-4c1c-98e4-218bb82c6201
+2026-07-21 05:20:08.386 +01:00 [INF] HTTP GET /Sales/POS completed 200 in 5ms. RequestId: 2b69cc3a-f76e-4c1c-98e4-218bb82c6201
+2026-07-21 05:20:10.664 +01:00 [INF] HTTP GET /Sales started. RequestId: 3fa90d9a-12be-4ee5-8b01-ae4015791ac1
+2026-07-21 05:20:10.675 +01:00 [INF] HTTP GET /Sales completed 200 in 10ms. RequestId: 3fa90d9a-12be-4ee5-8b01-ae4015791ac1
+2026-07-21 05:20:12.166 +01:00 [INF] HTTP GET /Sales/POS started. RequestId: 38e196c8-dffd-4f53-bd84-89db3a59c318
+2026-07-21 05:20:12.168 +01:00 [INF] HTTP GET /Sales/POS completed 200 in 1ms. RequestId: 38e196c8-dffd-4f53-bd84-89db3a59c318
+2026-07-21 05:20:15.684 +01:00 [INF] HTTP GET /Sales started. RequestId: 56d1b202-54ad-47eb-b647-f16daa083e44
+2026-07-21 05:20:15.689 +01:00 [INF] HTTP GET /Sales completed 200 in 4ms. RequestId: 56d1b202-54ad-47eb-b647-f16daa083e44
+2026-07-21 05:20:20.551 +01:00 [INF] HTTP GET /Sales/Details/INV-20260720-3574338D started. RequestId: d4af3043-105f-4963-9dc5-5432e5eba6d2
+2026-07-21 05:20:23.364 +01:00 [INF] HTTP GET /Sales/Details/INV-20260720-3574338D completed 200 in 2813ms. RequestId: d4af3043-105f-4963-9dc5-5432e5eba6d2
+2026-07-21 05:20:30.081 +01:00 [INF] HTTP GET /Products started. RequestId: f928ed45-3984-46ac-bb83-62b69d9f54c7
+2026-07-21 05:20:30.097 +01:00 [INF] HTTP GET /Products completed 200 in 16ms. RequestId: f928ed45-3984-46ac-bb83-62b69d9f54c7
+2026-07-21 05:20:23.365 +01:00 [ERR] An unhandled exception occurred. Request: GET /Sales/Details/INV-20260720-3574338D
+PharMarket.Exceptions.NotFoundException: Entity "Sale" (0) was not found.
+   at PharMarket.Controllers.SalesController.Details(Int32 id) in C:\Users\USER\Desktop\PharMarket\Controllers\SalesController.cs:line 63
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at PharMarket.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\USER\Desktop\PharMarket\Middleware\RequestLoggingMiddleware.cs:line 28
+   at PharMarket.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\USER\Desktop\PharMarket\Middleware\GlobalExceptionMiddleware.cs:line 22
+2026-07-21 05:20:35.974 +01:00 [INF] HTTP GET /Products/Edit/4 started. RequestId: 9c9239aa-681c-473d-8dbd-c619f0a316f3
+2026-07-21 05:20:36.963 +01:00 [INF] HTTP GET /Products/Edit/4 completed 200 in 989ms. RequestId: 9c9239aa-681c-473d-8dbd-c619f0a316f3
+2026-07-21 05:20:37.014 +01:00 [INF] HTTP GET /lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js started. RequestId: e6844a21-92d4-47f4-8eca-18d9c80d56f7
+2026-07-21 05:20:37.014 +01:00 [INF] HTTP GET /lib/jquery-validation/dist/jquery.validate.min.js started. RequestId: 360b5067-2d94-45e8-82df-b896bc3c0bc1
+2026-07-21 05:20:39.520 +01:00 [INF] HTTP GET /Stock started. RequestId: 56532990-c5ca-4abc-8a52-ec021aaef5c6
+2026-07-21 05:20:39.534 +01:00 [INF] HTTP GET /Stock completed 200 in 14ms. RequestId: 56532990-c5ca-4abc-8a52-ec021aaef5c6
+2026-07-21 05:20:47.429 +01:00 [INF] HTTP GET /lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js completed 200 in 10415ms. RequestId: e6844a21-92d4-47f4-8eca-18d9c80d56f7
+2026-07-21 05:20:48.103 +01:00 [INF] HTTP GET /Purchases started. RequestId: 0e128ee7-f56a-40b1-9c22-c4577dc99593
+2026-07-21 05:20:48.110 +01:00 [INF] HTTP GET /Purchases completed 200 in 7ms. RequestId: 0e128ee7-f56a-40b1-9c22-c4577dc99593
+2026-07-21 05:20:50.803 +01:00 [INF] HTTP GET /lib/jquery-validation/dist/jquery.validate.min.js completed 200 in 13789ms. RequestId: 360b5067-2d94-45e8-82df-b896bc3c0bc1
+2026-07-21 05:20:52.388 +01:00 [INF] HTTP GET /Suppliers started. RequestId: 8cfd3a39-340e-4a4a-8c8e-e64e62fceaea
+2026-07-21 05:20:52.399 +01:00 [INF] HTTP GET /Suppliers completed 200 in 11ms. RequestId: 8cfd3a39-340e-4a4a-8c8e-e64e62fceaea
+2026-07-21 05:20:57.582 +01:00 [INF] HTTP GET /Expenses started. RequestId: 761f193b-73c0-45a4-953a-f86b757e4ec6
+2026-07-21 05:20:58.064 +01:00 [INF] HTTP GET /Expenses completed 200 in 481ms. RequestId: 761f193b-73c0-45a4-953a-f86b757e4ec6
+2026-07-21 05:21:01.473 +01:00 [INF] HTTP GET /Expenses/Create started. RequestId: bdfcdf72-985f-45eb-89c1-8601700708cf
+2026-07-21 05:21:02.089 +01:00 [INF] HTTP GET /Expenses/Create completed 200 in 616ms. RequestId: bdfcdf72-985f-45eb-89c1-8601700708cf
+2026-07-21 05:21:02.262 +01:00 [INF] HTTP GET /lib/jquery-validation/dist/jquery.validate.min.js started. RequestId: 79760b1a-bfa3-48ad-ad55-794ffb26ef8a
+2026-07-21 05:21:02.263 +01:00 [INF] HTTP GET /lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js started. RequestId: d625c1bf-28d0-4514-878e-56f8186cddea
+2026-07-21 05:21:02.414 +01:00 [INF] HTTP GET /lib/jquery-validation/dist/jquery.validate.min.js completed 200 in 152ms. RequestId: 79760b1a-bfa3-48ad-ad55-794ffb26ef8a
+2026-07-21 05:21:02.438 +01:00 [INF] HTTP GET /lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js completed 200 in 175ms. RequestId: d625c1bf-28d0-4514-878e-56f8186cddea
+2026-07-21 05:21:09.585 +01:00 [INF] HTTP GET /Transactions started. RequestId: 95754a62-9e6e-4824-91e6-6a3a35d28fbf
+2026-07-21 05:21:09.597 +01:00 [INF] HTTP GET /Transactions completed 200 in 11ms. RequestId: 95754a62-9e6e-4824-91e6-6a3a35d28fbf
+2026-07-21 05:21:14.215 +01:00 [INF] HTTP GET /Reports/Sales started. RequestId: 748d582b-dcce-4570-8a55-58bd08a44cc0
+2026-07-21 05:21:14.321 +01:00 [INF] HTTP GET /Reports/Sales completed 200 in 105ms. RequestId: 748d582b-dcce-4570-8a55-58bd08a44cc0
+2026-07-21 05:21:24.845 +01:00 [INF] HTTP GET /Users started. RequestId: 180dc10e-0d6f-4732-b0d6-98f32733d9b1
+2026-07-21 05:21:25.383 +01:00 [INF] HTTP GET /Users completed 200 in 537ms. RequestId: 180dc10e-0d6f-4732-b0d6-98f32733d9b1
+2026-07-21 05:21:28.518 +01:00 [INF] HTTP GET /Store/Settings started. RequestId: 2662cba6-e8c7-4196-8043-ee4294bbf06f
+2026-07-21 05:21:29.576 +01:00 [ERR] The view 'Settings' was not found. Searched locations: ["/Views/Store/Settings.cshtml","/Views/Shared/Settings.cshtml"]
+2026-07-21 05:21:29.885 +01:00 [INF] HTTP GET /Store/Settings completed 200 in 1367ms. RequestId: 2662cba6-e8c7-4196-8043-ee4294bbf06f
+2026-07-21 05:21:29.885 +01:00 [ERR] An unhandled exception occurred. Request: GET /Store/Settings
+System.InvalidOperationException: The view 'Settings' was not found. The following locations were searched:
+/Views/Store/Settings.cshtml
+/Views/Shared/Settings.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at PharMarket.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\USER\Desktop\PharMarket\Middleware\RequestLoggingMiddleware.cs:line 28
+   at PharMarket.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\USER\Desktop\PharMarket\Middleware\GlobalExceptionMiddleware.cs:line 22
+2026-07-21 05:21:34.928 +01:00 [INF] HTTP GET /Users started. RequestId: adda4e05-7cec-470b-8938-6604a10536ff
+2026-07-21 05:21:34.937 +01:00 [INF] HTTP GET /Users completed 200 in 9ms. RequestId: adda4e05-7cec-470b-8938-6604a10536ff
+2026-07-21 05:21:37.331 +01:00 [INF] HTTP GET / started. RequestId: 3f2a42de-6acc-4a62-a28f-e941ef81ec50
+2026-07-21 05:21:37.332 +01:00 [INF] HTTP GET / completed 302 in 0ms. RequestId: 3f2a42de-6acc-4a62-a28f-e941ef81ec50
+2026-07-21 05:21:37.338 +01:00 [INF] HTTP GET /Home started. RequestId: 077dca3e-4d77-43a0-bc30-31481bcfdeca
+2026-07-21 05:21:37.382 +01:00 [INF] HTTP GET /Home completed 200 in 43ms. RequestId: 077dca3e-4d77-43a0-bc30-31481bcfdeca
+2026-07-21 05:21:55.832 +01:00 [INF] HTTP GET /Sales started. RequestId: 83ce9b62-b5f7-45c7-8251-eb0399dbf2c9
+2026-07-21 05:21:55.846 +01:00 [INF] HTTP GET /Sales completed 200 in 13ms. RequestId: 83ce9b62-b5f7-45c7-8251-eb0399dbf2c9
+2026-07-21 05:22:04.838 +01:00 [INF] HTTP GET /Sales/DailySummary started. RequestId: b166cfd6-b8ad-4f9b-9016-4de356e92e8a
+2026-07-21 05:22:05.028 +01:00 [INF] HTTP GET /Sales/DailySummary completed 200 in 189ms. RequestId: b166cfd6-b8ad-4f9b-9016-4de356e92e8a
+2026-07-21 05:22:14.019 +01:00 [INF] HTTP GET / started. RequestId: c5ba791b-3a0f-4825-9a13-e2fccafec163
+2026-07-21 05:22:14.020 +01:00 [INF] HTTP GET / completed 302 in 0ms. RequestId: c5ba791b-3a0f-4825-9a13-e2fccafec163
+2026-07-21 05:22:14.027 +01:00 [INF] HTTP GET /Home started. RequestId: 5873a618-d3de-4ba2-912a-843eb15ec7f1
+2026-07-21 05:22:14.062 +01:00 [INF] HTTP GET /Home completed 200 in 35ms. RequestId: 5873a618-d3de-4ba2-912a-843eb15ec7f1
+2026-07-21 05:22:16.049 +01:00 [INF] HTTP GET / started. RequestId: 6feef540-d97d-4c47-a018-85bd16aca93d
+2026-07-21 05:22:16.050 +01:00 [INF] HTTP GET / completed 302 in 0ms. RequestId: 6feef540-d97d-4c47-a018-85bd16aca93d
+2026-07-21 05:22:16.059 +01:00 [INF] HTTP GET /Home started. RequestId: d50c23da-649a-4bed-8219-d7c57d01c2e9
+2026-07-21 05:22:16.288 +01:00 [INF] HTTP GET /Home completed 200 in 229ms. RequestId: d50c23da-649a-4bed-8219-d7c57d01c2e9
+2026-07-21 05:22:34.689 +01:00 [INF] HTTP GET /Home started. RequestId: a548001d-2fc1-4de5-9927-0939e034ab00
+2026-07-21 05:22:34.944 +01:00 [INF] HTTP GET /Home completed 200 in 254ms. RequestId: a548001d-2fc1-4de5-9927-0939e034ab00
+2026-07-21 05:22:35.017 +01:00 [INF] HTTP GET /favicon.ico started. RequestId: 18d27399-f791-4300-b788-ddaadd1623e7
+2026-07-21 05:22:36.639 +01:00 [INF] HTTP GET /favicon.ico completed 200 in 1622ms. RequestId: 18d27399-f791-4300-b788-ddaadd1623e7
+[2026-07-21 05:29:30.346] [INF] Starting PharMarket application
+[2026-07-21 05:29:53.477] [WRN] Entity 'Supplier' has a global query filter defined and is the required end of a relationship with the entity 'Purchase'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-21 05:29:53.510] [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'PurchaseItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-21 05:29:53.511] [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'SaleItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-21 05:29:53.511] [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-21 05:29:58.151] [INF] PharMarket is ready on 
+[2026-07-21 05:30:16.096] [INF] HTTP POST /Account/Logout started. RequestId: 85310fec-2eb5-44ea-84a7-dca61c72338b
+[2026-07-21 05:30:16.168] [WRN] Failed to determine the https port for redirect.
+[2026-07-21 05:30:24.729] [INF] HTTP POST /Account/Logout completed 302 in 8637ms. RequestId: 85310fec-2eb5-44ea-84a7-dca61c72338b
+[2026-07-21 05:30:25.004] [INF] HTTP GET /Account/Login started. RequestId: be98db3b-e2f8-4030-a63a-05ca8a2fd312
+[2026-07-21 05:30:28.372] [INF] HTTP GET /Account/Login completed 200 in 3367ms. RequestId: be98db3b-e2f8-4030-a63a-05ca8a2fd312
+[2026-07-21 05:30:32.247] [INF] HTTP POST /Account/Login started. RequestId: c4951cf5-7baf-41be-948f-6abe0f6acb07
+[2026-07-21 05:30:33.352] [INF] HTTP POST /Account/Login completed 302 in 1104ms. RequestId: c4951cf5-7baf-41be-948f-6abe0f6acb07
+[2026-07-21 05:30:33.358] [INF] HTTP GET /Home started. RequestId: cfd2918f-b30e-406e-8d28-c2fdccf97cf6
+[2026-07-21 05:30:34.481] [INF] HTTP GET /Home completed 200 in 1122ms. RequestId: cfd2918f-b30e-406e-8d28-c2fdccf97cf6
+[2026-07-21 05:30:42.461] [INF] HTTP POST /Account/Logout started. RequestId: 31173da9-f6f3-4445-9de3-c76017bef557
+[2026-07-21 05:30:42.463] [INF] HTTP POST /Account/Logout completed 302 in 2ms. RequestId: 31173da9-f6f3-4445-9de3-c76017bef557
+[2026-07-21 05:30:42.470] [INF] HTTP GET /Account/Login started. RequestId: 6b293f82-b16b-449b-9e95-4271b0b4be52
+[2026-07-21 05:30:42.472] [INF] HTTP GET /Account/Login completed 200 in 2ms. RequestId: 6b293f82-b16b-449b-9e95-4271b0b4be52
+[2026-07-21 05:30:47.955] [INF] HTTP POST /Account/Login started. RequestId: fdf633ba-9c98-4a54-9e36-ce38fa86c314
+[2026-07-21 05:30:47.969] [INF] HTTP POST /Account/Login completed 302 in 14ms. RequestId: fdf633ba-9c98-4a54-9e36-ce38fa86c314
+[2026-07-21 05:30:47.977] [INF] HTTP GET /Apprentice started. RequestId: 41ae4715-93e5-4c95-b2a8-13c55bccfc3f
+[2026-07-21 05:30:48.525] [INF] HTTP GET /Apprentice completed 200 in 547ms. RequestId: 41ae4715-93e5-4c95-b2a8-13c55bccfc3f
+[2026-07-21 05:30:54.534] [INF] HTTP GET /Apprentice/GetProductDetails started. RequestId: 7d6eb5f1-e1c9-4924-924b-9cc19df5249f
+[2026-07-21 05:30:54.873] [INF] HTTP GET /Apprentice/GetProductDetails completed 200 in 338ms. RequestId: 7d6eb5f1-e1c9-4924-924b-9cc19df5249f
+[2026-07-21 05:31:14.408] [INF] HTTP GET /Apprentice/GetProductDetails started. RequestId: 331ba8b2-a713-4c9c-8b39-bfd0bbd0df57
+[2026-07-21 05:31:14.415] [INF] HTTP GET /Apprentice/GetProductDetails completed 200 in 7ms. RequestId: 331ba8b2-a713-4c9c-8b39-bfd0bbd0df57
+[2026-07-21 05:31:18.610] [INF] HTTP POST /Apprentice/ReduceStock started. RequestId: 9a6d7a77-3dd9-41d0-9dc6-e468cf3036ce
+[2026-07-21 05:31:19.718] [INF] HTTP POST /Apprentice/ReduceStock completed 200 in 1107ms. RequestId: 9a6d7a77-3dd9-41d0-9dc6-e468cf3036ce
+[2026-07-21 05:31:19.738] [INF] HTTP GET /Apprentice started. RequestId: 2cfc5032-2337-4e0b-9462-0aed9a226bb7
+[2026-07-21 05:31:19.782] [INF] HTTP GET /Apprentice completed 200 in 44ms. RequestId: 2cfc5032-2337-4e0b-9462-0aed9a226bb7
+[2026-07-21 05:31:25.722] [INF] HTTP GET /Apprentice/GetProductDetails started. RequestId: c122ba93-ac67-4004-a418-6852902f598b
+[2026-07-21 05:31:25.726] [INF] HTTP GET /Apprentice/GetProductDetails completed 200 in 4ms. RequestId: c122ba93-ac67-4004-a418-6852902f598b
+[2026-07-21 05:31:27.236] [INF] HTTP POST /Apprentice/ReduceStock started. RequestId: 4a3ccd2b-8d26-45ef-9245-df1e29bd7dbf
+[2026-07-21 05:31:27.541] [INF] HTTP POST /Apprentice/ReduceStock completed 200 in 305ms. RequestId: 4a3ccd2b-8d26-45ef-9245-df1e29bd7dbf
+[2026-07-21 05:31:27.553] [INF] HTTP GET /Apprentice started. RequestId: b412bf35-8cf7-4b71-b07b-6cf0d8b8aa3e
+[2026-07-21 05:31:27.640] [INF] HTTP GET /Apprentice completed 200 in 86ms. RequestId: b412bf35-8cf7-4b71-b07b-6cf0d8b8aa3e
+[2026-07-21 05:31:30.543] [INF] HTTP GET /Apprentice/GetProductDetails started. RequestId: 6fa45253-9f3c-4580-bb5e-1a8ce17899f5
+[2026-07-21 05:31:30.548] [INF] HTTP GET /Apprentice/GetProductDetails completed 200 in 4ms. RequestId: 6fa45253-9f3c-4580-bb5e-1a8ce17899f5
+[2026-07-21 05:31:35.525] [INF] HTTP POST /Apprentice/ReduceStock started. RequestId: 58900c61-05cf-48bf-acb8-f4c56c682caf
+[2026-07-21 05:31:35.837] [INF] HTTP POST /Apprentice/ReduceStock completed 200 in 312ms. RequestId: 58900c61-05cf-48bf-acb8-f4c56c682caf
+[2026-07-21 05:31:35.855] [INF] HTTP GET /Apprentice started. RequestId: 878c2205-0987-4cd3-8bf0-f202ba6e1769
+[2026-07-21 05:31:35.929] [INF] HTTP GET /Apprentice completed 200 in 74ms. RequestId: 878c2205-0987-4cd3-8bf0-f202ba6e1769
+[2026-07-21 05:31:52.382] [INF] HTTP GET /Apprentice started. RequestId: 20fd6e04-7e8b-4ec7-9c7e-6d0f1ba6554a
+[2026-07-21 05:31:52.400] [INF] HTTP GET /Apprentice completed 200 in 17ms. RequestId: 20fd6e04-7e8b-4ec7-9c7e-6d0f1ba6554a
+[2026-07-21 05:31:53.831] [INF] HTTP GET /Apprentice/GetProductDetails started. RequestId: f2e3c659-f30f-4a9a-92ec-54d21745ac2a
+[2026-07-21 05:31:53.836] [INF] HTTP GET /Apprentice/GetProductDetails completed 200 in 5ms. RequestId: f2e3c659-f30f-4a9a-92ec-54d21745ac2a
+[2026-07-21 05:31:58.491] [INF] HTTP GET /Apprentice/GetProductDetails started. RequestId: 790b4bcd-5abb-47d5-bb6b-47805b2240b4
+[2026-07-21 05:31:58.504] [INF] HTTP GET /Apprentice/GetProductDetails completed 200 in 13ms. RequestId: 790b4bcd-5abb-47d5-bb6b-47805b2240b4
+[2026-07-21 05:32:01.649] [INF] HTTP POST /Apprentice/ReduceStock started. RequestId: 0a81844a-b9be-4c12-8193-5967a9cb0066
+[2026-07-21 05:32:01.953] [INF] HTTP POST /Apprentice/ReduceStock completed 200 in 303ms. RequestId: 0a81844a-b9be-4c12-8193-5967a9cb0066
+[2026-07-21 05:32:01.973] [INF] HTTP GET /Apprentice started. RequestId: c2c47774-bf1b-4f8f-9ff0-78ed43d45441
+[2026-07-21 05:32:01.986] [INF] HTTP GET /Apprentice completed 200 in 12ms. RequestId: c2c47774-bf1b-4f8f-9ff0-78ed43d45441
+[2026-07-21 05:32:07.495] [INF] HTTP GET /Apprentice/MySales started. RequestId: 33102b28-8ab1-46f4-a8dc-9f49af7700c3
+[2026-07-21 05:32:07.531] [INF] HTTP GET /Apprentice/MySales completed 200 in 35ms. RequestId: 33102b28-8ab1-46f4-a8dc-9f49af7700c3
+[2026-07-21 05:32:11.826] [INF] HTTP GET /Apprentice started. RequestId: 88094a1b-b74d-48bb-92e0-db54a273d1a7
+[2026-07-21 05:32:11.836] [INF] HTTP GET /Apprentice completed 200 in 10ms. RequestId: 88094a1b-b74d-48bb-92e0-db54a273d1a7
+[2026-07-21 05:32:16.811] [INF] HTTP POST /Account/Logout started. RequestId: f27dce74-2873-4cfe-b3eb-ecbd33db8614
+[2026-07-21 05:32:16.813] [INF] HTTP POST /Account/Logout completed 302 in 1ms. RequestId: f27dce74-2873-4cfe-b3eb-ecbd33db8614
+[2026-07-21 05:32:16.816] [INF] HTTP GET /Account/Login started. RequestId: 42f5bb01-c01a-4e6f-b648-6d89539a4c36
+[2026-07-21 05:32:16.818] [INF] HTTP GET /Account/Login completed 200 in 2ms. RequestId: 42f5bb01-c01a-4e6f-b648-6d89539a4c36
+[2026-07-21 05:32:23.635] [INF] HTTP POST /Account/Login started. RequestId: e065ec17-dcf2-4419-994a-2b0a4b0c90c5
+[2026-07-21 05:32:23.643] [INF] HTTP POST /Account/Login completed 302 in 7ms. RequestId: e065ec17-dcf2-4419-994a-2b0a4b0c90c5
+[2026-07-21 05:32:23.652] [INF] HTTP GET /Home started. RequestId: fb060f3f-2467-4250-ac2c-f52c273ce16a
+[2026-07-21 05:32:23.689] [INF] HTTP GET /Home completed 200 in 36ms. RequestId: fb060f3f-2467-4250-ac2c-f52c273ce16a
+[2026-07-21 05:32:30.985] [INF] HTTP GET /Sales started. RequestId: b25ab9f9-3bdf-4d28-a10e-2518744bc261
+[2026-07-21 05:32:31.113] [INF] HTTP GET /Sales completed 200 in 127ms. RequestId: b25ab9f9-3bdf-4d28-a10e-2518744bc261
+[2026-07-21 05:32:38.559] [INF] HTTP GET /Sales/Details/INV-20260721043201-2bb92a started. RequestId: 6c483626-f0a2-4584-8fcd-173385bd9685
+[2026-07-21 05:32:38.772] [INF] HTTP GET /Sales/Details/INV-20260721043201-2bb92a completed 200 in 212ms. RequestId: 6c483626-f0a2-4584-8fcd-173385bd9685
+[2026-07-21 05:32:38.773] [ERR] An unhandled exception occurred. Request: GET /Sales/Details/INV-20260721043201-2bb92a
+PharMarket.Exceptions.NotFoundException: Entity "Sale" (0) was not found.
+   at PharMarket.Controllers.SalesController.Details(Int32 id) in C:\Users\USER\Desktop\PharMarket\Controllers\SalesController.cs:line 63
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at PharMarket.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\USER\Desktop\PharMarket\Middleware\RequestLoggingMiddleware.cs:line 28
+   at PharMarket.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\USER\Desktop\PharMarket\Middleware\GlobalExceptionMiddleware.cs:line 22
+[2026-07-21 05:32:41.329] [INF] HTTP GET /Sales started. RequestId: 5dfd4d9b-5797-4895-9fa7-db155dd56a7b
+[2026-07-21 05:32:41.339] [INF] HTTP GET /Sales completed 200 in 10ms. RequestId: 5dfd4d9b-5797-4895-9fa7-db155dd56a7b
+[2026-07-21 05:32:44.815] [INF] HTTP GET /Sales/DailySummary started. RequestId: 730b3a82-2513-4d82-bf4b-e6a7e53eaeb4
+[2026-07-21 05:32:44.870] [INF] HTTP GET /Sales/DailySummary completed 200 in 55ms. RequestId: 730b3a82-2513-4d82-bf4b-e6a7e53eaeb4
+[2026-07-21 05:32:52.067] [INF] HTTP GET / started. RequestId: f4f31e30-502a-4253-9419-96e791846c53
+[2026-07-21 05:32:52.094] [INF] HTTP GET / completed 302 in 26ms. RequestId: f4f31e30-502a-4253-9419-96e791846c53
+[2026-07-21 05:32:52.098] [INF] HTTP GET /Home started. RequestId: 7a29e876-2de4-48b7-a297-2249093627f8
+[2026-07-21 05:32:52.171] [INF] HTTP GET /Home completed 200 in 73ms. RequestId: 7a29e876-2de4-48b7-a297-2249093627f8
+[2026-07-21 05:32:57.195] [INF] HTTP GET /Products started. RequestId: 7534e961-237f-49ac-86e6-b0540b121eaf
+[2026-07-21 05:32:57.426] [INF] HTTP GET /Products completed 200 in 231ms. RequestId: 7534e961-237f-49ac-86e6-b0540b121eaf
+[2026-07-21 05:32:59.515] [INF] HTTP GET /Stock started. RequestId: 41e251ec-f841-45ed-8a60-7b1aa89c2a7b
+[2026-07-21 05:32:59.578] [INF] HTTP GET /Stock completed 200 in 62ms. RequestId: 41e251ec-f841-45ed-8a60-7b1aa89c2a7b
+[2026-07-21 05:33:02.382] [INF] HTTP GET /Suppliers started. RequestId: 600d7707-6651-48a0-9ced-f835d7dec7a2
+[2026-07-21 05:33:02.428] [INF] HTTP GET /Suppliers completed 200 in 46ms. RequestId: 600d7707-6651-48a0-9ced-f835d7dec7a2
+[2026-07-21 05:33:03.561] [INF] HTTP GET /Purchases started. RequestId: ff1ec8aa-9779-4582-8b59-b1454a25394c
+[2026-07-21 05:33:03.609] [INF] HTTP GET /Purchases completed 200 in 48ms. RequestId: ff1ec8aa-9779-4582-8b59-b1454a25394c
+[2026-07-21 05:33:09.027] [INF] HTTP GET /Admin/StaffSales started. RequestId: 375edbd3-d5ca-45fa-8677-a1ec42f833fd
+[2026-07-21 05:33:09.128] [INF] HTTP GET /Admin/StaffSales completed 200 in 101ms. RequestId: 375edbd3-d5ca-45fa-8677-a1ec42f833fd
+[2026-07-21 05:33:26.607] [INF] HTTP GET / started. RequestId: 7d4ea7a1-8a32-456c-89e1-1c2d7ccab588
+[2026-07-21 05:33:26.608] [INF] HTTP GET / completed 302 in 1ms. RequestId: 7d4ea7a1-8a32-456c-89e1-1c2d7ccab588
+[2026-07-21 05:33:26.616] [INF] HTTP GET /Home started. RequestId: 4b5b1bf5-8055-4d54-bf04-e006ee2eeab3
+[2026-07-21 05:33:26.649] [INF] HTTP GET /Home completed 200 in 33ms. RequestId: 4b5b1bf5-8055-4d54-bf04-e006ee2eeab3
+[2026-07-21 05:33:40.536] [INF] HTTP GET /Stock/LowStock started. RequestId: 979179b5-cdd7-456f-8b4b-dd2d3dd70c78
+[2026-07-21 05:33:40.575] [INF] HTTP GET /Stock/LowStock completed 200 in 38ms. RequestId: 979179b5-cdd7-456f-8b4b-dd2d3dd70c78
+[2026-07-21 05:33:45.441] [INF] HTTP GET / started. RequestId: 64fb986b-792b-4c0c-8e41-4293767a5857
+[2026-07-21 05:33:45.443] [INF] HTTP GET / completed 302 in 2ms. RequestId: 64fb986b-792b-4c0c-8e41-4293767a5857
+[2026-07-21 05:33:45.448] [INF] HTTP GET /Home started. RequestId: b07b5d5f-22e9-474e-90ef-2307b2753b7f
+[2026-07-21 05:33:47.872] [INF] HTTP GET /Home completed 200 in 2424ms. RequestId: b07b5d5f-22e9-474e-90ef-2307b2753b7f
+[2026-07-21 05:33:56.259] [INF] HTTP POST /Account/Logout started. RequestId: e0af4f88-395d-490a-ae90-528252aa4b00
+[2026-07-21 05:33:56.261] [INF] HTTP POST /Account/Logout completed 302 in 1ms. RequestId: e0af4f88-395d-490a-ae90-528252aa4b00
+[2026-07-21 05:33:56.268] [INF] HTTP GET /Account/Login started. RequestId: 58a14cf0-2f0d-42fb-8ddd-c30413b7b663
+[2026-07-21 05:33:56.272] [INF] HTTP GET /Account/Login completed 200 in 3ms. RequestId: 58a14cf0-2f0d-42fb-8ddd-c30413b7b663
+[2026-07-21 05:34:01.044] [INF] HTTP POST /Account/Login started. RequestId: 882c75e7-397e-4ebe-9d44-f23e7a789f7f
+[2026-07-21 05:34:01.057] [INF] HTTP POST /Account/Login completed 302 in 12ms. RequestId: 882c75e7-397e-4ebe-9d44-f23e7a789f7f
+[2026-07-21 05:34:01.063] [INF] HTTP GET /Apprentice started. RequestId: 0976c9d4-16e1-4973-8bdc-92bb61e3404b
+[2026-07-21 05:34:01.141] [INF] HTTP GET /Apprentice completed 200 in 77ms. RequestId: 0976c9d4-16e1-4973-8bdc-92bb61e3404b
+[2026-07-21 05:34:12.388] [INF] HTTP GET /Apprentice/MySales started. RequestId: a5e3ff3c-2276-45b4-aa67-d57f6b0876fa
+[2026-07-21 05:34:12.395] [INF] HTTP GET /Apprentice/MySales completed 200 in 7ms. RequestId: a5e3ff3c-2276-45b4-aa67-d57f6b0876fa
+[2026-07-21 05:34:15.346] [INF] HTTP GET /Apprentice started. RequestId: 7ba2d767-664d-41bc-a21a-e72295662e17
+[2026-07-21 05:34:15.353] [INF] HTTP GET /Apprentice completed 200 in 6ms. RequestId: 7ba2d767-664d-41bc-a21a-e72295662e17
+[2026-07-21 05:34:18.121] [INF] HTTP POST /Account/Logout started. RequestId: 58729f51-77a4-419e-91fd-f62232d88b8b
+[2026-07-21 05:34:18.123] [INF] HTTP POST /Account/Logout completed 302 in 1ms. RequestId: 58729f51-77a4-419e-91fd-f62232d88b8b
+[2026-07-21 05:34:18.129] [INF] HTTP GET /Account/Login started. RequestId: 1e4d241c-0163-4728-9d68-29f1a7fc2c2e
+[2026-07-21 05:34:18.131] [INF] HTTP GET /Account/Login completed 200 in 1ms. RequestId: 1e4d241c-0163-4728-9d68-29f1a7fc2c2e
+[2026-07-21 05:34:23.812] [INF] HTTP POST /Account/Login started. RequestId: 0f2fb8a7-dbd3-428c-a41e-86c6529144d8
+[2026-07-21 05:34:23.818] [INF] HTTP POST /Account/Login completed 302 in 5ms. RequestId: 0f2fb8a7-dbd3-428c-a41e-86c6529144d8
+[2026-07-21 05:34:23.826] [INF] HTTP GET /Home started. RequestId: 76bbe73e-6da3-4a22-b362-b0afd3132770
+[2026-07-21 05:34:23.869] [INF] HTTP GET /Home completed 200 in 42ms. RequestId: 76bbe73e-6da3-4a22-b362-b0afd3132770
+[2026-07-21 05:34:59.374] [INF] HTTP GET /Reports/Sales started. RequestId: 74b0820f-f46d-42c9-976e-1e0c9cb43b59
+[2026-07-21 05:34:59.441] [INF] HTTP GET /Reports/Sales completed 200 in 66ms. RequestId: 74b0820f-f46d-42c9-976e-1e0c9cb43b59
+[2026-07-21 05:35:12.939] [INF] HTTP POST /Account/Logout started. RequestId: cc96ce88-b787-45d2-8a4b-53c3e90d3a5e
+[2026-07-21 05:35:12.941] [INF] HTTP POST /Account/Logout completed 302 in 1ms. RequestId: cc96ce88-b787-45d2-8a4b-53c3e90d3a5e
+[2026-07-21 05:35:12.944] [INF] HTTP GET /Account/Login started. RequestId: 5be9045f-43db-4404-8c61-153c7ecd911f
+[2026-07-21 05:35:12.946] [INF] HTTP GET /Account/Login completed 200 in 1ms. RequestId: 5be9045f-43db-4404-8c61-153c7ecd911f
+[2026-07-21 05:35:16.149] [INF] HTTP POST /Account/Login started. RequestId: b7af8265-7226-41c9-bdb6-4e4e90f02a8c
+[2026-07-21 05:35:16.158] [INF] HTTP POST /Account/Login completed 302 in 8ms. RequestId: b7af8265-7226-41c9-bdb6-4e4e90f02a8c
+[2026-07-21 05:35:16.165] [INF] HTTP GET /Apprentice started. RequestId: 157d415c-576d-4a1b-afbf-28bd62043798
+[2026-07-21 05:35:16.183] [INF] HTTP GET /Apprentice completed 200 in 17ms. RequestId: 157d415c-576d-4a1b-afbf-28bd62043798
+[2026-07-21 05:35:18.793] [INF] HTTP GET /Apprentice/GetProductDetails started. RequestId: e75cc479-1162-4029-81c3-54e5134cef74
+[2026-07-21 05:35:20.422] [INF] HTTP GET /Apprentice/GetProductDetails completed 200 in 1629ms. RequestId: e75cc479-1162-4029-81c3-54e5134cef74
+[2026-07-21 05:35:21.716] [INF] HTTP GET /Apprentice/GetProductDetails started. RequestId: 9d7334bb-798a-4549-95bb-69c59edc8eba
+[2026-07-21 05:35:21.720] [INF] HTTP GET /Apprentice/GetProductDetails completed 200 in 4ms. RequestId: 9d7334bb-798a-4549-95bb-69c59edc8eba
+[2026-07-21 05:35:27.204] [INF] HTTP GET /Apprentice/GetProductDetails started. RequestId: cc5379ec-0cb2-4ea1-a7ed-ae3e4a949a66
+[2026-07-21 05:35:27.207] [INF] HTTP GET /Apprentice/GetProductDetails completed 200 in 3ms. RequestId: cc5379ec-0cb2-4ea1-a7ed-ae3e4a949a66
+[2026-07-21 05:35:29.925] [INF] HTTP GET /Apprentice/GetProductDetails started. RequestId: bc85e155-5df2-4790-9073-8bab2031ef77
+[2026-07-21 05:35:29.928] [INF] HTTP GET /Apprentice/GetProductDetails completed 200 in 3ms. RequestId: bc85e155-5df2-4790-9073-8bab2031ef77
+[2026-07-21 05:35:31.699] [INF] HTTP GET /Apprentice/GetProductDetails started. RequestId: 288c08ac-6c8c-429a-a28c-5afbcc05f46c
+[2026-07-21 05:35:31.703] [INF] HTTP GET /Apprentice/GetProductDetails completed 200 in 3ms. RequestId: 288c08ac-6c8c-429a-a28c-5afbcc05f46c
+[2026-07-21 05:35:49.026] [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json started. RequestId: 16db449d-dd2b-4569-b2cb-ab9810011d5f
+[2026-07-21 05:35:49.055] [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json completed 404 in 29ms. RequestId: 16db449d-dd2b-4569-b2cb-ab9810011d5f
+[2026-07-21 05:36:01.543] [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json started. RequestId: e91918a5-f805-43da-ac88-95e5232f2374
+[2026-07-21 05:36:01.544] [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json completed 404 in 0ms. RequestId: e91918a5-f805-43da-ac88-95e5232f2374
+[2026-07-21 05:36:08.404] [INF] HTTP GET /Apprentice/GetProductDetails started. RequestId: 9d4537b3-3a4b-4de0-b8af-b70c4ca769d1
+[2026-07-21 05:36:08.410] [INF] HTTP GET /Apprentice/GetProductDetails completed 200 in 5ms. RequestId: 9d4537b3-3a4b-4de0-b8af-b70c4ca769d1
+[2026-07-21 05:36:13.320] [INF] HTTP GET /Apprentice/GetProductDetails started. RequestId: 6988353a-b33a-4334-98a2-8c8a1ce2be5d
+[2026-07-21 05:36:13.324] [INF] HTTP GET /Apprentice/GetProductDetails completed 200 in 3ms. RequestId: 6988353a-b33a-4334-98a2-8c8a1ce2be5d
+[2026-07-21 05:36:19.821] [INF] HTTP POST /Account/Logout started. RequestId: ed418bdc-0fcb-4163-b480-18c5c1d5453d
+[2026-07-21 05:36:19.823] [INF] HTTP POST /Account/Logout completed 302 in 2ms. RequestId: ed418bdc-0fcb-4163-b480-18c5c1d5453d
+[2026-07-21 05:36:19.830] [INF] HTTP GET /Account/Login started. RequestId: eea562ea-117c-48ed-a71a-079f623c7d68
+[2026-07-21 05:36:19.835] [INF] HTTP GET /Account/Login completed 200 in 4ms. RequestId: eea562ea-117c-48ed-a71a-079f623c7d68
+[2026-07-21 05:36:19.965] [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json started. RequestId: 40623bdc-d4b3-47f7-8c8c-a6b08cccffbc
+[2026-07-21 05:36:19.967] [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json completed 404 in 1ms. RequestId: 40623bdc-d4b3-47f7-8c8c-a6b08cccffbc
+[2026-07-21 05:36:23.822] [INF] HTTP POST /Account/Login started. RequestId: d1c5c140-0270-4827-b52a-37ce942c2432
+[2026-07-21 05:36:23.828] [INF] HTTP POST /Account/Login completed 302 in 6ms. RequestId: d1c5c140-0270-4827-b52a-37ce942c2432
+[2026-07-21 05:36:23.843] [INF] HTTP GET /Home started. RequestId: 802f08a7-53f6-4416-b103-f6fd2e329526
+[2026-07-21 05:36:23.993] [INF] HTTP GET /Home completed 200 in 149ms. RequestId: 802f08a7-53f6-4416-b103-f6fd2e329526
+[2026-07-21 05:36:24.156] [INF] HTTP GET /css/app.css started. RequestId: cad06a83-89af-47ee-8c89-0d465ba5cfef
+[2026-07-21 05:36:24.158] [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json started. RequestId: 0fb2e4d8-dea1-414c-94b2-486daca1afac
+[2026-07-21 05:36:24.159] [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json completed 404 in 0ms. RequestId: 0fb2e4d8-dea1-414c-94b2-486daca1afac
+[2026-07-21 05:36:24.162] [INF] HTTP GET /js/app.js started. RequestId: 5b783dd2-48d0-428b-881d-0cee91b8a5f3
+[2026-07-21 05:36:24.423] [INF] HTTP GET /js/app.js completed 200 in 260ms. RequestId: 5b783dd2-48d0-428b-881d-0cee91b8a5f3
+[2026-07-21 05:36:24.466] [INF] HTTP GET /css/app.css completed 200 in 309ms. RequestId: cad06a83-89af-47ee-8c89-0d465ba5cfef
+[2026-07-21 05:36:37.617] [INF] HTTP GET /Products started. RequestId: 30f5347b-f47a-4219-bf4a-944231c8276e
+[2026-07-21 05:36:37.666] [INF] HTTP GET /Products completed 200 in 48ms. RequestId: 30f5347b-f47a-4219-bf4a-944231c8276e
+[2026-07-21 05:36:37.752] [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json started. RequestId: 7aa6bb56-7f98-44dd-8a04-a88680763ec0
+[2026-07-21 05:36:37.753] [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json completed 404 in 1ms. RequestId: 7aa6bb56-7f98-44dd-8a04-a88680763ec0
+[2026-07-21 05:36:45.286] [INF] HTTP GET /Products/Edit/1 started. RequestId: 019d0ce6-3db3-4c8e-b201-d451052d4777
+[2026-07-21 05:36:45.518] [INF] HTTP GET /Products/Edit/1 completed 200 in 231ms. RequestId: 019d0ce6-3db3-4c8e-b201-d451052d4777
+[2026-07-21 05:36:49.185] [INF] HTTP GET / started. RequestId: f4655499-89eb-48bb-bb0d-8570943daa62
+[2026-07-21 05:36:49.186] [INF] HTTP GET / completed 302 in 0ms. RequestId: f4655499-89eb-48bb-bb0d-8570943daa62
+[2026-07-21 05:36:49.191] [INF] HTTP GET /Home started. RequestId: 05e5330c-956a-44ca-a5c5-0c2b3ae016d7
+[2026-07-21 05:36:49.224] [INF] HTTP GET /Home completed 200 in 32ms. RequestId: 05e5330c-956a-44ca-a5c5-0c2b3ae016d7
+[2026-07-21 05:38:05.481] [INF] HTTP GET /Sales/POS started. RequestId: 2651b5ad-fa9f-446b-9c41-76a0eb13b644
+[2026-07-21 05:38:05.583] [INF] HTTP GET /Sales/POS completed 200 in 102ms. RequestId: 2651b5ad-fa9f-446b-9c41-76a0eb13b644
+[2026-07-21 05:38:09.586] [INF] HTTP GET /Sales started. RequestId: 574d6393-81cd-4a8e-93da-82ddfef911e3
+[2026-07-21 05:38:09.594] [INF] HTTP GET /Sales completed 200 in 7ms. RequestId: 574d6393-81cd-4a8e-93da-82ddfef911e3
+[2026-07-21 05:42:45.192] [INF] HTTP GET /Sales started. RequestId: ceec35c8-9186-4461-b5f5-633775671b20
+[2026-07-21 05:42:46.354] [INF] HTTP GET /Sales completed 200 in 1162ms. RequestId: ceec35c8-9186-4461-b5f5-633775671b20
+[2026-07-21 05:42:54.348] [INF] HTTP GET /Sales started. RequestId: 4f52c033-0860-451a-8acf-1d0b5073b447
+[2026-07-21 05:42:54.447] [INF] HTTP GET /Sales completed 200 in 99ms. RequestId: 4f52c033-0860-451a-8acf-1d0b5073b447
+[2026-07-21 05:43:34.813] [INF] HTTP GET /Sales started. RequestId: f09b0c2b-2fc3-4b21-b4a5-4e7b7464f459
+[2026-07-21 05:43:34.988] [INF] HTTP GET /Sales completed 200 in 175ms. RequestId: f09b0c2b-2fc3-4b21-b4a5-4e7b7464f459
+[2026-07-21 05:43:39.846] [INF] HTTP GET /Sales started. RequestId: 8f1b9fb7-9274-4160-8d20-24a1bb5aa7c3
+[2026-07-21 05:43:39.894] [INF] HTTP GET /Sales completed 200 in 48ms. RequestId: 8f1b9fb7-9274-4160-8d20-24a1bb5aa7c3
+[2026-07-21 05:44:11.445] [INF] HTTP GET /Sales started. RequestId: 517363b6-ee3f-4b0d-bed7-12d33098cc14
+[2026-07-21 05:44:11.481] [INF] HTTP GET /Sales completed 200 in 35ms. RequestId: 517363b6-ee3f-4b0d-bed7-12d33098cc14
+[2026-07-21 05:44:36.255] [INF] HTTP GET /Sales started. RequestId: 48bb030e-a803-4a41-983d-887eb9ff1be7
+[2026-07-21 05:44:36.283] [INF] HTTP GET /Sales completed 200 in 26ms. RequestId: 48bb030e-a803-4a41-983d-887eb9ff1be7
+[2026-07-21 05:45:03.842] [INF] HTTP GET /Sales started. RequestId: b2113561-5d8e-490e-b90a-76548f8a9fc7
+[2026-07-21 05:45:03.962] [INF] HTTP GET /Sales completed 200 in 120ms. RequestId: b2113561-5d8e-490e-b90a-76548f8a9fc7
+[2026-07-21 05:45:30.026] [INF] HTTP GET /Sales started. RequestId: 864ae1f1-6dd4-4dff-83af-328562b49351
+[2026-07-21 05:45:30.068] [INF] HTTP GET /Sales completed 200 in 41ms. RequestId: 864ae1f1-6dd4-4dff-83af-328562b49351
+[2026-07-21 05:45:42.718] [INF] HTTP GET /Sales started. RequestId: 818dad25-ac60-4a16-9a76-354870d759de
+[2026-07-21 05:45:42.754] [INF] HTTP GET /Sales completed 200 in 35ms. RequestId: 818dad25-ac60-4a16-9a76-354870d759de
+[2026-07-21 05:45:53.130] [INF] HTTP GET /Sales started. RequestId: c3626e71-855b-4261-bdb8-0303fc58ffa5
+[2026-07-21 05:45:53.158] [INF] HTTP GET /Sales completed 200 in 28ms. RequestId: c3626e71-855b-4261-bdb8-0303fc58ffa5

@@ -31,8 +31,53 @@
         .notification-item.warning .title { color: var(--warning); }
         .notification-item.danger .title { color: var(--danger); }
         .notification-empty { padding: 32px 16px; text-align: center; color: var(--text-dim); font-size: 13px; }
+
+        /* Loading Modal */
+        .loading-modal { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.45); z-index:9999; align-items:center; justify-content:center; backdrop-filter:blur(2px); }
+        .loading-modal.show { display:flex; }
+        .loading-content { background:#fff; padding:36px 40px; border-radius:16px; text-align:center; box-shadow:0 20px 60px rgba(0,0,0,0.2); min-width:180px; }
+        .spinner { width:40px; height:40px; border:3px solid #e5e5e5; border-top-color:var(--accent); border-radius:50%; animation:spin 0.7s linear infinite; margin:0 auto 14px; }
+        @@keyframes spin { to { transform:rotate(360deg); } }
+        .loading-content p { font-size:14px; font-weight:600; color:var(--text); }
+
+        /* Search Dropdown */
+        .search-dropdown { position:absolute; top:100%; left:0; right:0; background:#fff; border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow-md); z-index:100; max-height:320px; overflow-y:auto; margin-top:4px; }
+        .search-dropdown .search-item { display:flex; align-items:center; justify-content:space-between; padding:10px 14px; font-size:13px; border-bottom:1px solid #f3f4f6; cursor:pointer; text-decoration:none; color:var(--text); transition:background 0.1s; }
+        .search-dropdown .search-item:hover { background:#f9f9fb; }
+        .search-dropdown .search-empty { padding:16px; text-align:center; color:var(--text-dim); font-size:13px; }
+
+        /* Products Grid for Apprentice */
+        .products-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:16px; }
+        .product-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; transition:box-shadow 0.2s; }
+        .product-card:hover { box-shadow:var(--shadow-md); }
+        .product-img { width:100%; height:140px; background:#f9f9fb; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+        .product-img img { width:100%; height:100%; object-fit:cover; }
+        .product-img-placeholder { font-size:36px; color:var(--text-dim); opacity:0.3; }
+        .product-info { padding:14px; }
+        .product-name { font-size:14px; font-weight:700; margin-bottom:4px; line-height:1.3; }
+        .product-price { font-size:16px; font-weight:800; color:var(--primary); margin-bottom:6px; }
+        .product-stock { display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-bottom:10px; }
+        .stock-badge { font-size:11px; font-weight:600; padding:2px 8px; border-radius:12px; }
+        .stock-badge.instock { background:#dcfce7; color:#166534; }
+        .stock-badge.lowstock { background:#fef3c7; color:#92400e; }
+        .stock-badge.outofstock { background:#fee2e2; color:#991b1b; }
+        .expiring-label { font-size:11px; color:var(--text-muted); }
+        .expiring-label.expired { color:var(--danger); font-weight:600; }
+        .expiring-label.expiring-soon { color:var(--warning); font-weight:600; }
+        .image-upload-area { border:2px dashed var(--border); border-radius:var(--radius); padding:24px; text-align:center; cursor:pointer; transition:all 0.2s; min-height:140px; display:flex; align-items:center; justify-content:center; flex-direction:column; }
+        .image-upload-area:hover { border-color:var(--accent); background:#f9fff0; }
+
+        /* Sidebar footer */
+        .sidebar-footer { padding:12px 20px; border-top:1px solid rgba(255,255,255,.08); }
+        .sidebar-footer .nav-item { width:100%; color:rgba(255,255,255,.5); font-size:13px; }
+        .sidebar-footer .nav-item:hover { color:#fff; background:rgba(255,255,255,.06); }
+        .sidebar-user { padding:8px 20px 12px; border-top:1px solid rgba(255,255,255,.08); }
+        .sidebar-user-name { font-size:13px; font-weight:600; color:#fff; margin-bottom:2px; }
+        .sidebar-user-role { font-size:11px; color:rgba(255,255,255,.4); }
+
         @@media (max-width: 768px) {
             .notification-panel { width: calc(100vw - 32px); right: -16px; }
+            .products-grid { grid-template-columns:repeat(auto-fill, minmax(160px, 1fr)); }
         }
     </style>
     @await RenderSectionAsync("Styles", required: false)
@@ -46,42 +91,56 @@
             </a>
         </div>
         <nav class="sidebar-nav">
-            <a href="/" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")">
-                <i class="fas fa-th-large"></i><span>Dashboard</span>
-            </a>
-            <div class="nav-section">SALES</div>
-            <a href="/Sales/POS" class="nav-item @(ViewContext.RouteData.Values["action"]?.ToString() == "POS" ? "active" : "")">
-                <i class="fas fa-cash-register"></i><span>POS</span>
-            </a>
-            <a href="/Sales" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Sales" && ViewContext.RouteData.Values["action"]?.ToString() != "POS" ? "active" : "")">
-                <i class="fas fa-receipt"></i><span>Sales History</span>
-            </a>
-            <div class="nav-section">INVENTORY</div>
-            <a href="/Products" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Products" ? "active" : "")">
-                <i class="fas fa-boxes-stacked"></i><span>Products</span>
-            </a>
-            <a href="/Stock" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Stock" ? "active" : "")">
-                <i class="fas fa-warehouse"></i><span>Stock</span>
-            </a>
-            <a href="/Purchases" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Purchases" ? "active" : "")">
-                <i class="fas fa-truck-loading"></i><span>Purchases</span>
-            </a>
-            <a href="/Suppliers" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Suppliers" ? "active" : "")">
-                <i class="fas fa-handshake"></i><span>Suppliers</span>
-            </a>
-            <div class="nav-section">FINANCE</div>
-            <a href="/Expenses" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Expenses" ? "active" : "")">
-                <i class="fas fa-money-bill-wave"></i><span>Expenses</span>
-            </a>
-            <a href="/Transactions" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Transactions" ? "active" : "")">
-                <i class="fas fa-exchange-alt"></i><span>Transactions</span>
-            </a>
-            <div class="nav-section">REPORTS</div>
-            <a href="/Reports/Sales" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Reports" ? "active" : "")">
-                <i class="fas fa-chart-line"></i><span>Reports</span>
-            </a>
             @if (User.IsInRole("Admin"))
             {
+                <a href="/" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")">
+                    <i class="fas fa-th-large"></i><span>Dashboard</span>
+                </a>
+            }
+            else
+            {
+                <a href="/Apprentice" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Apprentice" ? "active" : "")">
+                    <i class="fas fa-th-large"></i><span>Dashboard</span>
+                </a>
+            }
+
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="nav-section">SALES</div>
+                <a href="/Sales/POS" class="nav-item @(ViewContext.RouteData.Values["action"]?.ToString() == "POS" ? "active" : "")">
+                    <i class="fas fa-cash-register"></i><span>POS</span>
+                </a>
+                <a href="/Sales" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Sales" && ViewContext.RouteData.Values["action"]?.ToString() != "POS" ? "active" : "")">
+                    <i class="fas fa-receipt"></i><span>Sales History</span>
+                </a>
+
+                <div class="nav-section">INVENTORY</div>
+                <a href="/Products" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Products" ? "active" : "")">
+                    <i class="fas fa-boxes-stacked"></i><span>Products</span>
+                </a>
+                <a href="/Stock" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Stock" ? "active" : "")">
+                    <i class="fas fa-warehouse"></i><span>Stock</span>
+                </a>
+                <a href="/Purchases" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Purchases" ? "active" : "")">
+                    <i class="fas fa-truck-loading"></i><span>Purchases</span>
+                </a>
+                <a href="/Suppliers" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Suppliers" ? "active" : "")">
+                    <i class="fas fa-handshake"></i><span>Suppliers</span>
+                </a>
+
+                <div class="nav-section">FINANCE</div>
+                <a href="/Expenses" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Expenses" ? "active" : "")">
+                    <i class="fas fa-money-bill-wave"></i><span>Expenses</span>
+                </a>
+                <a href="/Transactions" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Transactions" ? "active" : "")">
+                    <i class="fas fa-exchange-alt"></i><span>Transactions</span>
+                </a>
+
+                <div class="nav-section">REPORTS</div>
+                <a href="/Reports/Sales" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Reports" ? "active" : "")">
+                    <i class="fas fa-chart-line"></i><span>Reports</span>
+                </a>
+
                 <div class="nav-section">MANAGE</div>
                 <a href="/Users" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Users" ? "active" : "")">
                     <i class="fas fa-users-cog"></i><span>Users</span>
@@ -89,8 +148,32 @@
                 <a href="/Store/Settings" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Store" ? "active" : "")">
                     <i class="fas fa-cog"></i><span>Store Settings</span>
                 </a>
+                <a href="/Admin/StaffSales" class="nav-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Admin" ? "active" : "")">
+                    <i class="fas fa-clipboard-list"></i><span>Staff Sales</span>
+                </a>
             }
+            else
+            {
+                <div class="nav-section">MY WORK</div>
+                <a href="/Apprentice/MySales" class="nav-item @(ViewContext.RouteData.Values["action"]?.ToString() == "MySales" ? "active" : "")">
+                    <i class="fas fa-receipt"></i><span>My Sales Today</span>
+                </a>
+            }
+
         </nav>
+
+        <div class="sidebar-footer">
+            <div class="sidebar-user">
+                <div class="sidebar-user-name">@User.Identity?.Name</div>
+                <div class="sidebar-user-role">@(User.IsInRole("Admin") ? "Admin" : "Staff")</div>
+            </div>
+            <form asp-action="Logout" asp-controller="Account" method="post">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="nav-item" style="width:100%;border:none;background:none;cursor:pointer;text-align:left;">
+                    <i class="fas fa-sign-out-alt"></i><span>Logout</span>
+                </button>
+            </form>
+        </div>
     </aside>
 
     <div class="main-area">
@@ -99,37 +182,32 @@
                 <i class="fas fa-bars"></i>
             </button>
             <div class="topbar-right">
-                <div class="alert-badges">
-                    <a href="/Stock/LowStock" class="alert-badge warning" title="Low Stock Alerts">
-                        <i class="fas fa-exclamation-triangle"></i>
-                    </a>
-                    <div class="notification-dropdown">
-                        <div class="alert-badge notification-bell" id="notifBell" onclick="toggleNotifications()">
-                            <i class="fas fa-bell"></i>
-                            @if (ViewBag.UnreadNotificationCount != null && (int)ViewBag.UnreadNotificationCount > 0)
-                            {
-                                <span class="notification-badge">@ViewBag.UnreadNotificationCount</span>
-                            }
-                        </div>
-                        <div class="notification-panel" id="notifPanel">
-                            <div class="notification-panel-header">
-                                <h4>Notifications</h4>
-                                <button onclick="markAllRead()">Mark all read</button>
+                @if (User.IsInRole("Admin"))
+                {
+                    <div class="alert-badges">
+                        <a href="/Stock/LowStock" class="alert-badge warning" title="Low Stock Alerts">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </a>
+                        <div class="notification-dropdown">
+                            <div class="alert-badge notification-bell" id="notifBell" onclick="toggleNotifications()">
+                                <i class="fas fa-bell"></i>
+                                @if (ViewBag.UnreadNotificationCount != null && (int)ViewBag.UnreadNotificationCount > 0)
+                                {
+                                    <span class="notification-badge">@ViewBag.UnreadNotificationCount</span>
+                                }
                             </div>
-                            <div id="notifList">
-                                <div class="notification-empty">Loading...</div>
+                            <div class="notification-panel" id="notifPanel">
+                                <div class="notification-panel-header">
+                                    <h4>Notifications</h4>
+                                    <button onclick="markAllRead()">Mark all read</button>
+                                </div>
+                                <div id="notifList">
+                                    <div class="notification-empty">Loading...</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="user-menu">
-                    <span class="user-name">@User.Identity?.Name</span>
-                    <span class="user-role">@(User.IsInRole("Admin") ? "Admin" : "Staff")</span>
-                    <form asp-action="Logout" asp-controller="Account" method="post" style="margin-left:8px">
-                        @Html.AntiForgeryToken()
-                        <button type="submit" class="btn btn-sm btn-outline" title="Logout"><i class="fas fa-sign-out-alt"></i></button>
-                    </form>
-                </div>
+                }
             </div>
         </header>
 
@@ -156,8 +234,35 @@
         </main>
     </div>
 
+    @await Html.PartialAsync("_LoadingModal")
+
     <script src="~/js/app.js" asp-append-version="true"></script>
     <script>
+        function showLoading(text) {
+            document.getElementById('loadingText').textContent = text || 'Processing...';
+            document.getElementById('loadingModal').classList.add('show');
+        }
+        function hideLoading() {
+            document.getElementById('loadingModal').classList.remove('show');
+        }
+
+        document.querySelectorAll('form').forEach(function(form) {
+            form.addEventListener('submit', function(e) {
+                var btn = form.querySelector('button[type="submit"]');
+                var loadingText = btn && btn.dataset.loading ? btn.dataset.loading : 'Processing...';
+                if (btn) btn.disabled = true;
+                showLoading(loadingText);
+            });
+        });
+
+        document.querySelectorAll('[data-loading]').forEach(function(el) {
+            if (el.tagName !== 'FORM' && el.tagName !== 'BUTTON' && el.tagName !== 'INPUT') {
+                el.addEventListener('click', function() {
+                    showLoading(this.dataset.loading || 'Loading...');
+                });
+            }
+        });
+
         function toggleNotifications() {
             var panel = document.getElementById('notifPanel');
             panel.classList.toggle('open');

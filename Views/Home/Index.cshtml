@@ -14,22 +14,22 @@
     <div class="stat-card">
         <div class="stat-icon blue"><i class="fas fa-cash-register"></i></div>
         <span class="stat-label">Today's Sales</span>
-        <span class="stat-value">@CurrencyHelper.FormatCurrency(Model.TodaySales)</span>
+        <span class="stat-value" data-count-up data-prefix="₦" data-value="@Model.TodaySales" data-decimals="2">₦0.00</span>
     </div>
     <div class="stat-card">
         <div class="stat-icon green"><i class="fas fa-chart-line"></i></div>
         <span class="stat-label">Monthly Sales</span>
-        <span class="stat-value">@CurrencyHelper.FormatCurrency(Model.MonthlySales)</span>
+        <span class="stat-value" data-count-up data-prefix="₦" data-value="@Model.MonthlySales" data-decimals="2">₦0.00</span>
     </div>
     <div class="stat-card">
         <div class="stat-icon purple"><i class="fas fa-boxes-stacked"></i></div>
         <span class="stat-label">Total Products</span>
-        <span class="stat-value">@Model.TotalProducts</span>
+        <span class="stat-value" data-count-up data-value="@Model.TotalProducts">0</span>
     </div>
     <div class="stat-card">
         <div class="stat-icon yellow"><i class="fas fa-exclamation-triangle"></i></div>
         <span class="stat-label">Low Stock Alerts</span>
-        <span class="stat-value">@Model.LowStockCount</span>
+        <span class="stat-value" data-count-up data-value="@Model.LowStockCount">0</span>
         @if (Model.LowStockCount > 0)
         {
             <span class="stat-change down">Needs attention</span>
@@ -38,13 +38,37 @@
     <div class="stat-card">
         <div class="stat-icon red"><i class="fas fa-clock"></i></div>
         <span class="stat-label">Expiring Soon</span>
-        <span class="stat-value">@Model.ExpiringCount</span>
+        <span class="stat-value" data-count-up data-value="@Model.ExpiringCount">0</span>
         @if (Model.ExpiringCount > 0)
         {
             <span class="stat-change down">Within 30 days</span>
         }
     </div>
+    <div class="stat-card" style="@(Model.OutOfStockCount > 0 ? "border-color:var(--danger);" : "")">
+        <div class="stat-icon red"><i class="fas fa-times-circle"></i></div>
+        <span class="stat-label">Out of Stock</span>
+        <span class="stat-value" data-count-up data-value="@Model.OutOfStockCount">0</span>
+        @if (Model.OutOfStockCount > 0)
+        {
+            <span class="stat-change down">Critical - needs restock</span>
+        }
+    </div>
 </div>
+
+@if (Model.OutOfStockCount > 0)
+{
+    <div class="card" style="border-left:4px solid var(--danger);margin-bottom:20px;">
+        <div class="card-header" style="background:#fef2f2;">
+            <h3 style="color:var(--danger);"><i class="fas fa-exclamation-circle"></i> Out of Stock Products</h3>
+        </div>
+        <div class="card-body">
+            <p style="color:var(--text-muted);font-size:13px;margin-bottom:0;">
+                @Model.OutOfStockCount product(s) have zero stock and need immediate restocking.
+                <a href="/Stock/LowStock" style="color:var(--danger);font-weight:600;">View Stock Status &rarr;</a>
+            </p>
+        </div>
+    </div>
+}
 
 <div class="card">
     <div class="card-header">
@@ -69,8 +93,8 @@
                     {
                         <tr>
                             <td><strong>@product.ProductName</strong></td>
-                            <td>@product.QuantitySold</td>
-                            <td>@CurrencyHelper.FormatCurrency(product.Revenue)</td>
+                            <td data-count-up data-value="@product.QuantitySold">0</td>
+                            <td data-count-up data-prefix="₦" data-value="@product.Revenue" data-decimals="2">₦0.00</td>
                         </tr>
                     }
                 }
@@ -86,3 +110,44 @@
         </table>
     </div>
 </div>
+
+@section Scripts {
+<script>
+function countUp(el, target, prefix, decimals, duration) {
+    prefix = prefix || '';
+    decimals = decimals || 0;
+    duration = duration || 1200;
+    var start = 0;
+    var startTime = null;
+    var isFloat = decimals > 0;
+
+    function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
+
+    function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var progress = Math.min((timestamp - startTime) / duration, 1);
+        var eased = easeOutQuart(progress);
+        var current = start + (target - start) * eased;
+
+        if (isFloat) {
+            el.textContent = prefix + current.toLocaleString('en-NG', {
+                minimumFractionDigits: decimals,
+                maximumFractionDigits: decimals
+            });
+        } else {
+            el.textContent = prefix + Math.round(current).toLocaleString();
+        }
+
+        if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+}
+
+document.querySelectorAll('[data-count-up]').forEach(function(el) {
+    var target = parseFloat(el.getAttribute('data-value')) || 0;
+    var prefix = el.getAttribute('data-prefix') || '';
+    var decimals = parseInt(el.getAttribute('data-decimals')) || 0;
+    countUp(el, target, prefix, decimals);
+});
+</script>
+}

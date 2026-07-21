@@ -12,6 +12,7 @@
           "Microsoft.EntityFrameworkCore.Tools": "9.0.0",
           "Microsoft.IdentityModel.Tokens": "8.0.1",
           "Pomelo.EntityFrameworkCore.MySql": "9.0.0",
+          "QRCoder": "1.4.3",
           "Serilog.AspNetCore": "10.0.0",
           "Serilog.Sinks.Console": "6.1.1",
           "System.IdentityModel.Tokens.Jwt": "8.0.1"
@@ -599,6 +600,14 @@
           }
         }
       },
+      "QRCoder/1.4.3": {
+        "runtime": {
+          "lib/net6.0/QRCoder.dll": {
+            "assemblyVersion": "1.4.3.0",
+            "fileVersion": "1.4.3.0"
+          }
+        }
+      },
       "Serilog/4.3.0": {
         "runtime": {
           "lib/net9.0/Serilog.dll": {
@@ -1076,6 +1085,13 @@
       "sha512": "sha512-cl7S4s6CbJno0LjNxrBHNc2xxmCliR5i40ATPZk/eTywVaAbHCbdc9vbGc3QThvwGjHqrDHT8vY9m1VF/47o0g==",
       "path": "pomelo.entityframeworkcore.mysql/9.0.0",
       "hashPath": "pomelo.entityframeworkcore.mysql.9.0.0.nupkg.sha512"
+    },
+    "QRCoder/1.4.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fWuFqjm8GTlEb2GqBl3Hi8HZZeZQwBSHxvRPtPjyNbT82H0ff0JwavKRBmMaXCno1Av6McPC8aJzri0Mj2w9Jw==",
+      "path": "qrcoder/1.4.3",
+      "hashPath": "qrcoder.1.4.3.nupkg.sha512"
     },
     "Serilog/4.3.0": {
       "type": "package",
