@@ -17,7 +17,7 @@ public class AdminController : BaseController
         _context = context;
     }
 
-    public async Task<IActionResult> StaffSales(DateTime? date)
+    public async Task<IActionResult> StaffSales(DateTime? date, int page = 1)
     {
         if (!User.IsAdmin()) return Forbid();
 
@@ -28,8 +28,12 @@ public class AdminController : BaseController
         var dayStart = selectedDate.Date;
         var dayEnd = dayStart.AddDays(1);
 
-        var staffSales = await _context.Users
-            .Where(u => u.StoreId == storeId.Value && u.Role == "Apprentice")
+        var staffQuery = _context.Users
+            .Where(u => u.StoreId == storeId.Value && u.Role == "Apprentice");
+
+        var totalCount = await staffQuery.CountAsync();
+
+        var staffSales = await staffQuery
             .Select(u => new StaffSalesViewModel
             {
                 StaffId = u.Id,
@@ -72,6 +76,8 @@ public class AdminController : BaseController
                     .ToList()
             })
             .OrderByDescending(s => s.TotalSalesAmount)
+            .Skip((page - 1) * 20)
+            .Take(20)
             .ToListAsync();
 
         var model = new StaffSalesPageViewModel
@@ -79,7 +85,9 @@ public class AdminController : BaseController
             SelectedDate = selectedDate,
             StaffSales = staffSales,
             GrandTotal = staffSales.Sum(s => s.TotalSalesAmount),
-            GrandTotalItems = staffSales.Sum(s => s.TotalItemsSold)
+            GrandTotalItems = staffSales.Sum(s => s.TotalItemsSold),
+            CurrentPage = page,
+            TotalPages = (int)Math.Ceiling(totalCount / 20.0)
         };
 
         return View(model);

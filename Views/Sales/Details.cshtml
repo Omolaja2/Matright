@@ -14,76 +14,137 @@
     </div>
 </div>
 
-<div class="card" style="max-width:700px;">
-    <div class="card-header">
-        <h3><i class="fas fa-receipt"></i> Invoice #@Model.InvoiceNumber</h3>
-        <span class="badge badge-success">Completed</span>
-    </div>
-    <div class="card-body">
-        <div style="display:flex;gap:32px;margin-bottom:24px;font-size:13.5px;">
-            <div>
-                <div style="color:var(--text-muted);font-size:12px;font-weight:500;">Date</div>
-                <div style="font-weight:600;">@CurrencyHelper.FormatDateTime(Model.SaleDate)</div>
-            </div>
-            <div>
-                <div style="color:var(--text-muted);font-size:12px;font-weight:500;">Cashier</div>
-                <div style="font-weight:600;">@(Model.CashierName ?? "N/A")</div>
-            </div>
-            <div>
-                <div style="color:var(--text-muted);font-size:12px;font-weight:500;">Payment Method</div>
-                <div style="font-weight:600;">@Model.PaymentMethod</div>
-            </div>
-        </div>
-
-        <div class="table-wrap">
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Qty</th>
-                        <th>Unit Price</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.Items)
-                    {
-                        <tr>
-                            <td><strong>@item.ProductName</strong></td>
-                            <td>@item.Quantity</td>
-                            <td>@CurrencyHelper.FormatCurrency(item.UnitPrice)</td>
-                            <td>@CurrencyHelper.FormatCurrency(item.Total)</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-
-        <div style="max-width:300px;margin-left:auto;margin-top:20px;">
-            <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:13.5px;">
-                <span style="color:var(--text-muted);">Sub Total</span>
-                <span>@CurrencyHelper.FormatCurrency(Model.SubTotal)</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:13.5px;">
-                <span style="color:var(--text-muted);">Tax</span>
-                <span>@CurrencyHelper.FormatCurrency(Model.TaxAmount)</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;padding:10px 0;font-size:18px;font-weight:800;border-top:2px solid var(--border);margin-top:4px;">
-                <span>Total</span>
-                <span>@CurrencyHelper.FormatCurrency(Model.TotalAmount)</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:13.5px;border-top:1px solid var(--border);margin-top:4px;">
-                <span style="color:var(--text-muted);">Amount Paid</span>
-                <span>@CurrencyHelper.FormatCurrency(Model.AmountPaid)</span>
-            </div>
-            @if (Model.ChangeGiven > 0)
+@if (Model.Insights.Any())
+{
+    <div style="margin-bottom:24px;">
+        <h3 style="font-size:15px;font-weight:700;margin-bottom:12px;"><i class="fas fa-lightbulb" style="color:var(--warning);margin-right:6px;"></i> Business Insights</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;">
+            @foreach (var insight in Model.Insights)
             {
-                <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:13.5px;">
-                    <span style="color:var(--text-muted);">Change</span>
-                    <span style="color:var(--success);font-weight:600;">@CurrencyHelper.FormatCurrency(Model.ChangeGiven)</span>
+                <div style="background:@insight.Background;border-radius:var(--radius);padding:16px 18px;display:flex;gap:14px;align-items:flex-start;">
+                    <div style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                        <i class="@insight.Icon" style="color:@insight.Color;font-size:15px;"></i>
+                    </div>
+                    <div>
+                        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.03em;color:var(--text-muted);margin-bottom:3px;">@insight.Title</div>
+                        <div style="font-size:13.5px;font-weight:600;color:var(--text);line-height:1.5;">@Html.Raw(insight.Message)</div>
+                    </div>
                 </div>
             }
         </div>
+    </div>
+}
+
+<div class="detail-layout">
+    <div class="detail-main card">
+        <div class="card-header">
+            <h3><i class="fas fa-receipt"></i> Invoice #@Model.InvoiceNumber</h3>
+            <span class="badge badge-success">Completed</span>
+        </div>
+        <div class="card-body">
+            <div style="display:flex;gap:32px;margin-bottom:24px;font-size:13.5px;">
+                <div>
+                    <div style="color:var(--text-muted);font-size:12px;font-weight:500;">Date</div>
+                    <div style="font-weight:600;">@CurrencyHelper.FormatDateTime(Model.SaleDate)</div>
+                </div>
+                <div>
+                    <div style="color:var(--text-muted);font-size:12px;font-weight:500;">Cashier</div>
+                    <div style="font-weight:600;">@(Model.CashierName ?? "N/A")</div>
+                </div>
+                <div>
+                    <div style="color:var(--text-muted);font-size:12px;font-weight:500;">Payment Method</div>
+                    <div style="font-weight:600;">@Model.PaymentMethod</div>
+                </div>
+            </div>
+
+            @if (!string.IsNullOrEmpty(Model.Notes))
+            {
+                <div style="background:#fef3c7;border-radius:var(--radius-sm);padding:12px 16px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start;">
+                    <i class="fas fa-sticky-note" style="color:var(--warning);margin-top:2px;"></i>
+                    <div>
+                        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.03em;color:#92400e;margin-bottom:2px;">Sale Note</div>
+                        <div style="font-size:13.5px;font-weight:500;color:#92400e;">@Model.Notes</div>
+                    </div>
+                </div>
+            }
+
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Qty</th>
+                            <th>Unit Price</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr>
+                                <td><strong>@item.ProductName</strong></td>
+                                <td>@item.Quantity</td>
+                                <td>@CurrencyHelper.FormatCurrency(item.UnitPrice)</td>
+                                <td>@CurrencyHelper.FormatCurrency(item.Total)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="card" style="margin-bottom:16px;">
+            <div class="card-header">
+                <h3><i class="fas fa-calculator"></i> Summary</h3>
+            </div>
+            <div class="card-body">
+                <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:13.5px;">
+                    <span style="color:var(--text-muted);">Sub Total</span>
+                    <span>@CurrencyHelper.FormatCurrency(Model.SubTotal)</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:13.5px;">
+                    <span style="color:var(--text-muted);">Tax</span>
+                    <span>@CurrencyHelper.FormatCurrency(Model.TaxAmount)</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;padding:10px 0;font-size:18px;font-weight:800;border-top:2px solid var(--border);margin-top:4px;">
+                    <span>Total</span>
+                    <span>@CurrencyHelper.FormatCurrency(Model.TotalAmount)</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:13.5px;border-top:1px solid var(--border);margin-top:4px;">
+                    <span style="color:var(--text-muted);">Amount Paid</span>
+                    <span>@CurrencyHelper.FormatCurrency(Model.AmountPaid)</span>
+                </div>
+                @if (Model.ChangeGiven > 0)
+                {
+                    <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:13.5px;">
+                        <span style="color:var(--text-muted);">Change</span>
+                        <span style="color:var(--success);font-weight:600;">@CurrencyHelper.FormatCurrency(Model.ChangeGiven)</span>
+                    </div>
+                }
+            </div>
+        </div>
+
+        @{
+            var thisSaleProfit = Model.Items.Sum(i => (i.UnitPrice - i.CostPrice) * i.Quantity);
+        }
+        @if (thisSaleProfit > 0)
+        {
+            <div class="card">
+                <div class="card-body" style="background:#dcfce7;border-radius:var(--radius);padding:16px 18px;">
+                    <div style="display:flex;align-items:center;gap:10px;">
+                        <div style="width:36px;height:36px;border-radius:8px;background:rgba(22,163,74,0.15);display:flex;align-items:center;justify-content:center;">
+                            <i class="fas fa-coins" style="color:var(--success);font-size:15px;"></i>
+                        </div>
+    <div class="detail-side">
+                            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.03em;color:#166534;">Profit from this sale</div>
+                            <div style="font-size:20px;font-weight:800;color:#166534;">@CurrencyHelper.FormatCurrency(thisSaleProfit)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 </div>
 
@@ -93,7 +154,7 @@
         .sidebar, .topbar, .page-header .btn-group, .alert { display: none !important; }
         .main-area { margin-left: 0 !important; }
         .content { padding: 0 !important; }
-        .card { border: none !important; box-shadow: none !important; max-width: 100% !important; }
+        .card { border: none !important; box-shadow: none !important; }
         body { background: #fff; }
     }
 </style>

@@ -65,6 +65,10 @@
 </div>
 
 <div class="card">
+    <div class="card-header">
+        <h3><i class="fas fa-list"></i> Transactions</h3>
+        <a asp-action="Export" asp-route-startDate="@Model.StartDate?.ToString("yyyy-MM-dd")" asp-route-endDate="@Model.EndDate?.ToString("yyyy-MM-dd")" asp-route-paymentMethod="@Model.PaymentMethodFilter" class="btn btn-sm btn-outline"><i class="fas fa-file-csv"></i> Export CSV</a>
+    </div>
     <div class="card-body">
         <div class="table-wrap">
             <table class="data-table">
@@ -106,7 +110,7 @@
                                 <td><strong>@CurrencyHelper.FormatCurrency(sale.TotalAmount)</strong></td>
                                 <td><span class="badge badge-@(sale.PaymentMethod == PaymentMethod.Cash ? "success" : sale.PaymentMethod == PaymentMethod.POS ? "info" : "warning")">@sale.PaymentMethod</span></td>
                                 <td>
-                                    <a asp-action="Details" asp-route-id="@sale.InvoiceNumber" class="btn btn-sm btn-outline"><i class="fas fa-eye"></i> View</a>
+                                    <a asp-action="Details" asp-route-id="@sale.SaleId" class="btn btn-sm btn-outline"><i class="fas fa-eye"></i> View</a>
                                 </td>
                             </tr>
                         }
@@ -116,3 +120,17 @@
         </div>
     </div>
 </div>
+
+@await Html.PartialAsync("_Pagination", new PharMarket.Helpers.PaginationInfo
+{
+    CurrentPage = Model.CurrentPage,
+    TotalPages = Model.TotalPages,
+    Action = "Index",
+    Controller = "Sales",
+    RouteValues = new Dictionary<string, string?>
+    {
+        ["startDate"] = Model.StartDate?.ToString("yyyy-MM-dd"),
+        ["endDate"] = Model.EndDate?.ToString("yyyy-MM-dd"),
+        ["paymentMethod"] = Model.PaymentMethodFilter?.ToString()
+    }
+})

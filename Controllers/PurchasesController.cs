@@ -21,16 +21,25 @@ public class PurchasesController : BaseController
         _context = context;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int page = 1)
     {
         var storeId = User.GetStoreId();
         if (!storeId.HasValue) return RedirectToAction("Setup", "Store");
 
-        var purchases = await _context.Purchases
+        var query = _context.Purchases
             .Include(p => p.Supplier)
-            .Where(p => !p.IsDeleted && p.StoreId == storeId.Value)
+            .Where(p => !p.IsDeleted && p.StoreId == storeId.Value);
+
+        var totalCount = await query.CountAsync();
+
+        var purchases = await query
             .OrderByDescending(p => p.PurchaseDate)
+            .Skip((page - 1) * 20)
+            .Take(20)
             .ToListAsync();
+
+        ViewBag.Page = page;
+        ViewBag.TotalPages = (int)Math.Ceiling(totalCount / 20.0);
         return View(purchases);
     }
 

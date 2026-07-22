@@ -131,6 +131,19 @@ select.form-control{appearance:none;background-image:url("data:image/svg+xml,%3C
 .filters-bar .form-control{width:auto;min-width:140px}
 .filters-bar input[type="text"],.filters-bar input[type="search"]{min-width:200px;flex:1}
 
+/* Responsive layout helpers */
+.app-grid{display:grid;gap:24px;align-items:start}
+.app-grid.grid-sidebar{grid-template-columns:1fr 340px}
+.app-grid.grid-sidebar-sm{grid-template-columns:1fr 320px}
+.app-grid.grid-2col{grid-template-columns:1fr 360px}
+.app-grid .grid-main{min-width:0}
+.app-grid .grid-side{min-width:0}
+
+/* Two-column sale details layout */
+.detail-layout{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start}
+.detail-layout .detail-main{min-width:0}
+.detail-layout .detail-side{min-width:0}
+
 /* Responsive - Mobile */
 @media(max-width:768px){
     .sidebar{transform:translateX(-100%)}
@@ -170,6 +183,22 @@ select.form-control{appearance:none;background-image:url("data:image/svg+xml,%3C
     .btn-group{flex-direction:column;width:100%}
     .btn-group .btn{width:100%;justify-content:center}
     .content{padding:10px}
+}
+
+/* Responsive grid collapse */
+@media(max-width:900px){
+    .app-grid.grid-sidebar{grid-template-columns:1fr}
+    .app-grid.grid-sidebar-sm{grid-template-columns:1fr}
+    .app-grid.grid-2col{grid-template-columns:1fr}
+    .detail-layout{grid-template-columns:1fr}
+    .app-grid.grid-sidebar .grid-side,
+    .app-grid.grid-sidebar-sm .grid-side,
+    .app-grid.grid-col .grid-side,
+    .detail-layout .detail-side{position:static!important;margin-top:0}
+}
+@media(max-width:480px){
+    .app-grid{gap:12px}
+    .detail-layout{gap:16px}
 }
 html{-webkit-tap-highlight-color:transparent}
 input[type="text"],input[type="email"],input[type="password"],input[type="number"],select,textarea{

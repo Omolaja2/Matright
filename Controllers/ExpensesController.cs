@@ -17,13 +17,15 @@ public class ExpensesController : BaseController
         _financeService = financeService;
     }
 
-    public async Task<IActionResult> Index(DateTime? startDate, DateTime? endDate, string? category)
+    public async Task<IActionResult> Index(DateTime? startDate, DateTime? endDate, string? category, int page = 1)
     {
         var storeId = User.GetStoreId();
         if (!storeId.HasValue) return RedirectToAction("Setup", "Store");
 
-        var expenses = await _financeService.GetAllExpensesAsync(storeId.Value, startDate, endDate, category);
+        var (expenses, totalCount) = await _financeService.GetAllExpensesAsync(storeId.Value, startDate, endDate, category, page);
         ViewBag.Categories = ExpenseCategories.All;
+        ViewBag.Page = page;
+        ViewBag.TotalPages = (int)Math.Ceiling(totalCount / 20.0);
         return View(expenses);
     }
 
@@ -56,7 +58,7 @@ public class ExpensesController : BaseController
         var storeId = User.GetStoreId();
         if (!storeId.HasValue) return RedirectToAction("Setup", "Store");
 
-        var expenses = await _financeService.GetAllExpensesAsync(storeId.Value, null, null, null);
+        var (expenses, _) = await _financeService.GetAllExpensesAsync(storeId.Value, null, null, null, page: 1, pageSize: 100000);
         var expense = expenses.FirstOrDefault(e => e.Id == id)
             ?? throw new NotFoundException("Expense", id);
 

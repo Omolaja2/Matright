@@ -19,15 +19,24 @@ public class SuppliersController : BaseController
         _context = context;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int page = 1)
     {
         var storeId = User.GetStoreId();
         if (!storeId.HasValue) return RedirectToAction("Setup", "Store");
 
-        var suppliers = await _context.Suppliers
-            .Where(s => !s.IsDeleted && s.StoreId == storeId.Value)
+        var query = _context.Suppliers
+            .Where(s => !s.IsDeleted && s.StoreId == storeId.Value);
+
+        var totalCount = await query.CountAsync();
+
+        var suppliers = await query
             .OrderBy(s => s.Name)
+            .Skip((page - 1) * 20)
+            .Take(20)
             .ToListAsync();
+
+        ViewBag.Page = page;
+        ViewBag.TotalPages = (int)Math.Ceiling(totalCount / 20.0);
         return View(suppliers);
     }
 
@@ -104,15 +113,30 @@ public class SuppliersController : BaseController
         return RedirectToAction(nameof(Index));
     }
 
-    public async Task<IActionResult> Details(int id)
+    public async Task<IActionResult> Details(int id, int page = 1)
     {
         var storeId = User.GetStoreId();
         if (!storeId.HasValue) return RedirectToAction("Setup", "Store");
 
         var supplier = await _context.Suppliers
-            .Include(s => s.Purchases)
             .FirstOrDefaultAsync(s => s.Id == id && !s.IsDeleted && s.StoreId == storeId.Value)
             ?? throw new NotFoundException("Supplier", id);
+
+        var purchasesQuery = _context.Purchases
+            .Where(p => p.SupplierId == id && !p.IsDeleted);
+
+        var totalCount = await purchasesQuery.CountAsync();
+
+        var purchases = await purchasesQuery
+            .OrderByDescending(p => p.PurchaseDate)
+            .Skip((page - 1) * 20)
+            .Take(20)
+            .ToListAsync();
+
+        supplier.Purchases = purchases;
+
+        ViewBag.Page = page;
+        ViewBag.TotalPages = (int)Math.Ceiling(totalCount / 20.0);
         return View(supplier);
     }
 }

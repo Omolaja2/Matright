@@ -1,0 +1,171 @@
+2026-07-21 15:34:18.310 +01:00 [INF] Starting PharMarket application
+2026-07-21 15:34:20.270 +01:00 [WRN] Entity 'Supplier' has a global query filter defined and is the required end of a relationship with the entity 'Purchase'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-21 15:34:20.274 +01:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'PurchaseItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-21 15:34:20.275 +01:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'SaleItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-21 15:34:20.276 +01:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-07-21 15:34:22.126 +01:00 [INF] PharMarket is ready on 
+2026-07-21 15:35:48.191 +01:00 [INF] HTTP GET /Apprentice started. RequestId: f2f67512-3558-4f7f-8eae-3b3c9045d246
+2026-07-21 15:35:48.191 +01:00 [INF] HTTP GET /Apprentice started. RequestId: a70d77a5-dc11-445a-9b02-ab6badd34e5d
+2026-07-21 15:35:48.221 +01:00 [WRN] Failed to determine the https port for redirect.
+2026-07-21 15:36:04.368 +01:00 [INF] HTTP GET /Apprentice completed 200 in 16180ms. RequestId: f2f67512-3558-4f7f-8eae-3b3c9045d246
+2026-07-21 15:36:04.367 +01:00 [INF] HTTP GET /Apprentice completed 200 in 16180ms. RequestId: a70d77a5-dc11-445a-9b02-ab6badd34e5d
+2026-07-21 15:36:05.032 +01:00 [INF] HTTP GET /css/app.css started. RequestId: a4b91620-251b-4974-8f37-cb9ad96f1538
+2026-07-21 15:36:05.075 +01:00 [INF] HTTP GET /css/app.css completed 304 in 42ms. RequestId: a4b91620-251b-4974-8f37-cb9ad96f1538
+2026-07-21 15:36:28.451 +01:00 [INF] HTTP POST /Apprentice/ProcessCart started. RequestId: dd47d18f-14e3-479c-ad1c-4c779c4dc410
+2026-07-21 15:36:30.310 +01:00 [INF] HTTP POST /Apprentice/ProcessCart completed 200 in 1858ms. RequestId: dd47d18f-14e3-479c-ad1c-4c779c4dc410
+2026-07-21 15:36:37.234 +01:00 [INF] HTTP GET /Apprentice started. RequestId: ac793656-fee6-493d-b2b6-e4cc83e0d0a0
+2026-07-21 15:36:37.262 +01:00 [INF] HTTP GET /Apprentice completed 200 in 27ms. RequestId: ac793656-fee6-493d-b2b6-e4cc83e0d0a0
+2026-07-21 15:36:43.926 +01:00 [INF] HTTP POST /Account/Logout started. RequestId: 5656076d-8888-4daa-a194-02e23569e637
+2026-07-21 15:36:44.090 +01:00 [INF] HTTP POST /Account/Logout completed 302 in 163ms. RequestId: 5656076d-8888-4daa-a194-02e23569e637
+2026-07-21 15:36:44.095 +01:00 [INF] HTTP GET /Account/Login started. RequestId: 12be4a79-5178-43e0-be6e-01e298017ba8
+2026-07-21 15:36:44.676 +01:00 [INF] HTTP GET /Account/Login completed 200 in 580ms. RequestId: 12be4a79-5178-43e0-be6e-01e298017ba8
+2026-07-21 15:36:47.790 +01:00 [INF] HTTP POST /Account/Login started. RequestId: 1ac73211-d400-4312-b8b8-4588460440a8
+2026-07-21 15:36:48.231 +01:00 [INF] HTTP POST /Account/Login completed 302 in 441ms. RequestId: 1ac73211-d400-4312-b8b8-4588460440a8
+2026-07-21 15:36:48.236 +01:00 [INF] HTTP GET /Home started. RequestId: 1e5eb0d1-f892-464b-9e19-20d23ec2fcef
+2026-07-21 15:36:48.654 +01:00 [INF] HTTP GET /Home completed 200 in 418ms. RequestId: 1e5eb0d1-f892-464b-9e19-20d23ec2fcef
+2026-07-21 15:36:52.333 +01:00 [INF] HTTP GET /Sales started. RequestId: 359db9e6-ba89-483a-8179-683a854fe44d
+2026-07-21 15:36:52.427 +01:00 [INF] HTTP GET /Sales completed 200 in 93ms. RequestId: 359db9e6-ba89-483a-8179-683a854fe44d
+2026-07-21 15:36:54.516 +01:00 [INF] HTTP GET /Sales/Details/7 started. RequestId: e7cd4ae1-250d-4a2a-8ad9-b1a1eb3f7a24
+2026-07-21 15:36:54.932 +01:00 [INF] HTTP GET /Sales/Details/7 completed 200 in 416ms. RequestId: e7cd4ae1-250d-4a2a-8ad9-b1a1eb3f7a24
+2026-07-21 15:37:15.672 +01:00 [INF] HTTP GET /Sales started. RequestId: a6ee3f3c-5390-4163-98b8-b6a42dee3ccd
+2026-07-21 15:37:15.685 +01:00 [INF] HTTP GET /Sales completed 200 in 13ms. RequestId: a6ee3f3c-5390-4163-98b8-b6a42dee3ccd
+2026-07-21 15:37:19.623 +01:00 [INF] HTTP GET / started. RequestId: bed6c30a-708a-4183-991b-c4269a377a33
+2026-07-21 15:37:19.632 +01:00 [INF] HTTP GET / completed 302 in 9ms. RequestId: bed6c30a-708a-4183-991b-c4269a377a33
+2026-07-21 15:37:19.638 +01:00 [INF] HTTP GET /Home started. RequestId: 318a4d80-a3fd-4121-b368-4650199372b5
+2026-07-21 15:37:19.775 +01:00 [INF] HTTP GET /Home completed 200 in 137ms. RequestId: 318a4d80-a3fd-4121-b368-4650199372b5
+2026-07-21 15:37:24.065 +01:00 [INF] HTTP GET /Sales started. RequestId: b5628036-e095-4946-9bf2-dd57a205c1a8
+2026-07-21 15:37:24.073 +01:00 [INF] HTTP GET /Sales completed 200 in 7ms. RequestId: b5628036-e095-4946-9bf2-dd57a205c1a8
+2026-07-21 15:37:28.745 +01:00 [INF] HTTP GET /Purchases started. RequestId: 1df6591e-60d4-4d17-83dd-9a82a850d617
+2026-07-21 15:37:29.149 +01:00 [INF] HTTP GET /Purchases completed 200 in 404ms. RequestId: 1df6591e-60d4-4d17-83dd-9a82a850d617
+2026-07-21 15:37:32.189 +01:00 [INF] HTTP GET /Admin/StaffSales started. RequestId: 90b9cc94-9421-444e-824e-d5f2d6927112
+2026-07-21 15:37:32.265 +01:00 [INF] HTTP GET /Admin/StaffSales completed 200 in 75ms. RequestId: 90b9cc94-9421-444e-824e-d5f2d6927112
+2026-07-21 15:37:36.821 +01:00 [INF] HTTP GET /Sales/Details/7 started. RequestId: 80fe637b-8a46-477e-b200-c100572b2537
+2026-07-21 15:37:36.859 +01:00 [INF] HTTP GET /Sales/Details/7 completed 200 in 38ms. RequestId: 80fe637b-8a46-477e-b200-c100572b2537
+2026-07-21 15:37:40.134 +01:00 [INF] HTTP GET / started. RequestId: 559b82da-3a56-4e0b-855f-492aef25ff63
+2026-07-21 15:37:40.136 +01:00 [INF] HTTP GET / completed 302 in 1ms. RequestId: 559b82da-3a56-4e0b-855f-492aef25ff63
+2026-07-21 15:37:40.140 +01:00 [INF] HTTP GET /Home started. RequestId: 676d3a9c-c376-4e47-9a94-749f24293d86
+2026-07-21 15:37:40.173 +01:00 [INF] HTTP GET /Home completed 200 in 32ms. RequestId: 676d3a9c-c376-4e47-9a94-749f24293d86
+2026-07-21 15:37:40.206 +01:00 [INF] HTTP GET /css/app.css started. RequestId: 4f652e40-00c5-449e-bee8-10871758b819
+2026-07-21 15:37:40.208 +01:00 [INF] HTTP GET /css/app.css completed 304 in 2ms. RequestId: 4f652e40-00c5-449e-bee8-10871758b819
+2026-07-21 15:38:04.675 +01:00 [INF] HTTP GET /Sales started. RequestId: 4684573c-8f4f-4402-bae0-0440a6465bfc
+2026-07-21 15:38:04.682 +01:00 [INF] HTTP GET /Sales completed 200 in 6ms. RequestId: 4684573c-8f4f-4402-bae0-0440a6465bfc
+2026-07-21 15:38:13.472 +01:00 [INF] HTTP GET / started. RequestId: 14b4d239-6b45-44b4-83eb-5b8528864518
+2026-07-21 15:38:13.475 +01:00 [INF] HTTP GET / completed 302 in 2ms. RequestId: 14b4d239-6b45-44b4-83eb-5b8528864518
+2026-07-21 15:38:13.482 +01:00 [INF] HTTP GET /Home started. RequestId: 50d74f5b-b983-4006-9922-b4374f4bb4bb
+2026-07-21 15:38:13.519 +01:00 [INF] HTTP GET /Home completed 200 in 36ms. RequestId: 50d74f5b-b983-4006-9922-b4374f4bb4bb
+2026-07-21 15:39:18.985 +01:00 [INF] HTTP GET /Reports/Sales started. RequestId: d0651a36-c1f3-48df-9043-100826e98b1f
+2026-07-21 15:39:19.104 +01:00 [INF] HTTP GET /Reports/Sales completed 200 in 119ms. RequestId: d0651a36-c1f3-48df-9043-100826e98b1f
+2026-07-21 15:39:22.044 +01:00 [INF] HTTP GET /Reports/ProfitLoss started. RequestId: 8b604476-942c-4d40-a3f3-fc79537c3dd7
+2026-07-21 15:39:22.173 +01:00 [INF] HTTP GET /Reports/ProfitLoss completed 200 in 129ms. RequestId: 8b604476-942c-4d40-a3f3-fc79537c3dd7
+2026-07-21 15:39:24.470 +01:00 [INF] HTTP GET /Reports/Sales started. RequestId: 5c209b96-b48f-43e2-b230-cc721bf032b9
+2026-07-21 15:39:24.483 +01:00 [INF] HTTP GET /Reports/Sales completed 200 in 13ms. RequestId: 5c209b96-b48f-43e2-b230-cc721bf032b9
+2026-07-21 15:39:24.513 +01:00 [INF] HTTP GET /css/app.css started. RequestId: 5dc20a5f-d39a-4f59-a64c-516ad76e4863
+2026-07-21 15:39:24.514 +01:00 [INF] HTTP GET /css/app.css completed 304 in 0ms. RequestId: 5dc20a5f-d39a-4f59-a64c-516ad76e4863
+2026-07-21 15:39:27.727 +01:00 [INF] HTTP GET /Sales started. RequestId: 9e4caa88-883d-4780-98d5-a3bc5637b9ff
+2026-07-21 15:39:27.736 +01:00 [INF] HTTP GET /Sales completed 200 in 9ms. RequestId: 9e4caa88-883d-4780-98d5-a3bc5637b9ff
+2026-07-21 15:39:31.611 +01:00 [INF] HTTP GET /Sales/POS started. RequestId: a67ad7c7-060d-47d5-9972-deed6f85c94b
+2026-07-21 15:39:31.722 +01:00 [INF] HTTP GET /Sales/POS completed 200 in 110ms. RequestId: a67ad7c7-060d-47d5-9972-deed6f85c94b
+2026-07-21 15:39:36.713 +01:00 [INF] HTTP GET /Products/Search started. RequestId: a24fcf2b-c3e4-416a-8e68-e36ec6a0c4d9
+2026-07-21 15:39:37.106 +01:00 [INF] HTTP GET /Products/Search completed 200 in 392ms. RequestId: a24fcf2b-c3e4-416a-8e68-e36ec6a0c4d9
+2026-07-21 15:39:37.662 +01:00 [INF] HTTP GET /Products/Search started. RequestId: 9a684bae-1d03-4f27-bcd4-57eb609a6520
+2026-07-21 15:39:37.675 +01:00 [INF] HTTP GET /Products/Search completed 200 in 13ms. RequestId: 9a684bae-1d03-4f27-bcd4-57eb609a6520
+2026-07-21 15:39:48.826 +01:00 [INF] HTTP GET / started. RequestId: dfc30066-f242-43af-a339-61486a9adafd
+2026-07-21 15:39:48.827 +01:00 [INF] HTTP GET / completed 302 in 1ms. RequestId: dfc30066-f242-43af-a339-61486a9adafd
+2026-07-21 15:39:48.851 +01:00 [INF] HTTP GET /Home started. RequestId: 928ed0c1-0c86-460e-926a-4cc11b43291a
+2026-07-21 15:39:48.974 +01:00 [INF] HTTP GET /Home completed 200 in 123ms. RequestId: 928ed0c1-0c86-460e-926a-4cc11b43291a
+2026-07-21 15:41:21.798 +01:00 [INF] HTTP GET /Products started. RequestId: 65e5d1d7-787e-4cde-b18d-591340cf1382
+2026-07-21 15:41:22.206 +01:00 [INF] HTTP GET /Products completed 200 in 407ms. RequestId: 65e5d1d7-787e-4cde-b18d-591340cf1382
+2026-07-21 15:41:22.235 +01:00 [INF] HTTP GET /css/app.css started. RequestId: 61c04184-31b9-448f-b59b-872c214f48ba
+2026-07-21 15:41:22.236 +01:00 [INF] HTTP GET /css/app.css completed 304 in 0ms. RequestId: 61c04184-31b9-448f-b59b-872c214f48ba
+2026-07-21 15:41:24.898 +01:00 [INF] HTTP GET /Products/Create started. RequestId: 05141fbe-25e2-4591-bbed-1d08ffed2b18
+2026-07-21 15:41:25.154 +01:00 [INF] HTTP GET /Products/Create completed 200 in 255ms. RequestId: 05141fbe-25e2-4591-bbed-1d08ffed2b18
+2026-07-21 15:41:25.178 +01:00 [INF] HTTP GET /lib/jquery-validation/dist/jquery.validate.min.js started. RequestId: 7c17117f-ef50-4461-96c6-6815106684da
+2026-07-21 15:41:25.180 +01:00 [INF] HTTP GET /lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js started. RequestId: a4dc9516-bbb0-47f2-bb93-ddbdd84c3b93
+2026-07-21 15:41:34.165 +01:00 [INF] HTTP GET /lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js completed 200 in 8985ms. RequestId: a4dc9516-bbb0-47f2-bb93-ddbdd84c3b93
+2026-07-21 15:41:35.370 +01:00 [INF] HTTP GET /lib/jquery-validation/dist/jquery.validate.min.js completed 200 in 10191ms. RequestId: 7c17117f-ef50-4461-96c6-6815106684da
+2026-07-21 15:42:13.467 +01:00 [INF] HTTP POST /Products/Create started. RequestId: fd05b1a8-2a0b-4717-93f1-31c2f5e49d5a
+2026-07-21 15:42:17.714 +01:00 [INF] HTTP POST /Products/Create completed 302 in 4246ms. RequestId: fd05b1a8-2a0b-4717-93f1-31c2f5e49d5a
+2026-07-21 15:42:17.728 +01:00 [INF] HTTP GET /Products/QrCode/7 started. RequestId: 142d12e1-3871-4491-81cb-7159be398aaa
+2026-07-21 15:42:17.829 +01:00 [INF] HTTP GET /Products/QrCode/7 completed 200 in 100ms. RequestId: 142d12e1-3871-4491-81cb-7159be398aaa
+2026-07-21 15:42:19.024 +01:00 [INF] HTTP GET /uploads/qrcodes/2/product_7.png started. RequestId: 3672c5f6-28bf-48f9-aa48-9f5ab5bfe823
+2026-07-21 15:42:19.040 +01:00 [INF] HTTP GET /uploads/qrcodes/2/product_7.png completed 200 in 15ms. RequestId: 3672c5f6-28bf-48f9-aa48-9f5ab5bfe823
+2026-07-21 15:42:28.042 +01:00 [INF] HTTP GET /Products started. RequestId: e1605535-8298-4d74-ae99-7b6d8ddd6f1e
+2026-07-21 15:42:28.068 +01:00 [INF] HTTP GET /Products completed 200 in 26ms. RequestId: e1605535-8298-4d74-ae99-7b6d8ddd6f1e
+2026-07-21 15:42:30.002 +01:00 [INF] HTTP GET /Products/Create started. RequestId: edbd0275-b65b-405f-a8f2-485a98f6161f
+2026-07-21 15:42:30.038 +01:00 [INF] HTTP GET /Products/Create completed 200 in 36ms. RequestId: edbd0275-b65b-405f-a8f2-485a98f6161f
+2026-07-21 15:42:44.321 +01:00 [INF] HTTP GET /Products/Create started. RequestId: 5c1223fe-da35-474a-810a-2d403a39fd7b
+2026-07-21 15:42:44.341 +01:00 [INF] HTTP GET /Products/Create completed 200 in 20ms. RequestId: 5c1223fe-da35-474a-810a-2d403a39fd7b
+2026-07-21 15:42:46.504 +01:00 [INF] HTTP GET /Products/Create started. RequestId: 6040a8e7-f895-4e81-a255-ea7b6ca81f7a
+2026-07-21 15:42:46.518 +01:00 [INF] HTTP GET /Products/Create completed 200 in 14ms. RequestId: 6040a8e7-f895-4e81-a255-ea7b6ca81f7a
+2026-07-21 15:44:44.103 +01:00 [INF] HTTP GET /Products/Create started. RequestId: 0e13c74a-cbf1-42d8-b3b4-4c5598e31c53
+2026-07-21 15:44:44.119 +01:00 [INF] HTTP GET /Products/Create completed 200 in 15ms. RequestId: 0e13c74a-cbf1-42d8-b3b4-4c5598e31c53
+2026-07-21 15:44:44.186 +01:00 [INF] HTTP GET /css/app.css started. RequestId: 0afc128e-58b5-4c17-af47-5188e7e8e2df
+2026-07-21 15:44:44.186 +01:00 [INF] HTTP GET /css/app.css completed 304 in 0ms. RequestId: 0afc128e-58b5-4c17-af47-5188e7e8e2df
+2026-07-21 15:45:59.918 +01:00 [INF] HTTP POST /Products/Create started. RequestId: 733b3ca1-3979-440e-9818-3ccce2613c10
+2026-07-21 15:46:00.897 +01:00 [INF] HTTP POST /Products/Create completed 302 in 979ms. RequestId: 733b3ca1-3979-440e-9818-3ccce2613c10
+2026-07-21 15:46:00.939 +01:00 [INF] HTTP GET /Products/QrCode/8 started. RequestId: 9b1d7db7-5d7b-4a66-941a-a0861b0c2102
+2026-07-21 15:46:00.949 +01:00 [INF] HTTP GET /Products/QrCode/8 completed 200 in 9ms. RequestId: 9b1d7db7-5d7b-4a66-941a-a0861b0c2102
+2026-07-21 15:46:01.409 +01:00 [INF] HTTP GET /uploads/qrcodes/2/product_8.png started. RequestId: c290012d-2256-4cf2-a005-644c00b72cdd
+2026-07-21 15:46:01.410 +01:00 [INF] HTTP GET /uploads/qrcodes/2/product_8.png completed 200 in 1ms. RequestId: c290012d-2256-4cf2-a005-644c00b72cdd
+2026-07-21 15:46:05.273 +01:00 [INF] HTTP GET /Products started. RequestId: 555e684a-825c-42cd-bdab-4fd93c8f6e96
+2026-07-21 15:46:05.304 +01:00 [INF] HTTP GET /Products completed 200 in 31ms. RequestId: 555e684a-825c-42cd-bdab-4fd93c8f6e96
+2026-07-21 15:46:08.519 +01:00 [INF] HTTP GET /Products/Create started. RequestId: b58e36ef-c643-4aeb-a63d-d5e1878e6460
+2026-07-21 15:46:08.703 +01:00 [INF] HTTP GET /Products/Create completed 200 in 184ms. RequestId: b58e36ef-c643-4aeb-a63d-d5e1878e6460
+2026-07-21 15:46:16.071 +01:00 [INF] HTTP GET /Products/Create started. RequestId: d863d8b8-bf04-4383-8f85-125c1950275f
+2026-07-21 15:46:16.127 +01:00 [INF] HTTP GET /Products/Create completed 200 in 58ms. RequestId: d863d8b8-bf04-4383-8f85-125c1950275f
+2026-07-21 15:46:30.835 +01:00 [INF] HTTP GET /Products/Create started. RequestId: c2a4db12-92dd-48c4-b082-b59f5d4e63b3
+2026-07-21 15:46:30.929 +01:00 [INF] HTTP GET /Products/Create completed 200 in 93ms. RequestId: c2a4db12-92dd-48c4-b082-b59f5d4e63b3
+[2026-07-21 15:56:33.941] [INF] Starting PharMarket application
+[2026-07-21 15:56:38.381] [WRN] Entity 'Supplier' has a global query filter defined and is the required end of a relationship with the entity 'Purchase'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-21 15:56:38.471] [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'PurchaseItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-21 15:56:38.472] [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'SaleItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-21 15:56:38.472] [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-21 15:57:00.006] [ERR] An error occurred using the connection to database 'PharMarketDevDb' on server 'localhost'.
+[2026-07-21 15:57:03.507] [ERR] An exception occurred while iterating over the results of a query for context type 'PharMarket.Data.AppDbContext'.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySqlConnector.MySqlException (0x80004005): Connect Timeout expired.
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int64 startingTimestamp, Activity activity, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 1109
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 567
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySqlConnector.MySqlException (0x80004005): Connect Timeout expired.
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int64 startingTimestamp, Activity activity, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 1109
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 567
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+[2026-07-21 15:57:03.710] [FTL] PharMarket terminated unexpectedly
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySqlConnector.MySqlException (0x80004005): Connect Timeout expired.
+   at MySqlConnector.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Int64 startingTimestamp, Activity activity, Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 1109
+   at MySqlConnector.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlConnection.cs:line 567
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at PharMarket.Services.AuthService.SeedAdminAsync() in C:\Users\USER\Desktop\PharMarket\Services\AuthService.cs:line 93
+   at Program.<Main>$(String[] args) in C:\Users\USER\Desktop\PharMarket\Program.cs:line 55

@@ -222,5 +222,5 @@ C:\Users\USER\Desktop\PharMarket\obj\Debug\net9.0\PharMarket.genruntimeconfig.ca
 C:\Users\USER\Desktop\PharMarket\obj\Debug\net9.0\ref\PharMarket.dll
 C:\Users\USER\Desktop\PharMarket\bin\Debug\net9.0\QRCoder.dll
 C:\Users\USER\Desktop\PharMarket\obj\Debug\net9.0\compressed\oqde3by3pc-{0}-lfg53sywy8-lfg53sywy8.gz
-C:\Users\USER\Desktop\PharMarket\obj\Debug\net9.0\compressed\ia5s3hqo8z-{0}-ht8dihewfd-ht8dihewfd.gz
 C:\Users\USER\Desktop\PharMarket\obj\Debug\net9.0\compressed\s9fovji042-{0}-dislvyd7f1-dislvyd7f1.gz
+C:\Users\USER\Desktop\PharMarket\obj\Debug\net9.0\compressed\ia5s3hqo8z-{0}-7fi9y1o0ra-7fi9y1o0ra.gz

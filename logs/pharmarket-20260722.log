@@ -1,0 +1,6 @@
+[2026-07-22 00:53:21.223] [INF] HTTP GET /Sales/Details/5 started. RequestId: ac7de7c5-8744-4dd5-a302-dc45f7509851
+[2026-07-22 00:54:04.596] [INF] HTTP GET /Sales/Details/5 started. RequestId: 5b7d755c-1e7f-4ac0-941e-5115f3d01867
+[2026-07-22 00:55:22.331] [INF] HTTP GET /Sales/Details/5 completed 302 in 77734ms. RequestId: 5b7d755c-1e7f-4ac0-941e-5115f3d01867
+[2026-07-22 00:55:22.331] [INF] HTTP GET /Sales/Details/5 completed 302 in 124439ms. RequestId: ac7de7c5-8744-4dd5-a302-dc45f7509851
+[2026-07-22 00:55:31.572] [INF] HTTP GET / started. RequestId: d6bf6a4d-1538-4920-8b8d-8b2d8beeddd7
+[2026-07-22 00:57:28.990] [ERR] An error occurred using the connection to database 'PharMarketDevDb' on server 'localhost'.

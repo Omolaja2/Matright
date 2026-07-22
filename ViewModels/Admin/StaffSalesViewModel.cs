@@ -6,6 +6,8 @@ public class StaffSalesPageViewModel
     public List<StaffSalesViewModel> StaffSales { get; set; } = new();
     public decimal GrandTotal { get; set; }
     public int GrandTotalItems { get; set; }
+    public int CurrentPage { get; set; } = 1;
+    public int TotalPages { get; set; }
 }
 
 public class StaffSalesViewModel

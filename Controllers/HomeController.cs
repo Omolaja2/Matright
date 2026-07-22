@@ -29,12 +29,13 @@ public class HomeController : BaseController
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error(int? statusCode = null)
+    public IActionResult Error(int? statusCode = null, string? message = null)
     {
         var model = new Models.ErrorViewModel
         {
             RequestId = System.Diagnostics.Activity.Current?.Id ?? HttpContext.TraceIdentifier,
-            StatusCode = statusCode
+            StatusCode = statusCode,
+            Message = message
         };
         return View(model);
     }

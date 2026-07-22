@@ -12,13 +12,13 @@
     </div>
 </div>
 
-<div class="filters-bar">
+<div class="filters-bar" style="flex-wrap:wrap;">
     <form method="get" style="display:flex;align-items:center;gap:10px;">
         <label style="font-size:13px;font-weight:600;">Date:</label>
         <input type="date" name="date" value="@dateStr" class="form-control" style="max-width:200px;" />
         <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-filter"></i> Filter</button>
     </form>
-    <div style="display:flex;gap:12px;align-items:center;">
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
         <div class="stat-card" style="min-width:140px;">
             <div style="font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.5px;">Grand Total</div>
             <div style="font-size:20px;font-weight:800;color:var(--primary);">@CurrencyHelper.FormatCurrency(Model.GrandTotal)</div>
@@ -103,3 +103,12 @@ else
         <p>No staff members are assigned to this store.</p>
     </div>
 }
+
+@await Html.PartialAsync("_Pagination", new PharMarket.Helpers.PaginationInfo
+{
+    CurrentPage = Model.CurrentPage,
+    TotalPages = Model.TotalPages,
+    Action = "StaffSales",
+    Controller = "Admin",
+    RouteValues = new Dictionary<string, string?> { ["date"] = Model.SelectedDate.ToString("yyyy-MM-dd") }
+})

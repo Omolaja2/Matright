@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - PharMarket</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,9 +75,14 @@
         .sidebar-user-name { font-size:13px; font-weight:600; color:#fff; margin-bottom:2px; }
         .sidebar-user-role { font-size:11px; color:rgba(255,255,255,.4); }
 
+        .sidebar-overlay { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.4); z-index:99; }
+
         @@media (max-width: 768px) {
             .notification-panel { width: calc(100vw - 32px); right: -16px; }
             .products-grid { grid-template-columns:repeat(auto-fill, minmax(160px, 1fr)); }
+            .sidebar-close { display:block !important; }
+            .sidebar.open ~ .sidebar-overlay { display:block; }
+            .sidebar-header { justify-content:space-between; }
         }
     </style>
     @await RenderSectionAsync("Styles", required: false)
@@ -89,6 +94,9 @@
                 <span class="logo-icon"><i class="fas fa-store"></i></span>
                 <span class="logo-text">PharMarket</span>
             </a>
+            <button class="sidebar-close" id="sidebarClose" onclick="document.getElementById('sidebar').classList.remove('open')" style="display:none;background:none;border:none;color:#fff;font-size:18px;cursor:pointer;padding:8px;margin-left:auto;">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
         <nav class="sidebar-nav">
             @if (User.IsInRole("Admin"))
@@ -175,6 +183,8 @@
             </form>
         </div>
     </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="document.getElementById('sidebar').classList.remove('open')"></div>
 
     <div class="main-area">
         <header class="topbar">

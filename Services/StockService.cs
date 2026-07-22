@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using PharMarket.Data;
 using PharMarket.Exceptions;
 using PharMarket.Models.Entities;
+using PharMarket.Helpers;
 using PharMarket.ViewModels.Stock;
 using TransferDirection = PharMarket.ViewModels.Stock.TransferDirection;
 
@@ -16,35 +17,47 @@ public class StockService : IStockService
         _context = context;
     }
 
-    public async Task<List<StockViewModel>> GetAllStockAsync(int storeId)
+    public async Task<PagedResult<StockViewModel>> GetAllStockAsync(int storeId, int page = 1, int pageSize = 20)
     {
-        return await GetStockQuery(storeId).ToListAsync();
+        var query = GetStockQuery(storeId);
+        var totalCount = await query.CountAsync();
+        var items = await query.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
+        return new PagedResult<StockViewModel> { Items = items, TotalCount = totalCount, Page = page, PageSize = pageSize };
     }
 
-    public async Task<List<StockViewModel>> GetStoreStockAsync(int storeId)
+    public async Task<PagedResult<StockViewModel>> GetStoreStockAsync(int storeId, int page = 1, int pageSize = 20)
     {
-        return await GetStockQuery(storeId).Where(s => s.StoreQuantity > 0).ToListAsync();
+        var query = GetStockQuery(storeId).Where(s => s.StoreQuantity > 0);
+        var totalCount = await query.CountAsync();
+        var items = await query.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
+        return new PagedResult<StockViewModel> { Items = items, TotalCount = totalCount, Page = page, PageSize = pageSize };
     }
 
-    public async Task<List<StockViewModel>> GetShelfStockAsync(int storeId)
+    public async Task<PagedResult<StockViewModel>> GetShelfStockAsync(int storeId, int page = 1, int pageSize = 20)
     {
-        return await GetStockQuery(storeId).Where(s => s.ShelfQuantity > 0).ToListAsync();
+        var query = GetStockQuery(storeId).Where(s => s.ShelfQuantity > 0);
+        var totalCount = await query.CountAsync();
+        var items = await query.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
+        return new PagedResult<StockViewModel> { Items = items, TotalCount = totalCount, Page = page, PageSize = pageSize };
     }
 
-    public async Task<List<StockViewModel>> GetLowStockAsync(int storeId)
+    public async Task<PagedResult<StockViewModel>> GetLowStockAsync(int storeId, int page = 1, int pageSize = 20)
     {
-        return await GetStockQuery(storeId)
-            .Where(s => s.IsLowStock)
-            .ToListAsync();
+        var query = GetStockQuery(storeId).Where(s => s.IsLowStock);
+        var totalCount = await query.CountAsync();
+        var items = await query.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
+        return new PagedResult<StockViewModel> { Items = items, TotalCount = totalCount, Page = page, PageSize = pageSize };
     }
 
-    public async Task<List<StockViewModel>> GetExpiringStockAsync(int storeId, int days = 30)
+    public async Task<PagedResult<StockViewModel>> GetExpiringStockAsync(int storeId, int days = 30, int page = 1, int pageSize = 20)
     {
         var cutoff = DateTime.UtcNow.AddDays(days);
-        return await GetStockQuery(storeId)
+        var query = GetStockQuery(storeId)
             .Where(s => s.ExpirationDate.HasValue && s.ExpirationDate.Value <= cutoff && s.ExpirationDate.Value > DateTime.UtcNow)
-            .OrderBy(s => s.ExpirationDate)
-            .ToListAsync();
+            .OrderBy(s => s.ExpirationDate);
+        var totalCount = await query.CountAsync();
+        var items = await query.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
+        return new PagedResult<StockViewModel> { Items = items, TotalCount = totalCount, Page = page, PageSize = pageSize };
     }
 
     public async Task TransferStockAsync(TransferViewModel model, int storeId)

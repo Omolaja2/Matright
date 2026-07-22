@@ -59,7 +59,7 @@ namespace PharMarket.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("Capital");
+                    b.ToTable("Capital", (string)null);
                 });
 
             modelBuilder.Entity("PharMarket.Models.Entities.Category", b =>
@@ -95,7 +95,7 @@ namespace PharMarket.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
 
                     b.HasData(
                         new
@@ -192,7 +192,7 @@ namespace PharMarket.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("Expenses");
+                    b.ToTable("Expenses", (string)null);
                 });
 
             modelBuilder.Entity("PharMarket.Models.Entities.Notification", b =>
@@ -242,7 +242,7 @@ namespace PharMarket.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("Notifications");
+                    b.ToTable("Notifications", (string)null);
                 });
 
             modelBuilder.Entity("PharMarket.Models.Entities.Product", b =>
@@ -317,7 +317,7 @@ namespace PharMarket.Migrations
 
                     b.HasIndex("SupplierId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("PharMarket.Models.Entities.Purchase", b =>
@@ -366,7 +366,7 @@ namespace PharMarket.Migrations
 
                     b.HasIndex("SupplierId");
 
-                    b.ToTable("Purchases");
+                    b.ToTable("Purchases", (string)null);
                 });
 
             modelBuilder.Entity("PharMarket.Models.Entities.PurchaseItem", b =>
@@ -410,7 +410,7 @@ namespace PharMarket.Migrations
 
                     b.HasIndex("PurchaseId");
 
-                    b.ToTable("PurchaseItems");
+                    b.ToTable("PurchaseItems", (string)null);
                 });
 
             modelBuilder.Entity("PharMarket.Models.Entities.Sale", b =>
@@ -475,7 +475,7 @@ namespace PharMarket.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Sales");
+                    b.ToTable("Sales", (string)null);
                 });
 
             modelBuilder.Entity("PharMarket.Models.Entities.SaleItem", b =>
@@ -519,7 +519,7 @@ namespace PharMarket.Migrations
 
                     b.HasIndex("SaleId");
 
-                    b.ToTable("SaleItems");
+                    b.ToTable("SaleItems", (string)null);
                 });
 
             modelBuilder.Entity("PharMarket.Models.Entities.Stock", b =>
@@ -556,7 +556,7 @@ namespace PharMarket.Migrations
                     b.HasIndex("ProductId")
                         .IsUnique();
 
-                    b.ToTable("Stock");
+                    b.ToTable("Stock", (string)null);
                 });
 
             modelBuilder.Entity("PharMarket.Models.Entities.Store", b =>
@@ -617,7 +617,7 @@ namespace PharMarket.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("Stores");
+                    b.ToTable("Stores", (string)null);
 
                     b.HasData(
                         new
@@ -675,7 +675,7 @@ namespace PharMarket.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("Suppliers");
+                    b.ToTable("Suppliers", (string)null);
                 });
 
             modelBuilder.Entity("PharMarket.Models.Entities.TaxSetting", b =>
@@ -713,7 +713,7 @@ namespace PharMarket.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("TaxSettings");
+                    b.ToTable("TaxSettings", (string)null);
 
                     b.HasData(
                         new
@@ -777,7 +777,7 @@ namespace PharMarket.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("Transactions");
+                    b.ToTable("Transactions", (string)null);
                 });
 
             modelBuilder.Entity("PharMarket.Models.Entities.User", b =>
@@ -830,7 +830,7 @@ namespace PharMarket.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("PharMarket.Models.Entities.Capital", b =>

@@ -8,6 +8,8 @@ public class SalesReportViewModel
     public DateTime? EndDate { get; set; }
     public PaymentMethod? PaymentMethodFilter { get; set; }
     public List<SalesReportItem> Sales { get; set; } = new();
+    public int CurrentPage { get; set; } = 1;
+    public int TotalPages { get; set; }
     public decimal TotalSales => Sales.Sum(s => s.TotalAmount);
     public decimal TotalTax => Sales.Sum(s => s.TaxAmount);
     public int TotalTransactions => Sales.Count;
@@ -16,6 +18,7 @@ public class SalesReportViewModel
 
 public class SalesReportItem
 {
+    public int SaleId { get; set; }
     public string InvoiceNumber { get; set; } = string.Empty;
     public DateTime SaleDate { get; set; }
     public decimal SubTotal { get; set; }

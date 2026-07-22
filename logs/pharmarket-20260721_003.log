@@ -48,3 +48,87 @@
 2026-07-21 14:25:04.701 +01:00 [INF] HTTP POST /Account/Login completed 302 in 179ms. RequestId: e4af5af4-de5a-4cde-a914-ec6bff784dda
 2026-07-21 14:25:04.714 +01:00 [INF] HTTP GET /Apprentice started. RequestId: 2b653a5d-b738-4ed1-b867-537373b7674c
 2026-07-21 14:25:04.727 +01:00 [INF] HTTP GET /Apprentice completed 200 in 13ms. RequestId: 2b653a5d-b738-4ed1-b867-537373b7674c
+2026-07-21 14:28:53.845 +01:00 [INF] HTTP GET /Apprentice started. RequestId: 3294bcd2-ec1d-4860-8569-4ec2b582d062
+2026-07-21 14:28:54.269 +01:00 [INF] HTTP GET /Apprentice started. RequestId: f26d1401-90e5-43fb-a983-93f2f5e4cf93
+2026-07-21 14:28:54.519 +01:00 [INF] HTTP GET /Apprentice completed 200 in 673ms. RequestId: 3294bcd2-ec1d-4860-8569-4ec2b582d062
+2026-07-21 14:28:54.896 +01:00 [INF] HTTP GET /Apprentice completed 200 in 626ms. RequestId: f26d1401-90e5-43fb-a983-93f2f5e4cf93
+2026-07-21 14:30:59.248 +01:00 [INF] HTTP GET /Apprentice/MySales started. RequestId: 1caa71a1-a926-4763-bb08-1eab48740155
+2026-07-21 14:30:59.349 +01:00 [INF] HTTP GET /Apprentice/MySales completed 200 in 100ms. RequestId: 1caa71a1-a926-4763-bb08-1eab48740155
+2026-07-21 14:32:00.434 +01:00 [INF] HTTP POST /Account/Logout started. RequestId: c80f3611-874f-45c7-84cf-09f7548d402d
+2026-07-21 14:32:00.458 +01:00 [INF] HTTP POST /Account/Logout completed 302 in 23ms. RequestId: c80f3611-874f-45c7-84cf-09f7548d402d
+2026-07-21 14:32:00.464 +01:00 [INF] HTTP GET /Account/Login started. RequestId: ae8e50da-5b85-46b0-8f5d-dc1071237129
+2026-07-21 14:32:00.474 +01:00 [INF] HTTP GET /Account/Login completed 200 in 9ms. RequestId: ae8e50da-5b85-46b0-8f5d-dc1071237129
+2026-07-21 14:32:04.629 +01:00 [INF] HTTP POST /Account/Login started. RequestId: aadb3e24-54a4-472c-982d-761bf2b62880
+2026-07-21 14:32:04.651 +01:00 [INF] HTTP POST /Account/Login completed 302 in 22ms. RequestId: aadb3e24-54a4-472c-982d-761bf2b62880
+2026-07-21 14:32:04.657 +01:00 [INF] HTTP GET /Home started. RequestId: 515e9cbc-b336-4278-ad22-99ec2a5b3cda
+2026-07-21 14:32:05.019 +01:00 [INF] HTTP GET /Home completed 200 in 362ms. RequestId: 515e9cbc-b336-4278-ad22-99ec2a5b3cda
+2026-07-21 14:34:02.309 +01:00 [INF] HTTP POST /Account/Logout started. RequestId: 5efc0965-bb24-418e-875a-dadcc6e0ab92
+2026-07-21 14:34:02.311 +01:00 [INF] HTTP POST /Account/Logout completed 302 in 2ms. RequestId: 5efc0965-bb24-418e-875a-dadcc6e0ab92
+2026-07-21 14:34:02.322 +01:00 [INF] HTTP GET /Account/Login started. RequestId: e8452f6d-d30d-45f6-a85e-81a7518f474e
+2026-07-21 14:34:02.324 +01:00 [INF] HTTP GET /Account/Login completed 200 in 1ms. RequestId: e8452f6d-d30d-45f6-a85e-81a7518f474e
+2026-07-21 14:34:06.875 +01:00 [INF] HTTP POST /Account/Login started. RequestId: 1aaa0aa5-ae74-4d96-968e-0e04f81e3e79
+2026-07-21 14:34:06.882 +01:00 [INF] HTTP POST /Account/Login completed 302 in 7ms. RequestId: 1aaa0aa5-ae74-4d96-968e-0e04f81e3e79
+2026-07-21 14:34:06.887 +01:00 [INF] HTTP GET /Apprentice started. RequestId: e028968b-234f-4265-bfc6-8add5f59b664
+2026-07-21 14:34:06.897 +01:00 [INF] HTTP GET /Apprentice completed 200 in 10ms. RequestId: e028968b-234f-4265-bfc6-8add5f59b664
+2026-07-21 14:39:32.827 +01:00 [INF] HTTP GET /Apprentice/GetProductDetails started. RequestId: f6a000f5-f567-4da7-8e18-1860f30b6af9
+2026-07-21 14:39:32.930 +01:00 [INF] HTTP GET /Apprentice/GetProductDetails completed 200 in 102ms. RequestId: f6a000f5-f567-4da7-8e18-1860f30b6af9
+2026-07-21 14:39:35.713 +01:00 [INF] HTTP POST /Apprentice/ReduceStock started. RequestId: 05b610ba-c153-4f76-8b87-5c09c9c81d8b
+2026-07-21 14:39:38.621 +01:00 [INF] HTTP POST /Apprentice/ReduceStock completed 200 in 2907ms. RequestId: 05b610ba-c153-4f76-8b87-5c09c9c81d8b
+2026-07-21 14:39:45.429 +01:00 [INF] HTTP GET /Apprentice started. RequestId: 080dbbda-1adf-4483-b2f9-f6899d3e5981
+2026-07-21 14:39:45.470 +01:00 [INF] HTTP GET /Apprentice completed 200 in 41ms. RequestId: 080dbbda-1adf-4483-b2f9-f6899d3e5981
+2026-07-21 14:39:48.972 +01:00 [INF] HTTP POST /Account/Logout started. RequestId: 54f071f7-a45a-41c7-a0d6-b5c5e055d394
+2026-07-21 14:39:48.974 +01:00 [INF] HTTP POST /Account/Logout completed 302 in 2ms. RequestId: 54f071f7-a45a-41c7-a0d6-b5c5e055d394
+2026-07-21 14:39:48.981 +01:00 [INF] HTTP GET /Account/Login started. RequestId: eb7e8867-ddb6-49d0-b775-d4951fef3827
+2026-07-21 14:39:48.984 +01:00 [INF] HTTP GET /Account/Login completed 200 in 2ms. RequestId: eb7e8867-ddb6-49d0-b775-d4951fef3827
+2026-07-21 14:39:52.021 +01:00 [INF] HTTP POST /Account/Login started. RequestId: 54a7fe57-4b3d-4d9e-900e-d31b01234fb8
+2026-07-21 14:39:52.027 +01:00 [INF] HTTP POST /Account/Login completed 302 in 6ms. RequestId: 54a7fe57-4b3d-4d9e-900e-d31b01234fb8
+2026-07-21 14:39:52.031 +01:00 [INF] HTTP GET /Home started. RequestId: 187cd34a-62d0-40b4-9a3b-2813a2399ea6
+2026-07-21 14:39:52.058 +01:00 [INF] HTTP GET /Home completed 200 in 26ms. RequestId: 187cd34a-62d0-40b4-9a3b-2813a2399ea6
+2026-07-21 14:40:12.059 +01:00 [INF] HTTP GET /Sales started. RequestId: 86ca06d0-26f4-492f-91bc-358aeb2e73b1
+2026-07-21 14:40:12.307 +01:00 [INF] HTTP GET /Sales completed 200 in 247ms. RequestId: 86ca06d0-26f4-492f-91bc-358aeb2e73b1
+2026-07-21 14:40:19.491 +01:00 [INF] HTTP GET /Sales/Details/INV-20260721133936-576136 started. RequestId: b55858cc-54f5-499e-ad96-c5bcc559c34f
+2026-07-21 14:40:21.263 +01:00 [INF] HTTP GET /Sales/Details/INV-20260721133936-576136 completed 200 in 1771ms. RequestId: b55858cc-54f5-499e-ad96-c5bcc559c34f
+2026-07-21 14:40:21.263 +01:00 [ERR] An unhandled exception occurred. Request: GET /Sales/Details/INV-20260721133936-576136
+PharMarket.Exceptions.NotFoundException: Entity "Sale" (0) was not found.
+   at PharMarket.Controllers.SalesController.Details(Int32 id)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at PharMarket.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context)
+   at PharMarket.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext context)
+2026-07-21 14:40:23.945 +01:00 [INF] HTTP GET /Sales started. RequestId: 249aa3ab-29aa-418b-816c-18f1480a1b12
+2026-07-21 14:40:23.956 +01:00 [INF] HTTP GET /Sales completed 200 in 10ms. RequestId: 249aa3ab-29aa-418b-816c-18f1480a1b12
+2026-07-21 14:40:25.974 +01:00 [INF] HTTP GET /Sales/DailySummary started. RequestId: 2bc921bb-c736-4c97-aaaa-3c03cd0e28b0
+2026-07-21 14:40:26.063 +01:00 [INF] HTTP GET /Sales/DailySummary completed 200 in 89ms. RequestId: 2bc921bb-c736-4c97-aaaa-3c03cd0e28b0
+2026-07-21 14:49:05.569 +01:00 [INF] HTTP GET /Sales/DailySummary started. RequestId: 028429c3-22d2-48d4-a297-171874af7cdb
+2026-07-21 14:49:05.743 +01:00 [INF] HTTP GET /Sales/DailySummary completed 200 in 173ms. RequestId: 028429c3-22d2-48d4-a297-171874af7cdb
+2026-07-21 14:49:10.345 +01:00 [INF] HTTP GET /Sales/DailySummary started. RequestId: 2d0b79cf-02bd-4ea1-b432-5c65fcbe27cb
+2026-07-21 14:49:10.416 +01:00 [INF] HTTP GET /Sales/DailySummary completed 200 in 71ms. RequestId: 2d0b79cf-02bd-4ea1-b432-5c65fcbe27cb
+2026-07-21 14:49:40.232 +01:00 [INF] HTTP GET /Sales/DailySummary started. RequestId: bf9ee5ec-4979-4d3c-a28b-5b2c7e83695b
+2026-07-21 14:49:40.277 +01:00 [INF] HTTP GET /Sales/DailySummary completed 200 in 44ms. RequestId: bf9ee5ec-4979-4d3c-a28b-5b2c7e83695b
+2026-07-21 14:50:05.924 +01:00 [INF] HTTP GET / started. RequestId: 9019a8fa-d9a6-4d2b-9499-78fe29eb08e9
+2026-07-21 14:50:05.936 +01:00 [INF] HTTP GET / completed 302 in 12ms. RequestId: 9019a8fa-d9a6-4d2b-9499-78fe29eb08e9
+2026-07-21 14:50:05.960 +01:00 [INF] HTTP GET /Home started. RequestId: 5fccdbed-0d65-467d-b4ff-e88bb2fd2f2e
+2026-07-21 14:50:06.059 +01:00 [INF] HTTP GET /Home completed 200 in 98ms. RequestId: 5fccdbed-0d65-467d-b4ff-e88bb2fd2f2e
+[2026-07-21 15:08:49.058] [INF] Starting PharMarket application
+[2026-07-21 15:08:52.548] [FTL] PharMarket terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\USER\Desktop\PharMarket\Program.cs:line 50

@@ -40,4 +40,8 @@ public class ProcessSaleViewModel
     [StringLength(100)]
     [Display(Name = "Cashier Name")]
     public string? CashierName { get; set; }
+
+    [StringLength(500)]
+    [Display(Name = "Notes")]
+    public string? Notes { get; set; }
 }

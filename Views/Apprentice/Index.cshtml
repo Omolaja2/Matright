@@ -4,11 +4,11 @@
 }
 
 <div class="page-header">
-    <div>
+    <div style="min-width:0;">
         <h1>Dashboard</h1>
-        <p>Tap a product to see details and sell.</p>
+        <p>Add products to cart and checkout when ready.</p>
     </div>
-    <div style="display:flex;gap:12px;align-items:center;">
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
         <div class="stat-card" style="min-width:140px;">
             <div style="font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.5px;">Today's Sales</div>
             <div style="font-size:20px;font-weight:800;color:var(--primary);">@CurrencyHelper.FormatCurrency(Model.TodayTotalSales)</div>
@@ -20,90 +20,175 @@
     </div>
 </div>
 
-<div class="filters-bar">
-    <div style="position:relative;flex:1;max-width:400px;">
-        <i class="fas fa-search" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-dim);font-size:13px;"></i>
-        <input type="text" id="apprenticeSearch" class="form-control" style="padding-left:36px;"
-               placeholder="Search products..." value="@Model.SearchQuery" autocomplete="off" />
-        <div id="searchDropdown" class="search-dropdown" style="display:none;"></div>
-    </div>
-</div>
-
-<div id="productsGrid" class="products-grid">
-    @foreach (var product in Model.Products)
-    {
-        <div class="product-card" data-product-id="@product.Id" onclick="openProductDetail(@product.Id)" style="cursor:pointer;">
-            <div class="product-img">
-                @if (!string.IsNullOrEmpty(product.ImageUrl))
-                {
-                    <img src="@product.ImageUrl" alt="@product.Name" />
-                }
-                else
-                {
-                    <div class="product-img-placeholder"><i class="fas fa-box"></i></div>
-                }
+@if (Model.YesterdayTotalSales > 0 || Model.TodayTotalSales > 0)
+{
+    var changePercent = Model.YesterdayTotalSales > 0 ? ((Model.TodayTotalSales - Model.YesterdayTotalSales) / Model.YesterdayTotalSales * 100) : 0;
+    var isUp = changePercent >= 0;
+    <div style="background:@(isUp ? "#dcfce7" : "#fee2e2");border-radius:var(--radius);padding:14px 18px;margin-bottom:20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+        <div style="width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <i class="fas @(isUp ? "fa-arrow-trend-up" : "fa-arrow-trend-down")" style="color:@(isUp ? "var(--success)" : "var(--danger)");font-size:18px;"></i>
+        </div>
+        <div style="flex:1;min-width:200px;">
+            <div style="font-size:14px;font-weight:700;color:var(--text);">
+                Yesterday vs Today
             </div>
-            <div class="product-info">
-                <h4 class="product-name">@product.Name</h4>
-                <div class="product-price">@CurrencyHelper.FormatCurrency(product.SalesPrice)</div>
-                <div class="product-stock">
-                    <span class="stock-badge @product.StockStatus.ToLower()">@product.StockLeft left</span>
-                    @if (product.StockStatus == "OutOfStock")
-                    {
-                        <span class="badge badge-danger" style="margin-left:6px;">Out of Stock</span>
-                    }
-                    @if (product.ExpirationDate.HasValue)
-                    {
-                        <span class="expiring-label @(product.ExpirationDate.Value < DateTime.UtcNow ? "expired" : product.ExpirationDate.Value <= DateTime.UtcNow.AddDays(30) ? "expiring-soon" : "")">
-                            Exp: @product.ExpirationDate.Value.ToString("dd MMM yyyy")
-                        </span>
-                    }
+            <div style="font-size:12.5px;color:var(--text-muted);margin-top:2px;">
+                Yesterday: <strong>@CurrencyHelper.FormatCurrency(Model.YesterdayTotalSales)</strong> (@Model.YesterdayTotalItems items)
+                &nbsp;&middot;&nbsp;
+                Today: <strong>@CurrencyHelper.FormatCurrency(Model.TodayTotalSales)</strong> (@Model.TodayTotalItems items)
+            </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+            <div style="font-size:20px;font-weight:800;color:@(isUp ? "var(--success)" : "var(--danger)");">@(isUp ? "+" : "")@changePercent.ToString("F0")%</div>
+            <div style="font-size:11px;color:var(--text-dim);">vs yesterday</div>
+        </div>
+    </div>
+}
+
+<div class="app-grid grid-sidebar">
+    <div class="grid-main">
+        <div class="filters-bar" style="margin-bottom:16px;">
+            <div style="position:relative;flex:1;max-width:400px;">
+                <i class="fas fa-search" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-dim);font-size:13px;"></i>
+                <input type="text" id="apprenticeSearch" class="form-control" style="padding-left:36px;"
+                       placeholder="Search products..." value="@Model.SearchQuery" autocomplete="off" />
+                <div id="searchDropdown" class="search-dropdown" style="display:none;"></div>
+            </div>
+        </div>
+
+        <div id="productsGrid" class="products-grid">
+            @foreach (var product in Model.Products)
+            {
+                var daysUntilExpiry = product.ExpirationDate.HasValue ? (int)(product.ExpirationDate.Value - DateTime.UtcNow).TotalDays : (int?)null;
+                var expiryClass = daysUntilExpiry.HasValue ? (daysUntilExpiry.Value < 0 ? "expired" : daysUntilExpiry.Value <= 30 ? "expiring-soon" : "") : "";
+                var expiryText = "";
+                if (daysUntilExpiry.HasValue)
+                {
+                    expiryText = daysUntilExpiry.Value < 0 ? "Expired" : daysUntilExpiry.Value == 0 ? "Expires today" : daysUntilExpiry.Value <= 30 ? $"Expires in {daysUntilExpiry.Value} days" : $"Exp: {product.ExpirationDate!.Value.ToString("dd MMM yyyy")}";
+                }
+                <div class="product-card" data-product-id="@product.Id" onclick="addToCart(@product.Id)" style="cursor:pointer;">
+                    <div class="product-img">
+                        @if (!string.IsNullOrEmpty(product.ImageUrl))
+                        {
+                            <img src="@product.ImageUrl" alt="@product.Name" />
+                        }
+                        else
+                        {
+                            <div class="product-img-placeholder"><i class="fas fa-box"></i></div>
+                        }
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">@product.Name</h4>
+                        <div class="product-price">@CurrencyHelper.FormatCurrency(product.SalesPrice)</div>
+                        <div class="product-stock">
+                            <span class="stock-badge @product.StockStatus.ToLower()">@product.StockLeft left</span>
+                            @if (product.StockStatus == "OutOfStock")
+                            {
+                                <span class="badge badge-danger" style="margin-left:6px;">Out of Stock</span>
+                            }
+                            @if (product.ExpirationDate.HasValue)
+                            {
+                                <span class="expiring-label @expiryClass" style="font-size:10.5px;">
+                                    <i class="fas fa-clock" style="margin-right:2px;"></i> @expiryText
+                                </span>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        @if (Model.TotalPages > 1)
+        {
+            <div style="grid-column:1/-1;">
+                @await Html.PartialAsync("_Pagination", new PharMarket.Helpers.PaginationInfo
+                {
+                    CurrentPage = Model.CurrentPage,
+                    TotalPages = Model.TotalPages,
+                    Action = "Index",
+                    Controller = "Apprentice",
+                    RouteValues = new Dictionary<string, string?> { ["search"] = Model.SearchQuery }
+                })
+            </div>
+        }
+
+        @if (!Model.Products.Any())
+        {
+            <div class="empty-state">
+                <i class="fas fa-box-open"></i>
+                <h3>No products found</h3>
+                <p>No products available@(string.IsNullOrEmpty(Model.SearchQuery) ? "" : " matching your search")</p>
+            </div>
+        }
+
+        @if (Model.TodaySales.Any())
+        {
+            <div style="margin-top:32px;">
+                <h3 style="font-size:16px;font-weight:700;margin-bottom:12px;"><i class="fas fa-receipt" style="color:var(--primary);margin-right:6px;"></i> Today's Sales</h3>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Product</th>
+                                <th>Qty</th>
+                                <th>Unit Price</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var sale in Model.TodaySales)
+                            {
+                                <tr>
+                                    <td>@sale.SoldAt.ToString("hh:mm tt")</td>
+                                    <td><strong>@sale.ProductName</strong></td>
+                                    <td>@sale.Quantity</td>
+                                    <td>@CurrencyHelper.FormatCurrency(sale.UnitPrice)</td>
+                                    <td><strong>@CurrencyHelper.FormatCurrency(sale.Total)</strong></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="grid-side">
+        <div class="card" id="cartPanel" style="position:sticky;top:70px;">
+            <div class="card-header" style="background:var(--primary);color:#fff;border-bottom:none;">
+                <h3 style="color:#fff;"><i class="fas fa-shopping-cart"></i> Cart</h3>
+                <span id="cartCount" style="background:var(--accent);color:var(--primary);font-size:11px;font-weight:800;padding:2px 8px;border-radius:10px;">0</span>
+            </div>
+            <div class="card-body" style="padding:0;">
+                <div id="cartEmpty" style="text-align:center;padding:32px 16px;color:var(--text-dim);">
+                    <i class="fas fa-cart-plus" style="font-size:32px;opacity:0.3;margin-bottom:8px;display:block;"></i>
+                    <div style="font-size:13px;">Tap products to add to cart</div>
+                </div>
+                <div id="cartItems" style="display:none;max-height:320px;overflow-y:auto;"></div>
+                <div id="cartFooter" style="display:none;padding:16px;border-top:1px solid var(--border);">
+                    <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;">
+                        <span style="color:var(--text-muted);">Subtotal</span>
+                        <span id="cartSubtotal">₦0.00</span>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;font-size:18px;font-weight:800;margin-top:8px;padding-top:8px;border-top:2px solid var(--border);">
+                        <span>Total</span>
+                        <span id="cartTotal" style="color:var(--primary);">₦0.00</span>
+                    </div>
+                    <div style="margin-top:12px;">
+                        <textarea id="cartNotes" class="form-control" rows="2" placeholder="Add a note (optional)... e.g. Customer will pay tomorrow" style="font-size:12px;padding:8px 10px;resize:none;"></textarea>
+                    </div>
+                    <button onclick="checkoutCart()" id="checkoutBtn" class="btn btn-primary" style="width:100%;margin-top:10px;padding:14px;font-size:15px;font-weight:700;border-radius:10px;">
+                        <i class="fas fa-check-circle"></i> Checkout
+                    </button>
+                    <button onclick="clearCart()" class="btn btn-outline btn-sm" style="width:100%;margin-top:6px;">
+                        <i class="fas fa-trash"></i> Clear Cart
+                    </button>
                 </div>
             </div>
         </div>
-    }
+    </div>
 </div>
-
-@if (!Model.Products.Any())
-{
-    <div class="empty-state">
-        <i class="fas fa-box-open"></i>
-        <h3>No products found</h3>
-        <p>No products available@(string.IsNullOrEmpty(Model.SearchQuery) ? "" : " matching your search")</p>
-    </div>
-}
-
-@if (Model.TodaySales.Any())
-{
-    <div style="margin-top:32px;">
-        <h3 style="font-size:16px;font-weight:700;margin-bottom:12px;"><i class="fas fa-receipt" style="color:var(--primary);margin-right:6px;"></i> Today's Sales</h3>
-        <div class="table-container">
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Time</th>
-                        <th>Product</th>
-                        <th>Qty</th>
-                        <th>Unit Price</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var sale in Model.TodaySales)
-                    {
-                        <tr>
-                            <td>@sale.SoldAt.ToString("hh:mm tt")</td>
-                            <td><strong>@sale.ProductName</strong></td>
-                            <td>@sale.Quantity</td>
-                            <td>@CurrencyHelper.FormatCurrency(sale.UnitPrice)</td>
-                            <td><strong>@CurrencyHelper.FormatCurrency(sale.Total)</strong></td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
-}
 
 <div id="productDetailModal" class="modal-overlay" style="display:none;">
     <div class="modal-content" style="max-width:480px;border-radius:16px;">
@@ -128,8 +213,8 @@
                     <div id="modalTotal" style="font-size:20px;font-weight:800;color:var(--primary);padding:8px 0;"></div>
                 </div>
             </div>
-            <button id="modalSellBtn" onclick="sellFromModal()" class="btn btn-primary" style="width:100%;margin-top:16px;padding:14px;font-size:15px;font-weight:700;border-radius:12px;">
-                <i class="fas fa-shopping-cart"></i> Sell
+            <button id="modalAddToCartBtn" onclick="addToCartFromModal()" class="btn btn-accent" style="width:100%;margin-top:16px;padding:14px;font-size:15px;font-weight:700;border-radius:12px;">
+                <i class="fas fa-cart-plus"></i> Add to Cart
             </button>
         </div>
     </div>
@@ -137,14 +222,178 @@
 
 <div id="receiptModal" class="modal-overlay" style="display:none;">
     <div class="modal-content" style="max-width:380px;border-radius:16px;">
-        <div id="receiptContent" style="padding:24px;text-align:center;">
-        </div>
+        <div id="receiptContent" style="padding:24px;text-align:center;"></div>
+    </div>
+</div>
+
+<div id="calculatorFab" onclick="toggleCalculator()" style="position:fixed;bottom:24px;left:24px;z-index:200;cursor:pointer;">
+    <div style="width:48px;height:48px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.3);transition:transform .2s;" onmouseenter="this.style.transform='scale(1.1)'" onmouseleave="this.style.transform='scale(1)'">
+        <i class="fas fa-calculator" style="font-size:18px;"></i>
+    </div>
+</div>
+
+<div id="calculatorPanel" style="display:none;position:fixed;bottom:84px;left:24px;z-index:200;width:260px;background:#111;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.4);overflow:hidden;color:#fff;">
+    <div style="padding:12px 14px;background:#1a1a1a;">
+        <input type="text" id="calcDisplay" readonly style="width:100%;background:transparent;border:none;color:#fff;font-size:28px;font-weight:800;text-align:right;padding:8px 0;outline:none;font-family:'Inter',sans-serif;" value="0" />
+    </div>
+    <div style="padding:8px;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;">
+        <button onclick="calcClear()" style="height:44px;border-radius:8px;border:none;background:#333;color:#fff;font-size:16px;font-weight:700;cursor:pointer;">C</button>
+        <button onclick="calcInput('(')" style="height:44px;border-radius:8px;border:none;background:#333;color:#fff;font-size:16px;font-weight:700;cursor:pointer;">(</button>
+        <button onclick="calcInput(')')" style="height:44px;border-radius:8px;border:none;background:#333;color:#fff;font-size:16px;font-weight:700;cursor:pointer;">)</button>
+        <button onclick="calcInput('/')" style="height:44px;border-radius:8px;border:none;background:#D4FF00;color:#111;font-size:16px;font-weight:700;cursor:pointer;">&divide;</button>
+        <button onclick="calcInput('7')" style="height:44px;border-radius:8px;border:none;background:#222;color:#fff;font-size:16px;font-weight:700;cursor:pointer;">7</button>
+        <button onclick="calcInput('8')" style="height:44px;border-radius:8px;border:none;background:#222;color:#fff;font-size:16px;font-weight:700;cursor:pointer;">8</button>
+        <button onclick="calcInput('9')" style="height:44px;border-radius:8px;border:none;background:#222;color:#fff;font-size:16px;font-weight:700;cursor:pointer;">9</button>
+        <button onclick="calcInput('*')" style="height:44px;border-radius:8px;border:none;background:#D4FF00;color:#111;font-size:16px;font-weight:700;cursor:pointer;">&times;</button>
+        <button onclick="calcInput('4')" style="height:44px;border-radius:8px;border:none;background:#222;color:#fff;font-size:16px;font-weight:700;cursor:pointer;">4</button>
+        <button onclick="calcInput('5')" style="height:44px;border-radius:8px;border:none;background:#222;color:#fff;font-size:16px;font-weight:700;cursor:pointer;">5</button>
+        <button onclick="calcInput('6')" style="height:44px;border-radius:8px;border:none;background:#222;color:#fff;font-size:16px;font-weight:700;cursor:pointer;">6</button>
+        <button onclick="calcInput('-')" style="height:44px;border-radius:8px;border:none;background:#D4FF00;color:#111;font-size:16px;font-weight:700;cursor:pointer;">&minus;</button>
+        <button onclick="calcInput('1')" style="height:44px;border-radius:8px;border:none;background:#222;color:#fff;font-size:16px;font-weight:700;cursor:pointer;">1</button>
+        <button onclick="calcInput('2')" style="height:44px;border-radius:8px;border:none;background:#222;color:#fff;font-size:16px;font-weight:700;cursor:pointer;">2</button>
+        <button onclick="calcInput('3')" style="height:44px;border-radius:8px;border:none;background:#222;color:#fff;font-size:16px;font-weight:700;cursor:pointer;">3</button>
+        <button onclick="calcInput('+')" style="height:44px;border-radius:8px;border:none;background:#D4FF00;color:#111;font-size:16px;font-weight:700;cursor:pointer;">+</button>
+        <button onclick="calcBackspace()" style="height:44px;border-radius:8px;border:none;background:#333;color:#fff;font-size:16px;font-weight:700;cursor:pointer;">&#9003;</button>
+        <button onclick="calcInput('0')" style="height:44px;border-radius:8px;border:none;background:#222;color:#fff;font-size:16px;font-weight:700;cursor:pointer;">0</button>
+        <button onclick="calcInput('.')" style="height:44px;border-radius:8px;border:none;background:#222;color:#fff;font-size:16px;font-weight:700;cursor:pointer;">.</button>
+        <button onclick="calcEquals()" style="height:44px;border-radius:8px;border:none;background:var(--accent);color:#111;font-size:16px;font-weight:800;cursor:pointer;">=</button>
     </div>
 </div>
 
 @section Scripts {
 <script>
+var cart = [];
 var modalProduct = null;
+
+function addToCart(productId) {
+    var existing = cart.find(function(c) { return c.productId === productId; });
+    if (existing) {
+        existing.quantity += 1;
+    } else {
+        var productCards = document.querySelectorAll('.product-card');
+        for (var i = 0; i < productCards.length; i++) {
+            if (parseInt(productCards[i].getAttribute('data-product-id')) === productId) {
+                var nameEl = productCards[i].querySelector('.product-name');
+                var priceEl = productCards[i].querySelector('.product-price');
+                var stockBadge = productCards[i].querySelector('.stock-badge');
+                var stockText = stockBadge ? stockBadge.textContent : '0 left';
+                var stockLeft = parseInt(stockText) || 0;
+                cart.push({
+                    productId: productId,
+                    name: nameEl ? nameEl.textContent : '',
+                    unitPrice: parseFloat(priceEl ? priceEl.textContent.replace(/[^\d.]/g, '') : 0),
+                    quantity: 1,
+                    stockLeft: stockLeft
+                });
+                break;
+            }
+        }
+    }
+    renderCart();
+    var fab = document.getElementById('cartPanel');
+    fab.style.transition = 'transform 0.2s';
+    fab.style.transform = 'scale(1.03)';
+    setTimeout(function() { fab.style.transform = 'scale(1)'; }, 200);
+}
+
+function renderCart() {
+    var countEl = document.getElementById('cartCount');
+    var emptyEl = document.getElementById('cartEmpty');
+    var itemsEl = document.getElementById('cartItems');
+    var footerEl = document.getElementById('cartFooter');
+    var totalItems = cart.reduce(function(s, c) { return s + c.quantity; }, 0);
+    countEl.textContent = totalItems;
+
+    if (cart.length === 0) {
+        emptyEl.style.display = 'block';
+        itemsEl.style.display = 'none';
+        footerEl.style.display = 'none';
+        return;
+    }
+
+    emptyEl.style.display = 'none';
+    itemsEl.style.display = 'block';
+    footerEl.style.display = 'block';
+
+    var html = '';
+    cart.forEach(function(item, idx) {
+        html += '<div style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--border);">';
+        html += '<div style="flex:1;min-width:0;">';
+        html += '<div style="font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + item.name + '</div>';
+        html += '<div style="font-size:11.5px;color:var(--text-muted);">' + formatNaira(item.unitPrice) + ' each</div>';
+        html += '</div>';
+        html += '<div style="display:flex;align-items:center;gap:6px;">';
+        html += '<button onclick="changeCartQty(' + idx + ',-1)" style="width:28px;height:28px;border-radius:6px;border:1px solid var(--border);background:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;">-</button>';
+        html += '<span style="font-size:14px;font-weight:700;min-width:24px;text-align:center;">' + item.quantity + '</span>';
+        html += '<button onclick="changeCartQty(' + idx + ',1)" style="width:28px;height:28px;border-radius:6px;border:1px solid var(--border);background:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>';
+        html += '</div>';
+        html += '<div style="font-size:13px;font-weight:700;min-width:80px;text-align:right;">' + formatNaira(item.unitPrice * item.quantity) + '</div>';
+        html += '<button onclick="removeFromCart(' + idx + ')" style="width:24px;height:24px;border-radius:6px;border:none;background:#fee2e2;color:var(--danger);font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;"><i class="fas fa-times"></i></button>';
+        html += '</div>';
+    });
+    itemsEl.innerHTML = html;
+
+    var subtotal = cart.reduce(function(s, c) { return s + c.unitPrice * c.quantity; }, 0);
+    document.getElementById('cartSubtotal').textContent = formatNaira(subtotal);
+    document.getElementById('cartTotal').textContent = formatNaira(subtotal);
+}
+
+function changeCartQty(idx, delta) {
+    cart[idx].quantity += delta;
+    if (cart[idx].quantity <= 0) cart.splice(idx, 1);
+    renderCart();
+}
+
+function removeFromCart(idx) {
+    cart.splice(idx, 1);
+    renderCart();
+}
+
+function clearCart() {
+    cart = [];
+    document.getElementById('cartNotes').value = '';
+    renderCart();
+}
+
+async function checkoutCart() {
+    if (cart.length === 0) return;
+    var btn = document.getElementById('checkoutBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+
+    var notes = document.getElementById('cartNotes').value.trim();
+    var payload = {
+        items: cart.map(function(c) { return { productId: c.productId, quantity: c.quantity }; }),
+        notes: notes || null
+    };
+
+    try {
+        var token = document.querySelector('input[name="__RequestVerificationToken"]')?.value || '';
+        var res = await fetch('/Apprentice/ProcessCart', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'RequestVerificationToken': token
+            },
+            body: JSON.stringify(payload)
+        });
+        var data = await res.json();
+        if (data.success) {
+            cart = [];
+            document.getElementById('cartNotes').value = '';
+            renderCart();
+            showReceipt(data);
+        } else {
+            alert(data.message);
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-check-circle"></i> Checkout';
+        }
+    } catch(e) {
+        alert('Error processing sale. Please try again.');
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-check-circle"></i> Checkout';
+    }
+}
 
 async function openProductDetail(productId) {
     try {
@@ -162,33 +411,38 @@ async function openProductDetail(productId) {
         document.getElementById('modalProductImage').innerHTML = imgHtml;
 
         var statusClass = p.stockStatus === 'OutOfStock' ? 'badge-danger' : p.stockStatus === 'LowStock' ? 'badge-warning' : 'badge-success';
-        var statusText = p.stockStatus === 'OutOfStock' ? 'Out of Stock' : p.stockStatus === 'LowStock' ? 'Low Stock' : 'In Stock';
+
+        var daysLeft = null;
+        if (p.expirationDate) {
+            var expDate = new Date(p.expirationDate);
+            var now = new Date();
+            daysLeft = Math.ceil((expDate - now) / (1000 * 60 * 60 * 24));
+        }
 
         var infoHtml = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">';
         infoHtml += '<div><span style="font-size:11px;color:var(--text-dim);display:block;">Price</span><span style="font-size:16px;font-weight:800;color:var(--primary);">' + formatNaira(p.salesPrice) + '</span></div>';
         infoHtml += '<div><span style="font-size:11px;color:var(--text-dim);display:block;">Stock</span><span class="' + statusClass + '" style="font-size:13px;font-weight:600;">' + p.stockLeft + ' left</span></div>';
         if (p.categoryName) infoHtml += '<div><span style="font-size:11px;color:var(--text-dim);display:block;">Category</span><span style="font-size:13px;font-weight:600;">' + p.categoryName + '</span></div>';
         if (p.barcode) infoHtml += '<div><span style="font-size:11px;color:var(--text-dim);display:block;">Barcode</span><span style="font-size:13px;font-weight:600;">' + p.barcode + '</span></div>';
-        if (p.expirationDate) {
-            var expDate = new Date(p.expirationDate);
-            var isExpired = expDate < new Date();
-            var isExpiringSoon = expDate <= new Date(Date.now() + 30*24*60*60*1000);
-            infoHtml += '<div><span style="font-size:11px;color:var(--text-dim);display:block;">Expires</span><span style="font-size:13px;font-weight:600;color:' + (isExpired ? 'var(--danger)' : isExpiringSoon ? 'var(--warning)' : 'inherit') + ';">' + expDate.toLocaleDateString('en-GB', {day:'2-digit',month:'short',year:'numeric'}) + '</span></div>';
+        if (daysLeft !== null) {
+            var expColor = daysLeft < 0 ? 'var(--danger)' : daysLeft <= 30 ? 'var(--warning)' : 'inherit';
+            var expLabel = daysLeft < 0 ? 'Expired' : daysLeft === 0 ? 'Expires today' : 'Expires in ' + daysLeft + ' days';
+            infoHtml += '<div><span style="font-size:11px;color:var(--text-dim);display:block;">Expiry</span><span style="font-size:13px;font-weight:600;color:' + expColor + ';"><i class="fas fa-clock" style="margin-right:3px;"></i>' + expLabel + '</span></div>';
         }
         if (p.description) infoHtml += '<div style="grid-column:span 2;"><span style="font-size:11px;color:var(--text-dim);display:block;">Description</span><span style="font-size:13px;">' + p.description + '</span></div>';
         infoHtml += '</div>';
         document.getElementById('modalProductInfo').innerHTML = infoHtml;
 
         updateModalTotal();
-        var sellBtn = document.getElementById('modalSellBtn');
+        var addBtn = document.getElementById('modalAddToCartBtn');
         if (p.stockLeft <= 0) {
-            sellBtn.disabled = true;
-            sellBtn.innerHTML = '<i class="fas fa-times"></i> Out of Stock';
-            sellBtn.style.opacity = '0.5';
+            addBtn.disabled = true;
+            addBtn.innerHTML = '<i class="fas fa-times"></i> Out of Stock';
+            addBtn.style.opacity = '0.5';
         } else {
-            sellBtn.disabled = false;
-            sellBtn.innerHTML = '<i class="fas fa-shopping-cart"></i> Sell';
-            sellBtn.style.opacity = '1';
+            addBtn.disabled = false;
+            addBtn.innerHTML = '<i class="fas fa-cart-plus"></i> Add to Cart';
+            addBtn.style.opacity = '1';
         }
         document.getElementById('productDetailModal').style.display = 'flex';
     } catch(e) {}
@@ -217,36 +471,27 @@ function updateModalTotal() {
 
 document.getElementById('modalQty').addEventListener('input', updateModalTotal);
 
-async function sellFromModal() {
+function addToCartFromModal() {
     if (!modalProduct) return;
     var qty = parseInt(document.getElementById('modalQty').value) || 1;
-    var btn = document.getElementById('modalSellBtn');
-    btn.disabled = true;
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-
-    try {
-        var res = await fetch('/Apprentice/ReduceStock', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value || ''
-            },
-            body: 'productId=' + modalProduct.id + '&quantity=' + qty
+    var existing = cart.find(function(c) { return c.productId === modalProduct.id; });
+    if (existing) {
+        existing.quantity += qty;
+    } else {
+        cart.push({
+            productId: modalProduct.id,
+            name: modalProduct.name,
+            unitPrice: modalProduct.salesPrice,
+            quantity: qty,
+            stockLeft: modalProduct.stockLeft
         });
-        var data = await res.json();
-        if (data.success) {
-            closeProductDetail();
-            showReceipt(data);
-        } else {
-            alert(data.message);
-            btn.disabled = false;
-            btn.innerHTML = '<i class="fas fa-shopping-cart"></i> Sell';
-        }
-    } catch(e) {
-        alert('Error processing sale. Please try again.');
-        btn.disabled = false;
-        btn.innerHTML = '<i class="fas fa-shopping-cart"></i> Sell';
     }
+    renderCart();
+    closeProductDetail();
+    var fab = document.getElementById('cartPanel');
+    fab.style.transition = 'transform 0.2s';
+    fab.style.transform = 'scale(1.05)';
+    setTimeout(function() { fab.style.transform = 'scale(1)'; }, 300);
 }
 
 function showReceipt(data) {
@@ -259,13 +504,34 @@ function showReceipt(data) {
     receiptHtml += '<div style="text-align:left;background:#f9f9fb;border-radius:10px;padding:16px;margin-bottom:16px;">';
     receiptHtml += '<div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-dim);margin-bottom:8px;"><span>Invoice</span><span style="font-weight:600;color:var(--text);">' + data.invoiceNumber + '</span></div>';
     receiptHtml += '<div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-dim);margin-bottom:12px;"><span>Date</span><span style="font-weight:600;color:var(--text);">' + data.soldAt + '</span></div>';
-    receiptHtml += '<div style="border-top:1px dashed var(--border);padding-top:12px;margin-bottom:12px;">';
-    receiptHtml += '<div style="font-size:14px;font-weight:700;margin-bottom:4px;">' + data.productName + '</div>';
-    receiptHtml += '<div style="display:flex;justify-content:space-between;font-size:13px;color:var(--text-muted);">';
-    receiptHtml += '<span>' + data.quantity + ' x ' + formatNaira(data.unitPrice) + '</span>';
-    receiptHtml += '<span style="font-weight:700;color:var(--text);">' + formatNaira(data.total) + '</span>';
-    receiptHtml += '</div></div>';
-    receiptHtml += '<div style="border-top:2px solid var(--border);padding-top:12px;display:flex;justify-content:space-between;">';
+
+    if (data.items && data.items.length > 0) {
+        receiptHtml += '<div style="border-top:1px dashed var(--border);padding-top:12px;">';
+        data.items.forEach(function(item) {
+            receiptHtml += '<div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px;">';
+            receiptHtml += '<div><div style="font-weight:700;">' + item.productName + '</div>';
+            receiptHtml += '<div style="color:var(--text-muted);font-size:12px;">' + item.quantity + ' x ' + formatNaira(item.unitPrice) + '</div></div>';
+            receiptHtml += '<div style="font-weight:700;color:var(--text);">' + formatNaira(item.total) + '</div>';
+            receiptHtml += '</div>';
+        });
+        receiptHtml += '</div>';
+    } else {
+        receiptHtml += '<div style="border-top:1px dashed var(--border);padding-top:12px;margin-bottom:12px;">';
+        receiptHtml += '<div style="font-size:14px;font-weight:700;margin-bottom:4px;">' + (data.productName || '') + '</div>';
+        receiptHtml += '<div style="display:flex;justify-content:space-between;font-size:13px;color:var(--text-muted);">';
+        receiptHtml += '<span>' + (data.quantity || 0) + ' x ' + formatNaira(data.unitPrice || 0) + '</span>';
+        receiptHtml += '<span style="font-weight:700;color:var(--text);">' + formatNaira(data.total) + '</span>';
+        receiptHtml += '</div></div>';
+    }
+
+    if (data.notes) {
+        receiptHtml += '<div style="background:#fef3c7;border-radius:8px;padding:8px 12px;margin-top:8px;display:flex;gap:8px;align-items:flex-start;">';
+        receiptHtml += '<i class="fas fa-sticky-note" style="color:var(--warning);font-size:12px;margin-top:2px;"></i>';
+        receiptHtml += '<div style="font-size:12px;color:#92400e;font-weight:500;">' + data.notes + '</div>';
+        receiptHtml += '</div>';
+    }
+
+    receiptHtml += '<div style="border-top:2px solid var(--border);padding-top:12px;display:flex;justify-content:space-between;margin-top:12px;">';
     receiptHtml += '<span style="font-size:16px;font-weight:800;">TOTAL</span>';
     receiptHtml += '<span style="font-size:18px;font-weight:800;color:var(--primary);">' + formatNaira(data.total) + '</span>';
     receiptHtml += '</div>';
@@ -315,7 +581,7 @@ document.getElementById('apprenticeSearch').addEventListener('input', function()
             } else {
                 dd.innerHTML = data.map(function(p) {
                     var statusClass = p.stockLeft <= 0 ? 'badge-danger' : p.stockLeft <= 10 ? 'badge-warning' : 'badge-success';
-                    return '<a href="#" class="search-item" onclick="openProductDetail(' + p.id + ');document.getElementById(\'searchDropdown\').style.display=\'none\';return false;">' +
+                    return '<a href="#" class="search-item" onclick="addToCart(' + p.id + ');document.getElementById(\'searchDropdown\').style.display=\'none\';return false;">' +
                         '<strong>' + p.name + '</strong> ' +
                         '<span class="' + statusClass + '" style="font-size:11px;">' + p.stockLeft + ' left</span>' +
                     '</a>';
@@ -337,6 +603,36 @@ document.addEventListener('click', function(e) {
     if (!e.target.closest('#apprenticeSearch') && !e.target.closest('#searchDropdown'))
         document.getElementById('searchDropdown').style.display = 'none';
 });
+
+function toggleCalculator() {
+    var panel = document.getElementById('calculatorPanel');
+    panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+}
+
+var calcExpression = '';
+function calcInput(val) {
+    if (calcExpression === '0' && val !== '.') calcExpression = '';
+    calcExpression += val;
+    document.getElementById('calcDisplay').value = calcExpression;
+}
+function calcClear() {
+    calcExpression = '';
+    document.getElementById('calcDisplay').value = '0';
+}
+function calcBackspace() {
+    calcExpression = calcExpression.slice(0, -1);
+    document.getElementById('calcDisplay').value = calcExpression || '0';
+}
+function calcEquals() {
+    try {
+        var result = Function('"use strict";return (' + calcExpression + ')')();
+        calcExpression = String(parseFloat(result.toFixed(2)));
+        document.getElementById('calcDisplay').value = calcExpression;
+    } catch(e) {
+        document.getElementById('calcDisplay').value = 'Error';
+        calcExpression = '';
+    }
+}
 </script>
 }
 

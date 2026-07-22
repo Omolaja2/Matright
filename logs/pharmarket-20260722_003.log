@@ -1,0 +1,44 @@
+2026-07-22 01:17:40.417 +01:00 [INF] Starting PharMarket application
+2026-07-22 01:18:04.616 +01:00 [FTL] PharMarket terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\USER\Desktop\PharMarket\Program.cs:line 50
+[2026-07-22 01:20:58.501] [INF] Starting PharMarket application
+[2026-07-22 01:21:11.334] [WRN] Entity 'Supplier' has a global query filter defined and is the required end of a relationship with the entity 'Purchase'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-22 01:21:11.338] [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'PurchaseItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-22 01:21:11.339] [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'SaleItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-22 01:21:11.339] [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-07-22 01:21:27.823] [INF] PharMarket is ready on 
+[2026-07-22 01:22:27.717] [INF] HTTP GET / started. RequestId: 131bd27c-2f34-4a6b-8980-9c517b383c5f
+[2026-07-22 01:22:27.748] [WRN] Failed to determine the https port for redirect.
+[2026-07-22 01:23:02.449] [INF] HTTP GET / completed 200 in 34738ms. RequestId: 131bd27c-2f34-4a6b-8980-9c517b383c5f
+[2026-07-22 01:23:09.190] [INF] HTTP GET / started. RequestId: 8b54b30d-3e66-41e7-a188-06c5d61727c7
+[2026-07-22 01:23:09.301] [INF] HTTP GET / completed 200 in 110ms. RequestId: 8b54b30d-3e66-41e7-a188-06c5d61727c7
+[2026-07-22 01:23:42.688] [INF] HTTP GET /Account/Login started. RequestId: b7782ac9-f93e-4527-8e8a-79ec2405545b
+[2026-07-22 01:23:43.549] [INF] HTTP GET /Account/Login completed 200 in 861ms. RequestId: b7782ac9-f93e-4527-8e8a-79ec2405545b
+[2026-07-22 01:23:51.307] [INF] HTTP POST /Account/Login started. RequestId: 43ee5ccd-7e2b-49fb-96f5-15d0674a906f
+[2026-07-22 01:23:57.967] [INF] HTTP POST /Account/Login completed 302 in 6660ms. RequestId: 43ee5ccd-7e2b-49fb-96f5-15d0674a906f
+[2026-07-22 01:23:58.092] [INF] HTTP GET /Home started. RequestId: c6fc7b05-545b-4827-906e-20731b25ca26
+[2026-07-22 01:24:13.521] [INF] HTTP GET /Home completed 200 in 15428ms. RequestId: c6fc7b05-545b-4827-906e-20731b25ca26
+[2026-07-22 01:24:13.697] [INF] HTTP GET /js/app.js started. RequestId: c6b8bbba-a17b-40d4-b70b-1f435a8b2bb6
+[2026-07-22 01:24:13.703] [INF] HTTP GET /js/app.js completed 304 in 6ms. RequestId: c6b8bbba-a17b-40d4-b70b-1f435a8b2bb6
+[2026-07-22 01:24:13.784] [INF] HTTP GET /css/app.css started. RequestId: 4e640e3c-6f56-4e5c-b868-750cbe8960d3
+[2026-07-22 01:24:13.786] [INF] HTTP GET /css/app.css completed 304 in 1ms. RequestId: 4e640e3c-6f56-4e5c-b868-750cbe8960d3
+[2026-07-22 01:25:19.514] [INF] HTTP GET /Sales started. RequestId: 8d38f3d9-ddb0-4216-8bb3-305ac99c09cd
+[2026-07-22 01:25:19.821] [INF] HTTP GET /Sales completed 200 in 306ms. RequestId: 8d38f3d9-ddb0-4216-8bb3-305ac99c09cd
+[2026-07-22 01:25:28.064] [INF] HTTP POST /Account/Logout started. RequestId: a31bb6a0-fed0-4720-bf68-a7b8fb53aa92
+[2026-07-22 01:25:28.074] [INF] HTTP POST /Account/Logout completed 302 in 10ms. RequestId: a31bb6a0-fed0-4720-bf68-a7b8fb53aa92
+[2026-07-22 01:25:28.080] [INF] HTTP GET /Account/Login started. RequestId: cd49d9a4-9a09-473b-875b-500182407beb
+[2026-07-22 01:25:28.084] [INF] HTTP GET /Account/Login completed 200 in 3ms. RequestId: cd49d9a4-9a09-473b-875b-500182407beb
+[2026-07-22 01:25:31.918] [INF] HTTP POST /Account/Login started. RequestId: b4328911-12b1-42d8-8eb5-cc41b0c73390
+[2026-07-22 01:25:31.927] [INF] HTTP POST /Account/Login completed 302 in 9ms. RequestId: b4328911-12b1-42d8-8eb5-cc41b0c73390
+[2026-07-22 01:25:32.063] [INF] HTTP GET /Apprentice started. RequestId: f164dbc3-e43b-4024-9e9b-aab0777f97dd
+[2026-07-22 01:25:35.989] [INF] HTTP GET /Apprentice completed 200 in 3926ms. RequestId: f164dbc3-e43b-4024-9e9b-aab0777f97dd
+[2026-07-22 01:25:36.172] [INF] HTTP GET /uploads/products/2/eca80c88d183456ea522ad928e4f7b46.jpeg started. RequestId: 767cf043-c720-4e9b-8746-c12b37c607f3
+[2026-07-22 01:25:36.173] [INF] HTTP GET /uploads/products/2/eca80c88d183456ea522ad928e4f7b46.jpeg completed 304 in 0ms. RequestId: 767cf043-c720-4e9b-8746-c12b37c607f3

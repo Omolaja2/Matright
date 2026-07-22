@@ -7,6 +7,11 @@ public class ApprenticeDashboardViewModel
     public string? SearchQuery { get; set; }
     public decimal TodayTotalSales { get; set; }
     public int TodayTotalItems { get; set; }
+    public decimal YesterdayTotalSales { get; set; }
+    public int YesterdayTotalItems { get; set; }
+    public int TodayTransactions { get; set; }
+    public int CurrentPage { get; set; } = 1;
+    public int TotalPages { get; set; }
 }
 
 public class ApprenticeProductViewModel

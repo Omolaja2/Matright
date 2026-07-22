@@ -15,12 +15,14 @@ public class TransactionsController : BaseController
         _financeService = financeService;
     }
 
-    public async Task<IActionResult> Index(DateTime? startDate, DateTime? endDate)
+    public async Task<IActionResult> Index(DateTime? startDate, DateTime? endDate, int page = 1)
     {
         var storeId = User.GetStoreId();
         if (!storeId.HasValue) return RedirectToAction("Setup", "Store");
 
-        var model = await _financeService.GetTransactionsAsync(storeId.Value, startDate, endDate);
+        var (model, totalCount) = await _financeService.GetTransactionsAsync(storeId.Value, startDate, endDate, page);
+        model.CurrentPage = page;
+        model.TotalPages = (int)Math.Ceiling(totalCount / 20.0);
         return View(model);
     }
 

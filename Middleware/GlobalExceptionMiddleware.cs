@@ -28,7 +28,7 @@ public class GlobalExceptionMiddleware
         }
     }
 
-    private static async Task HandleExceptionAsync(HttpContext context, Exception exception)
+    private async Task HandleExceptionAsync(HttpContext context, Exception exception)
     {
         var statusCode = exception switch
         {
@@ -41,27 +41,42 @@ public class GlobalExceptionMiddleware
             _ => (int)HttpStatusCode.InternalServerError
         };
 
-        context.Response.ContentType = "application/json";
-        context.Response.StatusCode = statusCode;
-
-        var response = new ErrorResponse
+        var message = exception switch
         {
-            StatusCode = statusCode,
-            Message = exception switch
+            NotFoundException notFoundEx => notFoundEx.Message,
+            BadRequestException badRequestEx => badRequestEx.Message,
+            ValidationException validationEx => validationEx.Message,
+            _ => "An unexpected error occurred. Please try again later."
+        };
+
+        var isAjax = context.Request.Headers.XRequestedWith == "XMLHttpRequest"
+            || context.Request.Headers.Accept.ToString().Contains("application/json")
+            || context.Request.ContentType?.Contains("application/json") == true
+            || context.Request.Path.Value?.StartsWith("/Apprentice/ProcessCart") == true;
+
+        if (isAjax || context.Request.Path.Value?.StartsWith("/Apprentice/") == true)
+        {
+            context.Response.ContentType = "application/json";
+            context.Response.StatusCode = statusCode;
+
+            var response = new ErrorResponse
             {
-                NotFoundException notFoundEx => notFoundEx.Message,
-                BadRequestException badRequestEx => badRequestEx.Message,
-                ValidationException validationEx => validationEx.Message,
-                _ => "An unexpected error occurred. Please try again later."
-            }
-        };
+                StatusCode = statusCode,
+                Message = message
+            };
 
-        var jsonOptions = new JsonSerializerOptions
+            var jsonOptions = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            };
+
+            await context.Response.WriteAsync(JsonSerializer.Serialize(response, jsonOptions));
+        }
+        else
         {
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-        };
-
-        await context.Response.WriteAsync(JsonSerializer.Serialize(response, jsonOptions));
+            context.Response.StatusCode = statusCode;
+            context.Response.Redirect($"/Home/Error?statusCode={statusCode}&message={Uri.EscapeDataString(message)}");
+        }
     }
 }
 

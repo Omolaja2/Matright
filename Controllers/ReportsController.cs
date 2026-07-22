@@ -20,12 +20,14 @@ public class ReportsController : BaseController
         _financeService = financeService;
     }
 
-    public async Task<IActionResult> Sales(DateTime? startDate, DateTime? endDate, PaymentMethod? paymentMethod)
+    public async Task<IActionResult> Sales(DateTime? startDate, DateTime? endDate, PaymentMethod? paymentMethod, int page = 1)
     {
         var storeId = User.GetStoreId();
         if (!storeId.HasValue) return RedirectToAction("Setup", "Store");
 
-        var model = await _salesService.GetSalesReportAsync(storeId.Value, startDate, endDate, paymentMethod);
+        var (model, totalCount) = await _salesService.GetSalesReportAsync(storeId.Value, startDate, endDate, paymentMethod, page);
+        model.CurrentPage = page;
+        model.TotalPages = (int)Math.Ceiling(totalCount / 20.0);
         return View(model);
     }
 
@@ -43,7 +45,7 @@ public class ReportsController : BaseController
         var storeId = User.GetStoreId();
         if (!storeId.HasValue) return RedirectToAction("Setup", "Store");
 
-        var expenses = await _financeService.GetAllExpensesAsync(storeId.Value, startDate, endDate, category);
+        var (expenses, _) = await _financeService.GetAllExpensesAsync(storeId.Value, startDate, endDate, category, page: 1, pageSize: 100000);
         return View(expenses);
     }
 }

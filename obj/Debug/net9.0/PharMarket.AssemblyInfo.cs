@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PharMarket")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0f8230613cf6ff274dcab5b0efedb245cd51e834")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2a47ed97988df8762c2f48e68f72094185d2f81")]
 [assembly: System.Reflection.AssemblyProductAttribute("PharMarket")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PharMarket")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

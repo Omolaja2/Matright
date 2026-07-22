@@ -75,6 +75,20 @@
         </table>
     </div>
 </div>
+
+@await Html.PartialAsync("_Pagination", new PharMarket.Helpers.PaginationInfo
+{
+    CurrentPage = Model.CurrentPage,
+    TotalPages = Model.TotalPages,
+    Action = "Index",
+    Controller = "Transactions",
+    RouteValues = new Dictionary<string, string?>
+    {
+        ["startDate"] = Context.Request.Query["startDate"].FirstOrDefault(),
+        ["endDate"] = Context.Request.Query["endDate"].FirstOrDefault()
+    }
+})
+
 @section Scripts {
     <script>
         function applyFilters() {

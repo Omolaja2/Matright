@@ -53,6 +53,14 @@
                     }
                 </tbody>
             </table>
-        </div>
     </div>
+</div>
+
+@await Html.PartialAsync("_Pagination", new PharMarket.Helpers.PaginationInfo
+{
+    CurrentPage = (int)(ViewBag.Page ?? 1),
+    TotalPages = (int)(ViewBag.TotalPages ?? 1),
+    Action = "LowStock",
+    Controller = "Stock"
+})
 </div>

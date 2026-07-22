@@ -17,7 +17,7 @@ public class FinanceService : IFinanceService
         _context = context;
     }
 
-    public async Task<List<Expense>> GetAllExpensesAsync(int storeId, DateTime? startDate, DateTime? endDate, string? category)
+    public async Task<(List<Expense> Items, int TotalCount)> GetAllExpensesAsync(int storeId, DateTime? startDate, DateTime? endDate, string? category, int page = 1, int pageSize = 20)
     {
         var query = _context.Expenses
             .AsNoTracking()
@@ -32,7 +32,13 @@ public class FinanceService : IFinanceService
         if (!string.IsNullOrWhiteSpace(category))
             query = query.Where(e => e.Category == category);
 
-        return await query.OrderByDescending(e => e.ExpenseDate).ToListAsync();
+        var totalCount = await query.CountAsync();
+        var items = await query.OrderByDescending(e => e.ExpenseDate)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        return (items, totalCount);
     }
 
     public async Task<Expense> CreateExpenseAsync(ExpenseViewModel model, int storeId)
@@ -110,7 +116,7 @@ public class FinanceService : IFinanceService
             .Sum(t => t.Amount);
     }
 
-    public async Task<TransactionViewModel> GetTransactionsAsync(int storeId, DateTime? startDate, DateTime? endDate)
+    public async Task<(TransactionViewModel Model, int TotalCount)> GetTransactionsAsync(int storeId, DateTime? startDate, DateTime? endDate, int page = 1, int pageSize = 20)
     {
         var query = _context.Transactions
             .AsNoTracking()
@@ -122,8 +128,12 @@ public class FinanceService : IFinanceService
         if (endDate.HasValue)
             query = query.Where(t => t.TransactionDate <= endDate.Value.AddDays(1));
 
+        var totalCount = await query.CountAsync();
+
         var transactions = await query
             .OrderByDescending(t => t.TransactionDate)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
             .Select(t => new TransactionListItem
             {
                 Id = t.Id,
@@ -137,7 +147,7 @@ public class FinanceService : IFinanceService
             })
             .ToListAsync();
 
-        return new TransactionViewModel { Transactions = transactions };
+        return (new TransactionViewModel { Transactions = transactions }, totalCount);
     }
 
     public async Task<decimal> GetTotalCapitalAsync(int storeId)

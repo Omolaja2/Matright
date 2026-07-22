@@ -88,3 +88,17 @@
         </table>
     </div>
 </div>
+
+@await Html.PartialAsync("_Pagination", new PharMarket.Helpers.PaginationInfo
+{
+    CurrentPage = Model.CurrentPage,
+    TotalPages = Model.TotalPages,
+    Action = "Sales",
+    Controller = "Reports",
+    RouteValues = new Dictionary<string, string?>
+    {
+        ["startDate"] = Model.StartDate?.ToString("yyyy-MM-dd"),
+        ["endDate"] = Model.EndDate?.ToString("yyyy-MM-dd"),
+        ["paymentMethod"] = Model.PaymentMethodFilter?.ToString()
+    }
+})

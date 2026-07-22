@@ -8,6 +8,8 @@ public class TransactionViewModel
     public decimal TotalCredit => Transactions.Where(t => t.Direction == TransactionDirection.Credit).Sum(t => t.Amount);
     public decimal TotalDebit => Transactions.Where(t => t.Direction == TransactionDirection.Debit).Sum(t => t.Amount);
     public decimal CurrentBalance => TotalCredit - TotalDebit;
+    public int CurrentPage { get; set; } = 1;
+    public int TotalPages { get; set; }
 }
 
 public class TransactionListItem
