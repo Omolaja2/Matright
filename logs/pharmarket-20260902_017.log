@@ -1,0 +1,25 @@
+2026-09-02 14:40:58.168 +01:00 [INF] Starting PharMarket application
+2026-09-02 14:40:59.369 +01:00 [INF] PharMarket is ready on 
+2026-09-02 14:42:35.896 +01:00 [INF] HTTP GET / started. RequestId: 3d8564f9-605c-4522-85ab-0fa26eb1d613
+2026-09-02 14:42:35.909 +01:00 [WRN] Failed to determine the https port for redirect.
+2026-09-02 14:42:38.499 +01:00 [INF] HTTP GET / completed 302 in 2612ms. RequestId: 3d8564f9-605c-4522-85ab-0fa26eb1d613
+2026-09-02 14:42:38.558 +01:00 [INF] HTTP GET /Home started. RequestId: 3329ba9e-8aab-4bcd-b7cb-ac520041c76b
+2026-09-02 14:42:40.537 +01:00 [WRN] Entity 'Supplier' has a global query filter defined and is the required end of a relationship with the entity 'Purchase'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-02 14:42:40.539 +01:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'PurchaseItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-02 14:42:40.539 +01:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'SaleItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-02 14:42:40.539 +01:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-02 14:42:44.045 +01:00 [INF] HTTP GET /Home completed 200 in 5486ms. RequestId: 3329ba9e-8aab-4bcd-b7cb-ac520041c76b
+2026-09-02 14:42:44.876 +01:00 [INF] HTTP GET /favicon.ico started. RequestId: b60e9398-176a-45b8-82d0-86de26327af9
+2026-09-02 14:42:45.029 +01:00 [INF] HTTP GET /favicon.ico completed 200 in 153ms. RequestId: b60e9398-176a-45b8-82d0-86de26327af9
+2026-09-02 14:42:55.805 +01:00 [INF] HTTP GET /Users started. RequestId: 98ed36dc-dd98-4a1d-9ed0-139174238725
+2026-09-02 14:42:56.095 +01:00 [INF] HTTP GET /Users completed 200 in 290ms. RequestId: 98ed36dc-dd98-4a1d-9ed0-139174238725
+2026-09-02 14:42:58.491 +01:00 [INF] HTTP GET /Users/Details/4 started. RequestId: 7caf097e-242d-46f7-ba20-2ae5338c69cf
+2026-09-02 14:42:58.599 +01:00 [INF] HTTP GET /Users/Details/4 completed 200 in 107ms. RequestId: 7caf097e-242d-46f7-ba20-2ae5338c69cf
+2026-09-02 14:43:00.635 +01:00 [INF] HTTP GET /Users/RevealPassword/4 started. RequestId: a4f0df6e-3fe1-4618-8adc-a081031643cf
+2026-09-02 14:43:00.927 +01:00 [INF] HTTP GET /Users/RevealPassword/4 completed 200 in 291ms. RequestId: a4f0df6e-3fe1-4618-8adc-a081031643cf
+2026-09-02 14:43:05.087 +01:00 [INF] HTTP POST /Account/Logout started. RequestId: 891a5672-ca0a-426f-a043-fdc07a2d463d
+2026-09-02 14:43:05.114 +01:00 [INF] HTTP POST /Account/Logout completed 302 in 26ms. RequestId: 891a5672-ca0a-426f-a043-fdc07a2d463d
+2026-09-02 14:43:05.118 +01:00 [INF] HTTP GET /Account/Login started. RequestId: 55b763db-72d3-4df7-8f02-1bfef94e6236
+2026-09-02 14:43:05.138 +01:00 [INF] HTTP GET /Account/Login completed 200 in 20ms. RequestId: 55b763db-72d3-4df7-8f02-1bfef94e6236
+2026-09-02 14:43:12.805 +01:00 [INF] HTTP POST /Account/Login started. RequestId: a0b476eb-1e86-4be5-8967-59fe81b5b79e
+2026-09-02 14:43:12.942 +01:00 [INF] HTTP POST /Account/Login completed 200 in 137ms. RequestId: a0b476eb-1e86-4be5-8967-59fe81b5b79e

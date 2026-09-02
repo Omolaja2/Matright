@@ -14,7 +14,10 @@
         <a asp-action="Shelf" class="btn btn-outline"><i class="fas fa-shelves"></i> Shelf</a>
         <a asp-action="LowStock" class="btn btn-outline"><i class="fas fa-exclamation-triangle"></i> Low Stock</a>
         <a asp-action="Expiring" class="btn btn-outline"><i class="fas fa-clock"></i> Expiring</a>
-        <a asp-action="Transfer" class="btn btn-accent"><i class="fas fa-arrows-rotate"></i> Transfer</a>
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-action="Transfer" class="btn btn-accent"><i class="fas fa-arrows-rotate"></i> Transfer</a>
+        }
     </div>
 </div>
 

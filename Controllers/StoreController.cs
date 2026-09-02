@@ -81,6 +81,7 @@ public class StoreController : BaseController
         return RedirectToAction("Index", "Home");
     }
 
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Settings()
     {
         var storeId = User.GetStoreId();
@@ -107,6 +108,7 @@ public class StoreController : BaseController
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Settings(StoreViewModel model)
     {
         if (!ModelState.IsValid)

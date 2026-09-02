@@ -8,9 +8,12 @@
         <h1>Products</h1>
         <p>Manage your product catalog and inventory.</p>
     </div>
-    <a asp-action="Create" class="btn btn-accent">
-        <i class="fas fa-plus"></i> Add Product
-    </a>
+    @if (User.IsInRole("Admin"))
+    {
+        <a asp-action="Create" class="btn btn-accent">
+            <i class="fas fa-plus"></i> Add Product
+        </a>
+    }
 </div>
 
 <div class="card">
@@ -95,9 +98,12 @@
                                     <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-outline btn-sm" title="View Details">
                                         <i class="fas fa-eye"></i>
                                     </a>
-                                    <a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-outline btn-sm" title="Edit">
-                                        <i class="fas fa-pen"></i>
-                                    </a>
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-outline btn-sm" title="Edit">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                    }
                                 </div>
                             </td>
                         </tr>
@@ -111,9 +117,12 @@
                                 <i class="fas fa-boxes-stacked"></i>
                                 <h3>No products found</h3>
                                 <p>Add your first product to get started.</p>
-                                <a asp-action="Create" class="btn btn-accent">
-                                    <i class="fas fa-plus"></i> Add Product
-                                </a>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <a asp-action="Create" class="btn btn-accent">
+                                        <i class="fas fa-plus"></i> Add Product
+                                    </a>
+                                }
                             </div>
                         </td>
                     </tr>

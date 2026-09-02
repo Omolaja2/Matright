@@ -1,0 +1,106 @@
+2026-09-02 11:53:48.176 +01:00 [INF] Starting PharMarket application
+2026-09-02 11:53:49.993 +01:00 [WRN] Entity 'Supplier' has a global query filter defined and is the required end of a relationship with the entity 'Purchase'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-02 11:53:50.019 +01:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'PurchaseItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-02 11:53:50.095 +01:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'SaleItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-02 11:53:50.101 +01:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-02 11:54:06.395 +01:00 [INF] PharMarket is ready on 
+2026-09-02 11:54:25.605 +01:00 [INF] HTTP GET / started. RequestId: 0d0a2162-df15-43ce-a617-f283523e1513
+2026-09-02 11:54:25.605 +01:00 [INF] HTTP GET / started. RequestId: d70302bb-009b-4c5e-a061-bf6b5fd88b6c
+2026-09-02 11:54:25.676 +01:00 [WRN] Failed to determine the https port for redirect.
+2026-09-02 11:54:34.492 +01:00 [INF] HTTP GET / completed 200 in 8891ms. RequestId: 0d0a2162-df15-43ce-a617-f283523e1513
+2026-09-02 11:54:34.530 +01:00 [INF] HTTP GET / completed 200 in 8930ms. RequestId: d70302bb-009b-4c5e-a061-bf6b5fd88b6c
+2026-09-02 11:54:45.474 +01:00 [INF] HTTP GET /Account/Login started. RequestId: 3d53c38f-6c0a-4a76-812d-6fbcc58ffeeb
+2026-09-02 11:54:47.108 +01:00 [INF] HTTP GET /Account/Login completed 200 in 1634ms. RequestId: 3d53c38f-6c0a-4a76-812d-6fbcc58ffeeb
+2026-09-02 11:54:50.219 +01:00 [INF] HTTP POST /Account/Login started. RequestId: 09fb8791-c5f7-44dc-8441-30334579e9ab
+2026-09-02 11:54:51.300 +01:00 [INF] HTTP POST /Account/Login completed 200 in 1080ms. RequestId: 09fb8791-c5f7-44dc-8441-30334579e9ab
+2026-09-02 11:54:53.741 +01:00 [INF] HTTP GET /Account/Register started. RequestId: cd83ffd1-d857-4e6a-b1a5-6158c89a6614
+2026-09-02 11:54:53.790 +01:00 [INF] HTTP GET /Account/Register completed 200 in 48ms. RequestId: cd83ffd1-d857-4e6a-b1a5-6158c89a6614
+2026-09-02 11:55:10.021 +01:00 [INF] HTTP POST /Account/Register started. RequestId: 812063eb-5e8d-4460-b62e-a080102eacdc
+2026-09-02 11:55:10.456 +01:00 [INF] HTTP POST /Account/Register completed 302 in 435ms. RequestId: 812063eb-5e8d-4460-b62e-a080102eacdc
+2026-09-02 11:55:10.467 +01:00 [INF] HTTP GET /Account/Login started. RequestId: 2fac9bd6-c803-41c0-9c79-f6054c99901d
+2026-09-02 11:55:10.476 +01:00 [INF] HTTP GET /Account/Login completed 200 in 9ms. RequestId: 2fac9bd6-c803-41c0-9c79-f6054c99901d
+2026-09-02 11:55:18.635 +01:00 [INF] HTTP POST /Account/Login started. RequestId: f7c99908-4cd6-47b8-acd7-8100d4084b85
+2026-09-02 11:55:19.486 +01:00 [INF] HTTP POST /Account/Login completed 302 in 851ms. RequestId: f7c99908-4cd6-47b8-acd7-8100d4084b85
+2026-09-02 11:55:19.500 +01:00 [INF] HTTP GET /Home started. RequestId: e172dd60-ce25-468c-8b0a-873cf2335e0f
+2026-09-02 11:55:19.530 +01:00 [INF] HTTP GET /Home completed 302 in 30ms. RequestId: e172dd60-ce25-468c-8b0a-873cf2335e0f
+2026-09-02 11:55:19.543 +01:00 [INF] HTTP GET /Store/Setup started. RequestId: 7e89f716-058c-4558-8b90-bf15ff960842
+2026-09-02 11:55:20.040 +01:00 [INF] HTTP GET /Store/Setup completed 200 in 497ms. RequestId: 7e89f716-058c-4558-8b90-bf15ff960842
+2026-09-02 11:55:52.863 +01:00 [INF] HTTP POST /Store/Setup started. RequestId: 13acf54d-8a64-4f5d-99dc-2c17dd207c16
+2026-09-02 11:55:59.445 +01:00 [INF] HTTP POST /Store/Setup completed 302 in 6581ms. RequestId: 13acf54d-8a64-4f5d-99dc-2c17dd207c16
+2026-09-02 11:55:59.465 +01:00 [INF] HTTP GET /Home started. RequestId: 5c3755da-5553-4439-b0c7-17c57c54aa55
+2026-09-02 11:56:03.727 +01:00 [INF] HTTP GET /Home completed 200 in 4261ms. RequestId: 5c3755da-5553-4439-b0c7-17c57c54aa55
+2026-09-02 11:56:17.423 +01:00 [INF] HTTP GET /Users started. RequestId: d660bbb7-96aa-46af-a47c-2082de8c5279
+2026-09-02 11:56:18.287 +01:00 [INF] HTTP GET /Users completed 200 in 864ms. RequestId: d660bbb7-96aa-46af-a47c-2082de8c5279
+2026-09-02 11:56:24.818 +01:00 [INF] HTTP GET /Users/RevealPassword/2 started. RequestId: 328131ff-ed39-40a1-b0b4-f78435a85a20
+2026-09-02 11:56:25.915 +01:00 [INF] HTTP GET /Users/RevealPassword/2 completed 200 in 1097ms. RequestId: 328131ff-ed39-40a1-b0b4-f78435a85a20
+2026-09-02 11:56:26.055 +01:00 [INF] HTTP GET /Users/Details/2 started. RequestId: a0718328-c300-477b-beb3-e64c0916f465
+2026-09-02 11:56:26.150 +01:00 [INF] HTTP GET /Users/Details/2 completed 200 in 95ms. RequestId: a0718328-c300-477b-beb3-e64c0916f465
+2026-09-02 11:56:31.893 +01:00 [INF] HTTP GET /Users started. RequestId: 487ae10e-892d-423a-ac05-0f0127b2dfec
+2026-09-02 11:56:31.923 +01:00 [INF] HTTP GET /Users completed 200 in 29ms. RequestId: 487ae10e-892d-423a-ac05-0f0127b2dfec
+2026-09-02 11:56:33.374 +01:00 [INF] HTTP GET /Users/Create started. RequestId: 829d13b7-0744-4352-ae0e-64642007db87
+2026-09-02 11:56:33.912 +01:00 [INF] HTTP GET /Users/Create completed 200 in 537ms. RequestId: 829d13b7-0744-4352-ae0e-64642007db87
+2026-09-02 11:56:43.712 +01:00 [INF] HTTP POST /Users/Create started. RequestId: 8061d4f3-9302-4fbb-8452-e5caf0db98d9
+2026-09-02 11:56:43.808 +01:00 [INF] HTTP POST /Users/Create completed 200 in 96ms. RequestId: 8061d4f3-9302-4fbb-8452-e5caf0db98d9
+2026-09-02 11:57:22.935 +01:00 [INF] HTTP POST /Users/Create started. RequestId: 62e21740-babc-4586-ae72-b9ccadb4b121
+2026-09-02 11:57:25.549 +01:00 [ERR] Failed to send email to mamzyreg@gmail.com
+System.Net.Mail.SmtpException: The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.0 Authentication Required. For more information, go to
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.EndSend(IAsyncResult result)
+   at System.Net.Mail.SendMailAsyncResult.SendMailFromCompleted(IAsyncResult result)
+--- End of stack trace from previous location ---
+   at System.Net.Mail.SendMailAsyncResult.End(IAsyncResult result)
+   at System.Net.Mail.SmtpClient.SendMailCallback(IAsyncResult result)
+--- End of stack trace from previous location ---
+   at PharMarket.Services.EmailService.SendCredentialsAsync(String toEmail, String fullName, String loginEmail, String password, String role) in C:\Users\USER\Desktop\Matright\Services\EmailService.cs:line 73
+2026-09-02 11:57:26.283 +01:00 [INF] HTTP POST /Users/Create completed 302 in 3347ms. RequestId: 62e21740-babc-4586-ae72-b9ccadb4b121
+2026-09-02 11:57:26.295 +01:00 [INF] HTTP GET /Users started. RequestId: 03dd0680-852c-4d73-986e-80f2140704b5
+2026-09-02 11:57:26.310 +01:00 [INF] HTTP GET /Users completed 200 in 14ms. RequestId: 03dd0680-852c-4d73-986e-80f2140704b5
+2026-09-02 11:57:29.281 +01:00 [INF] HTTP GET /Users/RevealPassword/3 started. RequestId: fa2ec756-5a96-43db-bfd4-d4210ccb44d3
+2026-09-02 11:57:29.291 +01:00 [INF] HTTP GET /Users/Details/3 started. RequestId: 759566f0-e59b-4dde-b589-509762f7cc32
+2026-09-02 11:57:29.300 +01:00 [INF] HTTP GET /Users/RevealPassword/3 completed 200 in 18ms. RequestId: fa2ec756-5a96-43db-bfd4-d4210ccb44d3
+2026-09-02 11:57:29.405 +01:00 [INF] HTTP GET /Users/Details/3 completed 200 in 113ms. RequestId: 759566f0-e59b-4dde-b589-509762f7cc32
+2026-09-02 11:57:31.699 +01:00 [INF] HTTP GET /Users/RevealPassword/3 started. RequestId: badbc9ba-41ad-43e9-9672-d9580df3fa10
+2026-09-02 11:57:31.715 +01:00 [INF] HTTP GET /Users/RevealPassword/3 completed 200 in 16ms. RequestId: badbc9ba-41ad-43e9-9672-d9580df3fa10
+2026-09-02 11:57:36.181 +01:00 [INF] HTTP POST /Account/Logout started. RequestId: df088931-6839-41bc-8e89-55bfc536a558
+2026-09-02 11:57:36.256 +01:00 [INF] HTTP POST /Account/Logout completed 302 in 74ms. RequestId: df088931-6839-41bc-8e89-55bfc536a558
+2026-09-02 11:57:36.340 +01:00 [INF] HTTP GET /Account/Login started. RequestId: 47de44c2-7907-4d13-b275-a583cff3c13a
+2026-09-02 11:57:36.353 +01:00 [INF] HTTP GET /Account/Login completed 200 in 13ms. RequestId: 47de44c2-7907-4d13-b275-a583cff3c13a
+2026-09-02 11:57:41.858 +01:00 [INF] HTTP POST /Account/Login started. RequestId: 21d1245d-0d1d-40b8-84a9-1f23c4913885
+2026-09-02 11:57:41.885 +01:00 [INF] HTTP POST /Account/Login completed 200 in 27ms. RequestId: 21d1245d-0d1d-40b8-84a9-1f23c4913885
+2026-09-02 11:57:51.920 +01:00 [INF] HTTP POST /Account/Login started. RequestId: 9a0df126-4e4f-4df1-a515-750f084d293d
+2026-09-02 11:57:51.940 +01:00 [INF] HTTP POST /Account/Login completed 200 in 19ms. RequestId: 9a0df126-4e4f-4df1-a515-750f084d293d
+[2026-09-02 13:45:11.491] [INF] Starting PharMarket application
+[2026-09-02 13:45:12.586] [INF] PharMarket is ready on 
+[2026-09-02 13:45:24.848] [INF] HTTP GET / started. RequestId: 4a77f7f8-62c0-4dd1-adab-4056cdd9a2d6
+[2026-09-02 13:45:24.886] [WRN] Failed to determine the https port for redirect.
+[2026-09-02 13:45:29.911] [WRN] Entity 'Supplier' has a global query filter defined and is the required end of a relationship with the entity 'Purchase'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-09-02 13:45:29.917] [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'PurchaseItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-09-02 13:45:29.923] [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'SaleItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-09-02 13:45:29.927] [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-09-02 13:45:38.301] [INF] HTTP GET / completed 200 in 13461ms. RequestId: 4a77f7f8-62c0-4dd1-adab-4056cdd9a2d6
+[2026-09-02 13:45:53.799] [INF] HTTP GET /Account/Login started. RequestId: 092cb22b-cde5-4b36-9f09-28ae646a03dd
+[2026-09-02 13:45:54.071] [INF] HTTP GET /Account/Login completed 200 in 271ms. RequestId: 092cb22b-cde5-4b36-9f09-28ae646a03dd
+[2026-09-02 13:45:57.683] [INF] HTTP GET /Account/Register started. RequestId: 38a10dde-c5ab-4ae5-aa43-df99cca6547c
+[2026-09-02 13:45:57.725] [INF] HTTP GET /Account/Register completed 200 in 42ms. RequestId: 38a10dde-c5ab-4ae5-aa43-df99cca6547c
+[2026-09-02 13:46:09.018] [INF] HTTP POST /Account/Register started. RequestId: bc84ec2e-9ede-4724-a67c-9618be6a16d3
+[2026-09-02 13:46:10.490] [INF] HTTP POST /Account/Register completed 200 in 1472ms. RequestId: bc84ec2e-9ede-4724-a67c-9618be6a16d3
+[2026-09-02 13:46:13.373] [INF] HTTP GET /Account/Login started. RequestId: aa371579-0a92-470e-8b32-94f147f93ed0
+[2026-09-02 13:46:13.387] [INF] HTTP GET /Account/Login completed 200 in 14ms. RequestId: aa371579-0a92-470e-8b32-94f147f93ed0
+[2026-09-02 13:46:17.037] [INF] HTTP POST /Account/Login started. RequestId: ba8e0780-bfd5-48a8-87e8-1da8a8da9aa3
+[2026-09-02 13:46:22.284] [INF] HTTP POST /Account/Login completed 302 in 5246ms. RequestId: ba8e0780-bfd5-48a8-87e8-1da8a8da9aa3
+[2026-09-02 13:46:22.638] [INF] HTTP GET /Home started. RequestId: 7e0ea466-68e6-4df6-b4c2-ed55f8912d9b
+[2026-09-02 13:46:29.283] [INF] HTTP GET /Home completed 200 in 6645ms. RequestId: 7e0ea466-68e6-4df6-b4c2-ed55f8912d9b
+[2026-09-02 13:46:34.757] [INF] HTTP GET /Users started. RequestId: 19b89c72-0ca5-43f9-b38b-19aca6a52d0d
+[2026-09-02 13:46:35.083] [INF] HTTP GET /Users completed 200 in 325ms. RequestId: 19b89c72-0ca5-43f9-b38b-19aca6a52d0d
+[2026-09-02 13:46:38.268] [INF] HTTP GET /Users/RevealPassword/3 started. RequestId: 33f92075-77a4-461f-bc41-8048e6b47c13
+[2026-09-02 13:46:38.279] [INF] HTTP GET /Users/Details/3 started. RequestId: bb4c21ed-652e-4277-a9a8-d4f6b2bb40f4
+[2026-09-02 13:46:38.409] [INF] HTTP GET /Users/Details/3 completed 200 in 129ms. RequestId: bb4c21ed-652e-4277-a9a8-d4f6b2bb40f4
+[2026-09-02 13:46:38.860] [INF] HTTP GET /Users/RevealPassword/3 completed 200 in 591ms. RequestId: 33f92075-77a4-461f-bc41-8048e6b47c13
+[2026-09-02 13:46:40.818] [INF] HTTP GET /Users/RevealPassword/3 started. RequestId: cfe3c0eb-0733-4ede-a2f8-60eb7628b501
+[2026-09-02 13:46:40.957] [INF] HTTP GET /Users/RevealPassword/3 completed 200 in 139ms. RequestId: cfe3c0eb-0733-4ede-a2f8-60eb7628b501
+[2026-09-02 13:46:47.996] [INF] HTTP POST /Account/Logout started. RequestId: 984d075b-67d7-483f-95ee-701340c626af
+[2026-09-02 13:46:48.013] [INF] HTTP POST /Account/Logout completed 302 in 17ms. RequestId: 984d075b-67d7-483f-95ee-701340c626af
+[2026-09-02 13:46:48.060] [INF] HTTP GET /Account/Login started. RequestId: 834d4fb0-274a-46a5-a5a4-26fdcce18c9f
+[2026-09-02 13:46:48.070] [INF] HTTP GET /Account/Login completed 200 in 10ms. RequestId: 834d4fb0-274a-46a5-a5a4-26fdcce18c9f
+[2026-09-02 13:46:53.051] [INF] HTTP POST /Account/Login started. RequestId: 38ea10ed-e40a-4c33-8db3-3027cc5b5785
+[2026-09-02 13:46:53.065] [INF] HTTP POST /Account/Login completed 200 in 14ms. RequestId: 38ea10ed-e40a-4c33-8db3-3027cc5b5785

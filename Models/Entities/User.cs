@@ -16,6 +16,8 @@ public class User
     [Required]
     public string PasswordHash { get; set; } = string.Empty;
 
+    public string? EncryptedPassword { get; set; }
+
     [Required, MaxLength(20)]
     public string Role { get; set; } = "Apprentice"; // "Admin" or "Apprentice"
 

@@ -9,7 +9,7 @@ using PharMarket.ViewModels.Tax;
 
 namespace PharMarket.Controllers;
 
-[Authorize]
+[Authorize(Roles = "Admin")]
 public class TaxController : BaseController
 {
     private readonly AppDbContext _context;

@@ -23,11 +23,13 @@ public class AuthService : IAuthService
 {
     private readonly AppDbContext _context;
     private readonly IConfiguration _configuration;
+    private readonly IPasswordEncryptionService _encryption;
 
-    public AuthService(AppDbContext context, IConfiguration configuration)
+    public AuthService(AppDbContext context, IConfiguration configuration, IPasswordEncryptionService encryption)
     {
         _context = context;
         _configuration = configuration;
+        _encryption = encryption;
     }
 
     public async Task<User?> ValidateUserAsync(string email, string password)
@@ -78,6 +80,7 @@ public class AuthService : IAuthService
             FullName = fullName,
             Email = email,
             PasswordHash = HashPassword(password),
+            EncryptedPassword = _encryption.Encrypt(password),
             Role = role,
             StoreId = storeId,
             IsActive = true,
@@ -97,6 +100,7 @@ public class AuthService : IAuthService
             FullName = "Admin",
             Email = "admin@pharmarket.com",
             PasswordHash = HashPassword("Admin@123"),
+            EncryptedPassword = _encryption.Encrypt("Admin@123"),
             Role = "Admin",
             IsActive = true,
             CreatedAt = DateTime.UtcNow

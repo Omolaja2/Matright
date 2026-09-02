@@ -20,6 +20,7 @@
                 <tr>
                     <th>Full Name</th>
                     <th>Email</th>
+                    <th>Password</th>
                     <th>Role</th>
                     <th>Status</th>
                     <th>Created</th>
@@ -32,9 +33,15 @@
                 {
                     @foreach (var user in Model)
                     {
-                        <tr>
+                        <tr style="cursor:pointer" onclick="location.href='/Users/Details/@user.Id'">
                             <td><strong>@user.FullName</strong></td>
                             <td>@user.Email</td>
+                            <td>
+                                <span class="pw-value" id="pw-@user.Id">••••••••••</span>
+                                <button type="button" class="btn btn-sm btn-link pw-toggle" data-id="@user.Id" onclick="togglePassword(@user.Id, this)" title="Show/Hide Password">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </td>
                             <td>
                                 <span class="badge @(user.Role == "Admin" ? "badge-info" : "badge-neutral")">
                                     @user.Role
@@ -62,6 +69,12 @@
                                             <i class="fas fa-key"></i> Reset Password
                                         </button>
                                     </form>
+                                    <form asp-action="Delete" asp-route-id="@user.Id" method="post">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="btn btn-sm btn-danger" title="Delete" onclick="return confirm('Delete @user.FullName permanently? This cannot be undone.')">
+                                            <i class="fas fa-trash"></i> Delete
+                                        </button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>
@@ -70,7 +83,7 @@
                 else
                 {
                     <tr>
-                        <td colspan="7">
+                        <td colspan="8">
                             <div class="empty-state">
                                 <i class="fas fa-users-cog"></i>
                                 <h3>No users found</h3>
@@ -83,3 +96,30 @@
         </table>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        async function togglePassword(id, btn) {
+            var span = document.getElementById('pw-' + id);
+            var icon = btn.querySelector('i');
+
+            if (span.dataset.revealed === 'true') {
+                span.textContent = '••••••••••';
+                span.dataset.revealed = 'false';
+                icon.className = 'fas fa-eye';
+                return;
+            }
+
+            var res = await fetch('/Users/RevealPassword/' + id);
+            var data = await res.json();
+
+            if (data.success) {
+                span.textContent = data.password;
+                span.dataset.revealed = 'true';
+                icon.className = 'fas fa-eye-slash';
+            } else {
+                span.textContent = data.message;
+            }
+        }
+    </script>
+}

@@ -14,6 +14,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IFinanceService, FinanceService>();
         services.AddScoped<IReportsService, ReportsService>();
         services.AddScoped<IEmailService, EmailService>();
+        services.AddScoped<IPasswordEncryptionService, PasswordEncryptionService>();
 
         return services;
     }

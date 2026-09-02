@@ -11,7 +11,7 @@ using PharMarket.ViewModels.Purchases;
 
 namespace PharMarket.Controllers;
 
-[Authorize]
+[Authorize(Roles = "Admin")]
 public class PurchasesController : BaseController
 {
     private readonly AppDbContext _context;

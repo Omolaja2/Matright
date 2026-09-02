@@ -9,7 +9,7 @@ using PharMarket.ViewModels.Categories;
 
 namespace PharMarket.Controllers;
 
-[Authorize]
+[Authorize(Roles = "Admin")]
 public class CategoriesController : BaseController
 {
     private readonly AppDbContext _context;

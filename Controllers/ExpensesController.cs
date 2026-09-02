@@ -7,7 +7,7 @@ using PharMarket.ViewModels.Expenses;
 
 namespace PharMarket.Controllers;
 
-[Authorize]
+[Authorize(Roles = "Admin")]
 public class ExpensesController : BaseController
 {
     private readonly IFinanceService _financeService;

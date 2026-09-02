@@ -11,7 +11,10 @@
     </div>
     <div class="btn-group">
         <a asp-action="Index" class="btn btn-outline"><i class="fas fa-arrow-left"></i> All Stock</a>
-        <a asp-action="Transfer" class="btn btn-accent"><i class="fas fa-arrows-rotate"></i> Transfer</a>
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-action="Transfer" class="btn btn-accent"><i class="fas fa-arrows-rotate"></i> Transfer</a>
+        }
     </div>
 </div>
 

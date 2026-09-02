@@ -49,12 +49,6 @@ try
 
     var app = builder.Build();
 
-    using (var scope = app.Services.CreateScope())
-    {
-        var authService = scope.ServiceProvider.GetRequiredService<IAuthService>();
-        await authService.SeedAdminAsync();
-    }
-
     if (!app.Environment.IsDevelopment())
     {
         app.UseExceptionHandler("/Home/Error");

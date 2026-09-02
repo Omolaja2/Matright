@@ -5,7 +5,7 @@ using PharMarket.Services;
 
 namespace PharMarket.Controllers;
 
-[Authorize]
+[Authorize(Roles = "Admin")]
 public class TransactionsController : BaseController
 {
     private readonly IFinanceService _financeService;

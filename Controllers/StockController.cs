@@ -60,6 +60,7 @@ public class StockController : BaseController
         return View(model);
     }
 
+    [Authorize(Roles = "Admin")]
     public IActionResult Transfer()
     {
         var storeId = User.GetStoreId();
@@ -73,6 +74,7 @@ public class StockController : BaseController
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Transfer(TransferViewModel model)
     {
         var storeId = User.GetStoreId();
@@ -91,6 +93,7 @@ public class StockController : BaseController
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Adjust(int productId, int storeAdjustment, int shelfAdjustment)
     {
         var storeId = User.GetStoreId();

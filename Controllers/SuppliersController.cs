@@ -9,7 +9,7 @@ using PharMarket.ViewModels.Suppliers;
 
 namespace PharMarket.Controllers;
 
-[Authorize]
+[Authorize(Roles = "Admin")]
 public class SuppliersController : BaseController
 {
     private readonly AppDbContext _context;

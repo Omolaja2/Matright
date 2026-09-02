@@ -101,7 +101,7 @@ namespace PharMarket.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 7, 17, 0, 50, 14, 437, DateTimeKind.Utc).AddTicks(7651),
+                            CreatedAt = new DateTime(2026, 9, 1, 2, 24, 4, 16, DateTimeKind.Utc).AddTicks(9951),
                             Description = "General products",
                             IsDeleted = false,
                             Name = "General",
@@ -110,7 +110,7 @@ namespace PharMarket.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 7, 17, 0, 50, 14, 437, DateTimeKind.Utc).AddTicks(7656),
+                            CreatedAt = new DateTime(2026, 9, 1, 2, 24, 4, 16, DateTimeKind.Utc).AddTicks(9965),
                             Description = "Electronic devices and accessories",
                             IsDeleted = false,
                             Name = "Electronics",
@@ -119,7 +119,7 @@ namespace PharMarket.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 7, 17, 0, 50, 14, 437, DateTimeKind.Utc).AddTicks(7659),
+                            CreatedAt = new DateTime(2026, 9, 1, 2, 24, 4, 16, DateTimeKind.Utc).AddTicks(9968),
                             Description = "Food and grocery items",
                             IsDeleted = false,
                             Name = "Groceries",
@@ -128,7 +128,7 @@ namespace PharMarket.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 7, 17, 0, 50, 14, 437, DateTimeKind.Utc).AddTicks(7660),
+                            CreatedAt = new DateTime(2026, 9, 1, 2, 24, 4, 16, DateTimeKind.Utc).AddTicks(9972),
                             Description = "Household essentials",
                             IsDeleted = false,
                             Name = "Household",
@@ -137,7 +137,7 @@ namespace PharMarket.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2026, 7, 17, 0, 50, 14, 437, DateTimeKind.Utc).AddTicks(7662),
+                            CreatedAt = new DateTime(2026, 9, 1, 2, 24, 4, 16, DateTimeKind.Utc).AddTicks(9975),
                             Description = "Personal hygiene products",
                             IsDeleted = false,
                             Name = "Personal Care",
@@ -620,7 +620,7 @@ namespace PharMarket.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 7, 17, 0, 50, 14, 436, DateTimeKind.Utc).AddTicks(6623),
+                            CreatedAt = new DateTime(2026, 9, 1, 2, 24, 4, 14, DateTimeKind.Utc).AddTicks(8333),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Default Store"
@@ -716,7 +716,7 @@ namespace PharMarket.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 7, 17, 0, 50, 14, 438, DateTimeKind.Utc).AddTicks(504),
+                            CreatedAt = new DateTime(2026, 9, 1, 2, 24, 4, 17, DateTimeKind.Utc).AddTicks(5012),
                             IsDeleted = false,
                             IsEnabled = true,
                             StoreId = 1,
@@ -792,6 +792,9 @@ namespace PharMarket.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
+
+                    b.Property<string>("EncryptedPassword")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("FullName")
                         .IsRequired()

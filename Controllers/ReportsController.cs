@@ -29,6 +29,7 @@ public class ReportsController : BaseController
         return View(model);
     }
 
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> ProfitLoss(DateTime? startDate, DateTime? endDate)
     {
         var storeId = User.GetStoreId();
@@ -38,6 +39,7 @@ public class ReportsController : BaseController
         return View(model);
     }
 
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Expenses(DateTime? startDate, DateTime? endDate, string? category)
     {
         var storeId = User.GetStoreId();

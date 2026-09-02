@@ -1,0 +1,48 @@
+2026-09-02 11:23:27.973 +01:00 [INF] Starting PharMarket application
+2026-09-02 11:23:30.373 +01:00 [WRN] Entity 'Supplier' has a global query filter defined and is the required end of a relationship with the entity 'Purchase'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-02 11:23:32.880 +01:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'PurchaseItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-02 11:23:33.000 +01:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'SaleItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-02 11:23:33.457 +01:00 [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-02 11:24:50.423 +01:00 [INF] PharMarket is ready on 
+2026-09-02 11:25:35.068 +01:00 [INF] HTTP GET / started. RequestId: ce4edfd9-a9a5-4599-94b9-55efdf042143
+2026-09-02 11:25:35.081 +01:00 [WRN] Failed to determine the https port for redirect.
+2026-09-02 11:26:35.778 +01:00 [INF] HTTP GET / completed 200 in 60714ms. RequestId: ce4edfd9-a9a5-4599-94b9-55efdf042143
+2026-09-02 11:26:36.149 +01:00 [INF] HTTP GET /js/templatemo-catalyst-script.js started. RequestId: ca110178-6285-4a2a-aaa0-d50cdcef3440
+2026-09-02 11:26:36.210 +01:00 [INF] HTTP GET /css/templatemo-catalyst-style.css started. RequestId: 4d29594e-90ef-4925-b3a0-296ed258e1b4
+2026-09-02 11:26:38.108 +01:00 [INF] HTTP GET /js/templatemo-catalyst-script.js completed 200 in 1958ms. RequestId: ca110178-6285-4a2a-aaa0-d50cdcef3440
+2026-09-02 11:26:38.149 +01:00 [INF] HTTP GET /css/templatemo-catalyst-style.css completed 200 in 1938ms. RequestId: 4d29594e-90ef-4925-b3a0-296ed258e1b4
+2026-09-02 11:26:47.223 +01:00 [INF] HTTP GET /Account/Login started. RequestId: 94bfb3ec-8230-48f0-b6b9-22b47a0f26f8
+2026-09-02 11:26:49.724 +01:00 [INF] HTTP GET /Account/Login completed 200 in 2501ms. RequestId: 94bfb3ec-8230-48f0-b6b9-22b47a0f26f8
+2026-09-02 11:27:08.702 +01:00 [INF] HTTP POST /Account/Login started. RequestId: 152b94ce-e582-4820-8a36-e0851f12a1e0
+2026-09-02 11:27:23.500 +01:00 [INF] HTTP POST /Account/Login completed 302 in 14798ms. RequestId: 152b94ce-e582-4820-8a36-e0851f12a1e0
+2026-09-02 11:27:23.630 +01:00 [INF] HTTP GET /Home started. RequestId: d148a289-5f82-46cc-8862-6584913297fc
+2026-09-02 11:28:06.847 +01:00 [INF] HTTP GET /Home completed 200 in 43216ms. RequestId: d148a289-5f82-46cc-8862-6584913297fc
+2026-09-02 11:28:06.958 +01:00 [INF] HTTP GET /css/app.css started. RequestId: f1c2f08c-cbc8-4acd-9ddb-28ac1f0deb56
+2026-09-02 11:28:06.963 +01:00 [INF] HTTP GET /css/app.css completed 200 in 5ms. RequestId: f1c2f08c-cbc8-4acd-9ddb-28ac1f0deb56
+2026-09-02 11:28:07.040 +01:00 [INF] HTTP GET /js/app.js started. RequestId: cb5536fa-c48a-4618-bebf-e307bc7d4fc7
+2026-09-02 11:28:07.045 +01:00 [INF] HTTP GET /js/app.js completed 200 in 4ms. RequestId: cb5536fa-c48a-4618-bebf-e307bc7d4fc7
+2026-09-02 11:28:15.193 +01:00 [INF] HTTP GET /Users started. RequestId: 3a090bae-628a-49d2-bb68-fe2994c237ed
+2026-09-02 11:28:16.416 +01:00 [INF] HTTP GET /Users completed 200 in 1222ms. RequestId: 3a090bae-628a-49d2-bb68-fe2994c237ed
+2026-09-02 11:28:19.895 +01:00 [INF] HTTP GET /Users/Details/3 started. RequestId: 095951bf-de41-40e6-ae32-aaf701657b56
+2026-09-02 11:28:19.871 +01:00 [INF] HTTP GET /Users/RevealPassword/3 started. RequestId: a75b19b8-aace-48bd-8906-a2bb790386e9
+2026-09-02 11:28:20.238 +01:00 [INF] HTTP GET /Users/Details/3 completed 200 in 343ms. RequestId: 095951bf-de41-40e6-ae32-aaf701657b56
+2026-09-02 11:28:21.727 +01:00 [INF] HTTP GET /Users/RevealPassword/3 completed 200 in 1855ms. RequestId: a75b19b8-aace-48bd-8906-a2bb790386e9
+2026-09-02 11:28:23.067 +01:00 [INF] HTTP GET /Users/RevealPassword/3 started. RequestId: 601dba1b-8b6e-4fc1-b9da-e8213a2786d8
+2026-09-02 11:28:23.081 +01:00 [INF] HTTP GET /Users/RevealPassword/3 completed 200 in 13ms. RequestId: 601dba1b-8b6e-4fc1-b9da-e8213a2786d8
+2026-09-02 11:28:45.597 +01:00 [INF] HTTP POST /Account/Logout started. RequestId: 442c3b8d-d25b-4fed-83f6-e78f13508e49
+2026-09-02 11:28:45.633 +01:00 [INF] HTTP POST /Account/Logout completed 302 in 35ms. RequestId: 442c3b8d-d25b-4fed-83f6-e78f13508e49
+2026-09-02 11:28:45.656 +01:00 [INF] HTTP GET /Account/Login started. RequestId: 0b12332c-1588-44cf-a758-3b568909dfe9
+2026-09-02 11:28:45.662 +01:00 [INF] HTTP GET /Account/Login completed 200 in 6ms. RequestId: 0b12332c-1588-44cf-a758-3b568909dfe9
+2026-09-02 11:28:58.404 +01:00 [INF] HTTP POST /Account/Login started. RequestId: 21cb071a-db4b-49d5-a667-8c8b6e397421
+2026-09-02 11:28:58.429 +01:00 [INF] HTTP POST /Account/Login completed 200 in 25ms. RequestId: 21cb071a-db4b-49d5-a667-8c8b6e397421
+[2026-09-02 11:32:12.199] [INF] Starting PharMarket application
+[2026-09-02 11:32:21.349] [FTL] PharMarket terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\USER\Desktop\Matright\Program.cs:line 50

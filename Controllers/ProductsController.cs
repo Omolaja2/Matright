@@ -49,6 +49,7 @@ public class ProductsController : BaseController
         return View(product);
     }
 
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Create()
     {
         var storeId = User.GetStoreId();
@@ -64,6 +65,7 @@ public class ProductsController : BaseController
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Create(ProductViewModel model)
     {
         var storeId = User.GetStoreId();
@@ -81,6 +83,7 @@ public class ProductsController : BaseController
         return RedirectToAction(nameof(Index));
     }
 
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Edit(int id)
     {
         var storeId = User.GetStoreId();
@@ -112,6 +115,7 @@ public class ProductsController : BaseController
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Edit(ProductViewModel model)
     {
         var storeId = User.GetStoreId();
@@ -131,6 +135,7 @@ public class ProductsController : BaseController
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Delete(int id)
     {
         var storeId = User.GetStoreId();

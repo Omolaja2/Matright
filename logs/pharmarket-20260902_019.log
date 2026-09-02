@@ -1,0 +1,156 @@
+2026-09-02 14:42:24.237 +01:00 [INF] Starting PharMarket application
+2026-09-02 14:42:25.109 +01:00 [INF] PharMarket is ready on 
+2026-09-02 14:42:27.514 +01:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5152: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-09-02 14:42:29.286 +01:00 [FTL] PharMarket terminated unexpectedly
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5152: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in C:\Users\USER\Desktop\Matright\Program.cs:line 73
+[2026-09-02 14:52:38.708] [INF] Starting PharMarket application
+[2026-09-02 14:52:39.233] [INF] PharMarket is ready on 
+[2026-09-02 14:52:48.335] [INF] HTTP GET /Account/Login started. RequestId: c7c9ad2b-fa7f-4b6a-9b29-31f19f8224a4
+[2026-09-02 14:52:48.352] [WRN] Failed to determine the https port for redirect.
+[2026-09-02 14:52:48.875] [INF] HTTP GET /Account/Login completed 200 in 543ms. RequestId: c7c9ad2b-fa7f-4b6a-9b29-31f19f8224a4
+[2026-09-02 14:52:55.730] [INF] HTTP GET / started. RequestId: bdf246d1-0c97-4b6e-92ad-ad48f1586016
+[2026-09-02 14:52:56.983] [WRN] Entity 'Supplier' has a global query filter defined and is the required end of a relationship with the entity 'Purchase'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-09-02 14:52:56.988] [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'PurchaseItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-09-02 14:52:56.996] [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'SaleItem'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-09-02 14:52:57.000] [WRN] Entity 'Product' has a global query filter defined and is the required end of a relationship with the entity 'Stock'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-09-02 14:52:59.837] [INF] HTTP GET / completed 200 in 4106ms. RequestId: bdf246d1-0c97-4b6e-92ad-ad48f1586016
+[2026-09-02 14:53:03.135] [INF] HTTP GET /Account/Login started. RequestId: ba3fc854-4183-4bc9-a12f-9a477c8680cf
+[2026-09-02 14:53:03.209] [INF] HTTP GET /Account/Login completed 200 in 74ms. RequestId: ba3fc854-4183-4bc9-a12f-9a477c8680cf
+[2026-09-02 14:53:08.312] [INF] HTTP POST /Account/Login started. RequestId: a301d567-4815-420b-bb4f-9a3d86b84078
+[2026-09-02 14:53:08.735] [INF] HTTP POST /Account/Login completed 200 in 423ms. RequestId: a301d567-4815-420b-bb4f-9a3d86b84078
+[2026-09-02 14:53:11.654] [INF] HTTP GET /Account/Register started. RequestId: 04d68619-cc0c-4692-8d3a-8a4294e71a2b
+[2026-09-02 14:53:11.716] [INF] HTTP GET /Account/Register completed 200 in 62ms. RequestId: 04d68619-cc0c-4692-8d3a-8a4294e71a2b
+[2026-09-02 14:53:21.775] [INF] HTTP GET /Account/Login started. RequestId: afde9184-2da1-4a3a-975e-013fd4282335
+[2026-09-02 14:53:21.866] [INF] HTTP GET /Account/Login completed 200 in 91ms. RequestId: afde9184-2da1-4a3a-975e-013fd4282335
+[2026-09-02 14:53:25.779] [INF] HTTP POST /Account/Login started. RequestId: 0cb5535f-e99d-4de8-99bd-813735b300dc
+[2026-09-02 14:53:26.073] [INF] HTTP POST /Account/Login completed 302 in 293ms. RequestId: 0cb5535f-e99d-4de8-99bd-813735b300dc
+[2026-09-02 14:53:26.082] [INF] HTTP GET /Home started. RequestId: 98cd0d06-598a-45bf-965f-d4f4a6bb7215
+[2026-09-02 14:53:26.513] [INF] HTTP GET /Home completed 200 in 430ms. RequestId: 98cd0d06-598a-45bf-965f-d4f4a6bb7215
+[2026-09-02 14:53:29.849] [INF] HTTP GET /Users started. RequestId: 75d0c603-5b25-4a4a-b5a5-28912e482c49
+[2026-09-02 14:53:29.981] [INF] HTTP GET /Users completed 200 in 131ms. RequestId: 75d0c603-5b25-4a4a-b5a5-28912e482c49
+[2026-09-02 14:53:38.761] [INF] HTTP GET /Users/Details/4 started. RequestId: 4244c054-41fd-42b3-b00d-a7a9629bef58
+[2026-09-02 14:53:38.770] [INF] HTTP POST /Users/ToggleActive/4 started. RequestId: ba7ae1d0-9005-45a3-bbdf-3506d1a0a218
+[2026-09-02 14:53:38.910] [INF] HTTP GET /Users/Details/4 completed 200 in 149ms. RequestId: 4244c054-41fd-42b3-b00d-a7a9629bef58
+[2026-09-02 14:53:39.886] [INF] HTTP POST /Users/ToggleActive/4 completed 302 in 1116ms. RequestId: ba7ae1d0-9005-45a3-bbdf-3506d1a0a218
+[2026-09-02 14:53:39.897] [INF] HTTP GET /Users started. RequestId: 8314b870-d382-44c6-80a5-37bd338a0a2d
+[2026-09-02 14:53:39.941] [INF] HTTP GET /Users completed 200 in 44ms. RequestId: 8314b870-d382-44c6-80a5-37bd338a0a2d
+[2026-09-02 14:54:03.490] [INF] HTTP GET /Reports/Sales started. RequestId: 792331a8-7898-47e0-b562-76154870b922
+[2026-09-02 14:54:03.716] [INF] HTTP GET /Reports/Sales completed 200 in 225ms. RequestId: 792331a8-7898-47e0-b562-76154870b922
+[2026-09-02 15:10:33.893] [INF] HTTP GET /Users started. RequestId: 89cff1ea-7bc9-4cbd-bf9c-02dd87dee11c
+[2026-09-02 15:10:34.412] [INF] HTTP GET /Users completed 200 in 519ms. RequestId: 89cff1ea-7bc9-4cbd-bf9c-02dd87dee11c
+[2026-09-02 15:10:40.883] [INF] HTTP GET /Users/Details/4 started. RequestId: 263e128f-6c21-4751-ad7c-054b2c145577
+[2026-09-02 15:10:40.894] [INF] HTTP POST /Users/ToggleActive/4 started. RequestId: 63c49635-d4fe-418c-88a6-a9e7155dc7c5
+[2026-09-02 15:10:40.965] [INF] HTTP GET /Users/Details/4 completed 200 in 81ms. RequestId: 263e128f-6c21-4751-ad7c-054b2c145577
+[2026-09-02 15:10:41.817] [INF] HTTP POST /Users/ToggleActive/4 completed 302 in 923ms. RequestId: 63c49635-d4fe-418c-88a6-a9e7155dc7c5
+[2026-09-02 15:10:41.842] [INF] HTTP GET /Users started. RequestId: 6708c16d-af7b-415a-a2a2-d197928144e9
+[2026-09-02 15:10:41.863] [INF] HTTP GET /Users completed 200 in 20ms. RequestId: 6708c16d-af7b-415a-a2a2-d197928144e9
+[2026-09-02 15:10:46.581] [INF] HTTP GET /Users/RevealPassword/4 started. RequestId: 1cb84907-4365-4a2a-8914-4374094d243a
+[2026-09-02 15:10:46.592] [INF] HTTP GET /Users/Details/4 started. RequestId: 83a8c016-0faf-4949-a71d-2d7bda8af9b9
+[2026-09-02 15:10:46.677] [INF] HTTP GET /Users/Details/4 completed 200 in 84ms. RequestId: 83a8c016-0faf-4949-a71d-2d7bda8af9b9
+[2026-09-02 15:10:47.761] [INF] HTTP GET /Users/RevealPassword/4 completed 200 in 1180ms. RequestId: 1cb84907-4365-4a2a-8914-4374094d243a
+[2026-09-02 15:10:49.086] [INF] HTTP GET /Users/RevealPassword/4 started. RequestId: 4b889e11-bc1d-44bc-be0f-07be17d03566
+[2026-09-02 15:10:49.094] [INF] HTTP GET /Users/RevealPassword/4 completed 200 in 7ms. RequestId: 4b889e11-bc1d-44bc-be0f-07be17d03566
+[2026-09-02 15:10:55.983] [INF] HTTP GET /Users/Details/4 started. RequestId: e2796538-f6ef-48af-b628-4e7a077b67fa
+[2026-09-02 15:10:56.002] [INF] HTTP POST /Users/Delete/4 started. RequestId: 47dd9620-c8d2-4ea3-a1ff-980a0de00be0
+[2026-09-02 15:10:56.007] [INF] HTTP GET /Users/Details/4 completed 200 in 23ms. RequestId: e2796538-f6ef-48af-b628-4e7a077b67fa
+[2026-09-02 15:10:56.515] [INF] HTTP POST /Users/Delete/4 completed 302 in 512ms. RequestId: 47dd9620-c8d2-4ea3-a1ff-980a0de00be0
+[2026-09-02 15:10:56.523] [INF] HTTP GET /Users started. RequestId: 2a73d4db-43b4-4758-8aa5-284187728358
+[2026-09-02 15:10:56.653] [INF] HTTP GET /Users completed 200 in 130ms. RequestId: 2a73d4db-43b4-4758-8aa5-284187728358
+[2026-09-02 15:10:58.807] [INF] HTTP GET /Users/Create started. RequestId: 337709f8-8ffd-4b74-b8bb-510fe7a356c2
+[2026-09-02 15:10:59.278] [INF] HTTP GET /Users/Create completed 200 in 470ms. RequestId: 337709f8-8ffd-4b74-b8bb-510fe7a356c2
+[2026-09-02 15:11:13.863] [INF] HTTP POST /Users/Create started. RequestId: aaee7f93-c613-4ec8-a8c4-f40f4a6182c8
+[2026-09-02 15:11:20.252] [ERR] Failed to send email to mamzyreg@gmail.com
+System.Net.Mail.SmtpException: The SMTP server requires a secure connection or the client was not authenticated. The server response was: 5.7.0 Authentication Required. For more information, go to
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.EndSend(IAsyncResult result)
+   at System.Net.Mail.SendMailAsyncResult.SendMailFromCompleted(IAsyncResult result)
+--- End of stack trace from previous location ---
+   at System.Net.Mail.SendMailAsyncResult.End(IAsyncResult result)
+   at System.Net.Mail.SmtpClient.SendMailCallback(IAsyncResult result)
+--- End of stack trace from previous location ---
+   at PharMarket.Services.EmailService.SendCredentialsAsync(String toEmail, String fullName, String loginEmail, String password, String role) in C:\Users\USER\Desktop\Matright\Services\EmailService.cs:line 73
+[2026-09-02 15:11:22.650] [INF] HTTP POST /Users/Create completed 302 in 8787ms. RequestId: aaee7f93-c613-4ec8-a8c4-f40f4a6182c8
+[2026-09-02 15:11:22.664] [INF] HTTP GET /Users started. RequestId: 0b564154-54fc-4941-8c9d-82a92b0060a9
+[2026-09-02 15:11:22.674] [INF] HTTP GET /Users completed 200 in 9ms. RequestId: 0b564154-54fc-4941-8c9d-82a92b0060a9
+[2026-09-02 15:11:29.540] [INF] HTTP GET /Users/RevealPassword/5 started. RequestId: a1898709-2e0b-4af9-9bb0-c091481e5711
+[2026-09-02 15:11:29.550] [INF] HTTP GET /Users/RevealPassword/5 completed 200 in 9ms. RequestId: a1898709-2e0b-4af9-9bb0-c091481e5711
+[2026-09-02 15:11:29.552] [INF] HTTP GET /Users/Details/5 started. RequestId: e42050a3-e794-46a8-9171-de7bc4a08320
+[2026-09-02 15:11:29.580] [INF] HTTP GET /Users/Details/5 completed 200 in 28ms. RequestId: e42050a3-e794-46a8-9171-de7bc4a08320
+[2026-09-02 15:11:31.501] [INF] HTTP GET /Users/RevealPassword/5 started. RequestId: 0cac9623-edd9-4c2c-9ab5-70de4637da66
+[2026-09-02 15:11:31.508] [INF] HTTP GET /Users/RevealPassword/5 completed 200 in 7ms. RequestId: 0cac9623-edd9-4c2c-9ab5-70de4637da66
+[2026-09-02 15:11:36.686] [INF] HTTP POST /Account/Logout started. RequestId: 530bb7c6-1d4f-4cf3-8ca4-3c8d61853bbf
+[2026-09-02 15:11:36.716] [INF] HTTP POST /Account/Logout completed 302 in 29ms. RequestId: 530bb7c6-1d4f-4cf3-8ca4-3c8d61853bbf
+[2026-09-02 15:11:36.726] [INF] HTTP GET /Account/Login started. RequestId: f2eaa70f-db1f-41d3-8ba1-187da11dd38f
+[2026-09-02 15:11:36.731] [INF] HTTP GET /Account/Login completed 200 in 5ms. RequestId: f2eaa70f-db1f-41d3-8ba1-187da11dd38f
+[2026-09-02 15:11:48.516] [INF] HTTP POST /Account/Login started. RequestId: d8afbf06-6e2c-400e-8f93-44b211c2e48c
+[2026-09-02 15:11:48.596] [INF] HTTP POST /Account/Login completed 302 in 79ms. RequestId: d8afbf06-6e2c-400e-8f93-44b211c2e48c
+[2026-09-02 15:11:48.605] [INF] HTTP GET /Home started. RequestId: e0434a7d-cb12-4081-9655-5ba096121238
+[2026-09-02 15:11:48.812] [INF] HTTP GET /Home completed 200 in 206ms. RequestId: e0434a7d-cb12-4081-9655-5ba096121238
+[2026-09-02 15:12:05.267] [INF] HTTP GET /Sales started. RequestId: ac1b4940-6d1f-4674-9ecd-8377887a337f
+[2026-09-02 15:12:05.339] [INF] HTTP GET /Sales completed 200 in 72ms. RequestId: ac1b4940-6d1f-4674-9ecd-8377887a337f
+[2026-09-02 15:12:06.942] [INF] HTTP GET /Products started. RequestId: 1354908a-5ba6-414a-9683-2494aba05d64
+[2026-09-02 15:12:07.194] [INF] HTTP GET /Products completed 200 in 252ms. RequestId: 1354908a-5ba6-414a-9683-2494aba05d64
+[2026-09-02 15:12:08.823] [INF] HTTP GET /Stock started. RequestId: b68af3d6-6d10-4c1f-9a14-ce1a8452c70b
+[2026-09-02 15:12:08.885] [INF] HTTP GET /Stock completed 200 in 62ms. RequestId: b68af3d6-6d10-4c1f-9a14-ce1a8452c70b
+[2026-09-02 15:12:13.060] [INF] HTTP GET /Sales/POS started. RequestId: aa677681-0b61-4176-a423-9a143cada94d
+[2026-09-02 15:12:13.091] [INF] HTTP GET /Sales/POS completed 200 in 30ms. RequestId: aa677681-0b61-4176-a423-9a143cada94d
+[2026-09-02 15:12:15.868] [INF] HTTP GET / started. RequestId: 93cd16b3-4b34-463e-8cd3-08e7cbf793e7
+[2026-09-02 15:12:15.877] [INF] HTTP GET / completed 302 in 8ms. RequestId: 93cd16b3-4b34-463e-8cd3-08e7cbf793e7
+[2026-09-02 15:12:15.890] [INF] HTTP GET /Home started. RequestId: 47a2caa9-e518-45fd-bd8a-accd4ed6b49a
+[2026-09-02 15:12:15.920] [INF] HTTP GET /Home completed 200 in 29ms. RequestId: 47a2caa9-e518-45fd-bd8a-accd4ed6b49a
+[2026-09-02 15:42:46.958] [INF] HTTP POST /Account/Logout started. RequestId: 44c0d332-4f0b-4b87-ba7f-94d2dc9fd511
+[2026-09-02 15:42:46.979] [INF] HTTP POST /Account/Logout completed 302 in 21ms. RequestId: 44c0d332-4f0b-4b87-ba7f-94d2dc9fd511
+[2026-09-02 15:42:46.991] [INF] HTTP GET /Account/Login started. RequestId: 9b9934f4-3f34-4a2d-9add-10c1f2fb325d
+[2026-09-02 15:42:46.999] [INF] HTTP GET /Account/Login completed 200 in 7ms. RequestId: 9b9934f4-3f34-4a2d-9add-10c1f2fb325d

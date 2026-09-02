@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\Desktop\\PharMarket\\PharMarket.csproj": {}
+    "C:\\Users\\USER\\Desktop\\Matright\\PharMarket.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\Desktop\\PharMarket\\PharMarket.csproj": {
+    "C:\\Users\\USER\\Desktop\\Matright\\PharMarket.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Desktop\\PharMarket\\PharMarket.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Desktop\\Matright\\PharMarket.csproj",
         "projectName": "PharMarket",
-        "projectPath": "C:\\Users\\USER\\Desktop\\PharMarket\\PharMarket.csproj",
+        "projectPath": "C:\\Users\\USER\\Desktop\\Matright\\PharMarket.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Desktop\\PharMarket\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Desktop\\Matright\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -94,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.109/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.111/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
